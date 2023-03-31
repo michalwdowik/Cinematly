@@ -1,6 +1,8 @@
 import { Typography } from '@mui/material';
 import React, { useState, useEffect } from 'react';
 import StarIcon from '@mui/icons-material/Star';
+import { motion } from 'framer-motion';
+import Card from '../Card';
 
 interface Movie {
   title: string;
@@ -60,35 +62,49 @@ function TopMovies() {
   }, []);
 
   return (
-    <ul>
-      {movies.map((movie: Movie) => (
-        <li key={movie.id}>
-          <Typography sx={{ color: 'white', fontWeight: 'bold' }} variant="h2">
-            {movie.title}
-          </Typography>
-          <Typography sx={{ color: 'white' }} variant="body1">
-            Average rating: {movie.average}
-          </Typography>
-          <StarIcon sx={{ color: 'white' }} />
-          <Typography sx={{ color: 'white' }} variant="body1">
-            Position: {movie.position + 1}
-          </Typography>
-          <Typography sx={{ color: 'white' }} variant="body2">
-            Popularity: {movie.popularity}
-          </Typography>
-          <Typography sx={{ color: 'white' }} variant="body2">
-            {movie.overview}
-          </Typography>
-          <Typography sx={{ color: 'white' }} variant="body1">
-            {movie.release}
-          </Typography>
-          <img
-            src={`https://image.tmdb.org/t/p/w500${movie.poster}`}
-            alt={movie.title}
-          />
-        </li>
-      ))}
-    </ul>
+    <>
+      {/* <ul>
+        {movies.map((movie: Movie) => (
+          <li key={movie.id}>
+            <Typography
+              sx={{ color: 'white', fontWeight: 'bold' }}
+              variant="h2"
+            >
+              {movie.title}
+            </Typography>
+            <Typography sx={{ color: 'white' }} variant="body1">
+              Average rating: {movie.average}
+            </Typography>
+            <StarIcon sx={{ color: 'white' }} />
+            <Typography sx={{ color: 'white' }} variant="body1">
+              Position: {movie.position + 1}
+            </Typography>
+            <Typography sx={{ color: 'white' }} variant="body2">
+              Popularity: {movie.popularity}
+            </Typography>
+            <Typography sx={{ color: 'white' }} variant="body2">
+              {movie.overview}
+            </Typography>
+            <Typography sx={{ color: 'white' }} variant="body1">
+              {movie.release}
+            </Typography>
+            <img
+              src={`https://image.tmdb.org/t/p/w500${movie.poster}`}
+              alt={movie.title}
+            />
+          </li>
+        ))}
+      </ul> */}
+      <motion.div
+        className="container text-center"
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        exit={{ opacity: 0 }}
+        transition={{ duration: 3 }}
+      >
+        <Card />
+      </motion.div>
+    </>
   );
 }
 

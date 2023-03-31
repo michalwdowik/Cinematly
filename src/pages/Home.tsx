@@ -1,11 +1,17 @@
 import { Grid, Typography } from '@mui/material';
 import React from 'react';
+import { motion } from 'framer-motion';
 import CarouselMovies from '../CarouselMovies';
-// import NavBar from '../NavBar';
 
 export default function Home() {
   return (
-    <div>
+    <motion.div
+      className="container text-center bg-black"
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      exit={{ opacity: 0 }}
+      transition={{ duration: 3 }}
+    >
       <Grid container item>
         <CarouselMovies />
         <Typography
@@ -38,8 +44,7 @@ export default function Home() {
             ~ Quoted in Marilyn Monroe in Her OwnWords (1990)
           </Typography>
         </Typography>
-        {/* <TopMovies /> */}
       </Grid>
-    </div>
+    </motion.div>
   );
 }
