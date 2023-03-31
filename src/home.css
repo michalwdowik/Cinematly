@@ -2,11 +2,19 @@
     margin: 0 auto;
 }
 
-
 .posterImage > img {
-    max-height: 700px;
+    width: '100vw';
+    min-height: 300px;
+    max-height: 900px; 
+
 }
 
+.carouselStyles {
+display: flex;
+flex-direction: column;
+margin: auto;
+max-height: 900px; 
+}
 
 .posterImage__overlay {
     position: absolute;
@@ -52,9 +60,7 @@
     font-style: italic;
     font-size: 1rem;
     bottom: 0;
-    /* margin-bottom: 0.25rem; */
     margin-right: 10px;
     display: flex;
     text-align: left;
-    /* width: 60%; */
 }

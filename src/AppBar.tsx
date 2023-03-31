@@ -33,8 +33,8 @@ export default function ButtonAppBar() {
             indicatorColor="secondary"
             aria-label="secondary tabs example"
           >
-            <Tab value="one" label="Upcoming" />
-            <Tab value="two" label="Trending" />
+            {/* <Tab value="one" label="Upcoming" /> */}
+            {/* <Tab value="two" label="Trending" /> */}
             <Tab value="three" label="Top Rated" />
           </Tabs>
         </Typography>

@@ -1,14 +1,12 @@
 /* eslint-disable react/no-array-index-key */
 /* eslint-disable @typescript-eslint/no-use-before-define */
 import React, { useEffect, useState } from 'react';
-// import Carousel from 'react-material-ui-carousel';
-// import { Paper } from '@mui/material';
 import './home.css';
 import { Carousel } from 'react-responsive-carousel';
-import 'react-responsive-carousel/lib/styles/carousel.min.css'; // requires a loader
+import 'react-responsive-carousel/lib/styles/carousel.min.css';
 import StarIcon from '@mui/icons-material/Star';
 import useScreenType from 'react-screentype-hook';
-import { Box, Container } from '@mui/material';
+import { Box } from '@mui/material';
 
 interface Movie {
   title: string;
@@ -20,7 +18,7 @@ interface Movie {
   release_date: string;
 }
 
-function CarouselMovies(props: any) {
+function CarouselMovies() {
   const [movies, setMovies] = useState<Movie[]>([]);
   const screenType = useScreenType();
 
@@ -48,12 +46,14 @@ function CarouselMovies(props: any) {
 
   return (
     <Carousel
+      className="carouselStyles"
       interval={3000}
       autoPlay
       infiniteLoop
       showStatus={false}
       swipeable
       showIndicators={!screenType.isMobile}
+      dynamicHeight={false}
     >
       {movies.map((movie, i) => (
         <div key={i}>
