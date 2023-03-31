@@ -47,7 +47,7 @@ function CarouselMovies() {
   return (
     <Carousel
       className="carouselStyles"
-      interval={3000}
+      interval={3500}
       autoPlay
       infiniteLoop
       showStatus={false}
