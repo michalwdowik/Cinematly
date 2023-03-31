@@ -40,16 +40,21 @@ export default function TemporaryDrawer({ pages }: any) {
       onClick={toggleDrawer(anchor, false)}
       onKeyDown={toggleDrawer(anchor, false)}
     >
-      <List>
-        {pages.map((text: string) => (
-          <ListItem key={text} disablePadding>
-            <ListItemButton>
+      <List
+        sx={{
+          display: 'flex',
+          flexDirection: 'column',
+        }}
+      >
+        {pages.map((page: string) => (
+          <ListItem key={page} disablePadding>
+            <ListItemButton href={`${page.split(' ').join('').toLowerCase()}`}>
               <ListItemIcon sx={{ color: 'white' }}>
-                {text === 'Upcoming' && <AccessTimeIcon />}
-                {text === 'Trending' && <TrendingUpIcon />}
-                {text === 'Top Movies' && <EmojiEventsIcon />}
+                {page === 'Upcoming' && <AccessTimeIcon />}
+                {page === 'Trending' && <TrendingUpIcon />}
+                {page === 'Top Movies' && <EmojiEventsIcon />}
               </ListItemIcon>
-              <ListItemText primary={text} />
+              <ListItemText primary={page} />
             </ListItemButton>
           </ListItem>
         ))}
@@ -69,7 +74,7 @@ export default function TemporaryDrawer({ pages }: any) {
           onClose={toggleDrawer('top', false)}
           PaperProps={{
             sx: {
-              backgroundColor: 'orange',
+              backgroundColor: '#fc9803',
               color: 'white',
             },
           }}

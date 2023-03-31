@@ -1,17 +1,18 @@
-import { Box, Container, TextField } from '@mui/material';
-import ButtonAppBar from './AppBar';
-import CarouselMovies from './CarouselMovies';
+import { Routes, Route } from 'react-router-dom';
+import NavBar from './NavBar';
+import Home from './pages/Home';
+import TopMovies from './pages/TopMovies';
 
 function App() {
   return (
-    <Box sx={{ width: '100vw' }}>
-      <ButtonAppBar />
-      {/* <TextField id="standard-basic" label="Standard" variant="standard" /> */}
-      {/* <Container sx={{}}> */}
-      <CarouselMovies />
-      {/* </Container> */}
-      {/* <TrendingMovies /> */}
-    </Box>
+    <>
+      <NavBar />
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/topmovies" element={<TopMovies />} />
+        {/* <Route path="*" element={<NotFound />} /> */}
+      </Routes>
+    </>
   );
 }
 

@@ -2,28 +2,29 @@ import React from 'react';
 import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
 import Toolbar from '@mui/material/Toolbar';
-import IconButton from '@mui/material/IconButton';
 import Typography from '@mui/material/Typography';
 import Menu from '@mui/material/Menu';
-import MenuIcon from '@mui/icons-material/Menu';
 import Container from '@mui/material/Container';
 import MenuItem from '@mui/material/MenuItem';
 import AnimationIcon from '@mui/icons-material/Animation';
 import { createTheme, Tab, Tabs, ThemeProvider } from '@mui/material';
-import { orange } from '@mui/material/colors';
 import useScreenType from 'react-screentype-hook';
+import { Link } from 'react-router-dom';
 import SwitchMode from './SwitchMode';
 import TemporaryDrawer from './TemporaryDrawer';
 
 const pages = ['Upcoming', 'Trending', 'Top Movies'];
 
-function ResponsiveAppBar() {
+function NavBar() {
   const screenType = useScreenType();
 
   const theme = createTheme({
     palette: {
       primary: {
-        main: orange[900],
+        main: '#fc9803',
+      },
+      secondary: {
+        main: '#fc4e03',
       },
     },
   });
@@ -35,15 +36,6 @@ function ResponsiveAppBar() {
   const handleOpenNavMenu = (event: React.MouseEvent<HTMLElement>) => {
     setAnchorElNav(event.currentTarget);
   };
-  // const handleOpenUserMenu = (event: React.MouseEvent<HTMLElement>) => {
-  //   setAnchorElUser(event.currentTarget);
-  // };
-  // const [anchorElUser, setAnchorElUser] = React.useState<null | HTMLElement>(
-  //   null
-  // );
-  // const handleCloseUserMenu = () => {
-  //   setAnchorElUser(null);
-  // };
 
   const handleCloseNavMenu = () => {
     setAnchorElNav(null);
@@ -51,7 +43,7 @@ function ResponsiveAppBar() {
 
   return (
     <ThemeProvider theme={theme}>
-      <AppBar position="static" sx={{ bgcolor: 'orange' }}>
+      <AppBar position="sticky" sx={{ bgcolor: '#fc9803' }}>
         <Container maxWidth="xl">
           <Toolbar disableGutters>
             <Typography
@@ -69,7 +61,7 @@ function ResponsiveAppBar() {
                 textDecoration: 'none',
               }}
             >
-              <AnimationIcon sx={{ fontSize: '65px' }} />
+              <AnimationIcon sx={{ fontSize: '65px', color: 'white' }} />
             </Typography>
             <Box
               sx={{
@@ -77,16 +69,6 @@ function ResponsiveAppBar() {
                 display: { xs: 'flex', md: 'none' },
               }}
             >
-              {/* <IconButton
-                size="large"
-                aria-label="account of current user"
-                aria-controls="menu-appbar"
-                aria-haspopup="true"
-                onClick={handleOpenNavMenu}
-                color="inherit"
-              >
-                <MenuIcon />
-              </IconButton> */}
               {screenType.isMobile || screenType.isTablet ? (
                 <TemporaryDrawer pages={pages} />
               ) : (
@@ -120,7 +102,7 @@ function ResponsiveAppBar() {
               variant="h5"
               noWrap
               component="a"
-              href=""
+              href="/"
               sx={{
                 mr: 2,
                 display: { xs: 'flex', md: 'none' },
@@ -132,22 +114,22 @@ function ResponsiveAppBar() {
                 textDecoration: 'none',
               }}
             >
-              <AnimationIcon sx={{ fontSize: '65px' }} />
+              <AnimationIcon sx={{ fontSize: '65px', color: 'white' }} />
             </Typography>
             <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
               <Tabs
                 value={value}
                 onChange={(e, val) => setValue(val)}
-                indicatorColor="primary"
-                textColor="primary"
+                indicatorColor="secondary"
+                textColor="secondary"
               >
                 {pages.map((page) => (
                   <Tab
-                    label={page}
-                    value={page}
-                    key={page}
-                    onClick={handleCloseNavMenu}
                     sx={{ my: 2, color: 'white', display: 'block' }}
+                    key={page}
+                    label={page}
+                    component={Link}
+                    to={`/${page.split(' ').join('').toLowerCase()}`}
                   />
                 ))}
               </Tabs>
@@ -162,4 +144,4 @@ function ResponsiveAppBar() {
     </ThemeProvider>
   );
 }
-export default ResponsiveAppBar;
+export default NavBar;
