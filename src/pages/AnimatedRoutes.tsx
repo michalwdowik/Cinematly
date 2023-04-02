@@ -83,60 +83,8 @@ function AnimatedRoutes() {
           }
         />
         <Route path="/:id" element={<Store />} />
-        {/* <Route
-          path="/topmovies"
-          element={
-            <>
-              <Typography
-                variant="h1"
-                sx={{
-                  fontSize: '70px',
-                  fontWeight: 'bold',
-                  marginTop: '50px',
-                  marginLeft: '80px',
-                }}
-              >
-                What's hot?
-              </Typography>
-              <Box
-                sx={{
-                  background:
-                    'linear-gradient(90deg, rgba(255,255,255,1) 0%, rgba(255,169,0,1) 90%)',
-                  height: '3px',
-                  marginLeft: '80px',
-                  marginRight: '80px',
-                  marginBottom: '5px',
-                  marginTop: '5px',
-                }}
-              />
-              <Box
-                sx={{
-                  display: 'flex',
-                  justifyContent: 'right',
-                  marginBottom: '50px',
-                }}
-              >
-                <Typography
-                  variant="h5"
-                  sx={{
-                    color: '#fc9803',
-                    fontSize: { xs: '12px', md: '15px' },
-                    width: { xs: '50%', md: '33%' },
-                    textAlign: 'right',
-                    marginRight: '80px',
-                    fontWeight: 'bold',
-                  }}
-                >
-                  Stay up-to-date with the latest buzz in the entertainment{' '}
-                  world and find your next binge-worthy watch.
-                </Typography>
-              </Box>
-              <Store />
-              <motion.div className="progress" style={{ scaleX }} />
-            </>
-          } */}
-        />
-        {/* <Route path="/topmovies/:id" element={<Store />} /> */}
+
+        <Route path="/topmovies/" element={<h1>Soon</h1>} />
       </Routes>
       {/* </AnimatePresence> */}
     </div>
