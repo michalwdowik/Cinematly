@@ -2,6 +2,7 @@ import { Routes, Route, useLocation, useParams } from 'react-router-dom';
 // import { AnimatePresence } from 'framer-motion';
 import { Box, Typography } from '@mui/material';
 import { motion, useScroll, useSpring } from 'framer-motion';
+import { createPortal } from 'react-dom';
 import Home from './Home';
 import List from '../List';
 import Item from '../Item';
@@ -9,10 +10,12 @@ import '../home.css';
 
 function Store() {
   const { id } = useParams();
+  const modal = document.getElementById('modal');
+
   return (
     <div className="containerx">
       <List selectedId={id} />
-      {id && <Item id={id} key="item" />}
+      {createPortal(id && <Item id={id} key="item" />, modal)}
     </div>
   );
 }

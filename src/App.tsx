@@ -9,10 +9,6 @@ function App() {
     <Router>
       <Box
         sx={{
-          // border: 'white 2px solid',
-          // position: 'relative',
-          // display: 'flex',
-          // flexDirection: 'column',
           minHeight: '100vh',
           height: '100%',
         }}
