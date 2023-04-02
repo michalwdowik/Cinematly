@@ -16,10 +16,6 @@ interface Movie {
   release: string;
 }
 
-// interface Review {
-//   review: string;
-// }
-
 function TopMovies() {
   const [movies, setMovies] = useState<Movie[]>([]);
   // const [reviews, setReviews] = useState<Review[]>([]);
@@ -45,26 +41,19 @@ function TopMovies() {
       );
       setMovies(movieTitles);
     }
-    // async function fetchReviews() {
-    //   const response = await fetch(
-    //     ' https://api.themoviedb.org/3/movie/238/reviews?api_key=48f69edf43ba636d1b1574a2cca22035&language=en-US&page=1'
-    //   );
-    //   const data1 = await response.json();
-    //   const rev = data1.results.map(
-    //     (review: any): Review => ({
-    //       review: review.content,
-    //     })
-    //   );
-    //   setMovies(rev);
-    // }
     fetchData();
-    // fetchReviews();
   }, []);
 
   return (
-    <>
-      {/* <ul>
-        {movies.map((movie: Movie) => (
+    <motion.div
+      className="container text-center"
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      exit={{ opacity: 0 }}
+      transition={{ duration: 3 }}
+    >
+      <ul>
+        {/* {movies.map((movie: Movie) => (
           <li key={movie.id}>
             <Typography
               sx={{ color: 'white', fontWeight: 'bold' }}
@@ -93,26 +82,12 @@ function TopMovies() {
               alt={movie.title}
             />
           </li>
-        ))}
-      </ul> */}
-      <motion.div
-        className="container text-center"
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        exit={{ opacity: 0 }}
-        transition={{ duration: 3 }}
-      >
-        <Card />
-      </motion.div>
-    </>
+        ))} */}
+      </ul>
+
+      <Card />
+    </motion.div>
   );
 }
 
 export default TopMovies;
-// {
-//   reviews.map((review: Review) => (
-//     <Typography sx={{ color: 'white' }} variant="body1">
-//       {review.review}
-//     </Typography>
-//   ));
-// }

@@ -48,8 +48,8 @@ function CarouselMovies() {
     <Carousel
       className="carouselStyles"
       interval={3500}
-      autoPlay
       infiniteLoop
+      autoPlay
       showStatus={false}
       swipeable
       showIndicators={!screenType.isMobile}
