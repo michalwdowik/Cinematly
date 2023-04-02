@@ -16,7 +16,11 @@ import HomeIcon from '@mui/icons-material/Home';
 
 type Anchor = 'top';
 
-export default function TemporaryDrawer({ pages }: any) {
+type DrawerProps = {
+  pages: string[];
+};
+
+export default function TemporaryDrawer({ pages }: DrawerProps) {
   const [state, setState] = React.useState({
     top: false,
   });

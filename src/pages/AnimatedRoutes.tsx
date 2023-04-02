@@ -7,6 +7,7 @@ import Home from './Home';
 import List from '../List';
 import Item from '../Item';
 import '../home.css';
+import NotFound from './NotFound';
 
 function Store() {
   const { id } = useParams();
@@ -15,7 +16,7 @@ function Store() {
   return (
     <div className="containerx">
       <List selectedId={id} />
-      {createPortal(id && <Item id={id} key="item" />, modal)}
+      {createPortal(id && <Item id={id} key="item" />, modal as Element)}
     </div>
   );
 }
@@ -45,7 +46,7 @@ function AnimatedRoutes() {
                   marginLeft: '80px',
                 }}
               >
-                What's hot?
+                What&apos;s hot?
               </Typography>
               <Box
                 sx={{
@@ -89,6 +90,7 @@ function AnimatedRoutes() {
         <Route path="/upcoming" element={<h1>upcoming</h1>} />
         <Route path="/favourites" element={<h1>favourites</h1>} />
         <Route path="/toprated" element={<h1>toprated</h1>} />
+        <Route path="*" element={<NotFound />} />
       </Routes>
       {/* </AnimatePresence> */}
     </div>

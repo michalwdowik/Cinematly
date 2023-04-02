@@ -1,3 +1,4 @@
+/* eslint-disable react/jsx-props-no-spreading */
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
@@ -44,16 +45,25 @@ function Card({ id, title, theme, backdrop_path, vote_average }: CardProps) {
   );
 }
 
-interface ListProps {
-  selectedId: string | undefined;
-}
+// interface ListProps {
+//   selectedId: string | undefined;
+// }
 
-export default function List({ selectedId }: ListProps) {
+export default function List() {
   return (
     <ul className="card-list">
-      {items.map((card) => (
-        <Card key={card.id} {...card} isSelected={card.id === selectedId} />
+      {items.map((card: CardProps) => (
+        <Card
+          key={card.id}
+          id={card.id}
+          title={card.title}
+          theme={card.theme}
+          backdrop_path={card.backdrop_path}
+          vote_average={card.vote_average}
+        />
       ))}
     </ul>
   );
 }
+
+// isSelected={card.id === selectedId

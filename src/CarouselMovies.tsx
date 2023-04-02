@@ -28,17 +28,15 @@ function CarouselMovies() {
         'https://api.themoviedb.org/3/movie/now_playing?api_key=48f69edf43ba636d1b1574a2cca22035&language=en-US&page=1'
       );
       const data = await response.json();
-      const movieTitles = data.results.map(
-        (movie: any): Movie => ({
-          title: movie.title,
-          vote_average: movie.vote_average,
-          popularity: movie.popularity,
-          overview: movie.overview,
-          id: movie.id,
-          release_date: movie.release_date,
-          backdrop_path: movie.backdrop_path,
-        })
-      );
+      const movieTitles = data.results.map((movie: Movie) => ({
+        title: movie.title,
+        vote_average: movie.vote_average,
+        popularity: movie.popularity,
+        overview: movie.overview,
+        id: movie.id,
+        release_date: movie.release_date,
+        backdrop_path: movie.backdrop_path,
+      }));
       setMovies(movieTitles);
     }
     fetchData();

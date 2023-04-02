@@ -13,7 +13,7 @@ import { Link } from 'react-router-dom';
 import SwitchMode from './SwitchMode';
 import TemporaryDrawer from './TemporaryDrawer';
 
-const pages = ['Home', 'Upcoming', 'Top Rated', 'Favourites'];
+const pages: string[] = ['Home', 'Upcoming', 'Top Rated', 'Favourites'];
 
 function NavBar() {
   const screenType = useScreenType();

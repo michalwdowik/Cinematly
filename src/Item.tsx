@@ -7,7 +7,7 @@ import { Button } from '@mui/material';
 import WatchLaterIcon from '@mui/icons-material/WatchLater';
 import { items } from './Data';
 
-function Item({ id }) {
+function Item({ id }: Element) {
   const {
     title,
     backdrop_path,
@@ -16,7 +16,7 @@ function Item({ id }) {
     release,
     original_title,
     original_language,
-  } = items.find((item: { any }) => item.id === id);
+  } = items.find((item: Element) => item.id === id);
 
   return (
     <>
