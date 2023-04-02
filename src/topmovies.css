@@ -125,8 +125,6 @@ li {
   width: 95%;
   height: 100%;
   margin: 0 auto;
-  backdrop-filter: blur( 20px );
-  -webkit-backdrop-filter: blur( 20px );
   border: none ;
 
 
@@ -297,7 +295,8 @@ p {
   .card {
     flex: 1 0 100%;
     max-width: 100%;
-    padding: 10px;
+    height: 300px;
+    padding-bottom: 5px;
     padding-left: 0;
     padding-right: 0;
   }

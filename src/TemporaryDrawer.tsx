@@ -7,10 +7,12 @@ import ListItem from '@mui/material/ListItem';
 import ListItemButton from '@mui/material/ListItemButton';
 import ListItemIcon from '@mui/material/ListItemIcon';
 import ListItemText from '@mui/material/ListItemText';
-import TrendingUpIcon from '@mui/icons-material/TrendingUp';
+// import TrendingUpIcon from '@mui/icons-material/TrendingUp';
 import AccessTimeIcon from '@mui/icons-material/AccessTime';
 import EmojiEventsIcon from '@mui/icons-material/EmojiEvents';
 import MenuIcon from '@mui/icons-material/Menu';
+import FavoriteIcon from '@mui/icons-material/Favorite';
+import HomeIcon from '@mui/icons-material/Home';
 
 type Anchor = 'top';
 
@@ -48,11 +50,18 @@ export default function TemporaryDrawer({ pages }: any) {
       >
         {pages.map((page: string) => (
           <ListItem key={page} disablePadding>
-            <ListItemButton href={`${page.split(' ').join('').toLowerCase()}`}>
+            <ListItemButton
+              href={
+                page === 'Home'
+                  ? '/'
+                  : `/${page.split(' ').join('').toLowerCase()}`
+              }
+            >
               <ListItemIcon sx={{ color: 'white' }}>
+                {page === 'Home' && <HomeIcon />}
                 {page === 'Upcoming' && <AccessTimeIcon />}
-                {page === 'Trending' && <TrendingUpIcon />}
-                {page === 'Top Movies' && <EmojiEventsIcon />}
+                {page === 'Top Rated' && <EmojiEventsIcon />}
+                {page === 'Favourites' && <FavoriteIcon />}
               </ListItemIcon>
               <ListItemText primary={page} />
             </ListItemButton>

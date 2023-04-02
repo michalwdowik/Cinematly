@@ -39,7 +39,7 @@ function AnimatedRoutes() {
               <Typography
                 variant="h1"
                 sx={{
-                  fontSize: '70px',
+                  fontSize: { xs: '40px', md: '70px' },
                   fontWeight: 'bold',
                   marginTop: '50px',
                   marginLeft: '80px',
@@ -70,7 +70,7 @@ function AnimatedRoutes() {
                   sx={{
                     color: '#fc9803',
                     fontSize: { xs: '12px', md: '15px' },
-                    width: { xs: '50%', md: '33%' },
+                    width: { xs: '60%', md: '33%' },
                     textAlign: 'right',
                     marginRight: '80px',
                     fontWeight: 'bold',
@@ -86,8 +86,9 @@ function AnimatedRoutes() {
           }
         />
         <Route path="/:id" element={<Store />} />
-
-        <Route path="/topmovies/" element={<h1>Soon</h1>} />
+        <Route path="/upcoming" element={<h1>upcoming</h1>} />
+        <Route path="/favourites" element={<h1>favourites</h1>} />
+        <Route path="/toprated" element={<h1>toprated</h1>} />
       </Routes>
       {/* </AnimatePresence> */}
     </div>

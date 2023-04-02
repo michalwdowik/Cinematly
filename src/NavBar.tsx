@@ -13,7 +13,7 @@ import { Link } from 'react-router-dom';
 import SwitchMode from './SwitchMode';
 import TemporaryDrawer from './TemporaryDrawer';
 
-const pages = ['Upcoming', 'Trending', 'Top Movies'];
+const pages = ['Home', 'Upcoming', 'Top Rated', 'Favourites'];
 
 function NavBar() {
   const screenType = useScreenType();
@@ -125,23 +125,30 @@ function NavBar() {
                   },
                 }}
               >
-                {pages.map((page) => (
-                  <Tab
-                    sx={{
-                      my: 2,
-                      color: 'white',
-                      display: 'block',
-                      transition: 'opacity 0.2s ease-in-out',
-                      '&:hover': {
-                        opacity: 0.4,
-                      },
-                    }}
-                    key={page}
-                    label={page}
-                    component={Link}
-                    to={`/${page.split(' ').join('').toLowerCase()}`}
-                  />
-                ))}
+                {pages.map(
+                  (page) =>
+                    !(page === 'Home') && (
+                      <Tab
+                        sx={{
+                          my: 2,
+                          color: 'white',
+                          display: 'block',
+                          transition: 'opacity 0.2s ease-in-out',
+                          '&:hover': {
+                            opacity: 0.4,
+                          },
+                        }}
+                        key={page}
+                        label={page}
+                        component={Link}
+                        to={
+                          page === 'Home'
+                            ? '/'
+                            : `/${page.split(' ').join('').toLowerCase()}`
+                        }
+                      />
+                    )
+                )}
               </Tabs>
             </Box>
 

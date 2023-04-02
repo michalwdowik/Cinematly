@@ -12,17 +12,29 @@ export default function Footer() {
         flexDirection: 'column',
         alignItems: 'center',
         gap: '20px',
-        // position: 'absolute',
         marginTop: '100px',
         marginBottom: '40px',
-        // bottom: '40px',
-        // left: '0',
-        // right: '0',
-        // margin: 'auto',
       }}
     >
-      <AnimationIcon sx={{ fontSize: '40px', color: 'white' }} />
-      <Box sx={{ display: 'flex', gap: '90px' }}>
+      <Typography
+        variant="h6"
+        noWrap
+        component="a"
+        href="/"
+        sx={{
+          mr: 2,
+          padding: 0,
+          display: 'flex',
+          fontFamily: 'monospace',
+          fontWeight: 700,
+          letterSpacing: '.3rem',
+          color: 'inherit',
+          textDecoration: 'none',
+        }}
+      >
+        <AnimationIcon sx={{ fontSize: '55px', color: 'white' }} />
+      </Typography>
+      <Box sx={{ display: 'flex', gap: { xs: '10px', md: '90px' } }}>
         <Button
           sx={{
             color: 'white',

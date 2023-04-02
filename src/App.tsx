@@ -3,6 +3,7 @@ import { Box } from '@mui/material';
 import NavBar from './NavBar';
 import AnimatedRoutes from './pages/AnimatedRoutes';
 import Footer from './Footer';
+import OpenIconSpeedDial from './SpeedDial';
 
 function App() {
   return (
@@ -17,6 +18,7 @@ function App() {
         <AnimatedRoutes />
         <Footer />
       </Box>
+      <OpenIconSpeedDial />
     </Router>
   );
 }
