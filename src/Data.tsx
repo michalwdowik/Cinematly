@@ -17,7 +17,7 @@ async function fetchData() {
   );
   const data = await response.json();
 
-  const movieTitles = data.results.map((movie: Movie) => ({
+  const movieTitles = data.results.slice(0, 10).map((movie: Movie) => ({
     id: `:${movie.title || movie.name}`,
     title: movie.title || movie.name,
     vote_average: movie.vote_average.toFixed(2),

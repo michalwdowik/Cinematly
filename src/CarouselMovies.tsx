@@ -46,14 +46,12 @@ function CarouselMovies() {
 
   return (
     <Carousel
-      className="carouselStyles"
-      interval={3500}
-      infiniteLoop
+      key={movies.length}
       autoPlay
+      infiniteLoop
+      className="carouselStyles"
       showStatus={false}
-      swipeable
       showIndicators={!screenType.isMobile}
-      dynamicHeight={false}
     >
       {movies.map((movie, i) => (
         <div key={i}>

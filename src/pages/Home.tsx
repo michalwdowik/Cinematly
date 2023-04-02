@@ -20,7 +20,7 @@ export default function Home() {
             width: { xs: '77%', sm: '70%', md: '60%', lg: '50%' },
             margin: '20px auto',
             textAlign: 'center',
-            opacity: '80%',
+            // opacity: '80%',
             color: 'white',
             transition: 'background 0.25s, color 0.25s',
             '&:hover': {

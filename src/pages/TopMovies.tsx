@@ -18,7 +18,6 @@ interface Movie {
 
 function TopMovies() {
   const [movies, setMovies] = useState<Movie[]>([]);
-  // const [reviews, setReviews] = useState<Review[]>([]);
 
   useEffect(() => {
     async function fetchData() {

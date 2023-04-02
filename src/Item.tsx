@@ -28,7 +28,7 @@ function Item({ id }) {
         style={{ pointerEvents: 'auto' }}
         className="overlay"
       >
-        <Link to="/topmovies" />
+        <Link to="/" />
       </motion.div>
 
       <div className="card-content-container open">
@@ -37,6 +37,16 @@ function Item({ id }) {
             className="card-image-container"
             layoutId={`card-image-container-${id}`}
           >
+            <motion.div
+              className="title-container"
+              layoutId={`title-container-${id}`}
+            >
+              <span style={{ display: 'flex' }} className="category">
+                <StarIcon sx={{ color: 'white', fontSize: '15px' }} />
+                {vote_average}
+              </span>
+              <h2>{title}</h2>
+            </motion.div>
             <img
               className="card-image"
               src={`https://image.tmdb.org/t/p/w780/${backdrop_path}`}
@@ -44,20 +54,32 @@ function Item({ id }) {
             />
           </motion.div>
 
-          <motion.div
-            className="title-container"
-            layoutId={`title-container-${id}`}
-          >
-            <span style={{ display: 'flex' }} className="category">
-              <StarIcon sx={{ color: 'white', fontSize: '15px' }} />
-              {vote_average}
-            </span>
-            <h2>{title}</h2>
-          </motion.div>
-
-          <motion.div className="content-container" animate>
+          <motion.div className=" content-container" animate>
             {/* <div> */}
-            <div>
+
+            <div style={{ position: 'relative' }}>
+              <Button
+                variant="contained"
+                startIcon={<WatchLaterIcon />}
+                style={{
+                  position: 'absolute',
+                  transitionDuration: '0.3s',
+                  top: '-32px',
+                  // float: 'inline-end',
+                  // top: '72%',
+                  // top: '320px',
+                  right: '0px',
+                  backgroundColor: 'orange',
+                  borderRadius: '30px',
+                  alignSelf: 'end',
+                  width: 'auto',
+                  fontSize: '11px',
+                  zIndex: '1',
+                  overflow: 'visible',
+                }}
+              >
+                Add to watchlist
+              </Button>
               {original_title && (
                 <span style={{ fontWeight: 'bold', display: 'inline' }}>
                   Original title:
@@ -77,23 +99,7 @@ function Item({ id }) {
               )}{' '}
               {original_language}
             </div>
-            <br />
-            <Button
-              className="addToWatchList"
-              variant="contained"
-              startIcon={<WatchLaterIcon />}
-              style={{
-                backgroundColor: 'orange',
-                marginBottom: '10px',
-                borderRadius: '30px',
-                alignSelf: 'end',
-                width: 'auto',
-                fontSize: '11px',
-                zIndex: '2',
-              }}
-            >
-              Add to watchlist
-            </Button>
+            {/* <br /> */}
 
             {overview}
           </motion.div>

@@ -24,7 +24,7 @@ function NavBar() {
         main: '#fc9803',
       },
       secondary: {
-        main: '#fc4e03',
+        main: '#000000',
       },
     },
   });
@@ -32,10 +32,6 @@ function NavBar() {
   const [anchorElNav, setAnchorElNav] = React.useState<null | HTMLElement>(
     null
   );
-
-  const handleOpenNavMenu = (event: React.MouseEvent<HTMLElement>) => {
-    setAnchorElNav(event.currentTarget);
-  };
 
   const handleCloseNavMenu = () => {
     setAnchorElNav(null);
@@ -45,7 +41,7 @@ function NavBar() {
     <ThemeProvider theme={theme}>
       <AppBar position="sticky" sx={{ bgcolor: '#fc9803' }}>
         <Container maxWidth="xl">
-          <Toolbar disableGutters>
+          <Toolbar sx={{ height: '50px', padding: '0px' }} disableGutters>
             <Typography
               variant="h6"
               noWrap
@@ -53,6 +49,7 @@ function NavBar() {
               href="/"
               sx={{
                 mr: 2,
+                padding: 0,
                 display: { xs: 'none', md: 'flex' },
                 fontFamily: 'monospace',
                 fontWeight: 700,
@@ -61,7 +58,7 @@ function NavBar() {
                 textDecoration: 'none',
               }}
             >
-              <AnimationIcon sx={{ fontSize: '65px', color: 'white' }} />
+              <AnimationIcon sx={{ fontSize: '55px', color: 'white' }} />
             </Typography>
             <Box
               sx={{
@@ -114,18 +111,31 @@ function NavBar() {
                 textDecoration: 'none',
               }}
             >
-              <AnimationIcon sx={{ fontSize: '65px', color: 'white' }} />
+              <AnimationIcon sx={{ fontSize: '55px', color: 'white' }} />
             </Typography>
             <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
               <Tabs
                 value={value}
                 onChange={(e, val) => setValue(val)}
-                indicatorColor="secondary"
                 textColor="secondary"
+                indicatorColor="secondary"
+                sx={{
+                  '.MuiTabs-indicator': {
+                    bottom: 8,
+                  },
+                }}
               >
                 {pages.map((page) => (
                   <Tab
-                    sx={{ my: 2, color: 'white', display: 'block' }}
+                    sx={{
+                      my: 2,
+                      color: 'white',
+                      display: 'block',
+                      transition: 'opacity 0.2s ease-in-out',
+                      '&:hover': {
+                        opacity: 0.4,
+                      },
+                    }}
                     key={page}
                     label={page}
                     component={Link}
