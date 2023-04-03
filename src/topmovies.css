@@ -4,6 +4,8 @@
 }
 
 body {
+  /* height: 1000vh; */
+  /* border: orange 2px solid; */
   margin: 0;
   padding: 0;
   background: black;
@@ -136,7 +138,7 @@ li {
 
 .zoom-on-hover:hover {
   transform: scale(1.05);
-  filter: brightness(130%);
+  /* filter: brightness(130%); */
 }
 
 
@@ -168,7 +170,7 @@ li {
   overflow: hidden;
   /* height: 420px; */
   width: 100vw;
-  filter: brightness(60%);
+  /* filter: brightness(60%); */
 
 }
 
@@ -197,6 +199,7 @@ li {
   left: 15px;
   max-width: 300px;
   padding: 5px;
+  /* background-color: #ffa500; */
 }
 
 

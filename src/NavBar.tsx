@@ -115,7 +115,7 @@ function NavBar() {
             </Typography>
             <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
               <Tabs
-                value={value}
+                value={1}
                 onChange={(e, val) => setValue(val)}
                 textColor="secondary"
                 indicatorColor="secondary"

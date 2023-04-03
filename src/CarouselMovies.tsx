@@ -49,6 +49,7 @@ function CarouselMovies() {
       infiniteLoop
       className="carouselStyles"
       showStatus={false}
+      showThumbs={false}
       showIndicators={!screenType.isMobile}
     >
       {movies.map((movie, i) => (
