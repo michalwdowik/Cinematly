@@ -1,58 +1,67 @@
-import { Typography } from '@mui/material';
-import React, { useState, useEffect } from 'react';
-import StarIcon from '@mui/icons-material/Star';
-import { motion } from 'framer-motion';
-import Card from '../Card';
+import { useState, useEffect } from 'react'
+// import StarIcon from '@mui/icons-material/Star'
+import { motion } from 'framer-motion'
 
 interface Movie {
-  title: string;
-  average: number;
-  popularity: number;
-  overview: string;
-  id: number;
-  backdrop_path: string;
-  poster: string;
-  position: number;
-  release: string;
+    title: string
+    average: number
+    popularity: number
+    overview: string
+    id: number
+    backdrop_path: string
+    poster: string
+    position: number
+    release: string
 }
 
-function TopMovies() {
-  const [movies, setMovies] = useState<Movie[]>([]);
+type MovieType = {
+    title: string
+    name: string
+    vote_average: number
+    popularity: number
+    overview: string
+    backdrop_path: string
+    poster_path: string
+    release_date: string
+    id: number
+}
+const TopMovies = () => {
+    const [movies, setMovies] = useState<Movie[]>([])
 
-  useEffect(() => {
-    async function fetchData() {
-      const response = await fetch(
-        'https://api.themoviedb.org/3/movie/top_rated?api_key=48f69edf43ba636d1b1574a2cca22035&language=en-US&page=1'
-      );
-      const data = await response.json();
-      const movieTitles = data.results.map(
-        (movie: any, index: number): Movie => ({
-          title: movie.title || movie.name,
-          average: movie.vote_average,
-          popularity: movie.popularity,
-          overview: movie.overview,
-          id: movie.id,
-          backdrop_path: movie.backdrop_path,
-          poster: movie.poster_path,
-          position: index,
-          release: movie.release_date,
-        })
-      );
-      setMovies(movieTitles);
-    }
-    fetchData();
-  }, []);
+    useEffect(() => {
+        const fetchData = async () => {
+            const response = await fetch(
+                'https://api.themoviedb.org/3/movie/top_rated?api_key=48f69edf43ba636d1b1574a2cca22035&language=en-US&page=1'
+            )
+            const data = await response.json()
+            const movieTitles = data.results.map(
+                (movie: MovieType, index: number): Movie => ({
+                    title: movie.title || movie.name,
+                    average: movie.vote_average,
+                    popularity: movie.popularity,
+                    overview: movie.overview,
+                    id: movie.id,
+                    backdrop_path: movie.backdrop_path,
+                    poster: movie.poster_path,
+                    position: index,
+                    release: movie.release_date,
+                })
+            )
+            setMovies(movieTitles)
+        }
+        fetchData()
+    }, [])
 
-  return (
-    <motion.div
-      className="container text-center"
-      initial={{ opacity: 0 }}
-      animate={{ opacity: 1 }}
-      exit={{ opacity: 0 }}
-      transition={{ duration: 3 }}
-    >
-      <ul>
-        {/* {movies.map((movie: Movie) => (
+    return (
+        <motion.div
+            className="container text-center"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 3 }}
+        >
+            <ul>
+                {/* {movies.map((movie: Movie) => (
           <li key={movie.id}>
             <Typography
               sx={{ color: 'white', fontWeight: 'bold' }}
@@ -82,11 +91,11 @@ function TopMovies() {
             />
           </li>
         ))} */}
-      </ul>
+            </ul>
 
-      <Card />
-    </motion.div>
-  );
+            {/* <Card /> */}
+        </motion.div>
+    )
 }
 
-export default TopMovies;
+export default TopMovies

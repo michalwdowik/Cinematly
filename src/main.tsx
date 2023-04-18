@@ -1,10 +1,11 @@
-import React from 'react';
-import ReactDOM from 'react-dom/client';
-import App from './App';
-import './topmovies.css';
+import { StrictMode } from 'react'
+import ReactDOM from 'react-dom/client'
+import App from './App'
+import './Styles/home.css'
+import './Styles/topmovies.css'
 
 ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>
-);
+    <StrictMode>
+        <App />
+    </StrictMode>
+)

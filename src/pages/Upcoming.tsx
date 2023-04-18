@@ -1,3 +1,2 @@
-export default function Upcoming() {
-  return <div>Upcoming</div>;
-}
+const Upcoming = () => <div>Upcoming</div>
+export default Upcoming
