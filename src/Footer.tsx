@@ -1,15 +1,15 @@
 import { Box, Typography } from '@mui/material'
-import CinematlyLogo from '@mui/icons-material/Animation'
 import { Link } from 'react-router-dom'
 import Button from '@mui/material/Button'
 import { Parallax, ParallaxProvider } from 'react-scroll-parallax'
 import { ReactNode } from 'react'
+import WebsiteLogo from './WebsiteLogo'
 
 const Footer = () => (
     <ParallaxProvider>
         <Parallax shouldAlwaysCompleteAnimation opacity={[0, 1, 'easeInOut']}>
             <FooterBox>
-                <FooterLogo />
+                <WebsiteLogo />
                 <Tabs />
                 <FooterCopyright />
             </FooterBox>
@@ -35,29 +35,6 @@ const FooterBox = ({ children }: FooterBoxProps) => {
         >
             {children}
         </Box>
-    )
-}
-
-const FooterLogo = () => {
-    return (
-        <Typography
-            variant="h6"
-            noWrap
-            component="a"
-            href="/"
-            sx={{
-                mr: 2,
-                padding: 0,
-                display: 'flex',
-                fontFamily: 'monospace',
-                fontWeight: 700,
-                letterSpacing: '.3rem',
-                color: 'inherit',
-                textDecoration: 'none',
-            }}
-        >
-            <CinematlyLogo sx={{ fontSize: '55px', color: 'white' }} />
-        </Typography>
     )
 }
 

@@ -1,9 +1,7 @@
-/* eslint-disable no-plusplus */
 import { a } from '@react-spring/web'
 import StarIcon from '@mui/icons-material/Star'
 import { Parallax, ParallaxProvider } from 'react-scroll-parallax'
 import InfiniteSlider from './InfiniteSlider'
-// import { itemki } from './items.js'
 import { famousPeople } from '../Data'
 import styles from '../Styles/styles.module.css'
 import SectionHeading from '../SectionHeading'
@@ -77,7 +75,7 @@ const cutText = (text: string) => {
 
     while (truncatedText.slice(-1) !== '.' && words.length > maxWords) {
         truncatedText += ` ${words[maxWords]}`
-        maxWords++
+        maxWords += 1
     }
 
     return truncatedText
