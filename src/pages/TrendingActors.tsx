@@ -2,70 +2,23 @@
 import { a } from '@react-spring/web'
 import StarIcon from '@mui/icons-material/Star'
 import { Parallax, ParallaxProvider } from 'react-scroll-parallax'
-import { Box, Typography } from '@mui/material'
 import InfiniteSlider from './InfiniteSlider'
 // import { itemki } from './items.js'
 import { famousPeople } from '../Data'
 import styles from '../Styles/styles.module.css'
+import SectionHeading from '../SectionHeading'
 
-const Sf = () => (
+const TrendingActors = () => (
     <div>
         <ParallaxProvider>
-            <Parallax
-                easing="easeInCubic"
-                // speed={10}
-                // translateX={[-50, -20, 'easeInOut']}
-                // translateY={[-50, 50, 'easeInOut']}
-
-                // speed={58}
-            >
-                <Typography
-                    variant="h1"
-                    sx={{
-                        fontSize: { xs: '40px', md: '70px' },
-                        fontWeight: 'bold',
-                        textAlign: 'right',
-                        marginRight: '80px',
-                    }}
-                >
-                    Trending Actors
-                </Typography>
-                <Box
-                    sx={{
-                        background:
-                            'linear-gradient(90deg, rgba(255,169,0,1) 0%, rgba(255,255,255,1) 90%)',
-                        height: '3px',
-                        marginLeft: '80px',
-                        marginRight: '80px',
-                        marginBottom: '5px',
-                        marginTop: '5px',
-                    }}
-                />
-                <Box
-                    sx={{
-                        display: 'flex',
-                        justifyContent: 'left',
-                        marginBottom: '50px',
-                    }}
-                >
-                    <Typography
-                        variant="h5"
-                        sx={{
-                            color: '#fc9803',
-                            fontSize: { xs: '12px', md: '15px' },
-                            width: { xs: '60%', md: '33%' },
-                            textAlign: 'left',
-                            marginLeft: '80px',
-                            fontWeight: 'bold',
-                            marginBottom: '30px',
-                        }}
-                    >
-                        From Blockbuster Hits to Indie Gems, Our Trending Actors
-                        Section Covers It All - Don&apos;t Miss Out on the
-                        Latest Scoop!
-                    </Typography>
-                </Box>
-            </Parallax>
+            <Parallax easing="easeInCubic" />
+            <SectionHeading
+                leftAligned={false}
+                heading=" Trending Actors"
+                subheading="From Blockbuster Hits to Indie Gems, Our Trending Actors
+                    Section Covers It All - Don't Miss Out on the Latest
+                    Scoop!"
+            />
         </ParallaxProvider>
 
         <div className={`flex fill center ${styles.container}`}>
@@ -130,4 +83,4 @@ const cutText = (text: string) => {
     return truncatedText
 }
 
-export default Sf
+export default TrendingActors

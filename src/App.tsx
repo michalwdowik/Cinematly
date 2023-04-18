@@ -5,7 +5,7 @@ import NavBar from './NavBar'
 import AnimatedRoutes from './pages/AnimatedRoutes'
 import Footer from './Footer'
 import OpenIconSpeedDial from './SpeedDial'
-import Sf from './pages/Sf'
+import TrendingActors from './pages/TrendingActors'
 // import Checker from './pages/Checker';
 
 const App = () => (
@@ -24,7 +24,7 @@ const App = () => (
             {/* <Checker /> */}
             {/* </Parallax> */}
             {/* </ParallaxProvider> */}
-            <Sf />
+            <TrendingActors />
             <Footer />
         </Box>
         <OpenIconSpeedDial />
