@@ -62,8 +62,6 @@ const Item = ({ id }: { id: string }) => {
                     </motion.div>
 
                     <motion.div className=" content-container" animate>
-                        {/* <div> */}
-
                         <div style={{ position: 'relative' }}>
                             <Button
                                 variant="contained"
@@ -72,9 +70,6 @@ const Item = ({ id }: { id: string }) => {
                                     position: 'absolute',
                                     transitionDuration: '0.3s',
                                     top: '-32px',
-                                    // float: 'inline-end',
-                                    // top: '72%',
-                                    // top: '320px',
                                     right: '0px',
                                     backgroundColor: 'orange',
                                     borderRadius: '30px',
@@ -121,8 +116,6 @@ const Item = ({ id }: { id: string }) => {
                             )}{' '}
                             {original_language}
                         </div>
-                        {/* <br /> */}
-
                         {overview}
                     </motion.div>
                 </motion.div>

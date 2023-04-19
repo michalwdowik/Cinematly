@@ -1,10 +1,10 @@
 import { BrowserRouter as Router } from 'react-router-dom'
 import { Box } from '@mui/material'
 import { ReactNode } from 'react'
-import NavBar from './NavBar'
+import NavBar from './NavBar/NavBar'
 import AnimatedRoutes from './pages/AnimatedRoutes'
 import Footer from './Footer'
-import OpenIconSpeedDial from './SpeedDial'
+import OpenIconSpeedDial from './Components/SpeedDial'
 import TrendingActors from './pages/TrendingActors'
 
 const App = () => (

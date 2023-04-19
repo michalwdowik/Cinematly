@@ -4,7 +4,7 @@ import { Parallax, ParallaxProvider } from 'react-scroll-parallax'
 import InfiniteSlider from './InfiniteSlider'
 import { famousPeople } from '../Data'
 import styles from '../Styles/styles.module.css'
-import SectionHeading from '../SectionHeading'
+import SectionHeading from '../Components/SectionHeading'
 
 const TrendingActors = () => (
     <div>

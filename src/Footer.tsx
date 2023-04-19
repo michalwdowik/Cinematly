@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom'
 import Button from '@mui/material/Button'
 import { Parallax, ParallaxProvider } from 'react-scroll-parallax'
 import { ReactNode } from 'react'
-import WebsiteLogo from './WebsiteLogo'
+import WebsiteLogo from './Components/WebsiteLogo'
 
 const Footer = () => (
     <ParallaxProvider>

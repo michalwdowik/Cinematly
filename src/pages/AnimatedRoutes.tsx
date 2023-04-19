@@ -7,7 +7,7 @@ import List from '../List'
 import Item from '../Item'
 import '../Styles/home.css'
 import NotFound from './NotFound'
-import SectionHeading from '../SectionHeading'
+import SectionHeading from '../Components/SectionHeading'
 
 const Store = () => {
     const { id } = useParams()

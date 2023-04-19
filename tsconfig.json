@@ -16,6 +16,6 @@
     "noEmit": true,
     "jsx": "react-jsx"
   },
-  "include": ["prettier.config.js","postcss.config.js",".eslintrc.cjs", "src", "vite-env.d.ts", "vite.config.ts"],
+  "include": ["prettier.config.js","postcss.config.js",".eslintrc.cjs", "src", "vite-env.d.ts", "vite.config.ts", "src/Components/SpeedDial.tsx"],
   "references": [{ "path": "./tsconfig.node.json" }]
 }
