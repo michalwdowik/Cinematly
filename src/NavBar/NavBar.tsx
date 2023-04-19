@@ -6,7 +6,7 @@ import SwitchMode from '../Components/SwitchMode'
 import NavbarDrawer from './NavbarDrawer'
 import NavbarMenu from './NavbarMenu'
 import pages from '../Helpers/pages'
-import { appBarSx, toolbarSx } from '../Styles/ComponentSXS'
+import { appBarSx, toolbarSx } from '../ComponentStyles/NavbarStyles'
 
 const NavBar = () => {
     const screenType = useScreenType()

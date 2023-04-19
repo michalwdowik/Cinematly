@@ -11,7 +11,7 @@ import {
     drawerLinkSx,
     drawerListSx,
     drawerPaperSx,
-} from '../Styles/ComponentSXS'
+} from '../ComponentStyles/NavbarStyles'
 import { DrawerListProps } from '../types/NavbarTypes'
 
 const NavbarDrawer = () => {

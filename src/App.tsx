@@ -3,7 +3,7 @@ import { Box } from '@mui/material'
 import { ReactNode } from 'react'
 import NavBar from './NavBar/NavBar'
 import AnimatedRoutes from './pages/AnimatedRoutes'
-import Footer from './Footer'
+import Footer from './Footer/Footer'
 import OpenIconSpeedDial from './Components/SpeedDial'
 import TrendingActors from './pages/TrendingActors'
 

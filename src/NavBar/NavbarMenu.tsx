@@ -8,7 +8,7 @@ import {
     NavbarTabProps,
     NavbarTabsProps,
 } from '../types/NavbarTypes'
-import { navbarMenuBoxSx, navbarTabSx } from '../Styles/ComponentSXS'
+import { navbarMenuBoxSx, navbarTabSx } from '../ComponentStyles/NavbarStyles'
 
 const NavbarMenu = ({ pageLabel, setPageLabel }: NavbarMenuProps) => {
     return (
