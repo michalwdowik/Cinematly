@@ -12,6 +12,7 @@ export const toolbarSx = {
 
 export const navbarTabSx = {
     color: 'white',
+    opacity: 1,
     transition: 'opacity 0.2s ease-in-out',
     '&:hover': {
         opacity: 0.4,

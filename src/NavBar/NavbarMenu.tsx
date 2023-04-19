@@ -24,7 +24,7 @@ const NavbarTabs = ({ pageLabel, setPageLabel }: NavbarTabsProps) => {
         <Tabs
             value={pageLabel}
             onChange={(_, label) => setPageLabel(label)}
-            textColor="secondary"
+            textColor="primary"
             indicatorColor="secondary"
         >
             {Object.values(pages).map(
