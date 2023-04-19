@@ -1,39 +1,22 @@
 import { BrowserRouter as Router } from 'react-router-dom'
 import { Box } from '@mui/material'
-import { ReactNode } from 'react'
 import NavBar from './NavBar/NavBar'
 import AnimatedRoutes from './pages/AnimatedRoutes'
 import Footer from './Footer/Footer'
 import OpenIconSpeedDial from './Components/SpeedDial'
-import TrendingActors from './pages/TrendingActors'
+import TrendingActors from './TrendingActors/TrendingActors'
+import appBoxSx from './ComponentStyles/AppStyles'
 
 const App = () => (
     <Router>
         <NavBar />
-        <AppBox>
+        <Box sx={appBoxSx}>
             <AnimatedRoutes />
             <TrendingActors />
-        </AppBox>
+        </Box>
         <Footer />
         <OpenIconSpeedDial />
     </Router>
 )
 
 export default App
-
-type AppBoxProps = {
-    children: ReactNode
-}
-const AppBox = ({ children }: AppBoxProps) => {
-    return (
-        <Box
-            sx={{
-                position: 'relative',
-                minHeight: '100vh',
-                height: '100%',
-            }}
-        >
-            {children}
-        </Box>
-    )
-}

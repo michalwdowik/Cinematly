@@ -32,35 +32,3 @@ const fetchData = async () => {
 }
 
 export const items = await fetchData()
-
-export interface KnownFor {
-    name: string
-    title: string
-    overview: string
-    vote_average: number
-}
-export interface Actor {
-    title: string
-    name: string
-    profile_path: string
-    known_for: KnownFor[]
-}
-
-const fetchFamousPeople = async () => {
-    const response = await fetch(
-        'https://api.themoviedb.org/3/person/popular?api_key=48f69edf43ba636d1b1574a2cca22035&language=en-US&page=1'
-    )
-    const data = await response.json()
-
-    const actors = data.results.slice(0, 10).map((actor: Actor) => ({
-        name: actor.name,
-        overview: actor.known_for[0].overview,
-        vote_average: actor.known_for[0].vote_average,
-        profile_path: actor.profile_path,
-        known_for: actor.known_for[0].name || actor.known_for[0].title,
-    }))
-
-    return actors
-}
-
-export const famousPeople = await fetchFamousPeople()

@@ -1,0 +1,44 @@
+import { SpringValue } from '@react-spring/web'
+
+export const fontSize14px = { fontSize: '14px' }
+
+export const knownForBoxSx = {
+    color: '#fc7b03',
+    fontWeight: 'bold',
+}
+
+export const actorImageSx = (url: string) => ({
+    width: '100%',
+    height: '100%',
+    backgroundSize: 'cover',
+    backgroundPosition: 'center center',
+    borderRadius: '50px',
+    backgroundImage: `url(https://image.tmdb.org/t/p/original/${url})`,
+})
+
+export const actorDetailsSx = {
+    width: '100%',
+    height: '100%',
+    padding: '70px 100px',
+}
+
+export const trendingActorsBoxSx = {
+    background: 'transparent',
+    height: '400px',
+    width: '100%',
+}
+
+export const infiniteSliderBoxSx = {
+    position: 'relative',
+    height: '100%',
+    width: '100%',
+    touchAction: 'none',
+}
+
+export const springBoxStyle = (x: SpringValue<number>) => ({
+    position: 'absolute' as const,
+    height: '100%',
+    willChange: 'transform',
+    width: 600,
+    x,
+})
