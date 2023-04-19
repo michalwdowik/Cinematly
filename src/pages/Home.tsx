@@ -1,5 +1,5 @@
 import { Grid } from '@mui/material'
-import CarouselMovies from '../CarouselMovies'
+import CarouselMovies from '../Carousel/Carousel'
 import Quote from '../Quote'
 
 const Home = () => (

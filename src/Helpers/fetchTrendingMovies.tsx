@@ -1,17 +1,6 @@
-export interface Movie {
-    id: string
-    title: string
-    name: string
-    vote_average: number
-    backdrop_path: string | null
-    overview: string
-    release_date: string
-    first_air_date: string
-    original_title?: string
-    original_language?: string
-}
+import { Movie } from '../types/MoviesTypes'
 
-const fetchData = async () => {
+const fetchTrendingMovies = async () => {
     const response = await fetch(
         'https://api.themoviedb.org/3/trending/all/day?api_key=48f69edf43ba636d1b1574a2cca22035'
     )
@@ -31,4 +20,5 @@ const fetchData = async () => {
     return movieTitles
 }
 
-export const items = await fetchData()
+const trendingMovies = await fetchTrendingMovies()
+export default trendingMovies

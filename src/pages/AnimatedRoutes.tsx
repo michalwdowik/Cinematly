@@ -5,7 +5,6 @@ import { Parallax, ParallaxProvider } from 'react-scroll-parallax'
 import Home from './Home'
 import List from '../List'
 import Item from '../Item'
-import '../Styles/home.css'
 import NotFound from './NotFound'
 import SectionHeading from '../Components/SectionHeading'
 

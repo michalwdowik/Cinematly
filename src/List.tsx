@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom'
 import { motion } from 'framer-motion'
 import StarIcon from '@mui/icons-material/Star'
 import { Parallax, ParallaxProvider } from 'react-scroll-parallax'
-import { items } from './Data'
+import trendingMovies from './Helpers/fetchTrendingMovies'
 
 interface CardProps {
     id: string
@@ -50,7 +50,7 @@ const List = () => (
     <ParallaxProvider>
         <Parallax speed={58} opacity={[0, 1]} scale={[1.3, 0.2, 'easeInQuad']}>
             <ul className="card-list">
-                {items.map((card: CardProps) => (
+                {trendingMovies.map((card: CardProps) => (
                     <Card
                         key={card.id}
                         id={card.id}

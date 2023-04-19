@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom'
 import StarIcon from '@mui/icons-material/Star'
 import { Button } from '@mui/material'
 import WatchLaterIcon from '@mui/icons-material/WatchLater'
-import { items } from './Data'
+import trendingMovies from './Helpers/fetchTrendingMovies'
 
 const Item = ({ id }: { id: string }) => {
     const {
@@ -15,7 +15,7 @@ const Item = ({ id }: { id: string }) => {
         release,
         original_title,
         original_language,
-    } = items.find((item: Element) => item.id === id)
+    } = trendingMovies.find((item: Element) => item.id === id)
 
     return (
         <>
