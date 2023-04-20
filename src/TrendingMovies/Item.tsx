@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom'
 import StarIcon from '@mui/icons-material/Star'
 import { Button } from '@mui/material'
 import WatchLaterIcon from '@mui/icons-material/WatchLater'
-import trendingMovies from './Helpers/fetchTrendingMovies'
+import trendingMovies from '../Helpers/fetchTrendingMovies'
 
 const Item = ({ id }: { id: string }) => {
     const {
@@ -18,7 +18,7 @@ const Item = ({ id }: { id: string }) => {
     } = trendingMovies.find((item: Element) => item.id === id)
 
     return (
-        <>
+        <div>
             <motion.div
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
@@ -113,14 +113,14 @@ const Item = ({ id }: { id: string }) => {
                                 >
                                     Language:
                                 </span>
-                            )}{' '}
+                            )}
                             {original_language}
                         </div>
                         {overview}
                     </motion.div>
                 </motion.div>
             </div>
-        </>
+        </div>
     )
 }
 

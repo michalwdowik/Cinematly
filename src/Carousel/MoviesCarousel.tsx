@@ -17,7 +17,7 @@ import {
 } from './CarouselMovieDetails'
 import { CarouselOverlayProps, Movie } from '../types/MoviesTypes'
 
-const Carousel = () => {
+const MoviesCarousel = () => {
     const screenType = useScreenType()
 
     return (
@@ -48,7 +48,7 @@ const Carousel = () => {
         </CarouselComponent>
     )
 }
-export default Carousel
+export default MoviesCarousel
 
 export const CarouselOverlay = ({ children }: CarouselOverlayProps) => {
     return <Box sx={carouselOverlaySx}>{children}</Box>

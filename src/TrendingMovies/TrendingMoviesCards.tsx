@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom'
 import { motion } from 'framer-motion'
 import StarIcon from '@mui/icons-material/Star'
 import { Parallax, ParallaxProvider } from 'react-scroll-parallax'
-import trendingMovies from './Helpers/fetchTrendingMovies'
+import trendingMovies from '../Helpers/fetchTrendingMovies'
 
 interface CardProps {
     id: string
@@ -46,23 +46,23 @@ const Card = ({ id, title, theme, backdrop_path, vote_average }: CardProps) => (
     </li>
 )
 
-const List = () => (
-    <ParallaxProvider>
-        <Parallax speed={58} opacity={[0, 1]} scale={[1.3, 0.2, 'easeInQuad']}>
-            <ul className="card-list">
-                {trendingMovies.map((card: CardProps) => (
-                    <Card
-                        key={card.id}
-                        id={card.id}
-                        title={card.title}
-                        theme={card.theme}
-                        backdrop_path={card.backdrop_path}
-                        vote_average={card.vote_average}
-                    />
-                ))}
-            </ul>
-        </Parallax>
-    </ParallaxProvider>
+const TrendingMoviesCards = () => (
+    // <ParallaxProvider>
+    //     <Parallax opacity={[0.3, 1]} scale={[1.3, 0.5, 'easeInQuad']}>
+    <ul className="card-list">
+        {trendingMovies.map((card: CardProps) => (
+            <Card
+                key={card.id}
+                id={card.id}
+                title={card.title}
+                theme={card.theme}
+                backdrop_path={card.backdrop_path}
+                vote_average={card.vote_average}
+            />
+        ))}
+    </ul>
+    //     </Parallax>
+    // </ParallaxProvider>
 )
 
-export default List
+export default TrendingMoviesCards

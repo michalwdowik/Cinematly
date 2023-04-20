@@ -4,6 +4,7 @@ import NavBar from './NavBar/NavBar'
 import AnimatedRoutes from './pages/AnimatedRoutes'
 import Footer from './Footer/Footer'
 // import OpenIconSpeedDial from './Components/SpeedDial'
+
 import appBoxSx from './ComponentStyles/AppStyles'
 import BottomScroll from './Components/BottomScroll'
 

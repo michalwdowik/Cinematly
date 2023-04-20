@@ -1,5 +1,5 @@
 import { Box } from '@mui/material'
-import InfiniteSlider from '../pages/InfiniteSlider'
+import InfiniteSlider from '../Components/InfiniteSlider'
 import trendingActors from '../Helpers/fetchTrendingActors'
 import ActorDetails from './ActorDetails'
 
