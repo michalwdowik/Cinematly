@@ -1,7 +1,7 @@
 export const movieTitleSx = {
     color: 'white',
     fontWeight: '900',
-    marginBottom: '0.4rem',
+    marginBottom: '1rem',
     textAlign: 'left',
     width: '55%',
     fontSize: {
@@ -21,7 +21,6 @@ export const movieOverviewSx = {
     color: 'white',
     fontStyle: 'italic',
     fontSize: '1rem',
-    bottom: '0',
     marginRight: '10px',
     display: 'flex',
     textAlign: 'left',
@@ -35,13 +34,10 @@ export const movieOverviewSx = {
 
 export const starIconSx = {
     color: 'white',
-    marginLeft: '1rem',
     fontSize: {
-        xs: '12px',
-        sm: '12px',
-        md: '15px',
+        xs: '14px',
+        md: '16px',
         lg: '20px',
-        xl: '22px',
     },
 }
 
@@ -56,7 +52,7 @@ export const carouselOverlaySx = {
     alignItems: 'flex-start',
     backgroundImage: 'linear-gradient(rgb(0,0,0,0), rgb(0,0,0,1))',
     opacity: '0.9',
-    transition: 'opacity .3s',
+    transition: 'opacity 0.3s',
     padding: {
         xs: '0rem',
         sm: '3rem',
@@ -70,17 +66,33 @@ export const carouselOverlaySx = {
 
 export const movieReleaseDateSx = {
     display: 'flex',
+    gap: '25px',
     marginBottom: '1rem',
+    alignItems: 'center',
     color: 'white',
     fontSize: {
-        xs: '17px',
-        sm: '21px',
-        md: '27px',
-        lg: '33px',
+        xs: '14px',
+        sm: '18px',
+        lg: '18px',
     },
     marginLeft: {
         xs: '13px',
         sm: '0px',
         md: '0px',
     },
+}
+
+export const movieDetailsSx = {
+    position: 'absolute',
+    bottom: {
+        lg: '15%',
+        md: '10%',
+    },
+}
+
+export const movieRatingSx = {
+    display: 'flex',
+    padding: '0',
+    alignItems: 'center',
+    justifyContent: 'center',
 }

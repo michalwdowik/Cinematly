@@ -2,7 +2,7 @@ import { Box } from '@mui/material'
 import StarIcon from '@mui/icons-material/Star'
 import {
     movieOverviewSx,
-    movieReleaseDateSx,
+    movieRatingSx,
     movieTitleSx,
     starIconSx,
 } from '../ComponentStyles/MovieStyles'
@@ -24,15 +24,15 @@ export const MovieTitle = ({ movie }: MovieProps) => {
 }
 
 export const MovieReleaseDate = ({ movie }: MovieProps) => {
-    return <Box sx={movieReleaseDateSx}>{movie ? movie.release_date : ''}</Box>
+    return <Box>{movie ? movie.release_date : ''}</Box>
 }
 
 export const MovieRating = ({ movie }: MovieProps) => {
     return (
-        <span>
-            {movie ? movie.vote_average : ''}
+        <Box sx={movieRatingSx}>
             <StarIcon sx={starIconSx} />
-        </span>
+            {movie ? movie.vote_average : ''}
+        </Box>
     )
 }
 export const MovieOverview = ({ movie }: MovieProps) => {

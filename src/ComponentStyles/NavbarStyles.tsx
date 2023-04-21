@@ -4,6 +4,7 @@ export const appBarSx = {
     bgcolor: MAIN_THEME_COLOR,
     display: 'flex',
     justifyContent: 'center',
+    position: 'sticky',
 }
 export const toolbarSx = {
     height: '50px',

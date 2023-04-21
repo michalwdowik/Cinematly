@@ -14,6 +14,7 @@ export const quoteSx = {
         backgroundColor: '#000',
         color: '#fc9803',
     },
+    marginTop: '5rem',
 }
 
 export const creditsSx = {

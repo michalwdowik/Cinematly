@@ -1,8 +1,10 @@
 .carouselStyles {
   display: flex;
   flex-direction: column;
-  margin: auto;
-  max-height: 900px;
+  overflow: hidden;
+  max-height: 92vh;
+  width: 100vw;
+  margin-bottom: 8rem;
   }  
 
 ::-webkit-scrollbar {
@@ -36,6 +38,15 @@ body {
   height: 100%;
 }
 
+.containerx {
+  flex: 1 1 100%;
+  /* padding: 0 25px; */
+  /* margin: auto; */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
 
 h1 {
   font-weight: bold;
@@ -80,6 +91,10 @@ li {
   display: flex;
   flex-wrap: wrap;
   align-content: flex-start;
+  min-width: 85vw;
+  max-width: 1150px;
+  margin-bottom: 100px;
+
 }
 
 .card {
@@ -131,7 +146,6 @@ li {
   height: 100%;
   margin: 0 auto;
   border: none ;
-
 }
 
 .zoom-on-hover {
@@ -151,6 +165,7 @@ li {
   margin-top: 10vh;
   background: rgba(255, 255, 255, 0.95);
   height: auto;
+  z-index: 1;
 
 }
 
@@ -227,14 +242,6 @@ h2 {
   text-transform: uppercase;
 }
 
-.containerx {
-  max-width: 1190px;
-  flex: 1 1 100%;
-  /* padding: 0 25px; */
-  margin: 0 auto;
-}
-
-
 .overlay {
   z-index: 1;
   position: fixed;
@@ -274,7 +281,7 @@ p {
   line-height: 28px;
 }
 
-@media only screen and (max-width: 800px) {
+/* @media only screen and (max-width: 800px) {
   .card {
     flex: 0 0 50%;
     max-width: 50%;
@@ -285,9 +292,9 @@ p {
     flex: 0 0 50%;
     max-width: 50%;
   }
-}
+} */
 
-@media only screen and (max-width: 600px) {
+@media only screen and (max-width: 750px) {
   .card {
     flex: 1 0 100%;
     max-width: 100%;
@@ -311,7 +318,6 @@ p {
   .open .card-image-container {
   max-height: 43vh;
   }
-
 }
 
 .progress {

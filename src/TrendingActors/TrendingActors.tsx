@@ -7,8 +7,8 @@ export const trendingActorsBoxSx = {
     background: 'transparent',
     height: '400px',
     width: '100%',
-    marginBottom: '300px',
-    marginTop: '100px',
+    marginBottom: '200px',
+    marginTop: '-20px',
 }
 const TrendingActors = () => (
     <Box sx={trendingActorsBoxSx}>

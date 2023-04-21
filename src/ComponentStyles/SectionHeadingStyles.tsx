@@ -1,8 +1,9 @@
 export const headingSx = (leftAligned: boolean) => ({
-    fontSize: { xs: '40px', md: '70px' },
+    fontSize: { xs: '40px', sm: '55px', md: '80px' },
     fontWeight: 'bold',
+    alignSelf: `${leftAligned ? 'flex-start' : 'flex-end'}`,
     textAlign: `${leftAligned ? 'left' : 'right'} `,
-    [`${leftAligned ? 'marginLeft' : 'marginRight'}`]: '80px',
+    marginBottom: '-5px',
 })
 
 export const gradientDividerSx = (leftAligned: boolean) => ({
@@ -12,23 +13,31 @@ export const gradientDividerSx = (leftAligned: boolean) => ({
             : 'linear-gradient(90deg, rgba(255,169,0,1) 0%, rgba(255,255,255,1) 90%)'
     }`,
     height: '3px',
-    marginLeft: '80px',
-    marginRight: '80px',
-    marginBottom: '5px',
-    marginTop: '5px',
+    width: '100%',
 })
 
 export const subheadingBoxSx = (leftAligned: boolean) => ({
     display: 'flex',
     justifyContent: `${leftAligned ? 'right' : 'left'}`,
-    marginBottom: '50px',
+    alignSelf: `${leftAligned ? 'flex-end' : 'flex-start'}`,
 })
 
 export const subheadingSx = (leftAligned: boolean) => ({
     color: '#fc9803',
     fontSize: { xs: '12px', md: '15px' },
-    width: { xs: '60%', md: '33%' },
+    width: { xs: '75%', sm: '55%', md: '60%' },
     textAlign: `${leftAligned ? 'right' : 'left'}`,
     fontWeight: 'bold',
-    [`${leftAligned ? 'marginRight' : 'marginLeft'}`]: '80px',
+    alignSelf: `${leftAligned ? 'flex-end' : 'flex-start'}`,
 })
+
+export const sectionHeadingSx = {
+    display: 'flex',
+    flexDirection: 'column',
+    gap: '5px',
+    justifyContent: 'center',
+    alignContent: 'center',
+    alignItems: 'center',
+    width: '80vw',
+    marginBottom: '5rem',
+}

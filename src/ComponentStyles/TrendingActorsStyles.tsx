@@ -3,6 +3,7 @@ import { SpringValue } from '@react-spring/web'
 export const fontSize14px = { fontSize: '14px' }
 
 export const knownForBoxSx = {
+    fontSize: '16px',
     color: '#fc7b03',
     fontWeight: 'bold',
 }
@@ -42,3 +43,9 @@ export const springBoxStyle = (x: SpringValue<number>) => ({
     width: 600,
     x,
 })
+
+export const actorNameSx = {
+    color: 'white',
+    fontSize: { xs: '24px', md: '32px', lg: '40px' },
+    fontWeight: 'bold',
+}

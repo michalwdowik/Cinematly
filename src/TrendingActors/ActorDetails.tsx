@@ -4,6 +4,7 @@ import { colorWhite } from '../ComponentStyles/NavbarStyles'
 import {
     actorDetailsSx,
     actorImageSx,
+    actorNameSx,
     fontSize14px,
     knownForBoxSx,
 } from '../ComponentStyles/TrendingActorsStyles'
@@ -27,8 +28,17 @@ const ActorDetails = ({
     return (
         <Box sx={actorDetailsSx}>
             <ActorName name={name} />
-            <ActorRating vote_average={vote_average} />
-            <ActorKnownFor known_for={known_for} />
+            <Box
+                sx={{
+                    display: 'flex',
+                    alignContent: 'center',
+                    gap: '5px',
+                    fontStyle: 'italic',
+                }}
+            >
+                <ActorRating vote_average={vote_average} />
+                <ActorKnownFor known_for={known_for} />
+            </Box>
             <ActorRoleOverview overview={overview} />
             <ActorImage profile_path={profile_path} />
         </Box>
@@ -36,7 +46,7 @@ const ActorDetails = ({
 }
 
 const ActorName = ({ name }: ActorNameProps) => {
-    return <Box sx={colorWhite}>{name}</Box>
+    return <Box sx={actorNameSx}>{name}</Box>
 }
 
 const ActorKnownFor = ({ known_for }: ActorKnownForProps) => {
@@ -46,7 +56,11 @@ const ActorKnownFor = ({ known_for }: ActorKnownForProps) => {
 }
 
 const ActorRoleOverview = ({ overview }: ActorRoleOverviewProps) => {
-    return <Box sx={colorWhite}>{cutText(overview)}</Box>
+    return (
+        <Box sx={{ color: 'white', marginBottom: '10px' }}>
+            {cutText(overview)}
+        </Box>
+    )
 }
 
 const ActorRating = ({ vote_average }: ActorRatingProps) => {

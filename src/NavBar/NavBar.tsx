@@ -15,7 +15,7 @@ const NavBar = () => {
     )
 
     return (
-        <AppBar position="sticky" sx={appBarSx}>
+        <AppBar sx={appBarSx}>
             <Toolbar sx={toolbarSx}>
                 {screenType.isMobile ? (
                     <NavbarDrawer />
