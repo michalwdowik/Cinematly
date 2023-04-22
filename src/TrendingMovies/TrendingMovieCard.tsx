@@ -35,7 +35,7 @@ const CardImage = ({ id, backdrop_path }: CardImageProps) => {
             layoutId={`card-image-container-${id}`}
         >
             <img
-                className="card-image"
+                className="card_image"
                 src={`https://image.tmdb.org/t/p/w780/${backdrop_path}`}
                 alt=""
             />

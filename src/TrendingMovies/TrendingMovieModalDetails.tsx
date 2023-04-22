@@ -23,7 +23,7 @@ const TrendingMovieModalDetails = ({
     return (
         <motion.div className=" content-container" animate>
             <Box sx={movieModalDetailsSx}>
-                <AddToWatchlistButton />
+                <AddToWatchlistButton absolute />
                 <MovieTitleModal title={title} originTitle={originTitle} />
                 <MovieReleaseDateModal releaseDate={releaseDate} />
                 <MovieOriginalLanguageModal originLanguage={originLanguage} />
@@ -42,11 +42,11 @@ const MovieTitleModal = ({ title, originTitle }: MovieTitleModalProps) => {
             </Box>
             {originTitle ? (
                 <Typography variant="subtitle1" display="inline">
-                    {originTitle}
+                    &nbsp; {originTitle}
                 </Typography>
             ) : (
                 <Typography variant="subtitle1" display="inline">
-                    {title}
+                    &nbsp; {title}
                 </Typography>
             )}
         </Box>
@@ -60,11 +60,13 @@ const MovieReleaseDateModal = ({ releaseDate }: MovieReleaseDateProps) => {
                 Release date:
             </Box>
             <Typography variant="subtitle1" display="inline">
-                {releaseDate}
+                &nbsp; {releaseDate}
             </Typography>
         </Box>
     ) : (
-        <p>No release date </p>
+        <Typography variant="subtitle1" display="inline">
+            No release date
+        </Typography>
     )
 }
 
@@ -77,7 +79,7 @@ const MovieOriginalLanguageModal = ({
                 Language:
             </Box>
             <Typography variant="subtitle1" display="inline">
-                {originLanguage}
+                &nbsp; {originLanguage}
             </Typography>
         </Box>
     ) : (

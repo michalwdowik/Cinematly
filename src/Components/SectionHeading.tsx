@@ -1,5 +1,5 @@
 import { Box, Typography } from '@mui/material'
-import { Parallax } from 'react-scroll-parallax'
+import { Parallax, ParallaxProvider } from 'react-scroll-parallax'
 import {
     GradientDividerProps,
     HeadingProps,
@@ -18,16 +18,26 @@ const SectionHeading = ({
     heading,
     subheading,
     leftAligned,
+    enableParallax = true,
 }: SectionHeadingProps) => {
     const xMove = leftAligned ? -5 : 5
-    return (
-        <Parallax speed={-8} translateX={[0, xMove]}>
-            <Box sx={sectionHeadingSx}>
-                <Heading heading={heading} leftAligned={leftAligned} />
-                <GradientDivider leftAligned={leftAligned} />
-                <Subheading subheading={subheading} leftAligned={leftAligned} />
-            </Box>
-        </Parallax>
+
+    const contents = (
+        <>
+            <Heading heading={heading} leftAligned={leftAligned} />
+            <GradientDivider leftAligned={leftAligned} />
+            <Subheading subheading={subheading} leftAligned={leftAligned} />
+        </>
+    )
+
+    return enableParallax ? (
+        <ParallaxProvider>
+            <Parallax speed={-8} translateX={[0, xMove]}>
+                <Box sx={sectionHeadingSx}>{contents}</Box>
+            </Parallax>
+        </ParallaxProvider>
+    ) : (
+        <Box sx={sectionHeadingSx}>{contents}</Box>
     )
 }
 

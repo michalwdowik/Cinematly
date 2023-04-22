@@ -5,6 +5,7 @@ export const appBarSx = {
     display: 'flex',
     justifyContent: 'center',
     position: 'sticky',
+    width: '100vw',
 }
 export const toolbarSx = {
     height: '50px',

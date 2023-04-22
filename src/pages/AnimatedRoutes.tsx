@@ -1,6 +1,6 @@
 import { Routes, Route, useLocation } from 'react-router-dom'
-import Home from './oldHome'
-import NewHome from './Home'
+import Home from './Home'
+import TopRated from './TopRated'
 
 const AnimatedRoutes = () => {
     const location = useLocation()
@@ -8,9 +8,10 @@ const AnimatedRoutes = () => {
     return (
         <div>
             <Routes key={location.pathname} location={location}>
-                <Route path="/" element={<NewHome />} />
-                <Route path="/:id" element={<NewHome />} />
-                {/* <Route path="/upcoming" element={<TrendingMovies />} /> */}
+                <Route path="/" element={<Home />} />
+                <Route path="/:id" element={<Home />} />
+                <Route path="/top-rated" element={<TopRated />} />
+                {/* <Route path="/upcoming" element={<NotFound />} /> */}
                 {/* <Route path="/upcoming/:id" element={<TrendingMovies />} /> */}
                 {/* <Route path="/:id" element={<Store />} />
                 <Route path="/upcoming" element={<h1>upcoming</h1>} />

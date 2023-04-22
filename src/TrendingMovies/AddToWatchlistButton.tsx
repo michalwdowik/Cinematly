@@ -1,13 +1,28 @@
 import { Button } from '@mui/material'
 import WatchLaterIcon from '@mui/icons-material/WatchLater'
-import { watchLaterButtonSx } from '../ComponentStyles/TrendingMoviesStyles'
+import {
+    watchLaterButtonSx,
+    watchLaterButtonSxAbsolute,
+} from '../ComponentStyles/TrendingMoviesStyles'
 
-const AddToWatchlistButton = () => {
+export type AddToWatchlistButtonProps = {
+    absolute: boolean
+    styles?: string
+}
+const AddToWatchlistButton = ({
+    absolute,
+    styles,
+}: AddToWatchlistButtonProps) => {
     return (
         <Button
+            className={styles}
             variant="contained"
             startIcon={<WatchLaterIcon />}
-            sx={watchLaterButtonSx}
+            sx={
+                absolute
+                    ? { ...watchLaterButtonSx, ...watchLaterButtonSxAbsolute }
+                    : watchLaterButtonSx
+            }
         >
             Add to watchlist
         </Button>

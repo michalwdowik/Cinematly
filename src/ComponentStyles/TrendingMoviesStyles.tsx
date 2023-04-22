@@ -1,15 +1,19 @@
 export const watchLaterButtonSx = {
-    position: 'absolute',
     transitionDuration: '0.3s',
-    top: '-32px',
-    right: '0px',
     backgroundColor: 'orange',
     borderRadius: '30px',
-    alignSelf: 'end',
+    margin: 'auto',
     width: 'auto',
     fontSize: '11px',
     zIndex: '1',
     overflow: 'visible',
+}
+
+export const watchLaterButtonSxAbsolute = {
+    position: 'absolute',
+    top: '-32px',
+    right: '0px',
+    alignSelf: 'end',
 }
 
 export const movieDetailsModalSx = {

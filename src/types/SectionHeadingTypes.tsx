@@ -2,6 +2,7 @@ export interface SectionHeadingProps {
     heading: string
     subheading: string
     leftAligned: boolean
+    enableParallax: boolean
 }
 
 export type HeadingProps = Pick<SectionHeadingProps, 'heading' | 'leftAligned'>

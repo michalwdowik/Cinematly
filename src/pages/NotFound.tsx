@@ -17,7 +17,6 @@ const NotFound = () => {
     const FadeUp = batch(Fade(), Move(), Sticky())
     return (
         <ScrollContainer>
-            {/* <Home /> */}
             <ScrollPage>
                 <Animator animation={FadeUp}>
                     <Typography
