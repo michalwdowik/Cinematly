@@ -1,7 +1,7 @@
 import { Box } from '@mui/material'
 import SectionHeading from '../Components/SectionHeading'
 import '../Styles/toprated.css'
-import { topRatedPageBoxSx } from '../ComponentStyles/MovieStyles'
+import { topRatedPageBoxSx } from '../ComponentStyles/TopRatedMoviesStyles'
 import TopRatedMovies from '../TopRatedMovies/TopRatedMovies'
 
 const TopRated = () => {

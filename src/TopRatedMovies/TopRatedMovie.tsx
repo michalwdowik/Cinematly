@@ -1,12 +1,13 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
 import { Box } from '@mui/material'
+
+import TopRatedMovieHeadings from './TopRatedMovieHeadings'
+import TopRatedMovieHovered from './TopRatedMovieHovered'
 import {
     TopRatedMovieImageProps,
     TopRatedMovieProps,
     TopRatedMovieRankProps,
-} from '../types/MoviesTypes'
-import TopRatedMovieHeadings from './TopRatedMovieHeadings'
-import TopRatedMovieHovered from './TopRatedMovieHovered'
+} from '../types/TopRatedMoviesTypes'
 
 const TopRatedMovie = ({ movie, rankPosition }: TopRatedMovieProps) => {
     return (

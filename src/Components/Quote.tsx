@@ -1,6 +1,6 @@
 import { Typography } from '@mui/material'
 import { Parallax } from 'react-scroll-parallax'
-import { creditsSx, quoteSx } from './ComponentStyles/QuoteStyles'
+import { creditsSx, quoteSx } from '../ComponentStyles/QuoteStyles'
 
 const quote = `"Hollywood is a place where they will pay you a thousand
                 dollars for a kiss and fifty cents for your soul"`

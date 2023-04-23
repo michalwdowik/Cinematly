@@ -1,5 +1,5 @@
 import { Box } from '@mui/material'
-import { topRatedMovieCardsSx } from '../ComponentStyles/MovieStyles'
+import { topRatedMovieCardsSx } from '../ComponentStyles/TopRatedMoviesStyles'
 import topRatedMovies from '../Helpers/fetchTopRatedMovies'
 import { Movie } from '../types/MoviesTypes'
 import TopRatedMovie from './TopRatedMovie'

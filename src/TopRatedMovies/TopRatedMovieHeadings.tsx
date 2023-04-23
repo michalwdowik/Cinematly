@@ -5,13 +5,13 @@ import {
     topRatedMovieRatingSx,
     topRatedMovieReleaseDateSx,
     topRatedMovieTitleSx,
-} from '../ComponentStyles/MovieStyles'
+} from '../ComponentStyles/TopRatedMoviesStyles'
 import {
-    MovieProps,
     TopRatedMovieRatingProps,
     TopRatedMovieReleaseDateProps,
     TopRatedMovieTitleProps,
-} from '../types/MoviesTypes'
+} from '../types/TopRatedMoviesTypes'
+import { MovieProps } from '../types/MoviesTypes'
 
 const TopRatedMovieHeadings = ({ movie }: MovieProps) => {
     return (
