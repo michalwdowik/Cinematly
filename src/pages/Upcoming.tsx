@@ -1,6 +1,6 @@
 /* eslint-disable react/jsx-key */
-import StarIcon from '@mui/icons-material/Star'
-
+import CelebrationIcon from '@mui/icons-material/Celebration'
+import AccessTimeIcon from '@mui/icons-material/AccessTime'
 import {
     VerticalTimeline,
     VerticalTimelineElement,
@@ -8,6 +8,7 @@ import {
 import 'react-vertical-timeline-component/style.min.css'
 import { Box, Typography } from '@mui/material'
 
+import { Parallax, ParallaxProvider } from 'react-scroll-parallax'
 import SectionHeading from '../Components/SectionHeading'
 import { Movie } from '../types/MoviesTypes'
 import {
@@ -15,209 +16,237 @@ import {
     upcomingMoviesUpToToday,
 } from '../Helpers/fetchUpcomingMovies'
 import MAIN_THEME_COLOR from '../Helpers/colors'
+import {
+    movieDetailsModalSx,
+    movieModalDetailsSx,
+} from '../ComponentStyles/TrendingMoviesStyles'
+import AddToWatchlistButton from '../TrendingMovies/AddToWatchlistButton'
+import {
+    MovieHeadingModalProps,
+    MovieOriginalLanguageModalProps,
+    MovieOverviewModalProps,
+    MovieReleaseDateProps,
+    MovieTitleModalProps,
+} from '../types/TrendingMoviesTypes'
+import { fontSize14px } from '../ComponentStyles/TrendingActorsStyles'
+import { colorBlack } from '../ComponentStyles/NavbarStyles'
+import cutText from '../Helpers/cutText'
 
 const Upcoming = () => {
     return (
-        <Box
-            sx={{
-                display: 'flex',
-                flexDirection: 'column',
-                justifyContent: 'center',
-                alignContent: 'center',
-                alignItems: 'center',
-            }}
-        >
-            <SectionHeading
-                heading="Upcoming Movies"
-                subheading="From highly-anticipated sequels to exciting new releases, stay in the loop with our Upcoming Movies section"
-                leftAligned
-                enableParallax={false}
-            />
-            <VerticalTimeline lineColor={MAIN_THEME_COLOR}>
-                <VerticalTimelineElement
-                    className="vertical-timeline-element--work"
-                    contentStyle={{
-                        background: 'rgb(33, 150, 243)',
-                        color: '#fff',
-                    }}
-                    contentArrowStyle={{
-                        borderRight: '7px solid  rgb(33, 150, 243)',
-                    }}
-                    date="2011 - present"
-                    iconStyle={{
-                        background: 'rgb(33, 150, 243)',
-                        color: '#fff',
-                    }}
-                    icon={<StarIcon />}
-                >
-                    <h3 className="vertical-timeline-element-title">
-                        Creative Director
-                    </h3>
-                    <h4 className="vertical-timeline-element-subtitle">
-                        Miami, FL
-                    </h4>
-                    <p>
-                        Creative Direction, User Experience, Visual Design,
-                        Project Management, Team Leading
-                    </p>
-                </VerticalTimelineElement>
-                <VerticalTimelineElement
-                    className="vertical-timeline-element--work"
-                    date="2010 - 2011"
-                    iconStyle={{
-                        background: 'rgb(33, 150, 243)',
-                        color: '#fff',
-                    }}
-                    icon={<StarIcon />}
-                >
-                    <h3 className="vertical-timeline-element-title">
-                        Art Director
-                    </h3>
-                    <h4 className="vertical-timeline-element-subtitle">
-                        San Francisco, CA
-                    </h4>
-                    <p>
-                        Creative Direction, User Experience, Visual Design, SEO,
-                        Online Marketing
-                    </p>
-                </VerticalTimelineElement>
-                <VerticalTimelineElement
-                    className="vertical-timeline-element--work"
-                    date="2008 - 2010"
-                    iconStyle={{
-                        background: 'rgb(33, 150, 243)',
-                        color: '#fff',
-                    }}
-                    icon={<StarIcon />}
-                >
-                    <h3 className="vertical-timeline-element-title">
-                        Web Designer
-                    </h3>
-                    <h4 className="vertical-timeline-element-subtitle">
-                        Los Angeles, CA
-                    </h4>
-                    <p>User Experience, Visual Design</p>
-                </VerticalTimelineElement>
-                <VerticalTimelineElement
-                    className="vertical-timeline-element--work"
-                    date="2006 - 2008"
-                    iconStyle={{
-                        background: 'rgb(33, 150, 243)',
-                        color: '#fff',
-                    }}
-                    icon={<StarIcon />}
-                >
-                    <h3 className="vertical-timeline-element-title">
-                        Web Designer
-                    </h3>
-                    <h4 className="vertical-timeline-element-subtitle">
-                        San Francisco, CA
-                    </h4>
-                    <p>User Experience, Visual Design</p>
-                </VerticalTimelineElement>
-                <VerticalTimelineElement
-                    className="vertical-timeline-element--education"
-                    date="April 2013"
-                    iconStyle={{
-                        background: 'rgb(233, 30, 99)',
-                        color: '#fff',
-                    }}
-                    icon={<StarIcon />}
-                >
-                    <h3 className="vertical-timeline-element-title">
-                        Content Marketing for Web, Mobile and Social Media
-                    </h3>
-                    <h4 className="vertical-timeline-element-subtitle">
-                        Online Course
-                    </h4>
-                    <p>Strategy, Social Media</p>
-                </VerticalTimelineElement>
-                <VerticalTimelineElement
-                    className="vertical-timeline-element--education"
-                    date="November 2012"
-                    iconStyle={{
-                        background: 'rgb(233, 30, 99)',
-                        color: '#fff',
-                    }}
-                    icon={<StarIcon />}
-                >
-                    <h3 className="vertical-timeline-element-title">
-                        Agile Development Scrum Master
-                    </h3>
-                    <h4 className="vertical-timeline-element-subtitle">
-                        Certification
-                    </h4>
-                    <p>Creative Direction, User Experience, Visual Design</p>
-                </VerticalTimelineElement>
-                <VerticalTimelineElement
-                    className="vertical-timeline-element--education"
-                    date="2002 - 2006"
-                    iconStyle={{
-                        background: 'rgb(233, 30, 99)',
-                        color: '#fff',
-                    }}
-                    icon={<StarIcon />}
-                >
-                    <h3 className="vertical-timeline-element-title">
-                        Bachelor of Science in Interactive Digital Media Visual
-                        Imaging
-                    </h3>
-                    <h4 className="vertical-timeline-element-subtitle">
-                        Bachelor Degree
-                    </h4>
-                    <p>Creative Direction, Visual Design</p>
-                </VerticalTimelineElement>
-                <VerticalTimelineElement
-                    iconStyle={{
-                        background: 'rgb(16, 204, 82)',
-                        color: '#fff',
-                    }}
-                    icon={<StarIcon />}
-                />
-            </VerticalTimeline>
-            <Cards />
-        </Box>
-    )
-}
-export default Upcoming
-
-const Cards = () => {
-    return upcomingMoviesFromFuture.map((movie: Movie) => {
-        return (
+        <ParallaxProvider>
             <Box
                 sx={{
                     display: 'flex',
                     flexDirection: 'column',
-                    backgroundColor: 'white',
-                    width: 'auto',
-                    margin: '10%',
-                    height: 'auto',
-                    borderRadius: '5rem',
+                    justifyContent: 'center',
+                    alignContent: 'center',
+                    alignItems: 'center',
+                    marginTop: '4rem',
                 }}
             >
+                <SectionHeading
+                    heading="Upcoming Movies"
+                    subheading="From highly-anticipated sequels to exciting new releases, stay in the loop with our Upcoming Movies section"
+                    leftAligned
+                    enableParallax={false}
+                />
+                <Parallax opacity={[2.5, 0]}>
+                    <Typography
+                        variant="h2"
+                        sx={{ fontWeight: '700', padding: '2rem' }}
+                    >
+                        Just released
+                    </Typography>
+                </Parallax>
+
+                <VerticalTimeline lineColor={MAIN_THEME_COLOR}>
+                    <Cards movies={upcomingMoviesUpToToday} />
+                </VerticalTimeline>
+
+                <Parallax speed={-10} opacity={[2.5, 0]}>
+                    <Typography
+                        variant="h2"
+                        sx={{ fontWeight: '700', paddingY: '2rem' }}
+                    >
+                        Upcoming
+                    </Typography>
+                </Parallax>
+                <VerticalTimeline lineColor={MAIN_THEME_COLOR}>
+                    <Cards movies={upcomingMoviesFromFuture} />
+                </VerticalTimeline>
+            </Box>
+        </ParallaxProvider>
+    )
+}
+export default Upcoming
+
+export type CardsProps = {
+    movies: Movie[]
+}
+const Cards = ({ movies }: CardsProps) => {
+    return movies.map((movie: Movie) => {
+        return (
+            <VerticalTimelineElement
+                className="vertical-timeline-element--work"
+                contentStyle={{
+                    height: '400px',
+                    backgroundColor: 'white',
+                    borderRadius: '4rem',
+                    color: '#fff',
+                    display: 'flex',
+                    flexDirection: 'column',
+                    overflow: 'hidden',
+                    padding: '0',
+                }}
+                contentArrowStyle={{
+                    borderRight: '7px solid  rgb(33, 150, 243)',
+                }}
+                // date="2011 - present"
+                iconStyle={{
+                    background: MAIN_THEME_COLOR,
+                    color: '#fff',
+                }}
+                icon={
+                    movies === upcomingMoviesUpToToday ? (
+                        <CelebrationIcon />
+                    ) : (
+                        <AccessTimeIcon />
+                    )
+                }
+            >
+                <MovieHeadingModal
+                    id={movie.id}
+                    voteAverage={movie.vote_average}
+                    title={movie.title}
+                />
                 <Box
-                    component="image"
                     sx={{
                         overflow: 'hidden',
-                        height: '60%',
-                        borderTopLeftRadius: '5rem',
-                        borderTopRightRadius: '5rem',
+                        height: '65%',
                     }}
                 >
                     <img
-                        alt={movie.title}
-                        src={`https://image.tmdb.org/t/p/w780${movie.backdrop_path}`}
+                        style={{
+                            objectFit: 'cover',
+                            width: '100%',
+                            height: '100%',
+                        }}
+                        alt="x"
+                        src={`https://image.tmdb.org/t/p/w780/${movie.backdrop_path}`}
                     />
                 </Box>
-                <Typography
-                    variant="h2"
-                    sx={{ fontWeight: '600', color: 'black' }}
+                <Box
+                    sx={{
+                        position: 'relative',
+                        display: 'flex',
+                        flexDirection: 'column',
+                        padding: '1rem',
+                    }}
                 >
-                    {movie.title}
-                </Typography>
-                <Typography variant="body1">{movie.release_date}</Typography>
-                <Typography variant="subtitle2">{movie.overview}</Typography>
-            </Box>
+                    <Box sx={{ ...movieModalDetailsSx, ...colorBlack }}>
+                        <AddToWatchlistButton absolute />
+                        <MovieTitleModal
+                            title={movie.title}
+                            originTitle={movie.original_title}
+                        />
+                        <MovieReleaseDateModal
+                            releaseDate={movie.release_date}
+                        />
+                        <MovieOriginalLanguageModal
+                            originLanguage={movie.original_language}
+                        />
+                        <MovieOverviewModal overview={movie.overview} />
+                    </Box>
+                </Box>
+            </VerticalTimelineElement>
         )
     })
+}
+
+const MovieTitleModal = ({ title, originTitle }: MovieTitleModalProps) => {
+    return (
+        <Box display="flex" alignItems="center">
+            <Box component="span" sx={movieDetailsModalSx}>
+                Original title:
+            </Box>
+            {originTitle ? (
+                <Typography variant="subtitle1" display="inline">
+                    &nbsp; {originTitle}
+                </Typography>
+            ) : (
+                <Typography variant="subtitle1" display="inline">
+                    &nbsp; {title}
+                </Typography>
+            )}
+        </Box>
+    )
+}
+
+const MovieReleaseDateModal = ({ releaseDate }: MovieReleaseDateProps) => {
+    return releaseDate ? (
+        <Box display="flex" alignItems="center">
+            <Box component="span" sx={movieDetailsModalSx}>
+                Release date:
+            </Box>
+            <Typography variant="subtitle1" display="inline">
+                &nbsp; {releaseDate}
+            </Typography>
+        </Box>
+    ) : (
+        <Typography variant="subtitle1" display="inline">
+            No release date
+        </Typography>
+    )
+}
+
+const MovieOriginalLanguageModal = ({
+    originLanguage,
+}: MovieOriginalLanguageModalProps) => {
+    return originLanguage ? (
+        <Box display="flex" alignItems="center">
+            <Box component="span" sx={movieDetailsModalSx}>
+                Language:
+            </Box>
+            <Typography variant="subtitle1" display="inline">
+                &nbsp; {originLanguage}
+            </Typography>
+        </Box>
+    ) : (
+        <p>No language</p>
+    )
+}
+
+const MovieOverviewModal = ({ overview }: MovieOverviewModalProps) => {
+    return (
+        <Typography variant="subtitle2">
+            {cutText(overview) || 'No overview'}
+        </Typography>
+    )
+}
+
+const MovieHeadingModal = ({ voteAverage, title }: MovieHeadingModalProps) => {
+    return (
+        <Box
+            sx={{
+                top: '30px',
+                left: '0',
+                minWidth: '150px',
+                minHeight: '70px',
+                backgroundColor: '#ffa500',
+                opacity: '95%',
+                borderBottomRightRadius: '15px',
+                borderTopRightRadius: '15px',
+                position: 'absolute',
+                maxWidth: '300px',
+                padding: '5px',
+            }}
+        >
+            <Box component="span" sx={{ display: 'flex' }} className="category">
+                <CelebrationIcon sx={fontSize14px} />
+                {voteAverage}
+            </Box>
+            <Typography variant="h6">{title}</Typography>
+        </Box>
+    )
 }

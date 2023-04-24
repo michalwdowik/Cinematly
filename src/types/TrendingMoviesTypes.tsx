@@ -40,13 +40,13 @@ export type TrendingMovieModalDetailsProps = {
 }
 export type MovieTitleModalProps = {
     title: string
-    originTitle: string
+    originTitle: string | undefined
 }
 export type MovieReleaseDateProps = {
     releaseDate: string
 }
 export type MovieOriginalLanguageModalProps = {
-    originLanguage: string
+    originLanguage: string | undefined
 }
 export type MovieOverviewModalProps = {
     overview: string

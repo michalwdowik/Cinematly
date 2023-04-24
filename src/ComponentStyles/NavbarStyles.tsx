@@ -45,3 +45,4 @@ export const drawerLinkSx = {
 }
 
 export const colorWhite = { color: 'white' }
+export const colorBlack = { color: 'black' }

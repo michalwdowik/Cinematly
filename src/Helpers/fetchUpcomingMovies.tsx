@@ -24,13 +24,11 @@ const fetchUpcomingMovies = async () => {
         })
 
     const today = new Date()
+    const thirtyDaysAgo = new Date(today.getTime() - 30 * 24 * 60 * 60 * 1000) // 30 days * 24 hours/day * 60 minutes/hour * 60 seconds/minute * 1000 milliseconds/second
+
     const upcomingMoviesUpToToday = upcomingMovies.filter((movie: Movie) => {
         const releaseDate = new Date(movie.release_date)
-
-        const isFromCurrentMonthOrFuture =
-            releaseDate.getMonth() >= today.getMonth() &&
-            releaseDate.getFullYear() >= today.getFullYear()
-        return isFromCurrentMonthOrFuture && releaseDate <= today
+        return releaseDate <= today && releaseDate >= thirtyDaysAgo
     })
 
     const upcomingMoviesFromFuture = upcomingMovies.filter((movie: Movie) => {
