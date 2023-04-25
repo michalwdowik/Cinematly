@@ -7,7 +7,7 @@ import trendingMovies from '../Helpers/fetchTrendingMovies'
 
 import { fontSize14px } from '../ComponentStyles/TrendingActorsStyles'
 import {
-    MovieHeadingModalProps,
+    CardDetailsProps,
     MovieImageModalProps,
 } from '../types/TrendingMoviesTypes'
 import TrendingMovieModalDetails from './TrendingMovieModalDetails'
@@ -46,11 +46,11 @@ const TrendingMovieModal = ({ id }: { id: string }) => {
                         layoutId={`card-image-container-${id}`}
                     >
                         <MovieHeadingModal
-                            voteAverage={vote_average}
+                            vote_average={vote_average}
                             id={id}
                             title={title}
                         />
-                        <MovieImageModal backdropPath={backdrop_path} />
+                        <MovieImageModal backdrop_path={backdrop_path} />
                     </motion.div>
 
                     <TrendingMovieModalDetails
@@ -68,11 +68,7 @@ const TrendingMovieModal = ({ id }: { id: string }) => {
 
 export default TrendingMovieModal
 
-const MovieHeadingModal = ({
-    voteAverage,
-    title,
-    id,
-}: MovieHeadingModalProps) => {
+const MovieHeadingModal = ({ vote_average, title, id }: CardDetailsProps) => {
     return (
         <motion.div
             className="title-container"
@@ -80,18 +76,18 @@ const MovieHeadingModal = ({
         >
             <Box component="span" sx={{ display: 'flex' }} className="category">
                 <StarIcon sx={fontSize14px} />
-                {voteAverage}
+                {vote_average}
             </Box>
             <h2>{title}</h2>
         </motion.div>
     )
 }
 
-const MovieImageModal = ({ backdropPath }: MovieImageModalProps) => {
+const MovieImageModal = ({ backdrop_path }: MovieImageModalProps) => {
     return (
         <img
             className="card-image"
-            src={`https://image.tmdb.org/t/p/w780/${backdropPath}`}
+            src={`https://image.tmdb.org/t/p/w780/${backdrop_path}`}
             alt=""
         />
     )

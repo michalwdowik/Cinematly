@@ -10,15 +10,13 @@ export type TopRatedMovieImageProps = {
     title: string
 }
 
-export type TopRatedMovieRankProps = {
-    rankPosition: number
-}
+export type TopRatedMovieRankProps = Pick<TopRatedMovieProps, 'rankPosition'>
+
 export type TopRatedMovieRatingProps = {
     vote_average: number
 }
-export type TopRatedMovieTitleProps = {
-    title: string
-}
+export type TopRatedMovieTitleProps = Pick<TopRatedMovieImageProps, 'title'>
+
 export type TopRatedMovieReleaseDateProps = {
     release_date: string
 }

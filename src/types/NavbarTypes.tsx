@@ -5,12 +5,7 @@ export type DrawerListProps = {
     isDrawerOpen: boolean
 }
 
-export type NavbarMenuProps = {
-    pageLabel: string
-    setPageLabel: (pageLabel: string) => void
-}
-
-export type NavbarTabsProps = {
+export type NavbarProps = {
     pageLabel: string
     setPageLabel: (pageLabel: string) => void
 }

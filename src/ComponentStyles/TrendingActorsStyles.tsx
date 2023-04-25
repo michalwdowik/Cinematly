@@ -23,12 +23,6 @@ export const actorDetailsSx = {
     padding: '70px 100px',
 }
 
-export const trendingActorsBoxSx = {
-    background: 'transparent',
-    height: '400px',
-    width: '100%',
-}
-
 export const infiniteSliderBoxSx = {
     position: 'relative',
     height: '100%',
@@ -48,4 +42,12 @@ export const actorNameSx = {
     color: 'white',
     fontSize: { xs: '24px', md: '32px', lg: '40px' },
     fontWeight: 'bold',
+}
+
+export const trendingActorsBoxSx = {
+    background: 'transparent',
+    height: '400px',
+    width: '100%',
+    marginBottom: '200px',
+    marginTop: '-20px',
 }

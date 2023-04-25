@@ -11,7 +11,7 @@ export type ActorRatingProps = Pick<Actor, 'vote_average'>
 export type ActorImageProps = Pick<Actor, 'profile_path'>
 export type ActorRoleOverviewProps = Pick<Actor, 'overview'>
 
-export interface Actor {
+export type Actor = {
     name: string
     profile_path: string
     known_for: KnownFor[]
@@ -19,11 +19,8 @@ export interface Actor {
     overview: string
 }
 
-export interface KnownFor {
-    name: string
+export type KnownFor = Pick<Actor, 'name' | 'overview' | 'vote_average'> & {
     title: string
-    overview: string
-    vote_average: number
 }
 
 export type InfiniteSliderProps = {

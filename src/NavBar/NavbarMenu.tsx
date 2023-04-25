@@ -2,15 +2,10 @@ import { Box, Tab, Tabs } from '@mui/material'
 import { Link } from 'react-router-dom'
 import WebsiteLogo from '../Components/WebsiteLogo'
 import pages from '../Helpers/pages'
-import {
-    Page,
-    NavbarMenuProps,
-    NavbarTabProps,
-    NavbarTabsProps,
-} from '../types/NavbarTypes'
+import { Page, NavbarProps, NavbarTabProps } from '../types/NavbarTypes'
 import { navbarMenuBoxSx, navbarTabSx } from '../ComponentStyles/NavbarStyles'
 
-const NavbarMenu = ({ pageLabel, setPageLabel }: NavbarMenuProps) => {
+const NavbarMenu = ({ pageLabel, setPageLabel }: NavbarProps) => {
     return (
         <Box sx={navbarMenuBoxSx}>
             <WebsiteLogo />
@@ -19,7 +14,7 @@ const NavbarMenu = ({ pageLabel, setPageLabel }: NavbarMenuProps) => {
     )
 }
 
-const NavbarTabs = ({ pageLabel, setPageLabel }: NavbarTabsProps) => {
+const NavbarTabs = ({ pageLabel, setPageLabel }: NavbarProps) => {
     return (
         <Tabs
             value={pageLabel}

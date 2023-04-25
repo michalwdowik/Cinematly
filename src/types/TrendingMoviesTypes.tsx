@@ -5,31 +5,24 @@ export interface TrendingMovieCardsProps {
     backdrop_path: string
     vote_average: number
 }
-export type CardImageProps = {
-    id: string
-    backdrop_path: string
-}
-export type CardDetailsProps = {
-    id: string
-    title: string
-    vote_average: number
-}
+export type CardImageProps = Pick<
+    TrendingMovieCardsProps,
+    'id' | 'backdrop_path'
+>
 
-export type MovieHeadingModalProps = {
-    voteAverage: number
-    title: string
-    id: string
-}
+export type CardDetailsProps = Pick<
+    TrendingMovieCardsProps,
+    'id' | 'title' | 'vote_average'
+>
 
-export type MovieImageModalProps = {
-    backdropPath: string
-}
-export type MovieTitleProps = {
-    title: string
-}
-export type MovieRatingProps = {
-    vote_average: number
-}
+export type MovieImageModalProps = Pick<
+    TrendingMovieCardsProps,
+    'backdrop_path'
+>
+
+export type MovieTitleProps = Pick<TrendingMovieCardsProps, 'title'>
+
+export type MovieRatingProps = Pick<TrendingMovieCardsProps, 'vote_average'>
 
 export type TrendingMovieModalDetailsProps = {
     title: string
@@ -38,16 +31,20 @@ export type TrendingMovieModalDetailsProps = {
     overview: string
     originTitle: string
 }
-export type MovieTitleModalProps = {
-    title: string
-    originTitle: string | undefined
-}
-export type MovieReleaseDateProps = {
-    releaseDate: string
-}
-export type MovieOriginalLanguageModalProps = {
-    originLanguage: string | undefined
-}
-export type MovieOverviewModalProps = {
-    overview: string
-}
+
+export type MovieOriginalLanguageModalProps = Pick<
+    TrendingMovieModalDetailsProps,
+    'originLanguage'
+>
+export type MovieOverviewModalProps = Pick<
+    TrendingMovieModalDetailsProps,
+    'overview'
+>
+export type MovieReleaseDateProps = Pick<
+    TrendingMovieModalDetailsProps,
+    'releaseDate'
+>
+export type MovieTitleModalProps = Pick<
+    TrendingMovieModalDetailsProps,
+    'title' | 'originTitle'
+>
