@@ -8,16 +8,19 @@ import appBoxSx from './ComponentStyles/AppStyles'
 import BottomScroll from './Components/BottomScroll'
 import SpeedDial from './Components/SpeedDial'
 import { upcomingMoviesUpToToday } from './Helpers/fetchUpcomingMovies'
+import { WatchlistContextProvider } from './Helpers/Watchlist'
 
 const App = () => (
     <Router>
         <NavBar />
-        <Box sx={appBoxSx}>
-            <AnimatedRoutes />
-        </Box>
+        <WatchlistContextProvider>
+            <SpeedDial movies={upcomingMoviesUpToToday} />
+            <Box sx={appBoxSx}>
+                <AnimatedRoutes />
+            </Box>
+        </WatchlistContextProvider>
         <Footer />
         <BottomScroll />
-        <SpeedDial movies={upcomingMoviesUpToToday} />
     </Router>
 )
 

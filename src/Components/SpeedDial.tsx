@@ -1,24 +1,26 @@
 /* eslint-disable jsx-a11y/click-events-have-key-events */
 /* eslint-disable jsx-a11y/no-static-element-interactions */
 import {
+    Alert,
     Box,
     Checkbox,
     Fab,
     FormControlLabel,
+    Snackbar,
     ThemeProvider,
     Tooltip,
     Typography,
     Zoom,
     createTheme,
 } from '@mui/material'
-import { useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import AccessAlarmIcon from '@mui/icons-material/AccessAlarm'
 import { useAutoAnimate } from '@formkit/auto-animate/react'
 import { Movie } from '../types/MoviesTypes'
 import '../Styles/speeddial.css'
 import cutText from '../Helpers/cutText'
 import { MAIN_THEME_COLOR, MAIN_THEME_COLOR_SECONDARY } from '../Helpers/colors'
-import { watchlist } from '../Helpers/Watchlist'
+import { useWatchlistContext } from '../Helpers/Watchlist'
 
 const SpeedDial = () => {
     const [open, setOpen] = useState(false)
@@ -36,14 +38,52 @@ const SpeedDial = () => {
         },
     })
 
+    const { watchlist, removeMovieFromWatchlist, showAlert } =
+        useWatchlistContext()
+
+    const [animateAdd, setAnimateAdd] = useState(false)
+
+    const prevLengthRef = useRef(watchlist.length)
+
+    useEffect(() => {
+        const handleEscapeKeyPress = (event: KeyboardEvent) => {
+            if (event.key === 'Escape' && open) {
+                setOpen(false)
+            }
+        }
+
+        document.addEventListener('keydown', handleEscapeKeyPress)
+
+        return () => {
+            document.removeEventListener('keydown', handleEscapeKeyPress)
+        }
+    }, [open])
+
+    useEffect(() => {
+        if (watchlist.length > prevLengthRef.current) {
+            setAnimateAdd(true)
+            setTimeout(() => {
+                setAnimateAdd(false)
+            }, 1000)
+        }
+        prevLengthRef.current = watchlist.length
+    }, [watchlist.length])
+
     return (
         <div className="speed-dial">
+            {/* <Snackbar open={animateAdd} autoHideDuration={6000}>
+                <Alert severity="warning" sx={{ width: '50%' }}>
+                    Movie already added to watchlist
+                </Alert>
+            </Snackbar> */}
+
             <Tooltip
                 placement="left-start"
                 TransitionComponent={Zoom}
                 title="Watchlist"
             >
                 <Fab
+                    className={animateAdd ? 'animateAdd' : ''}
                     sx={{
                         backgroundColor: MAIN_THEME_COLOR,
                         color: 'white',
@@ -103,7 +143,13 @@ const SpeedDial = () => {
                                 <FormControlLabel
                                     control={
                                         <ThemeProvider theme={theme}>
-                                            <Checkbox />
+                                            <Checkbox
+                                                onChange={() =>
+                                                    removeMovieFromWatchlist(
+                                                        movie
+                                                    )
+                                                }
+                                            />
                                         </ThemeProvider>
                                     }
                                     label={
@@ -174,6 +220,14 @@ const SpeedDial = () => {
                         </Box>
                     ))}
                 </ul>
+                {watchlist.length === 0 && (
+                    <Typography
+                        variant="h4"
+                        sx={{ color: 'black', opacity: '50%' }}
+                    >
+                        Add some movies...
+                    </Typography>
+                )}
             </div>
         </div>
     )
