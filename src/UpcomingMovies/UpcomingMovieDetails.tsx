@@ -18,7 +18,7 @@ const UpcomingMovieDetails = ({ movie }: MovieProps) => {
     return (
         <Box sx={upcomingMovieDetailsSx}>
             <Box sx={{ ...movieModalDetailsSx, ...colorBlack }}>
-                <AddToWatchlistButton absolute />
+                <AddToWatchlistButton absolute movie={movie} />
                 <UpcomingMovieTitle
                     title={movie.title}
                     originTitle={movie.original_title}
@@ -96,7 +96,7 @@ const UpcomingMovieOriginLanguage = ({
 const UpcomingMovieOverview = ({ overview }: UpcomingMovieOverviewProps) => {
     return (
         <Typography variant="subtitle2">
-            {cutText(overview) || 'No overview'}
+            {cutText(overview, 25) || 'No overview'}
         </Typography>
     )
 }

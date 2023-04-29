@@ -1,7 +1,7 @@
 import { useParams } from 'react-router-dom'
 import { ParallaxProvider } from 'react-scroll-parallax'
 import TrendingMoviesCards from '../TrendingMovies/TrendingMoviesCards'
-import Item from '../TrendingMovies/TrendingMovieModal'
+import TrendingMovieModal from '../TrendingMovies/TrendingMovieModal'
 import MoviesCarousel from '../Carousel/MoviesCarousel'
 import Quote from '../Components/Quote'
 import SectionHeading from '../Components/SectionHeading'
@@ -21,7 +21,7 @@ const Home = () => {
                     subheading="Stay up-to-date with the latest buzz in the entertainment world and find your next binge-worthy watch."
                 />
                 <TrendingMoviesCards />
-                {id && <Item id={id} />}
+                {id && <TrendingMovieModal id={id} />}
                 <SectionHeading
                     enableParallax
                     leftAligned={false}

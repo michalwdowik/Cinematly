@@ -1,4 +1,4 @@
-import MAIN_THEME_COLOR from '../Helpers/colors'
+import { MAIN_THEME_COLOR } from '../Helpers/colors'
 
 export const appBarSx = {
     bgcolor: MAIN_THEME_COLOR,

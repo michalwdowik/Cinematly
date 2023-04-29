@@ -13,15 +13,7 @@ import {
 import TrendingMovieModalDetails from './TrendingMovieModalDetails'
 
 const TrendingMovieModal = ({ id }: { id: string }) => {
-    const {
-        title,
-        backdrop_path,
-        overview,
-        vote_average,
-        release,
-        original_title,
-        original_language,
-    } = trendingMovies.find((item: Element) => item.id === id)
+    const movie = trendingMovies.find((item: Element) => item.id === id)
 
     return (
         <>
@@ -46,20 +38,14 @@ const TrendingMovieModal = ({ id }: { id: string }) => {
                         layoutId={`card-image-container-${id}`}
                     >
                         <MovieHeadingModal
-                            vote_average={vote_average}
+                            vote_average={movie.vote_average}
                             id={id}
-                            title={title}
+                            title={movie.title}
                         />
-                        <MovieImageModal backdrop_path={backdrop_path} />
+                        <MovieImageModal backdrop_path={movie.backdrop_path} />
                     </motion.div>
 
-                    <TrendingMovieModalDetails
-                        originTitle={original_title}
-                        title={title}
-                        releaseDate={release}
-                        originLanguage={original_language}
-                        overview={overview}
-                    />
+                    <TrendingMovieModalDetails movie={movie} />
                 </motion.div>
             </Box>
         </>

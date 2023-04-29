@@ -1,3 +1,5 @@
+import { Movie } from './MoviesTypes'
+
 export interface TrendingMovieCardsProps {
     id: string
     title: string
@@ -25,26 +27,19 @@ export type MovieTitleProps = Pick<TrendingMovieCardsProps, 'title'>
 export type MovieRatingProps = Pick<TrendingMovieCardsProps, 'vote_average'>
 
 export type TrendingMovieModalDetailsProps = {
-    title: string
-    releaseDate: string
-    originLanguage: string
-    overview: string
-    originTitle: string
+    movie: Movie
 }
 
-export type MovieOriginalLanguageModalProps = Pick<
-    TrendingMovieModalDetailsProps,
-    'originLanguage'
->
-export type MovieOverviewModalProps = Pick<
-    TrendingMovieModalDetailsProps,
-    'overview'
->
-export type MovieReleaseDateProps = Pick<
-    TrendingMovieModalDetailsProps,
-    'releaseDate'
->
-export type MovieTitleModalProps = Pick<
-    TrendingMovieModalDetailsProps,
-    'title' | 'originTitle'
->
+export type MovieOriginalLanguageModalProps = {
+    movieOriginLanguage: string
+}
+export type MovieOverviewModalProps = {
+    movieOverview: string
+}
+export type MovieReleaseDateProps = {
+    movieReleaseDate: string
+}
+export type MovieTitleModalProps = {
+    movieTitle: string
+    movieOriginTitle: string
+}

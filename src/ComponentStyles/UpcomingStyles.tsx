@@ -1,5 +1,5 @@
 import { CSSProperties } from 'react'
-import MAIN_THEME_COLOR from '../Helpers/colors'
+import { MAIN_THEME_COLOR } from '../Helpers/colors'
 
 export const upcomingPageBoxSx = {
     display: 'flex',

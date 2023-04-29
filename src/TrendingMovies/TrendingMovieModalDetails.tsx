@@ -14,53 +14,57 @@ import {
 } from '../ComponentStyles/TrendingMoviesStyles'
 
 const TrendingMovieModalDetails = ({
-    title,
-    releaseDate,
-    originLanguage,
-    originTitle,
-    overview,
+    movie,
 }: TrendingMovieModalDetailsProps) => {
     return (
         <motion.div className=" content-container" animate>
             <Box sx={movieModalDetailsSx}>
-                <AddToWatchlistButton absolute />
-                <MovieTitleModal title={title} originTitle={originTitle} />
-                <MovieReleaseDateModal releaseDate={releaseDate} />
-                <MovieOriginalLanguageModal originLanguage={originLanguage} />
-                <MovieOverviewModal overview={overview} />
+                <AddToWatchlistButton absolute movie={movie} />
+                <MovieTitleModal
+                    movieTitle={movie.title}
+                    movieOriginTitle={movie.original_title}
+                />
+                <MovieReleaseDateModal movieReleaseDate={movie.release} />
+                <MovieOriginalLanguageModal
+                    movieOriginLanguage={movie.original_language}
+                />
+                <MovieOverviewModal movieOverview={movie.overview} />
             </Box>
         </motion.div>
     )
 }
 export default TrendingMovieModalDetails
 
-const MovieTitleModal = ({ title, originTitle }: MovieTitleModalProps) => {
+const MovieTitleModal = ({
+    movieTitle,
+    movieOriginTitle,
+}: MovieTitleModalProps) => {
     return (
         <Box display="flex" alignItems="center">
             <Box component="span" sx={movieDetailsModalSx}>
                 Original title:
             </Box>
-            {originTitle ? (
+            {movieOriginTitle ? (
                 <Typography variant="subtitle1" display="inline">
-                    &nbsp; {originTitle}
+                    &nbsp; {movieOriginTitle}
                 </Typography>
             ) : (
                 <Typography variant="subtitle1" display="inline">
-                    &nbsp; {title}
+                    &nbsp; {movieTitle}
                 </Typography>
             )}
         </Box>
     )
 }
 
-const MovieReleaseDateModal = ({ releaseDate }: MovieReleaseDateProps) => {
-    return releaseDate ? (
+const MovieReleaseDateModal = ({ movieReleaseDate }: MovieReleaseDateProps) => {
+    return movieReleaseDate ? (
         <Box display="flex" alignItems="center">
             <Box component="span" sx={movieDetailsModalSx}>
                 Release date:
             </Box>
             <Typography variant="subtitle1" display="inline">
-                &nbsp; {releaseDate}
+                &nbsp; {movieReleaseDate}
             </Typography>
         </Box>
     ) : (
@@ -71,15 +75,15 @@ const MovieReleaseDateModal = ({ releaseDate }: MovieReleaseDateProps) => {
 }
 
 const MovieOriginalLanguageModal = ({
-    originLanguage,
+    movieOriginLanguage,
 }: MovieOriginalLanguageModalProps) => {
-    return originLanguage ? (
+    return movieOriginLanguage ? (
         <Box display="flex" alignItems="center">
             <Box component="span" sx={movieDetailsModalSx}>
                 Language:
             </Box>
             <Typography variant="subtitle1" display="inline">
-                &nbsp; {originLanguage}
+                &nbsp; {movieOriginLanguage}
             </Typography>
         </Box>
     ) : (
@@ -87,8 +91,10 @@ const MovieOriginalLanguageModal = ({
     )
 }
 
-const MovieOverviewModal = ({ overview }: MovieOverviewModalProps) => {
+const MovieOverviewModal = ({ movieOverview }: MovieOverviewModalProps) => {
     return (
-        <Typography variant="subtitle2">{overview || 'No overview'}</Typography>
+        <Typography variant="subtitle2">
+            {movieOverview || 'No overview'}
+        </Typography>
     )
 }

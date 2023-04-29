@@ -4,15 +4,22 @@ import {
     watchLaterButtonSx,
     watchLaterButtonSxAbsolute,
 } from '../ComponentStyles/TrendingMoviesStyles'
+import { Movie } from '../types/MoviesTypes'
+import { addToWatchlist } from '../Helpers/Watchlist'
 
 export type AddToWatchlistButtonProps = {
     absolute: boolean
     styles?: string
+    movie: Movie
 }
 const AddToWatchlistButton = ({
     absolute,
     styles,
+    movie,
 }: AddToWatchlistButtonProps) => {
+    const handleAddToWatchlist = () => {
+        addToWatchlist(movie)
+    }
     return (
         <Button
             className={styles}
@@ -23,6 +30,7 @@ const AddToWatchlistButton = ({
                     ? { ...watchLaterButtonSx, ...watchLaterButtonSxAbsolute }
                     : watchLaterButtonSx
             }
+            onClick={handleAddToWatchlist}
         >
             Add to watchlist
         </Button>

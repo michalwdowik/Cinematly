@@ -58,7 +58,7 @@ const ActorKnownFor = ({ known_for }: ActorKnownForProps) => {
 const ActorRoleOverview = ({ overview }: ActorRoleOverviewProps) => {
     return (
         <Box sx={{ color: 'white', marginBottom: '10px' }}>
-            {cutText(overview)}
+            {cutText(overview, 25)}
         </Box>
     )
 }

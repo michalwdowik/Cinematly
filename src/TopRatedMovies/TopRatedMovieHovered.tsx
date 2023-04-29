@@ -11,7 +11,11 @@ const TopRatedMovieHovered = ({ movie }: MovieProps) => {
             <TopRatedMovieOverview movie={movie} />
             <DetailsDivider />
             <TopRatedMovieDetails movie={movie} />
-            <AddToWatchlistButton styles="addToWatchlist" absolute={false} />
+            <AddToWatchlistButton
+                styles="addToWatchlist"
+                absolute={false}
+                movie={movie}
+            />
         </Box>
     )
 }
@@ -19,7 +23,7 @@ const TopRatedMovieHovered = ({ movie }: MovieProps) => {
 const TopRatedMovieOverview = ({ movie }: MovieProps) => {
     return (
         <Typography sx={colorWhite}>
-            &quot;{cutText(movie.overview)}&quot;
+            &quot;{cutText(movie.overview, 25)}&quot;
         </Typography>
     )
 }

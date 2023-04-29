@@ -1,3 +1,5 @@
+import { MAIN_THEME_COLOR_SECONDARY } from '../Helpers/colors'
+
 export const watchLaterButtonSx = {
     transitionDuration: '0.3s',
     backgroundColor: 'orange',
@@ -7,6 +9,9 @@ export const watchLaterButtonSx = {
     fontSize: '11px',
     zIndex: '1',
     overflow: 'visible',
+    '&:hover': {
+        backgroundColor: MAIN_THEME_COLOR_SECONDARY,
+    },
 }
 
 export const watchLaterButtonSxAbsolute = {
