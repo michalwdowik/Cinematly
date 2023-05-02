@@ -1,7 +1,6 @@
 /* eslint-disable no-param-reassign */
 const cutText = (text: string, maxWords: number) => {
     const words = text.trim().split(' ')
-    // let maxWords = 25
 
     if (words.length <= maxWords) {
         return text

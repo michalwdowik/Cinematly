@@ -5,6 +5,7 @@ import {
     watchLaterButtonSxAbsolute,
 } from '../ComponentStyles/TrendingMoviesStyles'
 import { Movie } from '../types/MoviesTypes'
+import useThemeColors from '../Hooks/useThemeColors'
 import { useWatchlistContext } from '../Helpers/Watchlist'
 
 export type AddToWatchlistButtonProps = {
@@ -17,7 +18,8 @@ const AddToWatchlistButton = ({
     styles,
     movie,
 }: AddToWatchlistButtonProps) => {
-    const { addToWatchlist } = useWatchlistContext()
+    const { addToWatchlist, removeMovieFromWatchlist } = useWatchlistContext()
+    const { mainThemeColorSecondary } = useThemeColors()
 
     const handleAddToWatchlist = () => {
         addToWatchlist(movie)
@@ -29,8 +31,11 @@ const AddToWatchlistButton = ({
             startIcon={<WatchLaterIcon />}
             sx={
                 absolute
-                    ? { ...watchLaterButtonSx, ...watchLaterButtonSxAbsolute }
-                    : watchLaterButtonSx
+                    ? {
+                          ...watchLaterButtonSx(mainThemeColorSecondary),
+                          ...watchLaterButtonSxAbsolute,
+                      }
+                    : watchLaterButtonSx(mainThemeColorSecondary)
             }
             onClick={handleAddToWatchlist}
         >

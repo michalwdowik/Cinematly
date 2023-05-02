@@ -1,0 +1,101 @@
+:root {
+    --mainTheme: #fc9803;
+  }
+
+
+  .MuiOutlinedInput-notchedOutline{
+    border-color: var(--mainTheme) !important;
+ }
+
+ 
+
+  @keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+  .searchedMovie {
+    display: flex;
+    justify-content: center;
+    transition: all .4s cubic-bezier(0.175, 0.885, 0, 1);
+    animation: fadeIn 1s cubic-bezier(0.175, 0.885, 0, 1);
+    position: relative;
+    border-radius: 50px;
+    overflow: hidden;
+    min-width: 250px;
+  }
+
+  
+  .searchedMovie:hover {
+    color: white;
+    transform: scale(1.05, 1.05);
+  }
+  
+
+
+  .searchedMoviePoster:hover .searchedMovie__details {   
+    visibility: visible;
+  }
+  
+  .searchedMovie:hover .searchedMoviePoster {
+    filter: brightness(0.3);
+    scale: 120%;
+    transition: all 0.15s ease-in-out;
+  }
+  
+  .searchedMovie:hover .addToWatchlist {
+    visibility: visible;
+  }
+  
+  .addToWatchlist {
+    visibility: hidden;
+  }
+  
+ 
+  
+  .searchedMovie:hover .searchedMovieRankPosition {
+    visibility: hidden;
+  }
+  
+  .searchedMovie__details {
+    visibility: hidden;
+    position: absolute;
+    padding: 1.2rem;
+    text-align: center;
+    font-weight: 200;
+    display: flex;
+    flex-direction: column;
+    justify-content: 'center';
+    align-items: 'center';
+    align-content: 'center';
+    gap: 1rem;
+  }
+  
+  .searchedMovie:hover .searchedMovie__details {
+    visibility: visible;
+  }
+  
+
+  .unroll-fade-in {
+  opacity: 0;
+  /* transform: translateY(-50%); */
+  animation-name: unroll-fade-in;
+  animation-duration: 0.2s;
+  animation-delay: 0.2s;
+  animation-fill-mode: forwards;
+}
+
+@keyframes unroll-fade-in {
+  0% {
+    opacity: 0;
+    /* transform: translateY(-50%); */
+  }
+  100% {
+    opacity: 1;
+    /* transform: translateY(0); */
+  }
+}

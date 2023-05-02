@@ -1,5 +1,4 @@
 import { CSSProperties } from 'react'
-import { MAIN_THEME_COLOR } from '../Helpers/colors'
 
 export const upcomingPageBoxSx = {
     display: 'flex',
@@ -41,7 +40,9 @@ export const timelineWrapperSx: CSSProperties = {
     padding: '0',
 }
 
-export const timelineWrapperIconSx = {
-    background: MAIN_THEME_COLOR,
-    color: '#fff',
+export const timelineWrapperIconSx = (mainThemeColor: string) => {
+    return {
+        background: mainThemeColor,
+        color: '#fff',
+    }
 }

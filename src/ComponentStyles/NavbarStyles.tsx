@@ -1,12 +1,15 @@
-import { MAIN_THEME_COLOR } from '../Helpers/colors'
+import { ColorMode } from '../Hooks/useToggleMode'
 
-export const appBarSx = {
-    bgcolor: MAIN_THEME_COLOR,
-    display: 'flex',
-    justifyContent: 'center',
-    position: 'sticky',
-    width: '100vw',
+export const appBarSx = (mainThemeColor: string, colorMode: ColorMode) => {
+    return {
+        bgcolor: `${colorMode === 'dark' ? mainThemeColor : 'green'}`,
+        display: 'flex',
+        justifyContent: 'center',
+        position: 'sticky',
+        width: '100vw',
+    }
 }
+
 export const toolbarSx = {
     height: '50px',
     justifyContent: 'space-between',

@@ -34,6 +34,7 @@
     "react-screentype-hook": "^1.0.18",
     "react-scroll-motion": "^0.3.2",
     "react-scroll-parallax": "^3.3.2",
+    "react-toggle-dark-mode": "^1.1.1",
     "react-vertical-timeline-component": "^3.6.0",
     "sort-by": "^0.0.2",
     "uuid": "^9.0.0",

@@ -1,8 +1,6 @@
 import HomeIcon from '@mui/icons-material/Home'
 import AccessTimeIcon from '@mui/icons-material/AccessTime'
 import EmojiEventsIcon from '@mui/icons-material/EmojiEvents'
-
-import { SearchRounded } from '@mui/icons-material'
 import { Page } from '../types/NavbarTypes'
 
 type Pages = {
@@ -24,11 +22,6 @@ const pages: Pages = {
         label: 'Top Rated',
         icon: <EmojiEventsIcon />,
         link: '/top-rated',
-    },
-    SearchMovie: {
-        label: 'Search Movie',
-        icon: <SearchRounded />,
-        link: '/search',
     },
 }
 

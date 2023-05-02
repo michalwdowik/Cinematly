@@ -1,12 +1,10 @@
 /* eslint-disable jsx-a11y/click-events-have-key-events */
 /* eslint-disable jsx-a11y/no-static-element-interactions */
 import {
-    Alert,
     Box,
     Checkbox,
     Fab,
     FormControlLabel,
-    Snackbar,
     ThemeProvider,
     Tooltip,
     Typography,
@@ -19,10 +17,11 @@ import { useAutoAnimate } from '@formkit/auto-animate/react'
 import { Movie } from '../types/MoviesTypes'
 import '../Styles/speeddial.css'
 import cutText from '../Helpers/cutText'
-import { MAIN_THEME_COLOR, MAIN_THEME_COLOR_SECONDARY } from '../Helpers/colors'
 import { useWatchlistContext } from '../Helpers/Watchlist'
+import useThemeColors from '../Hooks/useThemeColors'
 
 const SpeedDial = () => {
+    const { mainThemeColor, mainThemeColorSecondary } = useThemeColors()
     const [open, setOpen] = useState(false)
     const [animationParent] = useAutoAnimate()
 
@@ -33,13 +32,12 @@ const SpeedDial = () => {
     const theme = createTheme({
         palette: {
             primary: {
-                main: MAIN_THEME_COLOR,
+                main: mainThemeColor,
             },
         },
     })
 
-    const { watchlist, removeMovieFromWatchlist, showAlert } =
-        useWatchlistContext()
+    const { watchlist, removeMovieFromWatchlist } = useWatchlistContext()
 
     const [animateAdd, setAnimateAdd] = useState(false)
 
@@ -71,12 +69,6 @@ const SpeedDial = () => {
 
     return (
         <div className="speed-dial">
-            {/* <Snackbar open={animateAdd} autoHideDuration={6000}>
-                <Alert severity="warning" sx={{ width: '50%' }}>
-                    Movie already added to watchlist
-                </Alert>
-            </Snackbar> */}
-
             <Tooltip
                 placement="left-start"
                 TransitionComponent={Zoom}
@@ -85,12 +77,12 @@ const SpeedDial = () => {
                 <Fab
                     className={animateAdd ? 'animateAdd' : ''}
                     sx={{
-                        backgroundColor: MAIN_THEME_COLOR,
+                        backgroundColor: mainThemeColor,
                         color: 'white',
                         transition: '0.4s all ease-in-out',
                         '&:hover': {
                             scale: '1.2',
-                            backgroundColor: MAIN_THEME_COLOR_SECONDARY,
+                            backgroundColor: mainThemeColorSecondary,
                         },
                     }}
                     onClick={toggleOpen}
@@ -179,10 +171,13 @@ const SpeedDial = () => {
                                                     <div className="speed-dial-item-title">
                                                         {movie.title}
                                                     </div>
-                                                    <div className="speed-dial-item-release-date">
-                                                        {movie.release_date ||
-                                                            movie.release}
-                                                    </div>
+                                                    {movie.release ||
+                                                        (movie.release_date && (
+                                                            <div className="speed-dial-item-release-date">
+                                                                {movie.release_date ||
+                                                                    movie.release}
+                                                            </div>
+                                                        ))}
                                                 </Box>
                                             </Box>
                                             <Typography
@@ -199,7 +194,8 @@ const SpeedDial = () => {
                                                     },
                                                 }}
                                             >
-                                                {cutText(movie.overview, 10)}..
+                                                {cutText(movie.overview, 10)}
+                                                ..
                                             </Typography>
                                         </div>
                                     }

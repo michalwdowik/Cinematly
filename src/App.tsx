@@ -7,20 +7,22 @@ import Footer from './Footer/Footer'
 import appBoxSx from './ComponentStyles/AppStyles'
 import BottomScroll from './Components/BottomScroll'
 import SpeedDial from './Components/SpeedDial'
-import { upcomingMoviesUpToToday } from './Helpers/fetchUpcomingMovies'
 import { WatchlistContextProvider } from './Helpers/Watchlist'
+import ThemeModeContext from './Hooks/ThemeModeContext'
 
 const App = () => (
     <Router>
-        <NavBar />
-        <WatchlistContextProvider>
-            <SpeedDial movies={upcomingMoviesUpToToday} />
-            <Box sx={appBoxSx}>
-                <AnimatedRoutes />
-            </Box>
-        </WatchlistContextProvider>
-        <Footer />
-        <BottomScroll />
+        <ThemeModeContext>
+            <WatchlistContextProvider>
+                <NavBar />
+                <SpeedDial />
+                <Box sx={appBoxSx}>
+                    <AnimatedRoutes />
+                </Box>
+            </WatchlistContextProvider>
+            <Footer />
+            <BottomScroll />
+        </ThemeModeContext>
     </Router>
 )
 

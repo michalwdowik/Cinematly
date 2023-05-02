@@ -7,13 +7,15 @@ import {
     timelineWrapperIconSx,
     timelineWrapperSx,
 } from '../ComponentStyles/UpcomingStyles'
+import useThemeColors from '../Hooks/useThemeColors'
 
 const TimelineWrapper = ({ movies, movie, children }: TimelineWrapperProps) => {
+    const { mainThemeColor } = useThemeColors()
     return (
         <VerticalTimelineElement
             contentStyle={timelineWrapperSx}
             date={movie.release_date}
-            iconStyle={timelineWrapperIconSx}
+            iconStyle={timelineWrapperIconSx(mainThemeColor)}
             icon={
                 movies === upcomingMoviesUpToToday ? (
                     <CelebrationIcon />

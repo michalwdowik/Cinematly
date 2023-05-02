@@ -24,7 +24,9 @@ const TrendingMovieModalDetails = ({
                     movieTitle={movie.title}
                     movieOriginTitle={movie.original_title}
                 />
-                <MovieReleaseDateModal movieReleaseDate={movie.release} />
+                {movie.release && (
+                    <MovieReleaseDateModal movieReleaseDate={movie.release} />
+                )}
                 <MovieOriginalLanguageModal
                     movieOriginLanguage={movie.original_language}
                 />
