@@ -1,5 +1,6 @@
 import { Box, Typography } from '@mui/material'
 import { Parallax, ParallaxProvider } from 'react-scroll-parallax'
+import { useContext } from 'react'
 import {
     GradientDividerProps,
     HeadingProps,
@@ -13,6 +14,7 @@ import {
     subheadingSx,
     sectionHeadingSx,
 } from '../ComponentStyles/SectionHeadingStyles'
+import { ThemeContext } from './ThemeContext'
 
 const SectionHeading = ({
     heading,
@@ -21,7 +23,6 @@ const SectionHeading = ({
     enableParallax = true,
 }: SectionHeadingProps) => {
     const xMove = leftAligned ? -5 : 5
-
     const contents = (
         <>
             <Heading heading={heading} leftAligned={leftAligned} />
@@ -44,8 +45,10 @@ const SectionHeading = ({
 export default SectionHeading
 
 const Heading = ({ heading, leftAligned }: HeadingProps) => {
+    const { textColor } = useContext(ThemeContext)
+
     return (
-        <Typography variant="h1" sx={headingSx(leftAligned)}>
+        <Typography variant="h1" sx={headingSx(leftAligned, textColor)}>
             {heading}
         </Typography>
     )

@@ -16,7 +16,7 @@ export const watchLaterButtonSx = (mainThemeColorSecondary: string) => {
 
 export const watchLaterButtonSxAbsolute = {
     position: 'absolute',
-    top: '-32px',
+    top: '-2rem',
     right: '0px',
     alignSelf: 'end',
 }
@@ -30,4 +30,6 @@ export const movieModalDetailsSx = {
     position: 'relative',
     display: 'flex',
     flexDirection: 'column',
+    padding: '0.5rem',
+    paddingTop: '0',
 }

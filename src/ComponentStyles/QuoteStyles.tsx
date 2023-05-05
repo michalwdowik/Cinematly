@@ -8,10 +8,9 @@ export const quoteSx = {
     width: { xs: '77%', sm: '70%', md: '60%', lg: '50%' },
     margin: '20px auto',
     textAlign: 'center',
-    color: 'white',
     transition: 'background 0.25s, color 0.25s',
     '&:hover': {
-        backgroundColor: '#000',
+        backgroundColor: 'transparent',
         color: '#fc9803',
     },
     marginTop: '5rem',

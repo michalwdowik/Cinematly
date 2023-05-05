@@ -1,10 +1,13 @@
 import { TextField } from '@mui/material'
+import { useContext } from 'react'
 import useThemeColors from '../Hooks/useThemeColors'
+import { ThemeContext } from '../Components/ThemeContext'
 
 const SearchMovieInput = ({
     searchQuery,
     handleSearchChange,
 }: SearchMovieInputProps) => {
+    const { textColor } = useContext(ThemeContext)
     const { mainThemeColor } = useThemeColors()
     return (
         <TextField
@@ -16,7 +19,7 @@ const SearchMovieInput = ({
             InputLabelProps={{
                 style: { color: mainThemeColor },
             }}
-            inputProps={{ style: { color: 'white' } }}
+            inputProps={{ style: { color: textColor } }}
             sx={{
                 width: '70%',
                 '& .MuiOutlinedInput-root': {

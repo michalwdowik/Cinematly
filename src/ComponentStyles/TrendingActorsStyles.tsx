@@ -15,6 +15,7 @@ export const actorImageSx = (url: string) => ({
     backgroundPosition: 'center center',
     borderRadius: '50px',
     backgroundImage: `url(https://image.tmdb.org/t/p/original/${url})`,
+    boxShadow: '8px 8px 12px -5px rgba(0, 0, 0, 1)',
 })
 
 export const actorDetailsSx = {
@@ -39,7 +40,6 @@ export const springBoxStyle = (x: SpringValue<number>) => ({
 })
 
 export const actorNameSx = {
-    color: 'white',
     fontSize: { xs: '24px', md: '32px', lg: '40px' },
     fontWeight: 'bold',
 }

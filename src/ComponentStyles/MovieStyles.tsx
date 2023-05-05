@@ -50,7 +50,7 @@ export const carouselOverlaySx = {
     width: '100%',
     justifyContent: 'flex-end',
     alignItems: 'flex-start',
-    backgroundImage: 'linear-gradient(rgb(0,0,0,0), rgb(0,0,0,1))',
+    backgroundImage: 'linear-gradient(rgb(13,13,13,0), rgb(13,13,13,1))',
     opacity: '0.9',
     transition: 'opacity 0.3s',
     padding: {

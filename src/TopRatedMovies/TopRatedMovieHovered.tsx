@@ -22,8 +22,15 @@ const TopRatedMovieHovered = ({ movie }: MovieProps) => {
 
 const TopRatedMovieOverview = ({ movie }: MovieProps) => {
     return (
-        <Typography sx={colorWhite}>
-            &quot;{cutText(movie.overview, 25)}&quot;
+        <Typography
+            sx={{
+                fontSize: '0.9rem',
+                color: 'white',
+                maxHeight: '200px',
+                overflow: 'scroll',
+            }}
+        >
+            &quot;{cutText(movie.overview, 20)}&quot;
         </Typography>
     )
 }

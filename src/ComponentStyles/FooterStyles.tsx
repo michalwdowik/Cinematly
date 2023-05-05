@@ -1,5 +1,3 @@
-export const colorGray = { color: 'gray' }
-
 export const footerBoxSx = {
     display: 'flex',
     flexDirection: 'column',
@@ -11,14 +9,7 @@ export const footerBoxSx = {
 
 export const footerMenuBoxSx = {
     display: 'flex',
-    gap: { xs: '10px', md: '90px' },
-}
-
-export const footerTabSx = {
-    color: 'white',
-    transition: 'all 0.3s ease',
-    '&:hover': {
-        backgroundColor: '#000000',
-        opacity: 0.5,
-    },
+    justifyContent: 'center',
+    marginLeft: '35px',
+    gap: { xs: '25px', md: '90px' },
 }

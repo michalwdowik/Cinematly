@@ -1,5 +1,6 @@
 import { Box } from '@mui/material'
 import StarIcon from '@mui/icons-material/Star'
+import { useContext } from 'react'
 import { colorWhite } from '../ComponentStyles/NavbarStyles'
 import {
     actorDetailsSx,
@@ -17,6 +18,7 @@ import {
     ActorRoleOverviewProps,
 } from '../types/TrendingActorsTypes'
 import cutText from '../Helpers/cutText'
+import { ThemeContext } from '../Components/ThemeContext'
 
 const ActorDetails = ({
     name,
@@ -31,7 +33,7 @@ const ActorDetails = ({
             <Box
                 sx={{
                     display: 'flex',
-                    alignContent: 'center',
+                    alignItems: 'center',
                     gap: '5px',
                     fontStyle: 'italic',
                 }}
@@ -46,7 +48,12 @@ const ActorDetails = ({
 }
 
 const ActorName = ({ name }: ActorNameProps) => {
-    return <Box sx={actorNameSx}>{name}</Box>
+    const { textColor } = useContext(ThemeContext)
+    return (
+        <Box color={textColor} sx={actorNameSx}>
+            {name}
+        </Box>
+    )
 }
 
 const ActorKnownFor = ({ known_for }: ActorKnownForProps) => {
@@ -56,16 +63,25 @@ const ActorKnownFor = ({ known_for }: ActorKnownForProps) => {
 }
 
 const ActorRoleOverview = ({ overview }: ActorRoleOverviewProps) => {
+    const { textColor } = useContext(ThemeContext)
     return (
-        <Box sx={{ color: 'white', marginBottom: '10px' }}>
+        <Box sx={{ color: textColor, marginBottom: '10px' }}>
             {cutText(overview, 25)}
         </Box>
     )
 }
 
 const ActorRating = ({ vote_average }: ActorRatingProps) => {
+    const { textColor } = useContext(ThemeContext)
+
     return (
-        <Box sx={colorWhite}>
+        <Box
+            sx={{
+                color: textColor,
+                display: 'flex',
+                fontSize: '16px',
+            }}
+        >
             <span>
                 <StarIcon sx={fontSize14px} />
                 {vote_average}

@@ -11,6 +11,12 @@
   display: none; 
 }
 
+* {
+  transition: color 0.5s ease-in-out;
+  transition: background-color 0.5s ease-in-out;
+}
+
+
 
 html {
   scrollbar-width: none;
@@ -22,7 +28,6 @@ body {
   overflow: hidden;
   margin: 0;
   padding: 0;
-  background: black;
   overflow-y: scroll;
   --secondary: rgb(161, 161, 161);
   --divider: #343434;
@@ -91,7 +96,7 @@ li {
   display: flex;
   flex-wrap: wrap;
   align-content: flex-start;
-  min-width: 85vw;
+  min-width: 75vw;
   max-width: 1150px;
   margin-bottom: 100px;
 }
@@ -102,7 +107,6 @@ li {
   height: 440px;
   flex: 0 0 40%;
   max-width: 40%;
-  cursor: crosshair;
 }
 
 .card:nth-child(4n + 1),
@@ -136,7 +140,6 @@ li {
   z-index: 1;
   overflow: hidden;
   padding: 40px 0;
-  /* border: 2px red solid; */
 }
 
 .card-content {
@@ -148,9 +151,9 @@ li {
   height: 100%;
   margin: 0 auto;
   border: none ;
-  /* border: 2px red solid; */
-
-
+  /* -webkit-box-shadow: 8px 8px 24px -5px rgba(66, 68, 90, 1);
+  -moz-box-shadow: 8px 8px 24px -5px rgba(66, 68, 90, 1); */
+  box-shadow: 8px 8px 12px -5px rgb(0, 0, 0);
 }
 
 .zoom-on-hover {
@@ -186,9 +189,11 @@ li {
 .card-image-container {
   position: absolute;
   top: 0;
-  left: -60px;
+  left: -80px;
   overflow: hidden;
   width: 100vw;
+  filter: brightness(80%)
+
 }
 
 .open .card-image-container {
@@ -272,7 +277,6 @@ h2 {
 .content-container {
   display: flex;
   flex-direction: column;
-  gap: 10px;
   z-index: 2;
   margin-bottom: auto;
   padding: 15px;
@@ -320,4 +324,21 @@ p {
   opacity: 60%;
   bottom: 30px;
   border-radius: 100px;
+}
+
+.scaleOnHover {
+  transition: all 0.2s ease-in-out; 
+}
+
+.scaleOnHover:hover {
+  transform: scale(1.05);
+}
+
+.upcomingMovies {
+  display: 'flex';
+  flex-direction: 'column';
+  justify-content: 'center';
+  align-content: 'center';
+  align-items: 'center';
+  margin-top: '4rem';
 }

@@ -1,6 +1,5 @@
 import { useState } from 'react'
-import { Box, IconButton } from '@mui/material'
-import { Search as SearchIcon } from '@mui/icons-material'
+import { Box, Button } from '@mui/material'
 import SearchMovies from '../pages/SearchMovies'
 
 const SearchButton = () => {
@@ -12,12 +11,12 @@ const SearchButton = () => {
 
     return (
         <>
-            <IconButton
+            <Button
                 onClick={handleFocus}
-                sx={{ p: '10px', color: 'white' }}
+                sx={{ p: '16px', color: 'white', fontSize: '15px' }}
             >
-                <SearchIcon />
-            </IconButton>
+                SEARCH
+            </Button>
             {isFocused && (
                 <Box
                     className="unroll-fade-in"

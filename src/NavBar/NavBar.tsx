@@ -1,35 +1,37 @@
 import AppBar from '@mui/material/AppBar'
 import Toolbar from '@mui/material/Toolbar'
 import useScreenType from 'react-screentype-hook'
-import { useContext, useState } from 'react'
-// import SwitchMode from '../Components/SwitchMode'
+import { useContext, useEffect, useState } from 'react'
 import { DarkModeSwitch } from 'react-toggle-dark-mode'
 import NavbarDrawer from './NavbarDrawer'
 import NavbarMenu from './NavbarMenu'
 import pages from '../Helpers/pages'
-import { appBarSx, toolbarSx } from '../ComponentStyles/NavbarStyles'
+import { toolbarSx } from '../ComponentStyles/NavbarStyles'
 import useThemeColors from '../Hooks/useThemeColors'
-import { ColorModeContext } from '../Hooks/useToggleMode'
-import SearchButton from '../SearchedMovies/SearchButton'
+import { ThemeContext } from '../Components/ThemeContext'
 
 const NavBar = () => {
+    const { toggleDarkMode, backgroundColor } = useContext(ThemeContext)
     const { mainThemeColor } = useThemeColors()
     const screenType = useScreenType()
-    const [isDarkMode, setDarkMode] = useState(false)
-
-    const { colorMode, toggleColorMode } = useContext(ColorModeContext)
+    const [isDarkMode, setDarkMode] = useState(true)
 
     const handleColorModeToggle = () => {
         setDarkMode(!isDarkMode)
-        toggleColorMode()
+        toggleDarkMode()
     }
     const [pageLabel, setPageLabel] = useState<string>(
         Object.values(pages)[0].label
     )
 
+    useEffect(() => {
+        const body = document.getElementsByTagName('body')[0]
+        body.style.backgroundColor = backgroundColor
+    }, [backgroundColor])
+
     return (
-        <AppBar sx={appBarSx(mainThemeColor, colorMode)}>
-            <Toolbar sx={toolbarSx}>
+        <AppBar sx={{ border: 'none', position: 'sticky' }}>
+            <Toolbar sx={toolbarSx(mainThemeColor)}>
                 {screenType.isMobile ? (
                     <NavbarDrawer />
                 ) : (
@@ -39,13 +41,12 @@ const NavBar = () => {
                     />
                 )}
 
-                <SearchButton />
                 <DarkModeSwitch
                     checked={isDarkMode}
                     onChange={handleColorModeToggle}
+                    size={30}
+                    moonColor="white"
                     sunColor="white"
-                    moonColor="black"
-                    size={screenType.isMobile ? 30 : 40}
                 />
             </Toolbar>
         </AppBar>

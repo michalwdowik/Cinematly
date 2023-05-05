@@ -21,7 +21,20 @@ const SearchedMovieHovered = ({ movie }: MovieProps) => {
 
 const TopRatedMovieOverview = ({ movie }: MovieProps) => {
     return (
-        <Typography sx={{ color: 'white', fontSize: '0.9rem' }}>
+        <Typography
+            sx={{
+                maxHeight: '11rem',
+                padding: '0.5rem',
+                color: 'white',
+                fontSize: '0.9rem',
+                wordWrap: 'break-word',
+                whiteSpace: 'normal',
+                width: '85%',
+                alignSelf: 'center',
+                justifySelf: 'center',
+                overflow: 'scroll',
+            }}
+        >
             &quot;{cutText(movie.overview, 20)}&quot;
         </Typography>
     )
@@ -33,7 +46,16 @@ export const DetailsDivider = () => {
 
 const TopRatedMovieDetails = ({ movie }: MovieProps) => {
     return (
-        <Typography sx={{ fontSize: '0.7rem' }} variant="subtitle2">
+        <Typography
+            sx={{
+                wordWrap: 'break-word',
+                whiteSpace: 'normal',
+                fontSize: '0.7rem',
+                maxWidth: '12rem',
+                alignSelf: 'center',
+            }}
+            variant="subtitle2"
+        >
             <b>Original title: </b>
             {movie.original_title}
             <br />

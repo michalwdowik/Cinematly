@@ -7,7 +7,6 @@ const TrendingMoviesCards = () => (
     <Parallax
         easing="easeInCubic"
         speed={100}
-        opacity={[0.5, 1.2]}
         scale={[1.25, 0.4]}
         translateY={['350px', '-50px']}
     >

@@ -1,12 +1,16 @@
 import { Box } from '@mui/material'
+import { useContext } from 'react'
 import SearchedMovie from './SearchedMovie'
 import { Movie } from '../types/MoviesTypes'
+import { ThemeContext } from '../Components/ThemeContext'
 
 type SearchedMoviesProps = {
     searchedMovies: Movie[]
 }
 
 const SearchedMovies = ({ searchedMovies }: SearchedMoviesProps) => {
+    const { textColor } = useContext(ThemeContext)
+
     return searchedMovies.length > 0 ? (
         <Box
             sx={{
@@ -27,7 +31,7 @@ const SearchedMovies = ({ searchedMovies }: SearchedMoviesProps) => {
     ) : (
         <Box
             sx={{
-                color: 'white',
+                color: textColor,
                 fontSize: '2rem',
                 marginTop: '4rem',
                 opacity: '50%',

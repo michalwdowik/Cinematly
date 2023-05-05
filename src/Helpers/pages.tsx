@@ -1,6 +1,6 @@
-import HomeIcon from '@mui/icons-material/Home'
 import AccessTimeIcon from '@mui/icons-material/AccessTime'
 import EmojiEventsIcon from '@mui/icons-material/EmojiEvents'
+import { Home, Search } from '@mui/icons-material'
 import { Page } from '../types/NavbarTypes'
 
 type Pages = {
@@ -8,18 +8,23 @@ type Pages = {
 }
 
 const pages: Pages = {
-    Home: {
-        label: 'Home',
-        icon: <HomeIcon />,
+    HOME: {
+        label: 'HOME',
+        icon: <Home />,
         link: '/',
     },
-    Upcoming: {
-        label: 'Upcoming',
+    SEARCH: {
+        label: 'SEARCH',
+        icon: <Search />,
+        link: '/',
+    },
+    UPCOMING: {
+        label: 'UPCOMING',
         icon: <AccessTimeIcon />,
         link: '/upcoming',
     },
-    'Top Rated': {
-        label: 'Top Rated',
+    TOPRATED: {
+        label: 'TOP RATED',
         icon: <EmojiEventsIcon />,
         link: '/top-rated',
     },

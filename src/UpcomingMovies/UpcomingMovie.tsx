@@ -34,7 +34,13 @@ const UpcomingMovieHeading = ({
 }: UpcomingMovieHeadingProps) => {
     return (
         <Box sx={upcomingMovieHeadingSx}>
-            <Box component="span" sx={{ display: 'flex' }} className="category">
+            <Box
+                component="span"
+                sx={{
+                    display: 'flex',
+                }}
+                className="category"
+            >
                 <StarIcon sx={fontSize14px} />
                 {voteAverage}
             </Box>

@@ -2,6 +2,7 @@ import { ReactNode } from 'react'
 
 export type DrawerListProps = {
     toggleDrawer: (open: boolean) => () => void
+    setIsDrawerOpen: React.Dispatch<React.SetStateAction<boolean>>
     isDrawerOpen: boolean
 }
 

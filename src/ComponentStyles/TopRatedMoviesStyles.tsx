@@ -44,6 +44,7 @@ export const topRatedMovieHeadingsSx = {
     bottom: '0',
     width: '100%',
     padding: '1rem',
+    backgroundColor: 'white',
 }
 
 export const detailsDividerSx = {

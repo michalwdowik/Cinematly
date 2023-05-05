@@ -35,15 +35,15 @@
   .speed-dial-list {
     position: 'relative';
     background: rgba( 255, 255, 255, 0.45 );
-box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
-backdrop-filter: blur( 20px );
+    box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
+    backdrop-filter: blur( 20px );
     position: absolute;
     bottom: 80px;
-    right: 20px;
+    right: 2px;
     width: 450px;
     max-height: 600px;
     overflow-y: auto;
-    border-radius: 4rem;
+    border-radius: 2.5rem;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3), 0 0 10px rgba(0, 0, 0, 0.1);
     z-index: 9999;
     display: flex;
@@ -51,6 +51,11 @@ backdrop-filter: blur( 20px );
     align-content: center;
     align-items: center;
     visibility: hidden;
+    -ms-overflow-style: none; 
+    scrollbar-width: none; 
+    overflow: scroll; 
+    min-height: 200px;
+
   }
 
   .speed-dial-button:active::before {
@@ -132,11 +137,13 @@ backdrop-filter: blur( 20px );
   }
 
 
-  .speed-dial-list {
-    -ms-overflow-style: none; 
-    scrollbar-width: none; 
-    overflow: scroll; 
-  }
+
+
+    @media only screen and (max-width: 767px) {
+      .speed-dial-list {
+        max-width: 90vw;
+      }
+    }
   
   .speed-dial-list::-webkit-scrollbar {
     display: none; 
@@ -146,13 +153,15 @@ backdrop-filter: blur( 20px );
   .speed-dial-item {
     display: flex;
     align-items: center;
-    padding: 8px 16px;
+    align-content: center;
+    padding-left: 16px;
+    padding-bottom: 8px;
+    justify-content: space-between;
     cursor: pointer;
     transition: all 0.3s ease;
   }
 
   .speed-dial-item img {
-    /* width: 100%; */
     width: 6rem;
     border-radius: 0.5rem;
     margin-bottom: 0.2rem;
@@ -162,14 +171,8 @@ backdrop-filter: blur( 20px );
   
   .speed-dial-item-details {
     display: flex;
-    /* flex-direction: column; */
     flex-grow: 1;
-    /* border: 2px red solid; */
-
     align-items: center;
-    max-height: 100px;
-    /* overflow: hidden; */
-
   }
   
   .speed-dial-item-title {
@@ -181,34 +184,30 @@ backdrop-filter: blur( 20px );
   .speed-dial-item-release-date {
     font-size: 8px;
     font-weight: bold;
-    /* color: #888888; */
     margin-bottom: 4px;
   }
   
-
   .animateAdd {
-    animation: animateAdd 0.7s ease-in-out forwards;
+    animation: animateAdd 0.8s ease-in-out;
   }
   
   @keyframes animateAdd {
     0% {
-      transform: scale(1);
+      transform: translateY(0) scale(1);
     }
-    25% {
-      transform: scale(1.5);
+    30% {
+      transform: translateY(-40px) scale(1.6);
     }
-
-    50% {
-      transform: scale(1);
-    
-    }
-
-    75% {
-      transform: scale(1.5);
+  
+    60% {
+      transform: translateY(-30px) scale(1.35);
     }
 
     100% {
-      transform: scale(1);
-    
+      transform: translateY(0) scale(1);
     }
   }
+  
+  
+  
+  

@@ -96,7 +96,7 @@ const UpcomingMovieOriginLanguage = ({
 const UpcomingMovieOverview = ({ overview }: UpcomingMovieOverviewProps) => {
     return (
         <Typography variant="subtitle2">
-            {cutText(overview, 25) || 'No overview'}
+            {cutText(overview, 20) || 'No overview'}
         </Typography>
     )
 }

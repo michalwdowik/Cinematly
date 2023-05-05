@@ -15,6 +15,7 @@ const TimelineWrapper = ({ movies, movie, children }: TimelineWrapperProps) => {
         <VerticalTimelineElement
             contentStyle={timelineWrapperSx}
             date={movie.release_date}
+            className="scaleOnHover"
             iconStyle={timelineWrapperIconSx(mainThemeColor)}
             icon={
                 movies === upcomingMoviesUpToToday ? (

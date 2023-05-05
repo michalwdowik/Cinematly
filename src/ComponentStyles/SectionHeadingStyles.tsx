@@ -1,9 +1,11 @@
-export const headingSx = (leftAligned: boolean) => ({
+export const headingSx = (leftAligned: boolean, textColor: string) => ({
+    color: textColor,
     fontSize: { xs: '40px', sm: '55px', md: '80px' },
     fontWeight: 'bold',
     alignSelf: `${leftAligned ? 'flex-start' : 'flex-end'}`,
     textAlign: `${leftAligned ? 'left' : 'right'} `,
     marginBottom: '-5px',
+    textShadow: '1px 2px 2px rgba(66, 68, 90, 1)',
 })
 
 export const gradientDividerSx = (leftAligned: boolean) => ({
@@ -14,12 +16,14 @@ export const gradientDividerSx = (leftAligned: boolean) => ({
     }`,
     height: '3px',
     width: '100%',
+    boxShadow: '2px 2px 2px 0px rgba(0, 0, 0, 0.2)',
 })
 
 export const subheadingBoxSx = (leftAligned: boolean) => ({
     display: 'flex',
     justifyContent: `${leftAligned ? 'right' : 'left'}`,
     alignSelf: `${leftAligned ? 'flex-end' : 'flex-start'}`,
+    textShadow: '1px 1px 1px rgba(66, 68, 90, 1)',
 })
 
 export const subheadingSx = (leftAligned: boolean) => ({

@@ -1,18 +1,9 @@
-import { ColorMode } from '../Hooks/useToggleMode'
-
-export const appBarSx = (mainThemeColor: string, colorMode: ColorMode) => {
+export const toolbarSx = (mainThemeColor: string) => {
     return {
-        bgcolor: `${colorMode === 'dark' ? mainThemeColor : 'green'}`,
-        display: 'flex',
-        justifyContent: 'center',
-        position: 'sticky',
-        width: '100vw',
+        bgcolor: mainThemeColor,
+        justifyContent: 'space-between',
+        height: '70px',
     }
-}
-
-export const toolbarSx = {
-    height: '50px',
-    justifyContent: 'space-between',
 }
 
 export const navbarTabSx = {
@@ -31,7 +22,6 @@ export const navbarMenuBoxSx = {
 
 export const drawerPaperSx = {
     backgroundColor: '#fc9803',
-    color: 'white',
 }
 
 export const drawerListSx = {

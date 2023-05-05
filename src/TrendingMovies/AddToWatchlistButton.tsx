@@ -18,7 +18,7 @@ const AddToWatchlistButton = ({
     styles,
     movie,
 }: AddToWatchlistButtonProps) => {
-    const { addToWatchlist, removeMovieFromWatchlist } = useWatchlistContext()
+    const { addToWatchlist } = useWatchlistContext()
     const { mainThemeColorSecondary } = useThemeColors()
 
     const handleAddToWatchlist = () => {
