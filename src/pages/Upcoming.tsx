@@ -1,9 +1,9 @@
 import 'react-vertical-timeline-component/style.min.css'
-import { Box, Typography } from '@mui/material'
+import { Typography } from '@mui/material'
 import { Parallax, ParallaxProvider } from 'react-scroll-parallax'
 import { useContext } from 'react'
 import useScreenType from 'react-screentype-hook'
-import { ScrollToTop } from 'react-router-scroll-to-top'
+// import { ScrollToTop } from 'react-router-scroll-to-top'
 import { motion } from 'framer-motion'
 import SectionHeading from '../Components/SectionHeading'
 import {
@@ -32,7 +32,7 @@ const Upcoming = () => {
                 }}
                 className="upcomingMovies"
             >
-                <ScrollToTop />
+                {/* <ScrollToTop /> */}
 
                 <SectionHeading
                     heading="Upcoming Movies"
