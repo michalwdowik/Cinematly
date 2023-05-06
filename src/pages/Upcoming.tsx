@@ -3,7 +3,7 @@ import { Typography } from '@mui/material'
 import { Parallax, ParallaxProvider } from 'react-scroll-parallax'
 import { useContext } from 'react'
 import useScreenType from 'react-screentype-hook'
-// import { ScrollToTop } from 'react-router-scroll-to-top'
+import { ScrollToTop } from 'react-router-scroll-to-top'
 import { motion } from 'framer-motion'
 import SectionHeading from '../Components/SectionHeading'
 import {
@@ -32,7 +32,7 @@ const Upcoming = () => {
                 }}
                 className="upcomingMovies"
             >
-                {/* <ScrollToTop /> */}
+                <ScrollToTop />
 
                 <SectionHeading
                     heading="Upcoming Movies"
@@ -44,6 +44,7 @@ const Upcoming = () => {
                 <UpcomingMovies movies={upcomingMoviesUpToToday} />
                 <UpcomingLabel />
                 <UpcomingMovies movies={upcomingMoviesFromFuture} />
+                <StayTunedLabel />
             </motion.div>
         </ParallaxProvider>
     )
@@ -76,6 +77,22 @@ const UpcomingLabel = () => {
                 sx={{ fontWeight: '700', paddingY: '2rem', color: textColor }}
             >
                 Upcoming
+            </Typography>
+        </Parallax>
+    )
+}
+
+const StayTunedLabel = () => {
+    const { textColor } = useContext(ThemeContext)
+    const screenType = useScreenType()
+
+    return (
+        <Parallax opacity={[0, 2.5]}>
+            <Typography
+                variant={screenType.isMobile ? 'h4' : 'h2'}
+                sx={{ fontWeight: '700', padding: '2rem', color: textColor }}
+            >
+                Stay tuned
             </Typography>
         </Parallax>
     )

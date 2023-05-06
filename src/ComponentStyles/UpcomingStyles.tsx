@@ -42,7 +42,11 @@ export const timelineWrapperSx: CSSProperties = {
     flexDirection: 'column',
     overflow: 'hidden',
     padding: '0',
-    boxShadow: '8px 8px 24px -5px rgba(66, 68, 90, 1)',
+    boxShadow: '8px 8px 12px -5px rgb(0, 0, 0)',
+    // maxWidth: '400px',
+    // maxHeight: '400px',
+    // maxWidth: 'min(90%, 600px)',
+    // maxHeight: '450px',
 }
 
 export const timelineWrapperIconSx = (mainThemeColor: string) => {

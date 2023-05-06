@@ -7,16 +7,6 @@
     border-color: var(--mainTheme) !important;
  }
 
- 
-
-  @keyframes fadeIn {
-  from {
-    opacity: 0;
-  }
-  to {
-    opacity: 1;
-  }
-}
 
   .searchedMovie {
     display: flex;
@@ -27,8 +17,6 @@
     border-radius: 50px;
     overflow: hidden;
     min-width: 250px;
-    /* -webkit-box-shadow: 8px 8px 24px -5px rgba(66, 68, 90, 1); */
-  /* -moz-box-shadow: 8px 8px 24px -5px rgba(66, 68, 90, 1); */
     box-shadow: 8px 8px 12px -5px rgb(0, 0, 0);
   }
 

@@ -1,3 +1,29 @@
+* {
+  transition: color 0.5s ease-in-out;
+  transition: background-color 0.5s ease-in-out;
+}
+
+.watchlistHide {
+  transform-origin: right bottom;
+  animation: watchlistRoll 0.3s ease-in-out forwards, fadeOut 0.3s ease-in-out forwards;
+}
+
+  .watchlistShow {
+  transform-origin: right bottom;
+  animation: watchlistUnroll 0.2s ease-in-out forwards, fadeIn 0.3s ease-in-out forwards;
+}
+
+.animateAddToWatchlist {
+  animation: watchlistButtonAnimateAdd 0.8s ease-in-out;
+}
+
+/*  */
+
+
+.speed-dial-list::-webkit-scrollbar {
+  display: none; 
+}
+
 .carouselStyles {
   display: flex;
   flex-direction: column;
@@ -9,11 +35,6 @@
 
 ::-webkit-scrollbar {
   display: none; 
-}
-
-* {
-  transition: color 0.5s ease-in-out;
-  transition: background-color 0.5s ease-in-out;
 }
 
 
@@ -151,8 +172,6 @@ li {
   height: 100%;
   margin: 0 auto;
   border: none ;
-  /* -webkit-box-shadow: 8px 8px 24px -5px rgba(66, 68, 90, 1);
-  -moz-box-shadow: 8px 8px 24px -5px rgba(66, 68, 90, 1); */
   box-shadow: 8px 8px 12px -5px rgb(0, 0, 0);
 }
 
@@ -341,4 +360,5 @@ p {
   align-content: 'center';
   align-items: 'center';
   margin-top: '4rem';
+
 }

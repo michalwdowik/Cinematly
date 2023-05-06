@@ -1,6 +1,6 @@
 import { Box } from '@mui/material'
 import { motion } from 'framer-motion'
-// import { ScrollToTop } from 'react-router-scroll-to-top'
+import { ScrollToTop } from 'react-router-scroll-to-top'
 import { topRatedPageBoxSx } from '../ComponentStyles/TopRatedMoviesStyles'
 import SectionHeading from '../Components/SectionHeading'
 import '../Styles/toprated.css'
@@ -14,7 +14,7 @@ const TopRated = () => {
             exit={{ opacity: 0 }}
             transition={{ duration: 0.15 }}
         >
-            {/* <ScrollToTop /> */}
+            <ScrollToTop />
             <Box sx={topRatedPageBoxSx}>
                 <SectionHeading
                     heading="Top Rated Movies"

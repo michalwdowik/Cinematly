@@ -56,10 +56,7 @@ export const WatchlistContextProvider = ({
     return (
         <>
             <Snackbar open={showAlert}>
-                <Alert
-                    severity="warning"
-                    sx={{ width: '60%', borderRadius: '2rem' }}
-                >
+                <Alert severity="warning" sx={{ borderRadius: '1rem' }}>
                     Movie already on the watchlist
                 </Alert>
             </Snackbar>

@@ -1,6 +1,6 @@
 import { Routes, Route, useLocation } from 'react-router-dom'
 // import { CSSTransition, TransitionGroup } from 'react-transition-group'
-import { AnimatePresence } from 'framer-motion'
+// import { AnimatePresence } from 'framer-motion'
 import Home from './Home'
 import TopRated from './TopRated'
 import Upcoming from './Upcoming'

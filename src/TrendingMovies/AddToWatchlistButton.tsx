@@ -6,7 +6,7 @@ import {
 } from '../ComponentStyles/TrendingMoviesStyles'
 import { Movie } from '../types/MoviesTypes'
 import useThemeColors from '../Hooks/useThemeColors'
-import { useWatchlistContext } from '../Helpers/Watchlist'
+import { useWatchlistContext } from '../Watchlist/WatchlistContext'
 
 export type AddToWatchlistButtonProps = {
     absolute: boolean

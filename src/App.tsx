@@ -5,9 +5,9 @@ import AnimatedRoutes from './pages/AnimatedRoutes'
 import Footer from './Footer/Footer'
 import appBoxSx from './ComponentStyles/AppStyles'
 import BottomScroll from './Components/BottomScroll'
-import SpeedDial from './Components/SpeedDial'
-import { WatchlistContextProvider } from './Helpers/Watchlist'
+import { WatchlistContextProvider } from './Watchlist/WatchlistContext'
 import ThemeProvider from './Components/ThemeContext'
+import WatchlistSpeedDial from './Watchlist/WatchlistSpeedDial'
 
 const App = () => {
     return (
@@ -15,7 +15,7 @@ const App = () => {
             <ThemeProvider>
                 <WatchlistContextProvider>
                     <NavBar />
-                    <SpeedDial />
+                    <WatchlistSpeedDial />
                     <Box sx={appBoxSx}>
                         <AnimatedRoutes />
                     </Box>
