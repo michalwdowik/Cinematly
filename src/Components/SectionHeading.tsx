@@ -1,19 +1,6 @@
 import { Box, Typography } from '@mui/material'
 import { Parallax, ParallaxProvider } from 'react-scroll-parallax'
 import { useContext } from 'react'
-import {
-    GradientDividerProps,
-    HeadingProps,
-    SectionHeadingProps,
-    SubheadingProps,
-} from '../types/SectionHeadingTypes'
-import {
-    gradientDividerSx,
-    headingSx,
-    subheadingBoxSx,
-    subheadingSx,
-    sectionHeadingSx,
-} from '../ComponentStyles/SectionHeadingStyles'
 import { ThemeContext } from './ThemeContext'
 
 const SectionHeading = ({
@@ -34,11 +21,11 @@ const SectionHeading = ({
     return enableParallax ? (
         <ParallaxProvider>
             <Parallax speed={-8} translateX={[0, xMove]}>
-                <Box sx={sectionHeadingSx}>{contents}</Box>
+                <Box sx={sectionHeadingStyles}>{contents}</Box>
             </Parallax>
         </ParallaxProvider>
     ) : (
-        <Box sx={sectionHeadingSx}>{contents}</Box>
+        <Box sx={sectionHeadingStyles}>{contents}</Box>
     )
 }
 
@@ -48,22 +35,81 @@ const Heading = ({ heading, leftAligned }: HeadingProps) => {
     const { textColor } = useContext(ThemeContext)
 
     return (
-        <Typography variant="h1" sx={headingSx(leftAligned, textColor)}>
+        <Typography variant="h1" sx={headingStyles(leftAligned, textColor)}>
             {heading}
         </Typography>
     )
 }
 
 const GradientDivider = ({ leftAligned }: GradientDividerProps) => {
-    return <Box sx={gradientDividerSx(leftAligned)} />
+    return <Box sx={gradientDividerStyles(leftAligned)} />
 }
 
 const Subheading = ({ subheading, leftAligned }: SubheadingProps) => {
     return (
-        <Box sx={subheadingBoxSx(leftAligned)}>
-            <Typography variant="h5" sx={subheadingSx(leftAligned)}>
+        <Box sx={subheadingBoxStyles(leftAligned)}>
+            <Typography variant="h5" sx={subheadingStyles(leftAligned)}>
                 {subheading}
             </Typography>
         </Box>
     )
 }
+
+const headingStyles = (leftAligned: boolean, textColor: string) => ({
+    color: textColor,
+    fontSize: { xs: '40px', sm: '55px', md: '80px' },
+    fontWeight: 'bold',
+    alignSelf: `${leftAligned ? 'flex-start' : 'flex-end'}`,
+    textAlign: `${leftAligned ? 'left' : 'right'} `,
+    marginBottom: '-5px',
+    textShadow: '1px 2px 2px rgba(66, 68, 90, 1)',
+})
+
+const gradientDividerStyles = (leftAligned: boolean) => ({
+    background: `${
+        leftAligned
+            ? 'linear-gradient(90deg, rgba(255,255,255,1) 0%, rgba(255,169,0,1) 90%)'
+            : 'linear-gradient(90deg, rgba(255,169,0,1) 0%, rgba(255,255,255,1) 90%)'
+    }`,
+    height: '3px',
+    width: '100%',
+    boxShadow: '2px 2px 2px 0px rgba(0, 0, 0, 0.2)',
+})
+
+const subheadingBoxStyles = (leftAligned: boolean) => ({
+    display: 'flex',
+    justifyContent: `${leftAligned ? 'right' : 'left'}`,
+    alignSelf: `${leftAligned ? 'flex-end' : 'flex-start'}`,
+    textShadow: '1px 1px 1px rgba(66, 68, 90, 1)',
+})
+
+const subheadingStyles = (leftAligned: boolean) => ({
+    color: '#fc9803',
+    fontSize: { xs: '12px', md: '15px' },
+    width: { xs: '75%', sm: '55%', md: '60%' },
+    textAlign: `${leftAligned ? 'right' : 'left'}`,
+    fontWeight: 'bold',
+    alignSelf: `${leftAligned ? 'flex-end' : 'flex-start'}`,
+})
+
+const sectionHeadingStyles = {
+    display: 'flex',
+    flexDirection: 'column',
+    gap: '5px',
+    justifyContent: 'center',
+    alignContent: 'center',
+    alignItems: 'center',
+    width: '80vw',
+    marginBottom: '5rem',
+}
+
+interface SectionHeadingProps {
+    heading: string
+    subheading: string
+    leftAligned: boolean
+    enableParallax: boolean
+}
+
+type HeadingProps = Pick<SectionHeadingProps, 'heading' | 'leftAligned'>
+type GradientDividerProps = Pick<SectionHeadingProps, 'leftAligned'>
+type SubheadingProps = Pick<SectionHeadingProps, 'subheading' | 'leftAligned'>

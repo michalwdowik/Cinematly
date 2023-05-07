@@ -65,9 +65,11 @@ const watchlistMovieCheckboxStyles = {
 const watchlistMovieDividerStyles = {
     width: '80%',
     height: '0.5px',
+    margin: 'auto',
     border: '1px black solid',
     textAlign: 'center',
     alignSelf: 'center',
+    justifyContent: 'center',
     opacity: '5%',
     marginY: '0.4rem',
 }

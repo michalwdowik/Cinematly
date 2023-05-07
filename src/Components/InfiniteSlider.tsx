@@ -1,14 +1,10 @@
 /* eslint-disable react/no-children-prop */
 import { useRef, useCallback } from 'react'
-import { a, useSprings } from '@react-spring/web'
+import { a, useSprings, SpringValue } from '@react-spring/web'
 import { v4 as uuid } from 'uuid'
 import { Box } from '@mui/material'
-import { InfiniteSliderProps } from '../types/TrendingActorsTypes'
-import {
-    infiniteSliderBoxSx,
-    springBoxStyle,
-} from '../ComponentStyles/TrendingActorsStyles'
-import useDragInfiniteSlider from '../Helpers/useDragInfiniteSlider'
+import useDragInfiniteSlider from '../Hooks/useDragInfiniteSlider'
+import { Actor } from '../TrendingActors/actorTypes'
 
 const InfiniteSlider = ({
     actors,
@@ -64,12 +60,12 @@ const InfiniteSlider = ({
     useDragInfiniteSlider({ runSprings, target })
 
     return (
-        <Box ref={target} sx={infiniteSliderBoxSx}>
+        <Box ref={target} sx={infiniteSliderStyles}>
             {springs.map(({ x }, i) => (
                 <Box
                     component={a.div}
                     key={uuid()}
-                    style={springBoxStyle(x)}
+                    style={springStyle(x)}
                     children={children(actors[i])}
                 />
             ))}
@@ -77,3 +73,25 @@ const InfiniteSlider = ({
     )
 }
 export default InfiniteSlider
+
+const infiniteSliderStyles = {
+    position: 'relative',
+    height: '100%',
+    width: '100%',
+    touchAction: 'none',
+}
+
+const springStyle = (x: SpringValue<number>) => ({
+    position: 'absolute' as const,
+    height: '100%',
+    willChange: 'transform',
+    width: 600,
+    x,
+})
+
+type InfiniteSliderProps = {
+    actors: Actor[]
+    width: number
+    visible: number
+    children: (item: Actor) => React.ReactNode
+}

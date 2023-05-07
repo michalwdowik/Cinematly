@@ -1,4 +1,4 @@
-import { Actor } from '../types/TrendingActorsTypes'
+import { Actor } from '../TrendingActors/actorTypes'
 
 const fetchTrendingActors = async () => {
     const response = await fetch(

@@ -5,11 +5,6 @@ import { Box } from '@mui/material'
 import { v4 as uuid } from 'uuid'
 import nowPlayingMovies from '../Helpers/fetchNowPlayingMovies'
 import {
-    carouselOverlaySx,
-    movieDetailsSx,
-    movieReleaseDateSx,
-} from '../ComponentStyles/MovieStyles'
-import {
     MovieImage,
     MovieOverview,
     MovieRating,
@@ -42,7 +37,7 @@ const MoviesCarousel = () => {
 export default MoviesCarousel
 
 export const CarouselOverlay = ({ children }: CarouselOverlayProps) => {
-    return <Box sx={carouselOverlaySx}>{children}</Box>
+    return <Box sx={carouselMovieOverlayStyles}>{children}</Box>
 }
 
 export type MovieDetailsProps = {
@@ -53,9 +48,9 @@ const MovieDetails = ({ movie }: MovieDetailsProps) => {
 
     return (
         <CarouselOverlay>
-            <Box sx={movieDetailsSx}>
+            <Box sx={carouselMovieDetailsStyles}>
                 <MovieTitle movie={movie} />
-                <Box sx={movieReleaseDateSx}>
+                <Box sx={carouselMovieReleaseDateStyles}>
                     <MovieRating movie={movie} />
                     <MovieReleaseDate movie={movie} />
                 </Box>
@@ -63,4 +58,53 @@ const MovieDetails = ({ movie }: MovieDetailsProps) => {
             </Box>
         </CarouselOverlay>
     )
+}
+
+const carouselMovieOverlayStyles = {
+    position: 'absolute',
+    bottom: '0px',
+    height: '100%',
+    display: 'flex',
+    flexDirection: 'column',
+    width: '100%',
+    justifyContent: 'flex-end',
+    alignItems: 'flex-start',
+    backgroundImage: 'linear-gradient(rgb(13,13,13,0), rgb(13,13,13,1))',
+    opacity: '0.9',
+    transition: 'opacity 0.3s',
+    padding: {
+        xs: '0rem',
+        sm: '3rem',
+        md: '4rem',
+        lg: '5rem',
+    },
+    ':hover': {
+        opacity: '1',
+    },
+}
+
+const carouselMovieReleaseDateStyles = {
+    display: 'flex',
+    gap: '25px',
+    marginBottom: '1rem',
+    alignItems: 'center',
+    color: 'white',
+    fontSize: {
+        xs: '14px',
+        sm: '18px',
+        lg: '18px',
+    },
+    marginLeft: {
+        xs: '13px',
+        sm: '0px',
+        md: '0px',
+    },
+}
+
+const carouselMovieDetailsStyles = {
+    position: 'absolute',
+    bottom: {
+        lg: '15%',
+        md: '10%',
+    },
 }

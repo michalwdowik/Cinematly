@@ -17,6 +17,23 @@
   animation: watchlistButtonAnimateAdd 0.8s ease-in-out;
 }
 
+.dividerStyle {
+  background-color: white;
+  width: 30%;
+  margin: auto;
+  opacity: 30%;
+  height: 1px;
+}
+
+.movieModalDetails {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  padding: 0.5rem;
+  padding-top: 0;
+  color: black;
+}
+
 /*  */
 
 

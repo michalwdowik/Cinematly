@@ -1,6 +1,5 @@
 import { useParams } from 'react-router-dom'
 import { ParallaxProvider } from 'react-scroll-parallax'
-import { motion } from 'framer-motion'
 import TrendingMoviesCards from '../TrendingMovies/TrendingMoviesCards'
 import TrendingMovieModal from '../TrendingMovies/TrendingMovieModal'
 import MoviesCarousel from '../Carousel/MoviesCarousel'

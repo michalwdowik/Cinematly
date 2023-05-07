@@ -1,13 +1,8 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
 import { Box } from '@mui/material'
-
 import TopRatedMovieHeadings from './TopRatedMovieHeadings'
 import TopRatedMovieHovered from './TopRatedMovieHovered'
-import {
-    TopRatedMovieImageProps,
-    TopRatedMovieProps,
-    TopRatedMovieRankProps,
-} from '../types/TopRatedMoviesTypes'
+import { Movie } from '../types/MoviesTypes'
 
 const TopRatedMovie = ({ movie, rankPosition }: TopRatedMovieProps) => {
     return (
@@ -41,3 +36,15 @@ const TopRatedMovieImage = ({
         />
     )
 }
+
+type TopRatedMovieProps = {
+    movie: Movie
+    rankPosition: number
+}
+
+type TopRatedMovieImageProps = {
+    backdrop_path: string | null
+    title: string
+}
+
+type TopRatedMovieRankProps = Pick<TopRatedMovieProps, 'rankPosition'>

@@ -1,23 +1,13 @@
 import { Box, Typography } from '@mui/material'
 import StarIcon from '@mui/icons-material/Star'
-import { fontSize14px } from '../ComponentStyles/TrendingActorsStyles'
 import TimelineWrapper from './TimelineWrapper'
 import UpcomingMovieDetails from './UpcomingMovieDetails'
-import {
-    UpcomingMovieHeadingProps,
-    UpcomingMovieImageProps,
-    UpcomingMovieProps,
-} from '../types/UpcomingMoviesTypes'
-import {
-    upcomingMovieHeadingSx,
-    upcomingMovieImageSx,
-} from '../ComponentStyles/UpcomingStyles'
+import { UpcomingMovieProps } from './upcomingMoviesTypes'
 
 const UpcomingMovie = ({ movie, movies }: UpcomingMovieProps) => {
     return (
         <TimelineWrapper movies={movies} movie={movie}>
             <UpcomingMovieHeading
-                id={movie.id}
                 voteAverage={movie.vote_average}
                 title={movie.title}
             />
@@ -33,7 +23,7 @@ const UpcomingMovieHeading = ({
     title,
 }: UpcomingMovieHeadingProps) => {
     return (
-        <Box sx={upcomingMovieHeadingSx}>
+        <Box sx={upcomingMovieHeadingStyles}>
             <Box
                 component="span"
                 sx={{
@@ -41,7 +31,7 @@ const UpcomingMovieHeading = ({
                 }}
                 className="category"
             >
-                <StarIcon sx={fontSize14px} />
+                <StarIcon sx={{ fontSize: '14px' }} />
                 {voteAverage}
             </Box>
             <Typography variant="h6">{title}</Typography>
@@ -51,7 +41,7 @@ const UpcomingMovieHeading = ({
 
 const UpcomingMovieImage = ({ backdrop_path }: UpcomingMovieImageProps) => {
     return (
-        <Box sx={upcomingMovieImageSx}>
+        <Box sx={upcomingMovieImageStyles}>
             <img
                 style={{
                     objectFit: 'cover',
@@ -63,4 +53,35 @@ const UpcomingMovieImage = ({ backdrop_path }: UpcomingMovieImageProps) => {
             />
         </Box>
     )
+}
+
+const upcomingMovieHeadingStyles = {
+    top: '30px',
+    left: '0',
+    minWidth: '150px',
+    minHeight: '70px',
+    backgroundColor: '#ffa500',
+    opacity: '92%',
+    borderBottomRightRadius: '15px',
+    borderTopRightRadius: '15px',
+    position: 'absolute',
+    maxWidth: '300px',
+    padding: '0.5rem',
+    display: 'flex',
+    flexDirection: 'column',
+    alignItems: 'flex-start',
+    justifyContent: 'center',
+    alignContent: 'center',
+}
+
+const upcomingMovieImageStyles = {
+    overflow: 'hidden',
+}
+
+type UpcomingMovieImageProps = {
+    backdrop_path: string | null
+}
+type UpcomingMovieHeadingProps = {
+    voteAverage: number
+    title: string
 }

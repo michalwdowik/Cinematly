@@ -1,23 +1,12 @@
 import { Box, Typography } from '@mui/material'
-import { colorBlack } from '../ComponentStyles/NavbarStyles'
-import {
-    movieModalDetailsSx,
-    movieDetailsModalSx,
-} from '../ComponentStyles/TrendingMoviesStyles'
 import cutText from '../Helpers/cutText'
 import AddToWatchlistButton from '../TrendingMovies/AddToWatchlistButton'
 import { MovieProps } from '../types/MoviesTypes'
-import {
-    UpcomingMovieTitleProps,
-    UpcomingMovieReleaseDateProps,
-    UpcomingMovieOriginLanguageProps,
-    UpcomingMovieOverviewProps,
-} from '../types/UpcomingMoviesTypes'
 
 const UpcomingMovieDetails = ({ movie }: MovieProps) => {
     return (
         <Box sx={upcomingMovieDetailsSx}>
-            <Box sx={{ ...movieModalDetailsSx, ...colorBlack }}>
+            <Box className="movieModalDetails">
                 <AddToWatchlistButton absolute movie={movie} />
                 <UpcomingMovieTitle
                     title={movie.title}
@@ -41,7 +30,7 @@ const UpcomingMovieTitle = ({
 }: UpcomingMovieTitleProps) => {
     return (
         <Box display="flex" alignItems="center">
-            <Box component="span" sx={movieDetailsModalSx}>
+            <Box component="span" fontWeight="bold">
                 Original title:
             </Box>
             {originTitle ? (
@@ -62,7 +51,7 @@ const UpcomingMovieReleaseDate = ({
 }: UpcomingMovieReleaseDateProps) => {
     return releaseDate ? (
         <Box display="flex" alignItems="center">
-            <Box component="span" sx={movieDetailsModalSx}>
+            <Box component="span" fontWeight="bold">
                 Release date:
             </Box>
             <Typography variant="subtitle1" display="inline">
@@ -81,7 +70,7 @@ const UpcomingMovieOriginLanguage = ({
 }: UpcomingMovieOriginLanguageProps) => {
     return originLanguage ? (
         <Box display="flex" alignItems="center">
-            <Box component="span" sx={movieDetailsModalSx}>
+            <Box component="span" fontWeight="bold">
                 Language:
             </Box>
             <Typography variant="subtitle1" display="inline">
@@ -106,4 +95,18 @@ export const upcomingMovieDetailsSx = {
     display: 'flex',
     flexDirection: 'column',
     padding: '1rem',
+}
+
+type UpcomingMovieTitleProps = {
+    title: string
+    originTitle: string | undefined
+}
+type UpcomingMovieReleaseDateProps = {
+    releaseDate: string
+}
+type UpcomingMovieOriginLanguageProps = {
+    originLanguage: string | undefined
+}
+type UpcomingMovieOverviewProps = {
+    overview: string
 }

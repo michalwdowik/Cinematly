@@ -1,7 +1,13 @@
 import AccessTimeIcon from '@mui/icons-material/AccessTime'
 import EmojiEventsIcon from '@mui/icons-material/EmojiEvents'
 import { Home, Search } from '@mui/icons-material'
-import { Page } from '../types/NavbarTypes'
+import { ReactNode } from 'react'
+
+export type Page = {
+    label: string
+    icon: ReactNode
+    link: string
+}
 
 type Pages = {
     [key: string]: Page

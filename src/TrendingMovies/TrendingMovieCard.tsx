@@ -4,12 +4,8 @@ import StarIcon from '@mui/icons-material/Star'
 import { Box } from '@mui/material'
 import {
     CardDetailsProps,
-    CardImageProps,
-    MovieRatingProps,
-    MovieTitleProps,
     TrendingMovieCardsProps,
-} from '../types/TrendingMoviesTypes'
-import { fontSize14px } from '../ComponentStyles/TrendingActorsStyles'
+} from './trendingMoviesTypes'
 
 const TrendingMovieCard = ({
     id,
@@ -62,8 +58,14 @@ const MovieTitle = ({ title }: MovieTitleProps) => {
 const MovieRating = ({ vote_average }: MovieRatingProps) => {
     return (
         <Box component="span" sx={{ display: 'flex' }} className="category">
-            <StarIcon sx={fontSize14px} />
+            <StarIcon sx={{ fontSize: '14px' }} />
             {vote_average}
         </Box>
     )
 }
+
+type CardImageProps = Pick<TrendingMovieCardsProps, 'id' | 'backdrop_path'>
+
+type MovieTitleProps = Pick<TrendingMovieCardsProps, 'title'>
+
+type MovieRatingProps = Pick<TrendingMovieCardsProps, 'vote_average'>

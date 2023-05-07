@@ -2,10 +2,9 @@ import { Box } from '@mui/material'
 import InfiniteSlider from '../Components/InfiniteSlider'
 import trendingActors from '../Helpers/fetchTrendingActors'
 import ActorDetails from './ActorDetails'
-import { trendingActorsBoxSx } from '../ComponentStyles/TrendingActorsStyles'
 
 const TrendingActors = () => (
-    <Box sx={trendingActorsBoxSx}>
+    <Box sx={trendingActorsStyles}>
         <InfiniteSlider actors={trendingActors} width={600} visible={3}>
             {({ profile_path, name, vote_average, known_for, overview }) => (
                 <ActorDetails
@@ -21,3 +20,11 @@ const TrendingActors = () => (
 )
 
 export default TrendingActors
+
+const trendingActorsStyles = {
+    background: 'transparent',
+    height: '400px',
+    width: '100%',
+    marginBottom: '200px',
+    marginTop: '-20px',
+}

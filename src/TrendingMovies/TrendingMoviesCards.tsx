@@ -1,7 +1,7 @@
 import { Parallax } from 'react-scroll-parallax'
 import trendingMovies from '../Helpers/fetchTrendingMovies'
-import { TrendingMovieCardsProps } from '../types/TrendingMoviesTypes'
 import TrendingMovieCard from './TrendingMovieCard'
+import { TrendingMovieCardsProps } from './trendingMoviesTypes'
 
 const TrendingMoviesCards = () => (
     <Parallax

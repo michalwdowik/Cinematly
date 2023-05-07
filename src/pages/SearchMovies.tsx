@@ -1,5 +1,4 @@
-/* eslint-disable no-console */
-import { Box, Fade } from '@mui/material'
+import { Box } from '@mui/material'
 import { useContext, useState } from 'react'
 import SearchedMovies from '../SearchedMovies/SearchedMovies'
 import fetchSearchMovies from '../Helpers/fetchSearchMovies'
@@ -16,9 +15,9 @@ const SearchMovies = ({ handleClick }: SearchMoviesProps) => {
     const { backgroundColor } = useContext(ThemeContext)
     const handleSearchChange = (event: React.ChangeEvent<HTMLInputElement>) => {
         setSearchQuery(event.target.value)
-        fetchSearchMovies(event.target.value)
-            .then((results) => setSearchedMovies(results))
-            .catch((error) => console.error(error))
+        fetchSearchMovies(event.target.value).then((results) =>
+            setSearchedMovies(results)
+        )
     }
 
     const handleOverlayClick = () => {

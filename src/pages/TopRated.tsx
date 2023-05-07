@@ -1,7 +1,6 @@
 import { Box } from '@mui/material'
 import { motion } from 'framer-motion'
 import { ScrollToTop } from 'react-router-scroll-to-top'
-import { topRatedPageBoxSx } from '../ComponentStyles/TopRatedMoviesStyles'
 import SectionHeading from '../Components/SectionHeading'
 import '../Styles/toprated.css'
 import TopRatedMovies from '../TopRatedMovies/TopRatedMovies'
@@ -15,7 +14,7 @@ const TopRated = () => {
             transition={{ duration: 0.15 }}
         >
             <ScrollToTop />
-            <Box sx={topRatedPageBoxSx}>
+            <Box sx={topRatedPageBoxStyles}>
                 <SectionHeading
                     heading="Top Rated Movies"
                     subheading="Revisit the Legends of the Silver Screen - Our Curated Collection of Timeless Classics"
@@ -29,3 +28,10 @@ const TopRated = () => {
 }
 
 export default TopRated
+
+const topRatedPageBoxStyles = {
+    marginTop: '3rem',
+    padding: '0',
+    display: 'flex',
+    justifyContent: 'center',
+}

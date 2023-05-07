@@ -1,24 +1,14 @@
 import { Box, Typography } from '@mui/material'
 import { motion } from 'framer-motion'
-import {
-    TrendingMovieModalDetailsProps,
-    MovieOriginalLanguageModalProps,
-    MovieOverviewModalProps,
-    MovieReleaseDateProps,
-    MovieTitleModalProps,
-} from '../types/TrendingMoviesTypes'
 import AddToWatchlistButton from './AddToWatchlistButton'
-import {
-    movieDetailsModalSx,
-    movieModalDetailsSx,
-} from '../ComponentStyles/TrendingMoviesStyles'
+import { Movie } from '../types/MoviesTypes'
 
 const TrendingMovieModalDetails = ({
     movie,
 }: TrendingMovieModalDetailsProps) => {
     return (
         <motion.div className=" content-container" animate>
-            <Box sx={movieModalDetailsSx}>
+            <Box className="movieModalDetails">
                 <AddToWatchlistButton absolute movie={movie} />
                 <MovieTitleModal
                     movieTitle={movie.title}
@@ -43,7 +33,7 @@ const MovieTitleModal = ({
 }: MovieTitleModalProps) => {
     return (
         <Box display="flex" alignItems="center">
-            <Box component="span" sx={movieDetailsModalSx}>
+            <Box component="span" fontWeight="bold">
                 Original title:
             </Box>
             {movieOriginTitle ? (
@@ -62,7 +52,7 @@ const MovieTitleModal = ({
 const MovieReleaseDateModal = ({ movieReleaseDate }: MovieReleaseDateProps) => {
     return movieReleaseDate ? (
         <Box display="flex" alignItems="center">
-            <Box component="span" sx={movieDetailsModalSx}>
+            <Box component="span" fontWeight="bold">
                 Release date:
             </Box>
             <Typography variant="subtitle1" display="inline">
@@ -81,7 +71,7 @@ const MovieOriginalLanguageModal = ({
 }: MovieOriginalLanguageModalProps) => {
     return movieOriginLanguage ? (
         <Box display="flex" alignItems="center">
-            <Box component="span" sx={movieDetailsModalSx}>
+            <Box component="span" fontWeight="bold">
                 Language:
             </Box>
             <Typography variant="subtitle1" display="inline">
@@ -99,4 +89,22 @@ const MovieOverviewModal = ({ movieOverview }: MovieOverviewModalProps) => {
             {movieOverview || 'No overview'}
         </Typography>
     )
+}
+
+type TrendingMovieModalDetailsProps = {
+    movie: Movie
+}
+
+type MovieOriginalLanguageModalProps = {
+    movieOriginLanguage: string
+}
+type MovieOverviewModalProps = {
+    movieOverview: string
+}
+type MovieReleaseDateProps = {
+    movieReleaseDate: string
+}
+type MovieTitleModalProps = {
+    movieTitle: string
+    movieOriginTitle: string
 }

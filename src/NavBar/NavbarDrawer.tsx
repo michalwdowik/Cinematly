@@ -6,8 +6,6 @@ import { Box, ListItem, Tab, Typography } from '@mui/material'
 import { Link } from 'react-router-dom'
 import pages from '../Helpers/pages'
 import WebsiteLogo from '../Components/WebsiteLogo'
-import { drawerLinkSx, drawerPaperSx } from '../ComponentStyles/NavbarStyles'
-import { DrawerListProps } from '../types/NavbarTypes'
 import SearchMovies from '../pages/SearchMovies'
 
 const NavbarDrawer = () => {
@@ -55,7 +53,7 @@ const DrawerList = ({
                 anchor="top"
                 open={isDrawerOpen}
                 onClose={toggleDrawer(false)}
-                PaperProps={{ sx: drawerPaperSx }}
+                PaperProps={{ sx: drawerPaperStyles }}
             >
                 {Object.values(pages).map((page) => (
                     <ListItem
@@ -92,7 +90,7 @@ const DrawerList = ({
                                     ? (undefined as any)
                                     : page.link
                             }
-                            sx={drawerLinkSx}
+                            sx={drawerLinkStyles}
                         />
                     </ListItem>
                 ))}
@@ -100,4 +98,22 @@ const DrawerList = ({
             {isSearchClicked && <SearchMovies handleClick={handleClick} />}
         </>
     )
+}
+
+const drawerPaperStyles = {
+    backgroundColor: '#fc9803',
+}
+
+const drawerLinkStyles = {
+    color: 'white',
+    textDecoration: 'none',
+    '&:hover': {
+        opacity: 0.8,
+    },
+}
+
+type DrawerListProps = {
+    toggleDrawer: (open: boolean) => () => void
+    setIsDrawerOpen: React.Dispatch<React.SetStateAction<boolean>>
+    isDrawerOpen: boolean
 }

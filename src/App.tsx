@@ -3,7 +3,6 @@ import { Box } from '@mui/material'
 import NavBar from './NavBar/NavBar'
 import AnimatedRoutes from './pages/AnimatedRoutes'
 import Footer from './Footer/Footer'
-import appBoxSx from './ComponentStyles/AppStyles'
 import BottomScroll from './Components/BottomScroll'
 import { WatchlistContextProvider } from './Watchlist/WatchlistContext'
 import ThemeProvider from './Components/ThemeContext'
@@ -16,7 +15,7 @@ const App = () => {
                 <WatchlistContextProvider>
                     <NavBar />
                     <WatchlistSpeedDial />
-                    <Box sx={appBoxSx}>
+                    <Box sx={appBoxStyles}>
                         <AnimatedRoutes />
                     </Box>
                 </WatchlistContextProvider>
@@ -28,3 +27,9 @@ const App = () => {
 }
 
 export default App
+
+const appBoxStyles = {
+    position: 'relative',
+    minHeight: '100vh',
+    height: '100%',
+}

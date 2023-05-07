@@ -2,14 +2,12 @@ import { Box, Tab, Tabs } from '@mui/material'
 import { Link } from 'react-router-dom'
 import { useState } from 'react'
 import WebsiteLogo from '../Components/WebsiteLogo'
-import pages from '../Helpers/pages'
-import { Page, NavbarProps, NavbarTabProps } from '../types/NavbarTypes'
-import { navbarMenuBoxSx, navbarTabSx } from '../ComponentStyles/NavbarStyles'
+import pages, { Page } from '../Helpers/pages'
 import SearchMovies from '../pages/SearchMovies'
 
 const NavbarMenu = ({ pageLabel, setPageLabel }: NavbarProps) => {
     return (
-        <Box sx={navbarMenuBoxSx}>
+        <Box sx={navbarMenuStyles}>
             <WebsiteLogo navbarLogo />
             <NavbarTabs pageLabel={pageLabel} setPageLabel={setPageLabel} />
         </Box>
@@ -45,7 +43,7 @@ const NavbarTab = ({ page }: NavbarTabProps) => {
     return (
         <>
             <Tab
-                sx={navbarTabSx}
+                sx={navbarTabStyles}
                 label={page.label}
                 component={Link}
                 to={page.label === 'SEARCH' ? (undefined as any) : page.link}
@@ -60,3 +58,26 @@ const NavbarTab = ({ page }: NavbarTabProps) => {
 }
 
 export default NavbarMenu
+
+const navbarTabStyles = {
+    color: 'white',
+    opacity: 1,
+    transition: 'opacity 0.2s ease-in-out',
+    '&:hover': {
+        opacity: 0.4,
+    },
+}
+
+const navbarMenuStyles = {
+    display: 'flex',
+    alignItems: 'center',
+}
+
+type NavbarProps = {
+    pageLabel: string
+    setPageLabel: (pageLabel: string) => void
+}
+
+type NavbarTabProps = {
+    page: Page
+}

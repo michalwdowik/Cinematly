@@ -1,8 +1,6 @@
 import { Box, Typography } from '@mui/material'
 import AddToWatchlistButton from '../TrendingMovies/AddToWatchlistButton'
 import { MovieProps } from '../types/MoviesTypes'
-import { colorWhite } from '../ComponentStyles/NavbarStyles'
-import { detailsDividerSx } from '../ComponentStyles/TopRatedMoviesStyles'
 import cutText from '../Helpers/cutText'
 
 const TopRatedMovieHovered = ({ movie }: MovieProps) => {
@@ -36,7 +34,7 @@ const TopRatedMovieOverview = ({ movie }: MovieProps) => {
 }
 
 export const DetailsDivider = () => {
-    return <Box sx={detailsDividerSx} />
+    return <Box className="dividerStyle" />
 }
 
 const TopRatedMovieDetails = ({ movie }: MovieProps) => {

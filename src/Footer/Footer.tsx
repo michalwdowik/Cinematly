@@ -1,25 +1,25 @@
 import { Box, Typography } from '@mui/material'
 import { Parallax, ParallaxProvider } from 'react-scroll-parallax'
+import { ReactNode } from 'react'
 import WebsiteLogo from '../Components/WebsiteLogo'
-import { footerBoxSx } from '../ComponentStyles/FooterStyles'
-import { FooterBoxProps } from '../types/FooterTypes'
+
 import FooterMenu from './FooterMenu'
 
 const Footer = () => (
     <ParallaxProvider>
         <Parallax shouldAlwaysCompleteAnimation opacity={[0, 1, 'easeInOut']}>
-            <FooterBox>
+            <FooterWrapper>
                 <WebsiteLogo navbarLogo={false} />
                 <FooterMenu />
                 <FooterCopyright />
-            </FooterBox>
+            </FooterWrapper>
         </Parallax>
     </ParallaxProvider>
 )
 export default Footer
 
-const FooterBox = ({ children }: FooterBoxProps) => {
-    return <Box sx={footerBoxSx}>{children}</Box>
+const FooterWrapper = ({ children }: FooterProps) => {
+    return <Box sx={footerStyles}>{children}</Box>
 }
 
 const FooterCopyright = () => {
@@ -28,4 +28,17 @@ const FooterCopyright = () => {
             © 2023 Cinematly
         </Typography>
     )
+}
+
+const footerStyles = {
+    display: 'flex',
+    flexDirection: 'column',
+    alignItems: 'center',
+    gap: '20px',
+    marginTop: '100px',
+    marginBottom: '40px',
+}
+
+type FooterProps = {
+    children: ReactNode
 }

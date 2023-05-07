@@ -4,13 +4,11 @@ import { Link } from 'react-router-dom'
 import StarIcon from '@mui/icons-material/Star'
 import { Box } from '@mui/material'
 import trendingMovies from '../Helpers/fetchTrendingMovies'
-
-import { fontSize14px } from '../ComponentStyles/TrendingActorsStyles'
+import TrendingMovieModalDetails from './TrendingMovieModalDetails'
 import {
     CardDetailsProps,
-    MovieImageModalProps,
-} from '../types/TrendingMoviesTypes'
-import TrendingMovieModalDetails from './TrendingMovieModalDetails'
+    TrendingMovieCardsProps,
+} from './trendingMoviesTypes'
 
 const TrendingMovieModal = ({ id }: { id: string }) => {
     const movie = trendingMovies.find((item: Element) => item.id === id)
@@ -61,7 +59,7 @@ const MovieHeadingModal = ({ vote_average, title, id }: CardDetailsProps) => {
             layoutId={`title-container-${id}`}
         >
             <Box component="span" sx={{ display: 'flex' }} className="category">
-                <StarIcon sx={fontSize14px} />
+                <StarIcon sx={{ fontSize: '14px' }} />
                 {vote_average}
             </Box>
             <h2>{title}</h2>
@@ -78,3 +76,8 @@ const MovieImageModal = ({ backdrop_path }: MovieImageModalProps) => {
         />
     )
 }
+
+export type MovieImageModalProps = Pick<
+    TrendingMovieCardsProps,
+    'backdrop_path'
+>

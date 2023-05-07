@@ -1,7 +1,6 @@
 import { Box, Button } from '@mui/material'
 import { Link } from 'react-router-dom'
 import { useContext } from 'react'
-import { footerMenuBoxSx } from '../ComponentStyles/FooterStyles'
 import pages from '../Helpers/pages'
 import { ThemeContext } from '../Components/ThemeContext'
 
@@ -9,7 +8,7 @@ const FooterMenu = () => {
     const { textColor } = useContext(ThemeContext)
 
     return (
-        <Box sx={footerMenuBoxSx}>
+        <Box sx={footerMenuStyles}>
             {Object.keys(pages).map((label) => {
                 const page = pages[label]
                 const isSearch = label === 'SEARCH'
@@ -38,3 +37,10 @@ const FooterMenu = () => {
     )
 }
 export default FooterMenu
+
+const footerMenuStyles = {
+    display: 'flex',
+    justifyContent: 'center',
+    marginLeft: '35px',
+    gap: { xs: '25px', md: '90px' },
+}

@@ -1,12 +1,11 @@
 import { Box } from '@mui/material'
-import { topRatedMovieCardsSx } from '../ComponentStyles/TopRatedMoviesStyles'
 import topRatedMovies from '../Helpers/fetchTopRatedMovies'
 import { Movie } from '../types/MoviesTypes'
 import TopRatedMovie from './TopRatedMovie'
 
 const TopRatedMovies = () => {
     return (
-        <Box sx={topRatedMovieCardsSx}>
+        <Box sx={topRatedMovieCardsStyles}>
             {topRatedMovies.map((movie: Movie, rankPosition: number) => (
                 <TopRatedMovie
                     key={movie.id}
@@ -19,3 +18,11 @@ const TopRatedMovies = () => {
 }
 
 export default TopRatedMovies
+
+const topRatedMovieCardsStyles = {
+    display: 'flex',
+    flexWrap: 'wrap',
+    gap: '2rem',
+    justifyContent: 'center',
+    alignContent: 'center',
+}

@@ -1,6 +1,5 @@
 import { useRef } from 'react'
 import { useGesture } from '@use-gesture/react'
-import { UseDragInfiniteSliderProps } from '../types/HooksTypes'
 
 export default function useDragInfiniteSlider({
     runSprings,
@@ -28,4 +27,9 @@ export default function useDragInfiniteSlider({
         },
         { target, wheel: { eventOptions: { passive: false } } }
     )
+}
+
+export type UseDragInfiniteSliderProps = {
+    runSprings: (y: number, dy: number) => void
+    target: React.RefObject<HTMLDivElement>
 }

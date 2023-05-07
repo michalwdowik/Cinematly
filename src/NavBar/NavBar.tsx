@@ -6,7 +6,6 @@ import { DarkModeSwitch } from 'react-toggle-dark-mode'
 import NavbarDrawer from './NavbarDrawer'
 import NavbarMenu from './NavbarMenu'
 import pages from '../Helpers/pages'
-import { toolbarSx } from '../ComponentStyles/NavbarStyles'
 import useThemeColors from '../Hooks/useThemeColors'
 import { ThemeContext } from '../Components/ThemeContext'
 
@@ -31,7 +30,7 @@ const NavBar = () => {
 
     return (
         <AppBar sx={{ border: 'none', position: 'sticky' }}>
-            <Toolbar sx={toolbarSx(mainThemeColor)}>
+            <Toolbar sx={toolbarStyles(mainThemeColor)}>
                 {screenType.isMobile ? (
                     <NavbarDrawer />
                 ) : (
@@ -53,3 +52,11 @@ const NavBar = () => {
     )
 }
 export default NavBar
+
+const toolbarStyles = (mainThemeColor: string) => {
+    return {
+        bgcolor: mainThemeColor,
+        justifyContent: 'space-between',
+        height: '70px',
+    }
+}
