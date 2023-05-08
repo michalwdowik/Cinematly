@@ -1,6 +1,6 @@
 import { Box } from '@mui/material'
 import InfiniteSlider from '../Components/InfiniteSlider'
-import trendingActors from '../Helpers/fetchTrendingActors'
+import trendingActors from '../Helpers/fetchActors'
 import ActorDetails from './ActorDetails'
 
 const TrendingActors = () => (

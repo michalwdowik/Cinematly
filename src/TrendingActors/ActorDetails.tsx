@@ -1,9 +1,9 @@
 import { Box } from '@mui/material'
 import StarIcon from '@mui/icons-material/Star'
 import { useContext } from 'react'
-import cutText from '../Helpers/cutText'
 import { ThemeContext } from '../Components/ThemeContext'
-import { Actor } from './actorTypes'
+import { Actor } from './types'
+import shortenOverview from '../Helpers/cutText'
 
 const ActorDetails = ({
     name,
@@ -51,7 +51,7 @@ const ActorRoleOverview = ({ overview }: ActorRoleOverviewProps) => {
     const { textColor } = useContext(ThemeContext)
     return (
         <Box sx={{ color: textColor, marginBottom: '10px' }}>
-            {cutText(overview, 25)}
+            {shortenOverview(overview, 25)}
         </Box>
     )
 }

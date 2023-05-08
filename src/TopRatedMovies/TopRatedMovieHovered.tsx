@@ -1,7 +1,7 @@
 import { Box, Typography } from '@mui/material'
 import AddToWatchlistButton from '../Components/AddToWatchlistButton'
-import { MovieProps } from '../types/MoviesTypes'
-import cutText from '../Helpers/cutText'
+import { MovieProps } from '../MovieCard/types'
+import shortenOverview from '../Helpers/cutText'
 
 const TopRatedMovieHovered = ({ movie }: MovieProps) => {
     return (
@@ -28,7 +28,7 @@ const TopRatedMovieOverview = ({ movie }: MovieProps) => {
                 overflow: 'scroll',
             }}
         >
-            &quot;{cutText(movie.overview, 20)}&quot;
+            &quot;{shortenOverview(movie.overview, 20)}&quot;
         </Typography>
     )
 }

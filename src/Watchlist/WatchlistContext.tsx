@@ -1,7 +1,7 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import { ReactNode, createContext, useContext, useMemo, useState } from 'react'
 import { Alert, Snackbar } from '@mui/material'
-import { Movie } from '../types/MoviesTypes'
+import { Movie } from '../MovieCard/types'
 
 type WatchlistContextProviderType = {
     children: ReactNode

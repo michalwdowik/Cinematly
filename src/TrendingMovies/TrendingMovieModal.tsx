@@ -1,11 +1,13 @@
 import { motion } from 'framer-motion'
 import { Link } from 'react-router-dom'
 import { Box } from '@mui/material'
-import trendingMovies from '../Helpers/fetchTrendingMovies'
 import MovieCard from '../MovieCard/MovieCard'
+import fetchMovies from '../Helpers/fetchMovies'
+
+const fetchedTrendingMovies = await fetchMovies({ type: 'trending' })
 
 const TrendingMovieModal = ({ id }: { id: string }) => {
-    const movie = trendingMovies.find((item: Element) => item.id === id)
+    const movie = fetchedTrendingMovies.find((item: Element) => item.id === id)
 
     return (
         <>

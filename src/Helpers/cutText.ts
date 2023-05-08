@@ -1,5 +1,5 @@
 /* eslint-disable no-param-reassign */
-const cutText = (text: string, maxWords: number) => {
+const shortenOverview = (text: string, maxWords: number) => {
     const words = text.trim().split(' ')
 
     if (words.length <= maxWords) {
@@ -15,4 +15,4 @@ const cutText = (text: string, maxWords: number) => {
 
     return truncatedText
 }
-export default cutText
+export default shortenOverview

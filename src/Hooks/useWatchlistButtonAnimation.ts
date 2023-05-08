@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from 'react'
-import { Movie } from '../types/MoviesTypes'
+import { Movie } from '../MovieCard/types'
 
 const useWatchlistButtonAnimation = (watchlist: Movie[]): boolean => {
     const [animateAdd, setAnimateAdd] = useState(false)

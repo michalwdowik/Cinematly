@@ -1,6 +1,6 @@
 import { Box } from '@mui/material'
 import StarIcon from '@mui/icons-material/Star'
-import { MovieProps } from '../types/MoviesTypes'
+import { MovieProps } from '../MovieCard/types'
 
 export const MovieImage = ({ movie }: MovieProps) => {
     return (

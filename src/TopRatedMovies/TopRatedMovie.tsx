@@ -2,7 +2,7 @@
 import { Box } from '@mui/material'
 import TopRatedMovieHeadings from './TopRatedMovieHeadings'
 import TopRatedMovieHovered from './TopRatedMovieHovered'
-import { Movie } from '../types/MoviesTypes'
+import { Movie } from '../MovieCard/types'
 
 const TopRatedMovie = ({ movie, rankPosition }: TopRatedMovieProps) => {
     return (

@@ -1,7 +1,7 @@
 import { VerticalTimeline as Timeline } from 'react-vertical-timeline-component'
-import { Movie } from '../types/MoviesTypes'
 import useThemeColors from '../Hooks/useThemeColors'
 import TimelineWrapper from './TimelineWrapper'
+import { Movie } from '../MovieCard/types'
 import MovieCard from '../MovieCard/MovieCard'
 
 const UpcomingMovies = ({ movies }: UpcomingMoviesProps) => {

@@ -1,11 +1,12 @@
 import { Box } from '@mui/material'
 import { motion } from 'framer-motion'
-import { ScrollToTop } from 'react-router-scroll-to-top'
 import SectionHeading from '../Components/SectionHeading'
 import '../Styles/toprated.css'
 import TopRatedMovies from '../TopRatedMovies/TopRatedMovies'
+import useScrollToTop from '../Hooks/useScrollToTop'
 
 const TopRated = () => {
+    useScrollToTop()
     return (
         <motion.div
             initial={{ opacity: 0 }}
@@ -13,7 +14,6 @@ const TopRated = () => {
             exit={{ opacity: 0 }}
             transition={{ duration: 0.15 }}
         >
-            <ScrollToTop />
             <Box sx={topRatedPageBoxStyles}>
                 <SectionHeading
                     heading="Top Rated Movies"

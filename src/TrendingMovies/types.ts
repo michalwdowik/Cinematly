@@ -1,4 +1,4 @@
-import { Movie } from '../types/MoviesTypes'
+import { Movie } from '../MovieCard/types'
 
 export type TrendingMovieProps = Pick<
     Movie,

@@ -1,7 +1,7 @@
 import { Box } from '@mui/material'
 import { useContext } from 'react'
 import SearchedMovie from './SearchedMovie'
-import { Movie } from '../types/MoviesTypes'
+import { Movie } from '../MovieCard/types'
 import { ThemeContext } from '../Components/ThemeContext'
 
 type SearchedMoviesProps = {

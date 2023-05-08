@@ -1,13 +1,9 @@
 import { Box } from '@mui/material'
 import { useContext, useState } from 'react'
 import SearchedMovies from '../SearchedMovies/SearchedMovies'
-import fetchSearchMovies from '../Helpers/fetchSearchMovies'
 import SearchMovieInput from '../SearchedMovies/SearchMovieInput'
 import { ThemeContext } from '../Components/ThemeContext'
-
-type SearchMoviesProps = {
-    handleClick: (pageLabel: string) => void
-}
+import fetchMovies from '../Helpers/fetchMovies'
 
 const SearchMovies = ({ handleClick }: SearchMoviesProps) => {
     const [searchQuery, setSearchQuery] = useState('')
@@ -15,9 +11,10 @@ const SearchMovies = ({ handleClick }: SearchMoviesProps) => {
     const { backgroundColor } = useContext(ThemeContext)
     const handleSearchChange = (event: React.ChangeEvent<HTMLInputElement>) => {
         setSearchQuery(event.target.value)
-        fetchSearchMovies(event.target.value).then((results) =>
-            setSearchedMovies(results)
-        )
+        fetchMovies({
+            type: 'searched',
+            movieTitle: `${event.target.value}`,
+        }).then((results) => setSearchedMovies(results))
     }
 
     const handleOverlayClick = () => {
@@ -55,9 +52,6 @@ const searchMoviesSx = (backgroundColor: string) => {
 
 export default SearchMovies
 
-type SearchMoviesOverlayProps = {
-    handleOverlayClick: () => void
-}
 const SearchMoviesOverlay = ({
     handleOverlayClick,
 }: SearchMoviesOverlayProps) => {
@@ -76,4 +70,12 @@ const SearchMoviesOverlay = ({
             onClick={handleOverlayClick}
         />
     )
+}
+
+type SearchMoviesProps = {
+    handleClick: (pageLabel: string) => void
+}
+
+type SearchMoviesOverlayProps = {
+    handleOverlayClick: () => void
 }

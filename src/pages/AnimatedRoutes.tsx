@@ -5,7 +5,6 @@ import Home from './Home'
 import TopRated from './TopRated'
 import Upcoming from './Upcoming'
 import NotFound from './NotFound'
-// import ScrollToTop from '../Helpers/ScrollToTop'
 const AnimatedRoutes = () => {
     const location = useLocation()
 

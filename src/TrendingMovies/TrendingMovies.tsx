@@ -1,8 +1,9 @@
 import { Parallax } from 'react-scroll-parallax'
-import trendingMovies from '../Helpers/fetchTrendingMovies'
 import TrendingMovie from './TrendingMovie'
 import { TrendingMovieProps } from './types'
+import fetchMovies from '../Helpers/fetchMovies'
 
+const fetchedTrendingMovies = await fetchMovies({ type: 'trending' })
 const TrendingMovies = () => (
     <Parallax
         easing="easeInCubic"
@@ -11,7 +12,7 @@ const TrendingMovies = () => (
         translateY={['350px', '-50px']}
     >
         <ul className="card-list">
-            {trendingMovies.map((movie: TrendingMovieProps) => (
+            {fetchedTrendingMovies.map((movie: TrendingMovieProps) => (
                 <TrendingMovie
                     key={movie.id}
                     id={movie.id}

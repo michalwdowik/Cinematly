@@ -1,7 +1,7 @@
-import { MovieProps } from '../types/MoviesTypes'
 import MovieCardDetails from './MovieCardDetails'
 import MovieCardHeading from './MovieCardHeading'
 import MovieCardImage from './MovieCardImage'
+import { MovieProps } from './types'
 
 const MovieCard = ({ movie }: MovieProps) => {
     return (

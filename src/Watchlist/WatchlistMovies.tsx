@@ -1,6 +1,6 @@
 import { Box, Checkbox, Collapse, FormControlLabel, List } from '@mui/material'
 import { TransitionGroup } from 'react-transition-group'
-import { Movie, MovieProps } from '../types/MoviesTypes'
+import { Movie, MovieProps } from '../MovieCard/types'
 import { useWatchlistContext } from './WatchlistContext'
 import WatchlistMovie from './WatchlistMovie'
 

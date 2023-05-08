@@ -1,5 +1,5 @@
 import { Box } from '@mui/material'
-import { MovieProps } from '../types/MoviesTypes'
+import { MovieProps } from '../MovieCard/types'
 import SearchedMovieHovered from './SearchedMovieDetails'
 
 const SearchedMovie = ({ movie }: MovieProps) => {

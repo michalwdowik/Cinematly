@@ -3,17 +3,25 @@ import { Typography } from '@mui/material'
 import { Parallax, ParallaxProvider } from 'react-scroll-parallax'
 import { CSSProperties, useContext } from 'react'
 import useScreenType from 'react-screentype-hook'
-import { ScrollToTop } from 'react-router-scroll-to-top'
 import { motion } from 'framer-motion'
 import SectionHeading from '../Components/SectionHeading'
-import {
-    upcomingMoviesFromFuture,
-    upcomingMoviesUpToToday,
-} from '../Helpers/fetchUpcomingMovies'
 import UpcomingMovies from '../UpcomingMovies/UpcomingMovies'
 import { ThemeContext } from '../Components/ThemeContext'
+import fetchMovies from '../Helpers/fetchMovies'
+import { Movie } from '../MovieCard/types'
+import useScrollToTop from '../Hooks/useScrollToTop'
+
+const movies = await fetchMovies({ type: 'upcoming' })
+let moviesFromLast30Days: Movie[] = []
+let fetchedUpcomingMovies: Movie[] = []
+
+if ('moviesFromLast30Days' in movies && 'fetchedUpcomingMovies' in movies) {
+    moviesFromLast30Days = movies.moviesFromLast30Days
+    fetchedUpcomingMovies = movies.fetchedUpcomingMovies
+}
 
 const Upcoming = () => {
+    useScrollToTop()
     return (
         <ParallaxProvider>
             <motion.div
@@ -31,12 +39,11 @@ const Upcoming = () => {
                     enableParallax={false}
                 />
                 <Heading label="Just released" />
-                <UpcomingMovies movies={upcomingMoviesUpToToday} />
+                <UpcomingMovies movies={moviesFromLast30Days} />
                 <Heading label="Upcoming" />
-                <UpcomingMovies movies={upcomingMoviesFromFuture} />
+                <UpcomingMovies movies={fetchedUpcomingMovies} />
                 <Heading label="Stay tuned!" />
             </motion.div>
-            <ScrollToTop />
         </ParallaxProvider>
     )
 }

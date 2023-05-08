@@ -1,6 +1,6 @@
 import { Box, Typography } from '@mui/material'
-import { MovieProps } from '../types/MoviesTypes'
-import cutText from '../Helpers/cutText'
+import { MovieProps } from '../MovieCard/types'
+import shortenOverview from '../Helpers/cutText'
 
 const WatchlistMovie = ({ movie }: MovieProps) => {
     return (
@@ -73,7 +73,7 @@ const WatchlistMovieOverview = ({
 }: WatchlistMovieOverviewProps) => {
     return (
         <Typography sx={watchlistMovieOverviewStyles}>
-            {cutText(movieOverview, 20)}
+            {shortenOverview(movieOverview, 20)}
             ..
         </Typography>
     )

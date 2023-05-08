@@ -2,9 +2,15 @@ import { VerticalTimelineElement } from 'react-vertical-timeline-component'
 import CelebrationIcon from '@mui/icons-material/Celebration'
 import AccessTimeIcon from '@mui/icons-material/AccessTime'
 import { CSSProperties, ReactNode } from 'react'
-import { upcomingMoviesUpToToday } from '../Helpers/fetchUpcomingMovies'
 import useThemeColors from '../Hooks/useThemeColors'
-import { Movie } from '../types/MoviesTypes'
+import { Movie } from '../MovieCard/types'
+import fetchMovies from '../Helpers/fetchMovies'
+
+const fetchedMovies = await fetchMovies({ type: 'upcoming' })
+let moviesFromLast30Days: Movie[] = []
+if ('moviesFromLast30Days' in fetchedMovies) {
+    moviesFromLast30Days = fetchedMovies.moviesFromLast30Days
+}
 
 const TimelineWrapper = ({ movies, movie, children }: TimelineWrapperProps) => {
     const { mainThemeColor } = useThemeColors()
@@ -15,7 +21,7 @@ const TimelineWrapper = ({ movies, movie, children }: TimelineWrapperProps) => {
             className="scaleOnHover"
             iconStyle={timelineWrapperIconStyles(mainThemeColor)}
             icon={
-                movies === upcomingMoviesUpToToday ? (
+                movies === moviesFromLast30Days ? (
                     <CelebrationIcon />
                 ) : (
                     <AccessTimeIcon />

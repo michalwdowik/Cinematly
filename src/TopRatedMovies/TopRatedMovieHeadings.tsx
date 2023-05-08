@@ -1,7 +1,7 @@
 import { Box, Typography } from '@mui/material'
 import StarIcon from '@mui/icons-material/Star'
 
-import { MovieProps } from '../types/MoviesTypes'
+import { MovieProps } from '../MovieCard/types'
 
 const TopRatedMovieHeadings = ({ movie }: MovieProps) => {
     return (
@@ -58,7 +58,7 @@ const topRatedMovieRatingStyles = {
 }
 
 const topRatedMovieTitleStyles = (title: string) => ({
-    fontFamily: 'Roboto Slab, serif',
+    fontFamily: 'Roboto',
     fontWeight: '500',
     color: 'black',
     fontSize: title.length > 23 ? '1.7rem' : '2rem',

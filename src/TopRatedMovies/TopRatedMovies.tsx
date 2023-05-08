@@ -1,12 +1,13 @@
 import { Box } from '@mui/material'
-import topRatedMovies from '../Helpers/fetchTopRatedMovies'
-import { Movie } from '../types/MoviesTypes'
 import TopRatedMovie from './TopRatedMovie'
+import { Movie } from '../MovieCard/types'
+import fetchMovies from '../Helpers/fetchMovies'
 
+const fetchedTopRatedMovies = await fetchMovies({ type: 'topRated' })
 const TopRatedMovies = () => {
     return (
         <Box sx={topRatedMovieCardsStyles}>
-            {topRatedMovies.map((movie: Movie, rankPosition: number) => (
+            {fetchedTopRatedMovies.map((movie: Movie, rankPosition: number) => (
                 <TopRatedMovie
                     key={movie.id}
                     movie={movie}

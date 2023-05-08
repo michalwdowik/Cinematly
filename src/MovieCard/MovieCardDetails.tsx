@@ -1,7 +1,7 @@
 import { Box, Typography } from '@mui/material'
-import cutText from '../Helpers/cutText'
+import { MovieProps } from './types'
 import AddToWatchlistButton from '../Components/AddToWatchlistButton'
-import { MovieProps } from '../types/MoviesTypes'
+import shortenOverview from '../Helpers/cutText'
 
 const MovieCardDetails = ({ movie }: MovieProps) => {
     return (
@@ -87,7 +87,7 @@ const UpcomingMovieOriginLanguage = ({
 const UpcomingMovieOverview = ({ overview }: UpcomingMovieOverviewProps) => {
     return (
         <Typography variant="subtitle2">
-            {cutText(overview, 20) || 'No overview'}
+            {shortenOverview(overview, 20) || 'No overview'}
         </Typography>
     )
 }

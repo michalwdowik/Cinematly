@@ -4,7 +4,7 @@ import { a, useSprings, SpringValue } from '@react-spring/web'
 import { v4 as uuid } from 'uuid'
 import { Box } from '@mui/material'
 import useDragInfiniteSlider from '../Hooks/useDragInfiniteSlider'
-import { Actor } from '../TrendingActors/actorTypes'
+import { Actor } from '../TrendingActors/types'
 
 const InfiniteSlider = ({
     actors,

@@ -1,7 +1,7 @@
 import { Box, Typography } from '@mui/material'
 import AddToWatchlistButton from '../Components/AddToWatchlistButton'
-import { MovieProps } from '../types/MoviesTypes'
-import cutText from '../Helpers/cutText'
+import { MovieProps } from '../MovieCard/types'
+import shortenOverview from '../Helpers/cutText'
 
 const SearchedMovieHovered = ({ movie }: MovieProps) => {
     return (
@@ -21,7 +21,7 @@ const SearchedMovieHovered = ({ movie }: MovieProps) => {
 const TopRatedMovieOverview = ({ movie }: MovieProps) => {
     return (
         <Typography sx={topRatedMovieOverviewStyles}>
-            &quot;{cutText(movie.overview, 20)}&quot;
+            &quot;{shortenOverview(movie.overview, 20)}&quot;
         </Typography>
     )
 }

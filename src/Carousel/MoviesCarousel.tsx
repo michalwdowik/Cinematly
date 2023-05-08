@@ -3,7 +3,7 @@ import 'react-responsive-carousel/lib/styles/carousel.min.css'
 import useScreenType from 'react-screentype-hook'
 import { Box } from '@mui/material'
 import { v4 as uuid } from 'uuid'
-import nowPlayingMovies from '../Helpers/fetchNowPlayingMovies'
+import { ReactNode } from 'react'
 import {
     MovieImage,
     MovieOverview,
@@ -11,13 +11,15 @@ import {
     MovieReleaseDate,
     MovieTitle,
 } from './CarouselMovieDetails'
-import { CarouselOverlayProps, Movie } from '../types/MoviesTypes'
+import { Movie } from '../MovieCard/types'
+import fetchMovies from '../Helpers/fetchMovies'
 
+const fetchedNowPlayingMovies = await fetchMovies({ type: 'nowPlaying' })
 const MoviesCarousel = () => {
     const screenType = useScreenType()
     return (
         <CarouselComponent
-            key={nowPlayingMovies.length}
+            key={fetchedNowPlayingMovies.length}
             autoPlay
             infiniteLoop
             className="carouselStyles"
@@ -25,7 +27,7 @@ const MoviesCarousel = () => {
             showThumbs={false}
             showIndicators={!screenType.isMobile}
         >
-            {nowPlayingMovies.map((movie: Movie) => (
+            {fetchedNowPlayingMovies.map((movie: Movie) => (
                 <div key={uuid()}>
                     <MovieImage movie={movie} />
                     <MovieDetails movie={movie} />
@@ -107,4 +109,8 @@ const carouselMovieDetailsStyles = {
         lg: '15%',
         md: '10%',
     },
+}
+
+type CarouselOverlayProps = {
+    children: ReactNode
 }

@@ -1,5 +1,3 @@
-import { ReactNode } from 'react'
-
 export interface Movie {
     id: string
     title: string
@@ -19,8 +17,4 @@ export interface Movie {
 
 export type MovieProps = {
     movie: Movie
-}
-
-export type CarouselOverlayProps = {
-    children: ReactNode
 }
