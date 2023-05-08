@@ -1,9 +1,9 @@
 import { Box, Typography } from '@mui/material'
 import cutText from '../Helpers/cutText'
-import AddToWatchlistButton from '../TrendingMovies/AddToWatchlistButton'
+import AddToWatchlistButton from '../Components/AddToWatchlistButton'
 import { MovieProps } from '../types/MoviesTypes'
 
-const UpcomingMovieDetails = ({ movie }: MovieProps) => {
+const MovieCardDetails = ({ movie }: MovieProps) => {
     return (
         <Box sx={upcomingMovieDetailsSx}>
             <Box className="movieModalDetails">
@@ -12,7 +12,9 @@ const UpcomingMovieDetails = ({ movie }: MovieProps) => {
                     title={movie.title}
                     originTitle={movie.original_title}
                 />
-                <UpcomingMovieReleaseDate releaseDate={movie.release_date} />
+                <UpcomingMovieReleaseDate
+                    releaseDate={movie.release_date || movie.release}
+                />
                 <UpcomingMovieOriginLanguage
                     originLanguage={movie.original_language}
                 />
@@ -22,7 +24,7 @@ const UpcomingMovieDetails = ({ movie }: MovieProps) => {
     )
 }
 
-export default UpcomingMovieDetails
+export default MovieCardDetails
 
 const UpcomingMovieTitle = ({
     title,

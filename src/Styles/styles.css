@@ -227,7 +227,6 @@ li {
   top: 0;
   left: -80px;
   overflow: hidden;
-  width: 100vw;
   filter: brightness(80%)
 
 }

@@ -25,6 +25,7 @@ const SearchMovieInput = ({
                 '& .MuiOutlinedInput-root': {
                     '& fieldset': {
                         borderRadius: '1rem',
+                        borderColor: 'orange !important',
                     },
                 },
             }}

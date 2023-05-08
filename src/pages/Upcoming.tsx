@@ -1,7 +1,7 @@
 import 'react-vertical-timeline-component/style.min.css'
 import { Typography } from '@mui/material'
 import { Parallax, ParallaxProvider } from 'react-scroll-parallax'
-import { useContext } from 'react'
+import { CSSProperties, useContext } from 'react'
 import useScreenType from 'react-screentype-hook'
 import { ScrollToTop } from 'react-router-scroll-to-top'
 import { motion } from 'framer-motion'
@@ -11,7 +11,6 @@ import {
     upcomingMoviesUpToToday,
 } from '../Helpers/fetchUpcomingMovies'
 import UpcomingMovies from '../UpcomingMovies/UpcomingMovies'
-// import { upcomingPageBoxSx } from '../ComponentStyles/UpcomingStyles'
 import { ThemeContext } from '../Components/ThemeContext'
 
 const Upcoming = () => {
@@ -22,36 +21,28 @@ const Upcoming = () => {
                 animate={{ opacity: 1 }}
                 exit={{ opacity: 0 }}
                 transition={{ duration: 0.15 }}
-                style={{
-                    display: 'flex',
-                    flexDirection: 'column',
-                    justifyContent: 'center',
-                    alignContent: 'center',
-                    alignItems: 'center',
-                    marginTop: '4rem',
-                }}
+                style={upcomingPageStyles}
                 className="upcomingMovies"
             >
-                <ScrollToTop />
-
                 <SectionHeading
                     heading="Upcoming Movies"
                     subheading="From highly-anticipated sequels to exciting new releases, stay in the loop with our Upcoming Movies section"
                     leftAligned
                     enableParallax={false}
                 />
-                <JustReleasedLabel />
+                <Heading label="Just released" />
                 <UpcomingMovies movies={upcomingMoviesUpToToday} />
-                <UpcomingLabel />
+                <Heading label="Upcoming" />
                 <UpcomingMovies movies={upcomingMoviesFromFuture} />
-                <StayTunedLabel />
+                <Heading label="Stay tuned!" />
             </motion.div>
+            <ScrollToTop />
         </ParallaxProvider>
     )
 }
 export default Upcoming
 
-const JustReleasedLabel = () => {
+const Heading = ({ label }: HeadingProps) => {
     const { textColor } = useContext(ThemeContext)
     const screenType = useScreenType()
 
@@ -59,41 +50,27 @@ const JustReleasedLabel = () => {
         <Parallax opacity={[2.5, 0]}>
             <Typography
                 variant={screenType.isMobile ? 'h4' : 'h2'}
-                sx={{ fontWeight: '700', padding: '2rem', color: textColor }}
+                sx={headingStyles(textColor)}
             >
-                Recent releases
+                {label}
             </Typography>
         </Parallax>
     )
 }
 
-const UpcomingLabel = () => {
-    const { textColor } = useContext(ThemeContext)
-    const screenType = useScreenType()
-    return (
-        <Parallax speed={-10} opacity={[2.5, 0]}>
-            <Typography
-                variant={screenType.isMobile ? 'h4' : 'h2'}
-                sx={{ fontWeight: '700', paddingY: '2rem', color: textColor }}
-            >
-                Upcoming
-            </Typography>
-        </Parallax>
-    )
+const upcomingPageStyles: CSSProperties = {
+    display: 'flex',
+    flexDirection: 'column',
+    justifyContent: 'center',
+    alignContent: 'center',
+    alignItems: 'center',
+    marginTop: '4rem',
 }
 
-const StayTunedLabel = () => {
-    const { textColor } = useContext(ThemeContext)
-    const screenType = useScreenType()
+const headingStyles = (textColor: string) => {
+    return { fontWeight: '700', padding: '2rem', color: textColor }
+}
 
-    return (
-        <Parallax opacity={[0, 2.5]}>
-            <Typography
-                variant={screenType.isMobile ? 'h4' : 'h2'}
-                sx={{ fontWeight: '700', padding: '2rem', color: textColor }}
-            >
-                Stay tuned
-            </Typography>
-        </Parallax>
-    )
+type HeadingProps = {
+    label: string
 }

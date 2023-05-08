@@ -2,29 +2,29 @@ import { Link } from 'react-router-dom'
 import { motion } from 'framer-motion'
 import StarIcon from '@mui/icons-material/Star'
 import { Box } from '@mui/material'
-import {
-    CardDetailsProps,
-    TrendingMovieCardsProps,
-} from './trendingMoviesTypes'
+import { TrendingMovieDetailsProps, TrendingMovieProps } from './types'
 
-const TrendingMovieCard = ({
+const TrendingMovie = ({
     id,
     title,
-    theme,
     backdrop_path,
     vote_average,
-}: TrendingMovieCardsProps) => (
-    <li className={`zoom-on-hover card ${theme}`}>
+}: TrendingMovieProps) => (
+    <li className="zoom-on-hover card">
         <motion.div className="card-content" layoutId={`card-container-${id}`}>
-            <CardImage backdrop_path={backdrop_path} id={id} />
-            <CardDetails id={id} vote_average={vote_average} title={title} />
+            <TrendingMovieImage backdrop_path={backdrop_path} id={id} />
+            <TrendingMovieDetails
+                id={id}
+                vote_average={vote_average}
+                title={title}
+            />
         </motion.div>
         <Link to={id} className="card-open-link" />
     </li>
 )
-export default TrendingMovieCard
+export default TrendingMovie
 
-const CardImage = ({ id, backdrop_path }: CardImageProps) => {
+const TrendingMovieImage = ({ id, backdrop_path }: MovieImageProps) => {
     return (
         <motion.div
             className="card-image-container"
@@ -39,23 +39,27 @@ const CardImage = ({ id, backdrop_path }: CardImageProps) => {
     )
 }
 
-const CardDetails = ({ id, title, vote_average }: CardDetailsProps) => {
+const TrendingMovieDetails = ({
+    id,
+    title,
+    vote_average,
+}: TrendingMovieDetailsProps) => {
     return (
         <motion.div
             className="title-container"
             layoutId={`title-container-${id}`}
         >
-            <MovieTitle title={title} />
-            <MovieRating vote_average={vote_average} />
+            <TrendingMovieTitle title={title} />
+            <TrendingMovieRating vote_average={vote_average} />
         </motion.div>
     )
 }
 
-const MovieTitle = ({ title }: MovieTitleProps) => {
+const TrendingMovieTitle = ({ title }: MovieTitleProps) => {
     return <h1>{title}</h1>
 }
 
-const MovieRating = ({ vote_average }: MovieRatingProps) => {
+const TrendingMovieRating = ({ vote_average }: MovieRatingProps) => {
     return (
         <Box component="span" sx={{ display: 'flex' }} className="category">
             <StarIcon sx={{ fontSize: '14px' }} />
@@ -64,8 +68,8 @@ const MovieRating = ({ vote_average }: MovieRatingProps) => {
     )
 }
 
-type CardImageProps = Pick<TrendingMovieCardsProps, 'id' | 'backdrop_path'>
+type MovieImageProps = Pick<TrendingMovieProps, 'id' | 'backdrop_path'>
 
-type MovieTitleProps = Pick<TrendingMovieCardsProps, 'title'>
+type MovieTitleProps = Pick<TrendingMovieProps, 'title'>
 
-type MovieRatingProps = Pick<TrendingMovieCardsProps, 'vote_average'>
+type MovieRatingProps = Pick<TrendingMovieProps, 'vote_average'>

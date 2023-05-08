@@ -1,5 +1,5 @@
 import { Box, Typography } from '@mui/material'
-import AddToWatchlistButton from '../TrendingMovies/AddToWatchlistButton'
+import AddToWatchlistButton from '../Components/AddToWatchlistButton'
 import { MovieProps } from '../types/MoviesTypes'
 import cutText from '../Helpers/cutText'
 

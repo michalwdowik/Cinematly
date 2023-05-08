@@ -49,7 +49,7 @@
       transform: translateY(0) scale(1);
     }
     30% {
-      transform: translateY(-40px) scale(1.6);
+      transform: translateY(-40px) scale(1.5);
     }
   
     60% {

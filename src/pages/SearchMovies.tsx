@@ -24,7 +24,7 @@ const SearchMovies = ({ handleClick }: SearchMoviesProps) => {
         handleClick('SEARCH')
     }
     return (
-        <Box className="fade-in-search" sx={searchMoviesSx(backgroundColor)}>
+        <Box className="serachMovieFadeIn" sx={searchMoviesSx(backgroundColor)}>
             <SearchMovieInput
                 searchQuery={searchQuery}
                 handleSearchChange={handleSearchChange}
