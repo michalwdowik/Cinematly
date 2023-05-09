@@ -1,4 +1,4 @@
-import { motion, useScroll, useSpring } from 'framer-motion'
+import { MotionStyle, motion, useScroll, useSpring } from 'framer-motion'
 
 const BottomScroll = () => {
     const { scrollYProgress } = useScroll()
@@ -7,12 +7,28 @@ const BottomScroll = () => {
         damping: 30,
         restDelta: 0.001,
     })
+
     return (
         <motion.div
             className="progress"
-            style={{ scaleX, zIndex: '1', bottom: 0 }}
+            style={{
+                ...progressStyles,
+                scaleX,
+            }}
         />
     )
 }
 
 export default BottomScroll
+
+const progressStyles: MotionStyle = {
+    zIndex: '1',
+    position: 'fixed',
+    left: '0',
+    right: '0',
+    height: '5px',
+    backgroundColor: 'orange',
+    opacity: '60%',
+    bottom: '0px',
+    borderRadius: '100px',
+}

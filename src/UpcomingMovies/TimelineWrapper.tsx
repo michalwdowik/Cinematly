@@ -6,22 +6,17 @@ import useThemeColors from '../Hooks/useThemeColors'
 import { Movie } from '../MovieCard/types'
 import fetchMovies from '../Helpers/fetchMovies'
 
-const fetchedMovies = await fetchMovies({ type: 'upcoming' })
-let moviesFromLast30Days: Movie[] = []
-if ('moviesFromLast30Days' in fetchedMovies) {
-    moviesFromLast30Days = fetchedMovies.moviesFromLast30Days
-}
+const justReleased = await fetchMovies({ type: 'justReleased' })
 
-const TimelineWrapper = ({ movies, movie, children }: TimelineWrapperProps) => {
+const TimelineWrapper = ({ movies, children }: TimelineWrapperProps) => {
     const { mainThemeColor } = useThemeColors()
     return (
         <VerticalTimelineElement
             contentStyle={timelineWrapperStyles}
-            date={movie.release_date}
             className="scaleOnHover"
             iconStyle={timelineWrapperIconStyles(mainThemeColor)}
             icon={
-                movies === moviesFromLast30Days ? (
+                movies === justReleased ? (
                     <CelebrationIcon />
                 ) : (
                     <AccessTimeIcon />
@@ -54,6 +49,5 @@ const timelineWrapperIconStyles = (mainThemeColor: string) => {
 
 type TimelineWrapperProps = {
     movies: Movie[]
-    movie: Movie
     children: ReactNode
 }

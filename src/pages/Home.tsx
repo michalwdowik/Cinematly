@@ -12,7 +12,7 @@ const Home = () => {
 
     return (
         <ParallaxProvider>
-            <div className="containerx">
+            <div className="container">
                 <MoviesCarousel />
                 <SectionHeading
                     enableParallax

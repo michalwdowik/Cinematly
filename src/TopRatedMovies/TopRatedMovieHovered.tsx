@@ -47,7 +47,7 @@ const TopRatedMovieDetails = ({ movie }: MovieProps) => {
             {movie.popularity} votes
             <br />
             <b>Release date: </b>
-            {movie.release_date}
+            {movie.release}
             <br />
             <b>Original language: </b>
             {movie.original_language}

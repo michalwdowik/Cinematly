@@ -8,7 +8,7 @@ const TopRatedMovieHeadings = ({ movie }: MovieProps) => {
         <Box sx={topRatedMovieHeadingsStyles}>
             <TopRatedMovieTitle title={movie.title} />
             <TopRatedMovieRating vote_average={movie.vote_average} />
-            <TopRatedMovieReleaseDate release_date={movie.release_date} />
+            <TopRatedMovieReleaseDate release={movie.release} />
         </Box>
     )
 }
@@ -31,14 +31,14 @@ const TopRatedMovieRating = ({ vote_average }: TopRatedMovieRatingProps) => {
 }
 
 const TopRatedMovieReleaseDate = ({
-    release_date,
+    release,
 }: TopRatedMovieReleaseDateProps) => {
     return (
         <Box sx={topRatedMovieReleaseDateStyles}>
             <Typography variant="subtitle1" sx={{ fontWeight: '600' }}>
                 Release date:
             </Typography>
-            <Typography variant="subtitle2">{release_date}</Typography>
+            <Typography variant="subtitle2">{release}</Typography>
         </Box>
     )
 }
@@ -88,5 +88,5 @@ type TopRatedMovieTitleProps = {
 }
 
 type TopRatedMovieReleaseDateProps = {
-    release_date: string
+    release: string
 }

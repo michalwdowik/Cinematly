@@ -8,17 +8,10 @@ import SectionHeading from '../Components/SectionHeading'
 import UpcomingMovies from '../UpcomingMovies/UpcomingMovies'
 import { ThemeContext } from '../Components/ThemeContext'
 import fetchMovies from '../Helpers/fetchMovies'
-import { Movie } from '../MovieCard/types'
 import useScrollToTop from '../Hooks/useScrollToTop'
 
-const movies = await fetchMovies({ type: 'upcoming' })
-let moviesFromLast30Days: Movie[] = []
-let fetchedUpcomingMovies: Movie[] = []
-
-if ('moviesFromLast30Days' in movies && 'fetchedUpcomingMovies' in movies) {
-    moviesFromLast30Days = movies.moviesFromLast30Days
-    fetchedUpcomingMovies = movies.fetchedUpcomingMovies
-}
+const upcomingMovies = await fetchMovies({ type: 'upcoming' })
+const justReleased = await fetchMovies({ type: 'justReleased' })
 
 const Upcoming = () => {
     useScrollToTop()
@@ -39,9 +32,9 @@ const Upcoming = () => {
                     enableParallax={false}
                 />
                 <Heading label="Just released" />
-                <UpcomingMovies movies={moviesFromLast30Days} />
+                <UpcomingMovies movies={justReleased} />
                 <Heading label="Upcoming" />
-                <UpcomingMovies movies={fetchedUpcomingMovies} />
+                <UpcomingMovies movies={upcomingMovies} />
                 <Heading label="Stay tuned!" />
             </motion.div>
         </ParallaxProvider>

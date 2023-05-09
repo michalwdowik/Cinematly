@@ -8,6 +8,7 @@ type MovieType =
     | 'trending'
     | 'searched'
     | 'upcoming'
+    | 'justReleased'
 
 type FetchMoviesProps = {
     type: MovieType
@@ -25,6 +26,7 @@ const fetchLink = (type: MovieType, movieTitle?: string) => {
         case 'searched':
             return `https://api.themoviedb.org/3/search/movie?api_key=${API_KEY}&language=en-US&page=1&include_adult=false&query=${movieTitle}`
         case 'upcoming':
+        case 'justReleased':
             return `https://api.themoviedb.org/3/movie/upcoming?api_key=${API_KEY}&language=en-US&page=1`
 
         default:
@@ -32,24 +34,28 @@ const fetchLink = (type: MovieType, movieTitle?: string) => {
     }
 }
 
+const createMovieObject = (movie: Movie) => ({
+    id: `:${movie.title || movie.name}`,
+    title: movie.title || movie.name,
+    vote_average: movie.vote_average.toFixed(2),
+    backdrop_path: movie.backdrop_path,
+    overview: movie.overview,
+    release: movie.release_date || movie.first_air_date || movie.release,
+    original_title: movie.original_title,
+    original_language: movie.original_language,
+    poster_path: movie.poster_path,
+    popularity: movie.popularity,
+})
+
 const fetchMovies = async ({ type, movieTitle }: FetchMoviesProps) => {
     const link = fetchLink(type, movieTitle)
     const response = await fetch(link)
     const data = await response.json()
-    let movies: Movie[] = []
+    let movies: Movie[]
 
-    if (type === 'upcoming') {
+    if (type === 'upcoming' || type === 'justReleased') {
         movies = data.results
-            .map((movie: Movie) => ({
-                id: `:${movie.title || movie.name}`,
-                title: movie.title || movie.name,
-                vote_average: movie.vote_average.toFixed(2),
-                backdrop_path: movie.backdrop_path,
-                overview: movie.overview,
-                release_date: movie.release_date || movie.first_air_date,
-                original_title: movie.original_title,
-                original_language: movie.original_language,
-            }))
+            .map((movie: Movie) => createMovieObject(movie))
             .sort((a: Movie, b: Movie) => {
                 const releaseDateA = new Date(a.release_date)
                 const releaseDateB = new Date(b.release_date)
@@ -61,29 +67,23 @@ const fetchMovies = async ({ type, movieTitle }: FetchMoviesProps) => {
             today.getTime() - 30 * 24 * 60 * 60 * 1000
         )
 
-        const moviesFromLast30Days = movies.filter((movie: Movie) => {
-            const releaseDate = new Date(movie.release_date)
-            return releaseDate <= today && releaseDate >= thirtyDaysAgo
-        })
-
-        const fetchedUpcomingMovies = movies.filter((movie: Movie) => {
-            const releaseDate = new Date(movie.release_date)
+        if (type === 'justReleased') {
+            const justReleased = movies.filter((movie: Movie) => {
+                const releaseDate = new Date(movie.release)
+                return releaseDate <= today && releaseDate >= thirtyDaysAgo
+            })
+            return justReleased
+        }
+        const upcomingMovies = movies.filter((movie: Movie) => {
+            const releaseDate = new Date(movie.release)
             return releaseDate > today
         })
 
-        return { moviesFromLast30Days, fetchedUpcomingMovies }
+        return upcomingMovies
     }
-    movies = data.results.slice(0, 10).map((movie: Movie) => ({
-        id: `:${movie.title || movie.name}`,
-        title: movie.title || movie.name,
-        vote_average: movie.vote_average.toFixed(2),
-        backdrop_path: movie.backdrop_path,
-        overview: movie.overview,
-        release: movie.release_date || movie.first_air_date,
-        original_title: movie.original_title,
-        original_language: movie.original_language,
-        poster_path: movie.poster_path,
-    }))
+    movies = data.results
+        .slice(0, 10)
+        .map((movie: Movie) => createMovieObject(movie))
     return movies
 }
 
