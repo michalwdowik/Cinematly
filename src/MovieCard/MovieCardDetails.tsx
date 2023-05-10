@@ -5,7 +5,7 @@ import shortenOverview from '../Helpers/cutText'
 
 const MovieCardDetails = ({ movie }: MovieProps) => {
     return (
-        <Box sx={upcomingMovieDetailsSx}>
+        <Box sx={upcomingMovieDetailsStyles}>
             <Box className="movieModalDetails">
                 <AddToWatchlistButton absolute movie={movie} />
                 <UpcomingMovieTitle
@@ -92,13 +92,14 @@ const UpcomingMovieOverview = ({ overview }: UpcomingMovieOverviewProps) => {
     )
 }
 
-export const upcomingMovieDetailsSx = {
+/* --------------------------------- STYLES --------------------------------- */
+export const upcomingMovieDetailsStyles = {
     position: 'relative',
     display: 'flex',
     flexDirection: 'column',
     padding: '1rem',
 }
-
+/* --------------------------------- TYPES --------------------------------- */
 type UpcomingMovieTitleProps = {
     title: string
     originTitle: string | undefined

@@ -30,6 +30,7 @@ const TimelineWrapper = ({ movies, children }: TimelineWrapperProps) => {
 
 export default TimelineWrapper
 
+/* --------------------------------- STYLES --------------------------------- */
 const timelineWrapperStyles: CSSProperties = {
     borderRadius: '4rem',
     color: '#fff',
@@ -47,6 +48,7 @@ const timelineWrapperIconStyles = (mainThemeColor: string) => {
     }
 }
 
+/* --------------------------------- TYPES --------------------------------- */
 type TimelineWrapperProps = {
     movies: Movie[]
     children: ReactNode

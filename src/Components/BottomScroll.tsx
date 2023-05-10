@@ -21,6 +21,7 @@ const BottomScroll = () => {
 
 export default BottomScroll
 
+/* --------------------------------- STYLES --------------------------------- */
 const progressStyles: MotionStyle = {
     zIndex: '1',
     position: 'fixed',

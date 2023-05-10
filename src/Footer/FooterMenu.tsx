@@ -38,6 +38,7 @@ const FooterMenu = () => {
 }
 export default FooterMenu
 
+/* --------------------------------- STYLES --------------------------------- */
 const footerMenuStyles = {
     display: 'flex',
     justifyContent: 'center',

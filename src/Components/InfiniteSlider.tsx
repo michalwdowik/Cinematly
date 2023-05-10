@@ -74,6 +74,7 @@ const InfiniteSlider = ({
 }
 export default InfiniteSlider
 
+/* --------------------------------- STYLES --------------------------------- */
 const infiniteSliderStyles = {
     position: 'relative',
     height: '100%',
@@ -89,6 +90,7 @@ const springStyle = (x: SpringValue<number>) => ({
     x,
 })
 
+/* --------------------------------- TYPES --------------------------------- */
 type InfiniteSliderProps = {
     actors: Actor[]
     width: number

@@ -53,6 +53,7 @@ const NavBar = () => {
 }
 export default NavBar
 
+/* --------------------------------- STYLES --------------------------------- */
 const toolbarStyles = (mainThemeColor: string) => {
     return {
         bgcolor: mainThemeColor,

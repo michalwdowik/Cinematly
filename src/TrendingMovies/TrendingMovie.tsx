@@ -61,13 +61,18 @@ const TrendingMovieTitle = ({ title }: MovieTitleProps) => {
 
 const TrendingMovieRating = ({ vote_average }: MovieRatingProps) => {
     return (
-        <Box component="span" sx={{ display: 'flex' }} className="category">
+        <Box
+            component="span"
+            sx={{ display: 'flex' }}
+            className="trendingMovieRating"
+        >
             <StarIcon sx={{ fontSize: '14px' }} />
             {vote_average}
         </Box>
     )
 }
 
+/* --------------------------------- TYPES --------------------------------- */
 type MovieImageProps = Pick<TrendingMovieProps, 'id' | 'backdrop_path'>
 
 type MovieTitleProps = Pick<TrendingMovieProps, 'title'>

@@ -100,6 +100,7 @@ const DrawerList = ({
     )
 }
 
+/* --------------------------------- STYLES --------------------------------- */
 const drawerPaperStyles = {
     backgroundColor: '#fc9803',
 }
@@ -111,7 +112,7 @@ const drawerLinkStyles = {
         opacity: 0.8,
     },
 }
-
+/* --------------------------------- TYPES --------------------------------- */
 type DrawerListProps = {
     toggleDrawer: (open: boolean) => () => void
     setIsDrawerOpen: React.Dispatch<React.SetStateAction<boolean>>

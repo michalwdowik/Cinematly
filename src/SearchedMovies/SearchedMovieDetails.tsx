@@ -50,6 +50,7 @@ const TopRatedMovieDetails = ({ movie }: MovieProps) => {
 
 export default SearchedMovieHovered
 
+/* --------------------------------- STYLES --------------------------------- */
 const topRatedMovieOverviewStyles = {
     maxHeight: '11rem',
     padding: '0.5rem',

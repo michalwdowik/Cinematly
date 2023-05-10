@@ -2,6 +2,7 @@ import { Box } from '@mui/material'
 import { useContext } from 'react'
 import SearchedMovie from './SearchedMovie'
 import { Movie } from '../MovieCard/types'
+import CallToActionLabel from '../Components/CallToActionLabel'
 import { ThemeContext } from '../Components/ThemeContext'
 
 type SearchedMoviesProps = {
@@ -12,15 +13,7 @@ const SearchedMovies = ({ searchedMovies }: SearchedMoviesProps) => {
     const { textColor } = useContext(ThemeContext)
 
     return searchedMovies.length > 0 ? (
-        <Box
-            sx={{
-                display: 'flex',
-                gap: '1rem',
-                maxWidth: '100vw',
-                overflowX: 'scroll',
-                padding: '1rem',
-            }}
-        >
+        <Box sx={searchedMoviesStyles}>
             {searchedMovies.map(
                 (movie) =>
                     movie.poster_path && (
@@ -29,17 +22,21 @@ const SearchedMovies = ({ searchedMovies }: SearchedMoviesProps) => {
             )}
         </Box>
     ) : (
-        <Box
-            sx={{
-                color: textColor,
-                fontSize: '2rem',
-                marginTop: '4rem',
-                opacity: '50%',
-            }}
-        >
-            Search for some movies...
-        </Box>
+        <CallToActionLabel
+            message="Search for some movies..."
+            textSize="2rem"
+            textColor={textColor}
+        />
     )
 }
 
 export default SearchedMovies
+
+/* --------------------------------- STYLES --------------------------------- */
+const searchedMoviesStyles = {
+    display: 'flex',
+    gap: '1rem',
+    maxWidth: '100vw',
+    overflowX: 'scroll',
+    padding: '1rem',
+}

@@ -1,7 +1,6 @@
 import { Box } from '@mui/material'
 import { motion } from 'framer-motion'
 import SectionHeading from '../Components/SectionHeading'
-import '../Styles/toprated.css'
 import TopRatedMovies from '../TopRatedMovies/TopRatedMovies'
 import useScrollToTop from '../Hooks/useScrollToTop'
 
@@ -29,6 +28,7 @@ const TopRated = () => {
 
 export default TopRated
 
+/* --------------------------------- STYLES --------------------------------- */
 const topRatedPageBoxStyles = {
     marginTop: '3rem',
     padding: '0',

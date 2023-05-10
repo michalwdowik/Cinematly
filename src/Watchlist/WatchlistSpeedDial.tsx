@@ -67,6 +67,7 @@ const WatchlistSpeedDialButton = ({
     )
 }
 
+/* --------------------------------- STYLES --------------------------------- */
 const fabStyles = (mainThemeColor: string, mainThemeColorSecondary: string) => {
     return {
         backgroundColor: mainThemeColor,
@@ -95,6 +96,7 @@ export const watchlistBadgeStyles = {
     },
 }
 
+/* --------------------------------- TYPES --------------------------------- */
 type WatchlistSpeedDialButtonProps = {
     toggleWatchlist: () => void
 }

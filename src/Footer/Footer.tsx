@@ -30,6 +30,7 @@ const FooterCopyright = () => {
     )
 }
 
+/* --------------------------------- STYLES --------------------------------- */
 const footerStyles = {
     display: 'flex',
     flexDirection: 'column',
@@ -39,6 +40,7 @@ const footerStyles = {
     marginBottom: '40px',
 }
 
+/* --------------------------------- TYPES --------------------------------- */
 type FooterProps = {
     children: ReactNode
 }

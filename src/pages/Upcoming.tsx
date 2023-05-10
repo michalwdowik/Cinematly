@@ -58,6 +58,7 @@ const Heading = ({ label }: HeadingProps) => {
     )
 }
 
+/* --------------------------------- STYLES --------------------------------- */
 const upcomingPageStyles: CSSProperties = {
     display: 'flex',
     flexDirection: 'column',
@@ -71,6 +72,7 @@ const headingStyles = (textColor: string) => {
     return { fontWeight: '700', padding: '2rem', color: textColor }
 }
 
+/* --------------------------------- TYPES --------------------------------- */
 type HeadingProps = {
     label: string
 }

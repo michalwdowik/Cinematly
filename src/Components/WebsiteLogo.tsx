@@ -20,6 +20,7 @@ const WebsiteLogo = ({ navbarLogo }: WebsiteLogoProps) => {
 
 export default WebsiteLogo
 
+/* --------------------------------- TYPES --------------------------------- */
 type WebsiteLogoProps = {
     navbarLogo: boolean
 }

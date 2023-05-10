@@ -1,15 +1,6 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import React, { ReactNode, createContext, useMemo, useState } from 'react'
 
-interface ThemeContextProps {
-    isDarkMode: boolean
-    toggleDarkMode: () => void
-    backgroundColor: string
-    textColor: string
-    mainThemeColor: string
-    mainThemeColorSecondary: string
-}
-
 export const ThemeContext = createContext<ThemeContextProps>({
     isDarkMode: false,
     toggleDarkMode: () => {},
@@ -19,9 +10,6 @@ export const ThemeContext = createContext<ThemeContextProps>({
     mainThemeColorSecondary: '#fc7703',
 })
 
-type ThemeProviderProps = {
-    children: ReactNode
-}
 const ThemeProvider = ({ children }: ThemeProviderProps) => {
     const [isDarkMode, setIsDarkMode] = useState(false)
 
@@ -47,3 +35,17 @@ const ThemeProvider = ({ children }: ThemeProviderProps) => {
 }
 
 export default ThemeProvider
+
+/* --------------------------------- TYPES --------------------------------- */
+type ThemeProviderProps = {
+    children: ReactNode
+}
+
+interface ThemeContextProps {
+    isDarkMode: boolean
+    toggleDarkMode: () => void
+    backgroundColor: string
+    textColor: string
+    mainThemeColor: string
+    mainThemeColorSecondary: string
+}

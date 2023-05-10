@@ -37,6 +37,7 @@ const AddToWatchlistButton = ({
 
 export default AddToWatchlistButton
 
+/* --------------------------------- STYLES --------------------------------- */
 const watchLaterButtonStyles = (mainThemeColorSecondary: string) => {
     return {
         transitionDuration: '0.3s',
@@ -60,6 +61,7 @@ const watchLaterButtonStylesAbsolute = {
     alignSelf: 'end',
 }
 
+/* --------------------------------- TYPES --------------------------------- */
 type AddToWatchlistButtonProps = {
     absolute: boolean
     styles?: string

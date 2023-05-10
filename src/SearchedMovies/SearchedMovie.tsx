@@ -33,6 +33,7 @@ const SearchedMoviePoster = ({
     )
 }
 
+/* --------------------------------- TYPES --------------------------------- */
 type SearchedMoviePosterProps = {
     searchedMovieTitle: string
     searchedMoviePoster: string | null

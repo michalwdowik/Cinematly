@@ -28,6 +28,7 @@ const App = () => {
 
 export default App
 
+/* --------------------------------- STYLES --------------------------------- */
 const appBoxStyles = {
     position: 'relative',
     minHeight: '100vh',

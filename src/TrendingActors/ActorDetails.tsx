@@ -81,6 +81,7 @@ const ActorImage = ({ profile_path }: ActorImageProps) => {
 
 export default ActorDetails
 
+/* --------------------------------- STYLES --------------------------------- */
 const actorDetailsStyles = {
     width: '100%',
     height: '100%',
@@ -108,6 +109,7 @@ const actorImageStyles = (url: string) => ({
     boxShadow: '8px 8px 12px -5px rgba(0, 0, 0, 1)',
 })
 
+/* --------------------------------- TYPES --------------------------------- */
 type ActorNameProps = Pick<Actor, 'name'>
 type ActorKnownForProps = Pick<Actor, 'known_for'>
 type ActorRatingProps = Pick<Actor, 'vote_average'>

@@ -33,7 +33,7 @@ const SearchButton = () => {
                         overflowX: 'scroll',
                     }}
                 >
-                    <SearchMovies />
+                    <SearchMovies handleClick={() => null} />
                 </Box>
             )}
         </>

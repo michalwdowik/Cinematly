@@ -55,6 +55,7 @@ const Subheading = ({ subheading, leftAligned }: SubheadingProps) => {
     )
 }
 
+/* --------------------------------- STYLES --------------------------------- */
 const headingStyles = (leftAligned: boolean, textColor: string) => ({
     color: textColor,
     fontSize: { xs: '40px', sm: '55px', md: '80px' },
@@ -103,6 +104,7 @@ const sectionHeadingStyles = {
     marginBottom: '5rem',
 }
 
+/* --------------------------------- TYPES --------------------------------- */
 interface SectionHeadingProps {
     heading: string
     subheading: string

@@ -14,12 +14,12 @@ import {
 import { Movie } from '../MovieCard/types'
 import fetchMovies from '../Helpers/fetchMovies'
 
-const fetchedNowPlayingMovies = await fetchMovies({ type: 'nowPlaying' })
+const nowPlayingMovies = await fetchMovies({ type: 'nowPlaying' })
 const MoviesCarousel = () => {
     const screenType = useScreenType()
     return (
         <CarouselComponent
-            key={fetchedNowPlayingMovies.length}
+            key={nowPlayingMovies.length}
             autoPlay
             infiniteLoop
             className="carouselStyles"
@@ -27,7 +27,7 @@ const MoviesCarousel = () => {
             showThumbs={false}
             showIndicators={!screenType.isMobile}
         >
-            {fetchedNowPlayingMovies.map((movie: Movie) => (
+            {nowPlayingMovies.map((movie: Movie) => (
                 <div key={uuid()}>
                     <MovieImage movie={movie} />
                     <MovieDetails movie={movie} />
@@ -62,6 +62,7 @@ const MovieDetails = ({ movie }: MovieDetailsProps) => {
     )
 }
 
+/* --------------------------------- STYLES --------------------------------- */
 const carouselMovieOverlayStyles = {
     position: 'absolute',
     bottom: '0px',
@@ -110,7 +111,7 @@ const carouselMovieDetailsStyles = {
         md: '10%',
     },
 }
-
+/* --------------------------------- TYPES --------------------------------- */
 type CarouselOverlayProps = {
     children: ReactNode
 }

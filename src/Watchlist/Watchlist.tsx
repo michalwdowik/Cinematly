@@ -2,6 +2,7 @@ import { Box, Typography } from '@mui/material'
 import AccessAlarmIcon from '@mui/icons-material/AccessAlarm'
 import WatchlistMovies from './WatchlistMovies'
 import { useWatchlistContext } from './WatchlistContext'
+import CallToActionLabel from '../Components/CallToActionLabel'
 
 type WatchlistProps = {
     toggleWatchlist: () => void
@@ -22,7 +23,13 @@ const Watchlist = ({ toggleWatchlist, showWatchlist }: WatchlistProps) => {
                 <WatchlistHeading />
                 <AccessAlarmIcon sx={accessAlarmIconStyles} />
                 <WatchlistMovies />
-                {watchlistIsEmpty && <CallToActionLabel />}
+                {watchlistIsEmpty && (
+                    <CallToActionLabel
+                        message="Add some movies..."
+                        textSize="1.5rem"
+                        textColor="black"
+                    />
+                )}
             </Box>
 
             <WatchlistBackgroundOverlay
@@ -39,12 +46,6 @@ const WatchlistHeading = () => {
     return <Typography sx={watchlistHeadingStyles}>Watchlist</Typography>
 }
 
-const CallToActionLabel = () => {
-    return (
-        <Typography sx={callToActionLabelStyles}>Add some movies...</Typography>
-    )
-}
-
 const WatchlistBackgroundOverlay = ({
     toggleWatchlist,
     showWatchlist,
@@ -54,12 +55,7 @@ const WatchlistBackgroundOverlay = ({
     ) : null
 }
 
-const callToActionLabelStyles = {
-    color: 'black',
-    opacity: '50%',
-    marginTop: '2rem',
-}
-
+/* --------------------------------- STYLES --------------------------------- */
 const watchlistHeadingStyles = {
     fontWeight: '600',
     fontSize: '3rem',

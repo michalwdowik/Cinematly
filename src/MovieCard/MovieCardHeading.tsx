@@ -12,7 +12,7 @@ const MovieCardHeading = ({
                 sx={{
                     display: 'flex',
                 }}
-                className="category"
+                className="trendingMovieRating"
             >
                 <StarIcon sx={{ fontSize: '14px' }} />
                 {voteAverage}
@@ -25,6 +25,7 @@ const MovieCardHeading = ({
 }
 export default MovieCardHeading
 
+/* --------------------------------- STYLES --------------------------------- */
 const upcomingMovieHeadingStyles = {
     top: '30px',
     left: '0',
@@ -43,7 +44,7 @@ const upcomingMovieHeadingStyles = {
     justifyContent: 'center',
     alignContent: 'center',
 }
-
+/* --------------------------------- TYPES --------------------------------- */
 type UpcomingMovieHeadingProps = {
     voteAverage: number
     title: string

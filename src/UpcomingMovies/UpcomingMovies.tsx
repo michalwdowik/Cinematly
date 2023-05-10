@@ -19,6 +19,7 @@ const UpcomingMovies = ({ movies }: UpcomingMoviesProps) => {
 
 export default UpcomingMovies
 
+/* --------------------------------- TYPES --------------------------------- */
 type UpcomingMovieProps = {
     movies: Movie[]
     movie: Movie

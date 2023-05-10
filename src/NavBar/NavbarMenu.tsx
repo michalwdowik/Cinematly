@@ -59,6 +59,7 @@ const NavbarTab = ({ page }: NavbarTabProps) => {
 
 export default NavbarMenu
 
+/* --------------------------------- STYLES --------------------------------- */
 const navbarTabStyles = {
     color: 'white',
     opacity: 1,
@@ -72,7 +73,7 @@ const navbarMenuStyles = {
     display: 'flex',
     alignItems: 'center',
 }
-
+/* --------------------------------- TYPES --------------------------------- */
 type NavbarProps = {
     pageLabel: string
     setPageLabel: (pageLabel: string) => void

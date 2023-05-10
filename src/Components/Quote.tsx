@@ -23,6 +23,7 @@ const Quote = () => {
 
 export default Quote
 
+/* --------------------------------- STYLES --------------------------------- */
 const quoteStyles = {
     fontSize: {
         xs: '18px',

@@ -20,14 +20,7 @@ const TopRatedMovieHovered = ({ movie }: MovieProps) => {
 
 const TopRatedMovieOverview = ({ movie }: MovieProps) => {
     return (
-        <Typography
-            sx={{
-                fontSize: '0.9rem',
-                color: 'white',
-                maxHeight: '200px',
-                overflow: 'scroll',
-            }}
-        >
+        <Typography sx={topRatedMovieOverviewStyles}>
             &quot;{shortenOverview(movie.overview, 20)}&quot;
         </Typography>
     )
@@ -56,3 +49,11 @@ const TopRatedMovieDetails = ({ movie }: MovieProps) => {
 }
 
 export default TopRatedMovieHovered
+
+/* --------------------------------- STYLES --------------------------------- */
+const topRatedMovieOverviewStyles = {
+    fontSize: '0.9rem',
+    color: 'white',
+    maxHeight: '200px',
+    overflow: 'scroll',
+}

@@ -3,16 +3,6 @@ import { ReactNode, createContext, useContext, useMemo, useState } from 'react'
 import { Alert, Snackbar } from '@mui/material'
 import { Movie } from '../MovieCard/types'
 
-type WatchlistContextProviderType = {
-    children: ReactNode
-}
-type WatchlistContextType = {
-    watchlist: Movie[]
-    addToWatchlist: (movie: Movie) => void
-    removeMovieFromWatchlist: (movie: Movie) => void
-    showAlert: boolean
-}
-
 const WatchlistContext = createContext<WatchlistContextType>({
     watchlist: [],
     addToWatchlist: () => {},
@@ -71,4 +61,15 @@ export const useWatchlistContext = () => {
     const context = useContext(WatchlistContext)
     if (!context) throw Error('You`re missing WatchlistContextProvider')
     return context
+}
+
+/* --------------------------------- TYPES --------------------------------- */
+type WatchlistContextProviderType = {
+    children: ReactNode
+}
+type WatchlistContextType = {
+    watchlist: Movie[]
+    addToWatchlist: (movie: Movie) => void
+    removeMovieFromWatchlist: (movie: Movie) => void
+    showAlert: boolean
 }

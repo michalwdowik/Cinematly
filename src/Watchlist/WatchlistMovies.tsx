@@ -45,6 +45,7 @@ const WatchlistMovieDivider = () => {
     return <Box sx={watchlistMovieDividerStyles} />
 }
 
+/* --------------------------------- STYLES --------------------------------- */
 const watchlistRowStyles = {
     display: 'flex',
     alignItems: 'center',

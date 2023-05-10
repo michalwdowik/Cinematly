@@ -45,6 +45,7 @@ const TopRatedMovieReleaseDate = ({
 
 export default TopRatedMovieHeadings
 
+/* --------------------------------- STYLES --------------------------------- */
 const topRatedMovieRatingStyles = {
     display: 'flex',
     justifyContent: 'center',
@@ -79,6 +80,7 @@ const topRatedMovieHeadingsStyles = {
     backgroundColor: 'white',
 }
 
+/* --------------------------------- TYPES --------------------------------- */
 type TopRatedMovieRatingProps = {
     vote_average: number
 }

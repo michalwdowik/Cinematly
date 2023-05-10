@@ -20,6 +20,7 @@ const TopRatedMovies = () => {
 
 export default TopRatedMovies
 
+/* --------------------------------- STYLES --------------------------------- */
 const topRatedMovieCardsStyles = {
     display: 'flex',
     flexWrap: 'wrap',

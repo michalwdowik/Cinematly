@@ -79,6 +79,7 @@ const WatchlistMovieOverview = ({
     )
 }
 
+/* --------------------------------- STYLES --------------------------------- */
 const watchlistMovieStyles = {
     display: 'flex',
     flexGrow: '1',
@@ -127,6 +128,7 @@ const watchlistMovieOverviewStyles = {
     },
 }
 
+/* --------------------------------- TYPES --------------------------------- */
 type WatchlistMovieDetailsProps = {
     movieTitle: string
     movieReleaseDate: string

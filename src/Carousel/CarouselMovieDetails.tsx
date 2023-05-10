@@ -37,6 +37,7 @@ export const MovieOverview = ({ movie }: MovieProps) => {
     )
 }
 
+/* --------------------------------- STYLES --------------------------------- */
 const carouselMovieTitleStyles = {
     color: 'white',
     fontWeight: '900',

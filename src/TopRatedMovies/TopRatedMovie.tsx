@@ -37,6 +37,7 @@ const TopRatedMovieImage = ({
     )
 }
 
+/* --------------------------------- TYPES --------------------------------- */
 type TopRatedMovieProps = {
     movie: Movie
     rankPosition: number

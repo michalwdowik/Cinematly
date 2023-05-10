@@ -2,19 +2,6 @@ import { Movie } from '../MovieCard/types'
 
 export const API_KEY = '48f69edf43ba636d1b1574a2cca22035'
 
-type MovieType =
-    | 'topRated'
-    | 'nowPlaying'
-    | 'trending'
-    | 'searched'
-    | 'upcoming'
-    | 'justReleased'
-
-type FetchMoviesProps = {
-    type: MovieType
-    movieTitle?: string
-}
-
 const fetchLink = (type: MovieType, movieTitle?: string) => {
     switch (type) {
         case 'topRated':
@@ -88,3 +75,17 @@ const fetchMovies = async ({ type, movieTitle }: FetchMoviesProps) => {
 }
 
 export default fetchMovies
+
+/* --------------------------------- TYPES --------------------------------- */
+type MovieType =
+    | 'topRated'
+    | 'nowPlaying'
+    | 'trending'
+    | 'searched'
+    | 'upcoming'
+    | 'justReleased'
+
+type FetchMoviesProps = {
+    type: MovieType
+    movieTitle?: string
+}

@@ -3,16 +3,6 @@ import EmojiEventsIcon from '@mui/icons-material/EmojiEvents'
 import { Home, Search } from '@mui/icons-material'
 import { ReactNode } from 'react'
 
-export type Page = {
-    label: string
-    icon: ReactNode
-    link: string
-}
-
-type Pages = {
-    [key: string]: Page
-}
-
 const pages: Pages = {
     HOME: {
         label: 'HOME',
@@ -37,3 +27,14 @@ const pages: Pages = {
 }
 
 export default pages
+
+/* --------------------------------- TYPES --------------------------------- */
+export type Page = {
+    label: string
+    icon: ReactNode
+    link: string
+}
+
+type Pages = {
+    [key: string]: Page
+}
