@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import Drawer from '@mui/material/Drawer'
 import Button from '@mui/material/Button'
 import MenuIcon from '@mui/icons-material/Menu'
