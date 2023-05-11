@@ -1,11 +1,11 @@
 import { BrowserRouter as Router } from 'react-router-dom'
 import { Box } from '@mui/material'
+import ThemeProvider from './Components/ThemeContext'
 import NavBar from './NavBar/NavBar'
 import AnimatedRoutes from './pages/AnimatedRoutes'
 import Footer from './Footer/Footer'
 import BottomScroll from './Components/BottomScroll'
 import { WatchlistContextProvider } from './Watchlist/WatchlistContext'
-import ThemeProvider from './Components/ThemeContext'
 import WatchlistSpeedDial from './Watchlist/WatchlistSpeedDial'
 
 const App = () => {

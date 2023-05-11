@@ -1,15 +1,24 @@
 import { motion } from 'framer-motion'
 import { Link } from 'react-router-dom'
+import { useEffect, useState } from 'react'
 import { Box } from '@mui/material'
 import MovieCard from '../MovieCard/MovieCard'
-import fetchMovies from '../Helpers/fetchMovies'
 import { Movie } from '../MovieCard/types'
-
-const trendingMovies = await fetchMovies({ type: 'trending' })
+import fetchMovies from '../Helpers/fetchMovies'
 
 const TrendingMovieModal = ({ id }: { id: string }) => {
+    const [trendingMovies, setTrendingMovies] = useState<Movie[]>([])
     const trendingMovie = trendingMovies.find((item: Movie) => item.id === id)
 
+    useEffect(() => {
+        fetchData()
+    }, [])
+
+    const fetchData = async () => {
+        const trendingMoviesData = await fetchMovies({ type: 'trending' })
+
+        setTrendingMovies(trendingMoviesData)
+    }
     return (
         <>
             <motion.div

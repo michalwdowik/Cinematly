@@ -1,5 +1,6 @@
-import { Box, Typography } from '@mui/material'
+import Typography from '@mui/material/Typography'
 import StarIcon from '@mui/icons-material/Star'
+import { Box } from '@mui/material'
 
 import { MovieProps } from '../MovieCard/types'
 

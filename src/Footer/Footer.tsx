@@ -1,6 +1,7 @@
-import { Box, Typography } from '@mui/material'
+import Typography from '@mui/material/Typography'
 import { Parallax, ParallaxProvider } from 'react-scroll-parallax'
 import { ReactNode } from 'react'
+import { Box } from '@mui/material'
 import WebsiteLogo from '../Components/WebsiteLogo'
 
 import FooterMenu from './FooterMenu'

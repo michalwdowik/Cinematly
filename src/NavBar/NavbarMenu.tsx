@@ -1,6 +1,8 @@
-import { Box, Tab, Tabs } from '@mui/material'
+import Tabs from '@mui/material/Tabs'
+import Tab from '@mui/material/Tab'
 import { Link } from 'react-router-dom'
 import { useState } from 'react'
+import { Box } from '@mui/material'
 import WebsiteLogo from '../Components/WebsiteLogo'
 import pages, { Page } from '../Helpers/pages'
 import SearchMovies from '../pages/SearchMovies'
@@ -20,11 +22,14 @@ const NavbarTabs = ({ pageLabel, setPageLabel }: NavbarProps) => {
             value={pageLabel}
             onChange={(_, label) => setPageLabel(label)}
             textColor="primary"
-            indicatorColor="secondary"
+            TabIndicatorProps={{
+                style: { display: 'none' },
+                color: 'none',
+            }}
         >
             {Object.values(pages).map(
                 (page: Page) =>
-                    !(page.label === 'HOME') && (
+                    !(page.name === 'HOME') && (
                         <NavbarTab page={page} key={page.label} />
                     )
             )}
@@ -36,7 +41,7 @@ const NavbarTab = ({ page }: NavbarTabProps) => {
     const [isSearchClicked, setIsSearchClicked] = useState(false)
 
     const handleClick = () => {
-        if (page.label === 'SEARCH') {
+        if (page.name === 'SEARCH') {
             setIsSearchClicked(!isSearchClicked)
         }
     }
@@ -44,9 +49,9 @@ const NavbarTab = ({ page }: NavbarTabProps) => {
         <>
             <Tab
                 sx={navbarTabStyles}
-                label={page.label}
+                label={page.name}
                 component={Link}
-                to={page.label === 'SEARCH' ? (undefined as any) : page.link}
+                to={page.name === 'SEARCH' ? (undefined as any) : page.link}
                 onClick={handleClick}
             />
 
@@ -75,8 +80,8 @@ const navbarMenuStyles = {
 }
 /* --------------------------------- TYPES --------------------------------- */
 type NavbarProps = {
-    pageLabel: string
-    setPageLabel: (pageLabel: string) => void
+    pageLabel: number
+    setPageLabel: (pageLabel: number) => void
 }
 
 type NavbarTabProps = {

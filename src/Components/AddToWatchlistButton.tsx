@@ -1,4 +1,4 @@
-import { Button } from '@mui/material'
+import Button from '@mui/material/Button'
 import WatchLaterIcon from '@mui/icons-material/WatchLater'
 import useThemeColors from '../Hooks/useThemeColors'
 import { Movie } from '../MovieCard/types'

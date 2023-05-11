@@ -1,22 +1,33 @@
 import { VerticalTimelineElement } from 'react-vertical-timeline-component'
 import CelebrationIcon from '@mui/icons-material/Celebration'
 import AccessTimeIcon from '@mui/icons-material/AccessTime'
-import { CSSProperties, ReactNode } from 'react'
+import { CSSProperties, ReactNode, useEffect, useState } from 'react'
 import useThemeColors from '../Hooks/useThemeColors'
 import { Movie } from '../MovieCard/types'
 import fetchMovies from '../Helpers/fetchMovies'
 
-const justReleased = await fetchMovies({ type: 'justReleased' })
-
 const TimelineWrapper = ({ movies, children }: TimelineWrapperProps) => {
     const { mainThemeColor } = useThemeColors()
+
+    const [justReleasedMovies, setJustReleasedMovies] = useState<Movie[]>([])
+    useEffect(() => {
+        fetchData()
+    }, [])
+
+    const fetchData = async () => {
+        const justReleasedMoviesData = await fetchMovies({
+            type: 'justReleased',
+        })
+
+        setJustReleasedMovies(justReleasedMoviesData)
+    }
     return (
         <VerticalTimelineElement
             contentStyle={timelineWrapperStyles}
             className="scaleOnHover"
             iconStyle={timelineWrapperIconStyles(mainThemeColor)}
             icon={
-                movies === justReleased ? (
+                movies === justReleasedMovies ? (
                     <CelebrationIcon />
                 ) : (
                     <AccessTimeIcon />

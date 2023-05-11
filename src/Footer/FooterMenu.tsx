@@ -1,6 +1,7 @@
-import { Box, Button } from '@mui/material'
+import Button from '@mui/material/Button'
 import { Link } from 'react-router-dom'
 import { useContext } from 'react'
+import { Box } from '@mui/material'
 import pages from '../Helpers/pages'
 import { ThemeContext } from '../Components/ThemeContext'
 
@@ -9,9 +10,9 @@ const FooterMenu = () => {
 
     return (
         <Box sx={footerMenuStyles}>
-            {Object.keys(pages).map((label) => {
-                const page = pages[label]
-                const isSearch = label === 'SEARCH'
+            {Object.keys(pages).map((name) => {
+                const page = pages[name]
+                const isSearch = name === 'SEARCH'
                 return (
                     !isSearch && (
                         <Button
@@ -28,7 +29,7 @@ const FooterMenu = () => {
                             to={page.link}
                             component={Link}
                         >
-                            {page.label}
+                            {page.name}
                         </Button>
                     )
                 )

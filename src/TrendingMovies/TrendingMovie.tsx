@@ -19,7 +19,11 @@ const TrendingMovie = ({
                 title={title}
             />
         </motion.div>
-        <Link to={id} className="card-open-link" />
+        <Link
+            to={id}
+            className="card-open-link"
+            aria-label="Trending movie card"
+        />
     </li>
 )
 export default TrendingMovie

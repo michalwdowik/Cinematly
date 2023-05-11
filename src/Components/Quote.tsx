@@ -1,4 +1,4 @@
-import { Typography } from '@mui/material'
+import Typography from '@mui/material/Typography'
 import { Parallax } from 'react-scroll-parallax'
 import { useContext } from 'react'
 import { ThemeContext } from './ThemeContext'
@@ -11,11 +11,9 @@ const Quote = () => {
     const { textColor } = useContext(ThemeContext)
     return (
         <Parallax opacity={[0, 1.5]}>
-            <Typography color={textColor} sx={quoteStyles} variant="h5">
+            <Typography color={textColor} sx={quoteStyles}>
                 {quote}
-                <Typography sx={creditsStyles} variant="subtitle2">
-                    {credits}
-                </Typography>
+                <span className="credits">{credits}</span>
             </Typography>
         </Parallax>
     )
@@ -26,10 +24,10 @@ export default Quote
 /* --------------------------------- STYLES --------------------------------- */
 const quoteStyles = {
     fontSize: {
-        xs: '18px',
-        sm: '20px',
-        md: '25px',
-        lg: '30px',
+        xs: '1rem',
+        sm: '1rem',
+        md: '1.2rem',
+        lg: '1.5rem',
     },
     width: { xs: '77%', sm: '70%', md: '60%', lg: '50%' },
     margin: '20px auto',
@@ -40,11 +38,4 @@ const quoteStyles = {
         color: '#fc9803',
     },
     marginTop: '5rem',
-}
-
-const creditsStyles = {
-    fontStyle: 'italic',
-    margin: 3,
-    color: 'gray',
-    fontSize: { xs: '12px', md: '16px' },
 }

@@ -18,5 +18,9 @@ const fetchActors = async () => {
     return actors
 }
 
-const trendingActors = await fetchActors()
-export default trendingActors
+const fetchTrendingActors = async () => {
+    const actors = await fetchActors()
+    return actors
+}
+
+export default fetchTrendingActors

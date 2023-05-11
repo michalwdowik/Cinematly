@@ -1,5 +1,6 @@
-import { Box, Typography } from '@mui/material'
+import Typography from '@mui/material/Typography'
 import AccessAlarmIcon from '@mui/icons-material/AccessAlarm'
+import { Box } from '@mui/material'
 import WatchlistMovies from './WatchlistMovies'
 import { useWatchlistContext } from './WatchlistContext'
 import CallToActionLabel from '../Components/CallToActionLabel'

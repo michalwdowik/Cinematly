@@ -7,7 +7,7 @@ const WebsiteLogo = ({ navbarLogo }: WebsiteLogoProps) => {
     const { textColor } = useContext(ThemeContext)
 
     return (
-        <Link to="/">
+        <Link to="/" aria-label="Cinematly Home Button">
             <CinematlyLogo
                 sx={{
                     fontSize: '55px',

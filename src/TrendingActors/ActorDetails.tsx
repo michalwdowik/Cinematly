@@ -1,6 +1,6 @@
-import { Box } from '@mui/material'
 import StarIcon from '@mui/icons-material/Star'
 import { useContext } from 'react'
+import { Box } from '@mui/material'
 import { ThemeContext } from '../Components/ThemeContext'
 import { Actor } from './types'
 import shortenOverview from '../Helpers/cutText'

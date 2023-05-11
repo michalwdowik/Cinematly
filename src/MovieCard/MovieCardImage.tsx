@@ -1,5 +1,5 @@
-import { Box } from '@mui/material'
 import { CSSProperties } from 'react'
+import { Box } from '@mui/material'
 
 const MovieCardImage = ({ backdrop_path }: UpcomingMovieImageProps) => {
     return (

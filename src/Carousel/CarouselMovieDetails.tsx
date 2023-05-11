@@ -1,12 +1,12 @@
-import { Box } from '@mui/material'
 import StarIcon from '@mui/icons-material/Star'
+import { Box } from '@mui/material'
 import { MovieProps } from '../MovieCard/types'
 
 export const MovieImage = ({ movie }: MovieProps) => {
     return (
         <img
             alt={movie.title}
-            src={`https://image.tmdb.org/t/p/original${
+            src={`https://image.tmdb.org/t/p/w780${
                 movie && movie.backdrop_path
             }`}
         />

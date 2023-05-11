@@ -1,13 +1,24 @@
+import { useEffect, useState } from 'react'
 import { Box } from '@mui/material'
 import TopRatedMovie from './TopRatedMovie'
 import { Movie } from '../MovieCard/types'
 import fetchMovies from '../Helpers/fetchMovies'
 
-const fetchedTopRatedMovies = await fetchMovies({ type: 'topRated' })
 const TopRatedMovies = () => {
+    const [topRatedMovies, setTopRatedMovies] = useState<Movie[]>([])
+
+    useEffect(() => {
+        const fetchTopRatedMovies = async () => {
+            const movies = await fetchMovies({ type: 'topRated' })
+            setTopRatedMovies(movies)
+        }
+
+        fetchTopRatedMovies()
+    }, [])
+
     return (
         <Box sx={topRatedMovieCardsStyles}>
-            {fetchedTopRatedMovies.map((movie: Movie, rankPosition: number) => (
+            {topRatedMovies.map((movie: Movie, rankPosition: number) => (
                 <TopRatedMovie
                     key={movie.id}
                     movie={movie}

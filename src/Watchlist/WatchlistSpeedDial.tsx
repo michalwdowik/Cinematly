@@ -1,14 +1,10 @@
-/* eslint-disable jsx-a11y/click-events-have-key-events */
-/* eslint-disable jsx-a11y/no-static-element-interactions */
-import {
-    Badge as WatchlistSpeedDialBadge,
-    Box,
-    Fab,
-    Tooltip as WatchlistSpeedDialTooltip,
-    Zoom,
-} from '@mui/material'
+import Badge from '@mui/material/Badge'
+import Fab from '@mui/material/Fab'
+import Tooltip from '@mui/material/Tooltip'
+import Zoom from '@mui/material/Zoom'
 import { useContext } from 'react'
 import AccessAlarmIcon from '@mui/icons-material/AccessAlarm'
+import { Box } from '@mui/material'
 import { useWatchlistContext } from './WatchlistContext'
 import { ThemeContext } from '../Components/ThemeContext'
 import useEscapeKeyPress from '../Hooks/useEscapeKeyPress'
@@ -25,12 +21,12 @@ const WatchlistSpeedDial = () => {
 
     return (
         <Box sx={watchlistSpeedDialStyles}>
-            <WatchlistSpeedDialTooltip
+            <Tooltip
                 placement="left-start"
                 TransitionComponent={Zoom}
                 title="Add, remove, and mark movies as watched."
             >
-                <WatchlistSpeedDialBadge
+                <Badge
                     className={animateAdd ? 'animateAddToWatchlist' : ''}
                     showZero
                     sx={watchlistBadgeStyles}
@@ -40,8 +36,8 @@ const WatchlistSpeedDial = () => {
                     <WatchlistSpeedDialButton
                         toggleWatchlist={toggleWatchlist}
                     />
-                </WatchlistSpeedDialBadge>
-            </WatchlistSpeedDialTooltip>
+                </Badge>
+            </Tooltip>
             <Watchlist
                 showWatchlist={showWatchlist}
                 toggleWatchlist={toggleWatchlist}

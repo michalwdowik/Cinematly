@@ -1,6 +1,7 @@
-import { Box, Typography } from '@mui/material'
+import Typography from '@mui/material/Typography'
 import { Parallax, ParallaxProvider } from 'react-scroll-parallax'
 import { useContext } from 'react'
+import { Box } from '@mui/material'
 import { ThemeContext } from './ThemeContext'
 
 const SectionHeading = ({
@@ -35,7 +36,7 @@ const Heading = ({ heading, leftAligned }: HeadingProps) => {
     const { textColor } = useContext(ThemeContext)
 
     return (
-        <Typography variant="h1" sx={headingStyles(leftAligned, textColor)}>
+        <Typography sx={headingStyles(leftAligned, textColor)}>
             {heading}
         </Typography>
     )
@@ -48,7 +49,7 @@ const GradientDivider = ({ leftAligned }: GradientDividerProps) => {
 const Subheading = ({ subheading, leftAligned }: SubheadingProps) => {
     return (
         <Box sx={subheadingBoxStyles(leftAligned)}>
-            <Typography variant="h5" sx={subheadingStyles(leftAligned)}>
+            <Typography sx={subheadingStyles(leftAligned)}>
                 {subheading}
             </Typography>
         </Box>

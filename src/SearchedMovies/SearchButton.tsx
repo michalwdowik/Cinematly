@@ -1,5 +1,6 @@
 import { useState } from 'react'
-import { Box, Button } from '@mui/material'
+import Button from '@mui/material/Button'
+import { Box } from '@mui/material'
 import SearchMovies from '../pages/SearchMovies'
 
 const SearchButton = () => {

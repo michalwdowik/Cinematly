@@ -19,7 +19,7 @@ const NavBar = () => {
         setDarkMode(!isDarkMode)
         toggleDarkMode()
     }
-    const [pageLabel, setPageLabel] = useState<string>(
+    const [pageLabel, setPageLabel] = useState<number>(
         Object.values(pages)[0].label
     )
 

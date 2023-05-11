@@ -1,4 +1,3 @@
-/* eslint-disable jsx-a11y/anchor-is-valid */
 import { Box } from '@mui/material'
 import TopRatedMovieHeadings from './TopRatedMovieHeadings'
 import TopRatedMovieHovered from './TopRatedMovieHovered'

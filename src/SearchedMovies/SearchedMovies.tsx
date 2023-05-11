@@ -1,5 +1,5 @@
-import { Box } from '@mui/material'
 import { useContext } from 'react'
+import { Box } from '@mui/material'
 import SearchedMovie from './SearchedMovie'
 import { Movie } from '../MovieCard/types'
 import CallToActionLabel from '../Components/CallToActionLabel'

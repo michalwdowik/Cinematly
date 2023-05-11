@@ -1,20 +1,34 @@
 import 'react-vertical-timeline-component/style.min.css'
-import { Typography } from '@mui/material'
+import Typography from '@mui/material/Typography'
 import { Parallax, ParallaxProvider } from 'react-scroll-parallax'
-import { CSSProperties, useContext } from 'react'
+import { CSSProperties, useContext, useEffect, useState } from 'react'
 import useScreenType from 'react-screentype-hook'
 import { motion } from 'framer-motion'
 import SectionHeading from '../Components/SectionHeading'
 import UpcomingMovies from '../UpcomingMovies/UpcomingMovies'
 import { ThemeContext } from '../Components/ThemeContext'
-import fetchMovies from '../Helpers/fetchMovies'
 import useScrollToTop from '../Hooks/useScrollToTop'
-
-const upcomingMovies = await fetchMovies({ type: 'upcoming' })
-const justReleased = await fetchMovies({ type: 'justReleased' })
+import fetchMovies from '../Helpers/fetchMovies'
+import { Movie } from '../MovieCard/types'
 
 const Upcoming = () => {
     useScrollToTop()
+
+    const [upcomingMovies, setUpcomingMovies] = useState<Movie[]>([])
+    const [justReleasedMovies, setJustReleasedMovies] = useState<Movie[]>([])
+
+    useEffect(() => {
+        fetchData()
+    }, [])
+
+    const fetchData = async () => {
+        const upcomingData = await fetchMovies({ type: 'upcoming' })
+        const justReleasedData = await fetchMovies({ type: 'justReleased' })
+
+        setUpcomingMovies(upcomingData)
+        setJustReleasedMovies(justReleasedData)
+    }
+
     return (
         <ParallaxProvider>
             <motion.div
@@ -32,7 +46,7 @@ const Upcoming = () => {
                     enableParallax={false}
                 />
                 <Heading label="Just released" />
-                <UpcomingMovies movies={justReleased} />
+                <UpcomingMovies movies={justReleasedMovies} />
                 <Heading label="Upcoming" />
                 <UpcomingMovies movies={upcomingMovies} />
                 <Heading label="Stay tuned!" />
@@ -40,6 +54,7 @@ const Upcoming = () => {
         </ParallaxProvider>
     )
 }
+
 export default Upcoming
 
 const Heading = ({ label }: HeadingProps) => {

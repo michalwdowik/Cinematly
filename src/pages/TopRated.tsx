@@ -1,5 +1,5 @@
-import { Box } from '@mui/material'
 import { motion } from 'framer-motion'
+import { Box } from '@mui/material'
 import SectionHeading from '../Components/SectionHeading'
 import TopRatedMovies from '../TopRatedMovies/TopRatedMovies'
 import useScrollToTop from '../Hooks/useScrollToTop'
