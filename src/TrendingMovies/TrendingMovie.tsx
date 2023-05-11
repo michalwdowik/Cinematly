@@ -35,6 +35,8 @@ const TrendingMovieImage = ({ id, backdrop_path }: MovieImageProps) => {
             layoutId={`card-image-container-${id}`}
         >
             <img
+                height="439px"
+                width="780px"
                 className="card_image"
                 src={`https://image.tmdb.org/t/p/w780/${backdrop_path}`}
                 alt=""

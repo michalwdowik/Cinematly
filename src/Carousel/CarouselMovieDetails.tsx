@@ -3,12 +3,28 @@ import { Box } from '@mui/material'
 import { MovieProps } from '../MovieCard/types'
 
 export const MovieImage = ({ movie }: MovieProps) => {
+    const baseUrl = 'https://image.tmdb.org/t/p/'
+    const sizes = [
+        { size: 'w300', mediaQuery: '(max-width: 480px)' },
+        { size: 'w780', mediaQuery: '(max-width: 768px)' },
+        { size: 'w1280', mediaQuery: '(max-width: 1200px)' },
+        { size: 'original' },
+    ]
+
+    const srcSet = sizes
+        .map(({ size, mediaQuery }) => {
+            const url = `${baseUrl}${size}${movie && movie.backdrop_path}`
+            return mediaQuery ? `${url} ${mediaQuery}` : url
+        })
+        .join(',')
+
     return (
         <img
             alt={movie.title}
-            src={`https://image.tmdb.org/t/p/w1280${
-                movie && movie.backdrop_path
-            }`}
+            src={`${baseUrl}w300${movie && movie.backdrop_path}`}
+            srcSet={srcSet}
+            sizes="100vw"
+            style={{ width: '100%', height: '100%', objectFit: 'cover' }}
         />
     )
 }
