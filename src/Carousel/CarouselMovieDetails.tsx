@@ -6,7 +6,7 @@ export const MovieImage = ({ movie }: MovieProps) => {
     return (
         <img
             alt={movie.title}
-            src={`https://image.tmdb.org/t/p/w780${
+            src={`https://image.tmdb.org/t/p/w1280${
                 movie && movie.backdrop_path
             }`}
         />

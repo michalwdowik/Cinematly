@@ -105,7 +105,7 @@ const actorImageStyles = (url: string) => ({
     backgroundSize: 'cover',
     backgroundPosition: 'center center',
     borderRadius: '50px',
-    backgroundImage: `url(https://image.tmdb.org/t/p/original/${url})`,
+    backgroundImage: `url(https://image.tmdb.org/t/p/w780/${url})`,
     boxShadow: '8px 8px 12px -5px rgba(0, 0, 0, 1)',
 })
 

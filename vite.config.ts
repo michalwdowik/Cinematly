@@ -1,7 +1,7 @@
 import { VitePWA } from 'vite-plugin-pwa'
 import { defineConfig } from 'vite'
 import { compression } from 'vite-plugin-compression2'
-// import viteImagemin from 'vite-plugin-imagemin'
+import { ViteImageOptimizer } from 'vite-plugin-image-optimizer'
 import react from '@vitejs/plugin-react-swc'
 
 export default defineConfig({
@@ -36,34 +36,7 @@ export default defineConfig({
                 ],
             },
         }),
-
-        // viteImagemin({
-        //     gifsicle: {
-        //         optimizationLevel: 7,
-        //         interlaced: false,
-        //     },
-        //     optipng: {
-        //         optimizationLevel: 7,
-        //     },
-        //     mozjpeg: {
-        //         quality: 20,
-        //     },
-        //     pngquant: {
-        //         quality: [0.8, 0.9],
-        //         speed: 4,
-        //     },
-        //     svgo: {
-        //         plugins: [
-        //             {
-        //                 name: 'removeViewBox',
-        //             },
-        //             {
-        //                 name: 'removeEmptyAttrs',
-        //                 active: false,
-        //             },
-        //         ],
-        //     },
-        // }),
+        ViteImageOptimizer(),
         compression({
             include: [/\.(js|mjs|json|css|html)$/],
             exclude: [/\.(br)$/, /\.(gz)$/],
