@@ -12,7 +12,16 @@ module.exports = {
         'plugin:prettier/recommended',
     ],
     overrides: [],
-    ignorePatterns: ['*.html'],
+    ignorePatterns: [
+        '*.html',
+        'registerSW.js',
+        'dist/sw.js',
+        'workbox-743a3d69.js',
+        'index-5f3a74c1.js',
+        'dist/assets/index-0a31b44f.js',
+        'workbox-cbd5c79e.js',
+        '/dev-dist/sw.js',
+    ],
     parser: '@typescript-eslint/parser',
     parserOptions: {
         ecmaVersion: 'latest',
