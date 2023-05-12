@@ -3,14 +3,32 @@ import { Box } from '@mui/material'
 import { MovieProps } from '../MovieCard/types'
 
 export const MovieImage = ({ movie }: MovieProps) => {
+    const getImageUrl = (size: string) => {
+        const baseUrl = 'https://image.tmdb.org/t/p/'
+        const backdropPath = movie && movie.backdrop_path
+
+        return `${baseUrl}${size}${backdropPath}`
+    }
+
     return (
         <img
-            width="100%"
-            height="100%"
+            style={{
+                width: '100%',
+                height: '100%',
+                objectFit: 'cover',
+            }}
             alt={movie.title}
-            src={`https://image.tmdb.org/t/p/w1280${
-                movie && movie.backdrop_path
-            }`}
+            srcSet={`
+          ${getImageUrl('w300')} 300w,
+          ${getImageUrl('w780')} 780w,
+          ${getImageUrl('w1280')} 1280w
+        `}
+            sizes="
+          (max-width: 600px) 300px,
+          (max-width: 1200px) 780px,
+          1280px
+        "
+            src={getImageUrl('w1280')}
         />
     )
 }

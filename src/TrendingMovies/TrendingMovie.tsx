@@ -29,16 +29,34 @@ const TrendingMovie = ({
 export default TrendingMovie
 
 const TrendingMovieImage = ({ id, backdrop_path }: MovieImageProps) => {
+    const getImageUrl = (size: string) => {
+        const baseUrl = 'https://image.tmdb.org/t/p/'
+        return `${baseUrl}${size}${backdrop_path}`
+    }
+
     return (
         <motion.div
             className="card-image-container"
             layoutId={`card-image-container-${id}`}
         >
             <img
-                height="439px"
-                width="780px"
+                style={{
+                    height: '439px',
+                    width: '780px',
+                    objectFit: 'cover',
+                }}
                 className="card_image"
-                src={`https://image.tmdb.org/t/p/w780/${backdrop_path}`}
+                srcSet={`
+            ${getImageUrl('w300')} 300w,
+            ${getImageUrl('w780')} 780w,
+            ${getImageUrl('w1280')} 1280w
+          `}
+                sizes="
+            (max-width: 600px) 300px,
+            (max-width: 1200px) 780px,
+            1280px
+          "
+                src={getImageUrl('w780')}
                 alt=""
             />
         </motion.div>
