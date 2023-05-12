@@ -13,7 +13,7 @@ const Home = () => {
     return (
         <ParallaxProvider>
             <div className="container">
-                <MoviesCarousel />
+                {/* <MoviesCarousel /> */}
                 <SectionHeading
                     enableParallax
                     leftAligned

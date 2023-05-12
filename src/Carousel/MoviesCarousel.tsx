@@ -14,17 +14,19 @@ import {
 import { Movie } from '../MovieCard/types'
 import fetchMovies from '../Helpers/fetchMovies'
 
+const nowPlayingMovies = await fetchMovies({ type: 'nowPlaying' })
+
 const MoviesCarousel = () => {
-    const [nowPlayingMovies, setNowPlayingMovies] = useState<Movie[]>([])
+    // const [nowPlayingMovies, setNowPlayingMovies] = useState<Movie[]>([])
 
-    useEffect(() => {
-        const fetchNowPlayingMovies = async () => {
-            const movies = await fetchMovies({ type: 'nowPlaying' })
-            setNowPlayingMovies(movies)
-        }
+    // useEffect(() => {
+    //     const fetchNowPlayingMovies = async () => {
+    //         const movies = await fetchMovies({ type: 'nowPlaying' })
+    //         setNowPlayingMovies(movies)
+    //     }
 
-        fetchNowPlayingMovies()
-    }, [])
+    //     fetchNowPlayingMovies()
+    // }, [])
     const screenType = useScreenType()
     return (
         <CarouselComponent

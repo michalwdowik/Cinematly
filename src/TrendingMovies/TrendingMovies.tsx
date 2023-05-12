@@ -5,17 +5,19 @@ import { TrendingMovieProps } from './types'
 import { Movie } from '../MovieCard/types'
 import fetchMovies from '../Helpers/fetchMovies'
 
+const fetchedTrendingMovies = await fetchMovies({ type: 'trending' })
+
 const TrendingMovies = () => {
-    const [trendingMovies, setTrendingMovies] = useState<Movie[]>([])
-    useEffect(() => {
-        fetchData()
-    }, [])
+    // const [trendingMovies, setTrendingMovies] = useState<Movie[]>([])
+    // useEffect(() => {
+    //     fetchData()
+    // }, [])
 
-    const fetchData = async () => {
-        const trendingMoviesData = await fetchMovies({ type: 'trending' })
+    // const fetchData = async () => {
+    //     const trendingMoviesData = await fetchMovies({ type: 'trending' })
 
-        setTrendingMovies(trendingMoviesData)
-    }
+    //     setTrendingMovies(trendingMoviesData)
+    // }
     return (
         <Parallax
             easing="easeInCubic"
@@ -24,7 +26,7 @@ const TrendingMovies = () => {
             translateY={['350px', '-50px']}
         >
             <ul className="card-list">
-                {trendingMovies.map((movie: TrendingMovieProps) => (
+                {fetchedTrendingMovies.map((movie: TrendingMovieProps) => (
                     <TrendingMovie
                         key={movie.id}
                         id={movie.id}
