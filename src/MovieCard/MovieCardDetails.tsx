@@ -6,20 +6,20 @@ import shortenOverview from '../Helpers/cutText'
 
 const MovieCardDetails = ({ movie }: MovieProps) => {
     return (
-        <Box sx={upcomingMovieDetailsStyles}>
+        <Box sx={movieCardDetailsStyles}>
             <Box className="movieModalDetails">
                 <AddToWatchlistButton absolute movie={movie} />
-                <UpcomingMovieTitle
+                <MovieCardTitle
                     title={movie.title}
                     originTitle={movie.original_title}
                 />
-                <UpcomingMovieReleaseDate
+                <MovieCardReleaseDate
                     releaseDate={movie.release_date || movie.release}
                 />
-                <UpcomingMovieOriginLanguage
+                <MovieCardOriginLanguage
                     originLanguage={movie.original_language}
                 />
-                <UpcomingMovieOverview overview={movie.overview} />
+                <MovieCardOverview overview={movie.overview} />
             </Box>
         </Box>
     )
@@ -27,10 +27,7 @@ const MovieCardDetails = ({ movie }: MovieProps) => {
 
 export default MovieCardDetails
 
-const UpcomingMovieTitle = ({
-    title,
-    originTitle,
-}: UpcomingMovieTitleProps) => {
+const MovieCardTitle = ({ title, originTitle }: MovieCardTitleProps) => {
     return (
         <Box display="flex" alignItems="center">
             <Box component="span" fontWeight="bold">
@@ -49,9 +46,7 @@ const UpcomingMovieTitle = ({
     )
 }
 
-const UpcomingMovieReleaseDate = ({
-    releaseDate,
-}: UpcomingMovieReleaseDateProps) => {
+const MovieCardReleaseDate = ({ releaseDate }: MovieCardReleaseDateProps) => {
     return releaseDate ? (
         <Box display="flex" alignItems="center">
             <Box component="span" fontWeight="bold">
@@ -68,9 +63,9 @@ const UpcomingMovieReleaseDate = ({
     )
 }
 
-const UpcomingMovieOriginLanguage = ({
+const MovieCardOriginLanguage = ({
     originLanguage,
-}: UpcomingMovieOriginLanguageProps) => {
+}: MovieCardOriginLanguageProps) => {
     return originLanguage ? (
         <Box display="flex" alignItems="center">
             <Box component="span" fontWeight="bold">
@@ -85,7 +80,7 @@ const UpcomingMovieOriginLanguage = ({
     )
 }
 
-const UpcomingMovieOverview = ({ overview }: UpcomingMovieOverviewProps) => {
+const MovieCardOverview = ({ overview }: MovieCardOverviewProps) => {
     return (
         <Typography variant="subtitle2">
             {shortenOverview(overview, 20) || 'No overview'}
@@ -94,7 +89,7 @@ const UpcomingMovieOverview = ({ overview }: UpcomingMovieOverviewProps) => {
 }
 
 /* --------------------------------- STYLES --------------------------------- */
-export const upcomingMovieDetailsStyles = {
+export const movieCardDetailsStyles = {
     position: 'relative',
     display: 'flex',
     flexDirection: 'column',
@@ -102,16 +97,16 @@ export const upcomingMovieDetailsStyles = {
     color: 'black',
 }
 /* --------------------------------- TYPES --------------------------------- */
-type UpcomingMovieTitleProps = {
+type MovieCardTitleProps = {
     title: string
     originTitle: string | undefined
 }
-type UpcomingMovieReleaseDateProps = {
+type MovieCardReleaseDateProps = {
     releaseDate: string
 }
-type UpcomingMovieOriginLanguageProps = {
+type MovieCardOriginLanguageProps = {
     originLanguage: string | undefined
 }
-type UpcomingMovieOverviewProps = {
+type MovieCardOverviewProps = {
     overview: string
 }

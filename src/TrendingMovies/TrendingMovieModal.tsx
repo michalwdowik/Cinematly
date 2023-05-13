@@ -6,18 +6,20 @@ import MovieCard from '../MovieCard/MovieCard'
 import { Movie } from '../MovieCard/types'
 import fetchMovies from '../Helpers/fetchMovies'
 
+const trendingMovies = await fetchMovies({ type: 'trending' })
+
 const TrendingMovieModal = ({ id }: { id: string }) => {
-    const [trendingMovies, setTrendingMovies] = useState<Movie[]>([])
+    // const [trendingMovies, setTrendingMovies] = useState<Movie[]>([])
 
-    useEffect(() => {
-        fetchData()
-    }, [])
+    // useEffect(() => {
+    //     fetchData()
+    // }, [])
 
-    const fetchData = async () => {
-        const trendingMoviesData = await fetchMovies({ type: 'trending' })
+    // const fetchData = async () => {
+    //     const trendingMoviesData = await fetchMovies({ type: 'trending' })
 
-        setTrendingMovies(trendingMoviesData)
-    }
+    //     setTrendingMovies(trendingMoviesData)
+    // }
     const trendingMovie = trendingMovies.find((item: Movie) => item.id === id)
     return (
         <>

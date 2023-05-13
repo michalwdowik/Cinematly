@@ -1,32 +1,16 @@
 import 'react-vertical-timeline-component/style.min.css'
 import Typography from '@mui/material/Typography'
 import { Parallax, ParallaxProvider } from 'react-scroll-parallax'
-import { CSSProperties, useContext, useEffect, useState } from 'react'
+import { CSSProperties, useContext } from 'react'
 import useScreenType from 'react-screentype-hook'
 import { motion } from 'framer-motion'
 import SectionHeading from '../Components/SectionHeading'
 import UpcomingMovies from '../UpcomingMovies/UpcomingMovies'
 import { ThemeContext } from '../Components/ThemeContext'
 import useScrollToTop from '../Hooks/useScrollToTop'
-import fetchMovies from '../Helpers/fetchMovies'
-import { Movie } from '../MovieCard/types'
+import { justReleasedMovies, upcomingMovies } from '../Helpers/fetchMovies'
 
 const Upcoming = () => {
-    const [upcomingMovies, setUpcomingMovies] = useState<Movie[]>([])
-    const [justReleasedMovies, setJustReleasedMovies] = useState<Movie[]>([])
-
-    useEffect(() => {
-        fetchData()
-    }, [])
-
-    const fetchData = async () => {
-        const upcomingData = await fetchMovies({ type: 'upcoming' })
-        const justReleasedData = await fetchMovies({ type: 'justReleased' })
-
-        setUpcomingMovies(upcomingData)
-        setJustReleasedMovies(justReleasedData)
-    }
-
     useScrollToTop()
     return (
         <ParallaxProvider>

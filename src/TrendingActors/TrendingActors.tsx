@@ -1,21 +1,10 @@
-import { memo, useEffect, useState } from 'react'
+import { memo } from 'react'
 import { Box } from '@mui/material'
 import InfiniteSlider from '../Components/InfiniteSlider'
 import ActorDetails from './ActorDetails'
-import fetchActors from '../Helpers/fetchActors'
+import { trendingActors } from '../Helpers/fetchActors'
 
 const TrendingActors = () => {
-    const [trendingActors, setTrendingActors] = useState([])
-
-    useEffect(() => {
-        const fetchData = async () => {
-            const actors = await fetchActors()
-            setTrendingActors(actors)
-        }
-
-        fetchData()
-    }, [])
-
     return (
         <Box sx={trendingActorsStyles}>
             <InfiniteSlider actors={trendingActors} width={600} visible={3}>

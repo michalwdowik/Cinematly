@@ -17,3 +17,5 @@ const fetchActors = async () => {
 }
 
 export default fetchActors
+
+export const trendingActors = await fetchActors()

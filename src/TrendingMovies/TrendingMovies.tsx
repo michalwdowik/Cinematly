@@ -1,21 +1,9 @@
 // import { Parallax } from 'react-scroll-parallax'
-import { useEffect, useState } from 'react'
 import TrendingMovie from './TrendingMovie'
 import { TrendingMovieProps } from './types'
-import fetchMovies from '../Helpers/fetchMovies'
-import { Movie } from '../MovieCard/types'
+import { trendingMovies } from '../Helpers/fetchMovies'
 
 const TrendingMovies = () => {
-    const [trendingMovies, setTrendingMovies] = useState<Movie[]>([])
-    useEffect(() => {
-        fetchData()
-    }, [])
-
-    const fetchData = async () => {
-        const trendingMoviesData = await fetchMovies({ type: 'trending' })
-
-        setTrendingMovies(trendingMoviesData)
-    }
     return (
         // <Parallax
         //     easing="easeInCubic"

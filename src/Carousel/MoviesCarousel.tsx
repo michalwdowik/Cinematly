@@ -2,7 +2,7 @@ import { Carousel as CarouselComponent } from 'react-responsive-carousel'
 import 'react-responsive-carousel/lib/styles/carousel.min.css'
 import useScreenType from 'react-screentype-hook'
 import { v4 as uuid } from 'uuid'
-import { ReactNode, useEffect, useState } from 'react'
+import { ReactNode } from 'react'
 import { Box } from '@mui/material'
 import {
     MovieImage,
@@ -12,19 +12,9 @@ import {
     MovieTitle,
 } from './CarouselMovieDetails'
 import { Movie } from '../MovieCard/types'
-import fetchMovies from '../Helpers/fetchMovies'
+import { nowPlayingMovies } from '../Helpers/fetchMovies'
 
 const MoviesCarousel = () => {
-    const [nowPlayingMovies, setNowPlayingMovies] = useState<Movie[]>([])
-
-    useEffect(() => {
-        const fetchNowPlayingMovies = async () => {
-            const movies = await fetchMovies({ type: 'nowPlaying' })
-            setNowPlayingMovies(movies)
-        }
-
-        fetchNowPlayingMovies()
-    }, [])
     const screenType = useScreenType()
     return (
         <CarouselComponent

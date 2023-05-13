@@ -76,6 +76,12 @@ const fetchMovies = async ({ type, movieTitle }: FetchMoviesProps) => {
 
 export default fetchMovies
 
+export const nowPlayingMovies = await fetchMovies({ type: 'nowPlaying' })
+export const upcomingMovies = await fetchMovies({ type: 'upcoming' })
+export const justReleasedMovies = await fetchMovies({ type: 'justReleased' })
+export const topRatedMovies = await fetchMovies({ type: 'topRated' })
+export const trendingMovies = await fetchMovies({ type: 'trending' })
+
 /* --------------------------------- TYPES --------------------------------- */
 type MovieType =
     | 'topRated'

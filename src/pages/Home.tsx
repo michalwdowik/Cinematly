@@ -39,9 +39,6 @@ const Home = () => {
             Scoop!"
                 />
                 <MemoizedTrendingActors />
-                {/* <Suspense fallback={<div>Loading...</div>}>
-                    <LazyTrendingActors />
-                </Suspense> */}
                 <Quote />
             </div>
         </ParallaxProvider>
