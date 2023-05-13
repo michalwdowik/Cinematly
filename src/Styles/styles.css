@@ -149,4 +149,10 @@ body {
   animation-duration: 0.25s;
 }
 
-
+.container {
+  flex: 1 1 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
