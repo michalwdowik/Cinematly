@@ -9,8 +9,9 @@ const MovieCard = ({ movie }: MovieProps) => {
             <MovieCardHeading
                 voteAverage={movie.vote_average}
                 title={movie.title}
+                id={movie.id}
             />
-            <MovieCardImage backdrop_path={movie.backdrop_path} />
+            <MovieCardImage backdrop_path={movie.backdrop_path} id={movie.id} />
             <MovieCardDetails movie={movie} />
         </>
     )

@@ -11,14 +11,20 @@ const TrendingMovie = ({
     vote_average,
 }: TrendingMovieProps) => (
     <li className="zoom-on-hover card">
-        <motion.div className="card-content" layoutId={`card-container-${id}`}>
-            <TrendingMovieImage backdrop_path={backdrop_path} id={id} />
-            <TrendingMovieDetails
-                id={id}
-                vote_average={vote_average}
-                title={title}
-            />
-        </motion.div>
+        <div className="card-content-container">
+            <motion.div
+                className="card-content"
+                layoutId={`card-container-${id}`}
+            >
+                <TrendingMovieImage backdrop_path={backdrop_path} id={id} />
+                <TrendingMovieDetails
+                    id={id}
+                    vote_average={vote_average}
+                    title={title}
+                />
+            </motion.div>
+        </div>
+
         <Link
             to={id}
             className="card-open-link"
@@ -29,10 +35,10 @@ const TrendingMovie = ({
 export default TrendingMovie
 
 const TrendingMovieImage = ({ id, backdrop_path }: MovieImageProps) => {
-    const getImageUrl = (size: string) => {
-        const baseUrl = 'https://image.tmdb.org/t/p/'
-        return `${baseUrl}${size}${backdrop_path}`
-    }
+    // const getImageUrl = (size: string) => {
+    //     const baseUrl = 'https://image.tmdb.org/t/p/'
+    //     return `${baseUrl}${size}${backdrop_path}`
+    // }
 
     return (
         <motion.div
@@ -40,24 +46,25 @@ const TrendingMovieImage = ({ id, backdrop_path }: MovieImageProps) => {
             layoutId={`card-image-container-${id}`}
         >
             <img
-                style={{
-                    height: '439px',
-                    width: '780px',
-                    objectFit: 'cover',
-                }}
-                className="card_image"
-                srcSet={`
-            ${getImageUrl('w300')} 300w,
-            ${getImageUrl('w780')} 780w,
-            ${getImageUrl('w1280')} 1280w
-          `}
-                sizes="
-            (max-width: 600px) 300px,
-            (max-width: 1200px) 780px,
-            1280px
-          "
-                src={getImageUrl('w780')}
-                alt=""
+                // style={{
+                //     height: '439px',
+                //     width: '780px',
+                //     objectFit: 'cover',
+                // }}
+                className="card-image"
+                src={`https://image.tmdb.org/t/p/w780/${backdrop_path}`}
+                //         srcSet={`
+                //     ${getImageUrl('w300')} 300w,
+                //     ${getImageUrl('w780')} 780w,
+                //     ${getImageUrl('w1280')} 1280w
+                //   `}
+                //         sizes="
+                //     (max-width: 600px) 300px,
+                //     (max-width: 1200px) 780px,
+                //     1280px
+                //   "
+                //         src={getImageUrl('w780')}
+                alt="trending movie"
             />
         </motion.div>
     )

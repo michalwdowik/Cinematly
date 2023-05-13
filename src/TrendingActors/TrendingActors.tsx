@@ -40,7 +40,6 @@ const TrendingActors = () => {
 }
 
 export default TrendingActors
-
 /* --------------------------------- STYLES --------------------------------- */
 const trendingActorsStyles = {
     background: 'transparent',

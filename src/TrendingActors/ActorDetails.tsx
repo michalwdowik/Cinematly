@@ -16,9 +16,9 @@ const ActorDetails = ({
         <Box sx={actorDetailsStyles}>
             <Box
                 sx={{
-                    // border: '2px green solid',
-                    width: '50%',
+                    width: '60%',
                     padding: '0.3rem',
+                    marginRight: '1.5rem',
                 }}
             >
                 <ActorName name={name} />
@@ -28,7 +28,6 @@ const ActorDetails = ({
                         alignItems: 'center',
                         gap: '5px',
                         fontStyle: 'italic',
-                        // border: '2px blue solid',
                         marginY: '0.5rem',
                     }}
                 >
@@ -74,7 +73,6 @@ const ActorRating = ({ vote_average }: ActorRatingProps) => {
             sx={{
                 color: textColor,
                 fontSize: '1rem',
-                // border: '2px yellow solid',
                 display: 'flex',
                 minWidth: '30px',
             }}
@@ -96,7 +94,6 @@ const ActorImage = ({ profile_path }: ActorImageProps) => {
                 height: 'auto',
                 alignSelf: 'center',
                 objectPosition: 'center top',
-                padding: '0.3rem',
             }}
             width="278px"
             height="185px"
@@ -112,9 +109,9 @@ export default ActorDetails
 const actorDetailsStyles = {
     display: 'flex',
     justifyContent: 'space-between',
-    width: '500px',
+    width: '550px',
     border: '2px #fc7703 solid',
-    padding: '1rem',
+    padding: '2rem',
     borderImage: 'linear-gradient(45deg, #fc7703 1%, transparent 12%) 2',
     marginTop: '1.5rem',
 }
@@ -129,16 +126,6 @@ const knownForStyles = {
     color: '#fc7b03',
     fontWeight: 'bold',
 }
-
-// const actorImageStyles = (url: string) => ({
-//     width: '100%',
-//     height: '100%',
-//     backgroundSize: 'cover',
-//     backgroundPosition: 'center center',
-//     borderRadius: '50px',
-//     backgroundImage: `url(https://image.tmdb.org/t/p/w300/${url})`,
-//     boxShadow: '8px 8px 12px -5px rgba(0, 0, 0, 1)',
-// })
 
 /* --------------------------------- TYPES --------------------------------- */
 type ActorNameProps = Pick<Actor, 'name'>

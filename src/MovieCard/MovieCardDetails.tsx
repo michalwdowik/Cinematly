@@ -1,13 +1,25 @@
 import Typography from '@mui/material/Typography'
 import { Box } from '@mui/material'
+import { motion } from 'framer-motion'
 import { MovieProps } from './types'
 import AddToWatchlistButton from '../Components/AddToWatchlistButton'
 import shortenOverview from '../Helpers/cutText'
 
 const MovieCardDetails = ({ movie }: MovieProps) => {
     return (
-        <Box sx={upcomingMovieDetailsStyles}>
-            <Box className="movieModalDetails">
+        // <Box sx={upcomingMovieDetailsStyles}>
+        <motion.div
+            // style={{
+            //     position: 'relative',
+            //     display: 'flex',
+            //     flexDirection: 'column',
+            //     padding: '1rem',
+            // }}
+            className="content-container"
+            animate
+        >
+            <div style={{ position: 'relative' }}>
+                {/* <Box className="movieModalDetails"> */}
                 <AddToWatchlistButton absolute movie={movie} />
                 <UpcomingMovieTitle
                     title={movie.title}
@@ -20,8 +32,11 @@ const MovieCardDetails = ({ movie }: MovieProps) => {
                     originLanguage={movie.original_language}
                 />
                 <UpcomingMovieOverview overview={movie.overview} />
-            </Box>
-        </Box>
+            </div>
+
+            {/* </Box> */}
+            {/* // </Box> */}
+        </motion.div>
     )
 }
 
@@ -94,12 +109,12 @@ const UpcomingMovieOverview = ({ overview }: UpcomingMovieOverviewProps) => {
 }
 
 /* --------------------------------- STYLES --------------------------------- */
-export const upcomingMovieDetailsStyles = {
-    position: 'relative',
-    display: 'flex',
-    flexDirection: 'column',
-    padding: '1rem',
-}
+// export const upcomingMovieDetailsStyles = {
+//     position: 'relative',
+//     display: 'flex',
+//     flexDirection: 'column',
+//     padding: '1rem',
+// }
 /* --------------------------------- TYPES --------------------------------- */
 type UpcomingMovieTitleProps = {
     title: string

@@ -2,7 +2,7 @@ import { Carousel as CarouselComponent } from 'react-responsive-carousel'
 import 'react-responsive-carousel/lib/styles/carousel.min.css'
 import useScreenType from 'react-screentype-hook'
 import { v4 as uuid } from 'uuid'
-import { ReactNode, useEffect, useState } from 'react'
+import { ReactNode } from 'react'
 import { Box } from '@mui/material'
 import {
     MovieImage,
@@ -83,7 +83,7 @@ const carouselMovieOverlayStyles = {
     width: '100%',
     justifyContent: 'flex-end',
     alignItems: 'flex-start',
-    backgroundImage: 'linear-gradient(rgb(13,13,13,0), rgb(13,13,13,1))',
+    backgroundImage: 'linear-gradient(rgb(18,18,18,0), rgb(18,18,18,1))',
     opacity: '0.9',
     transition: 'opacity 0.3s',
     padding: {
