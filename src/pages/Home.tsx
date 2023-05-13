@@ -9,9 +9,6 @@ import Quote from '../Components/Quote'
 import SectionHeading from '../Components/SectionHeading'
 import MemoizedTrendingActors from '../TrendingActors/TrendingActors'
 
-// const LazyTrendingActors = lazy(
-//     () => import('../TrendingActors/TrendingActors')
-// )
 const Home = () => {
     const { id } = useParams()
     // const modal = document.getElementById('modal')

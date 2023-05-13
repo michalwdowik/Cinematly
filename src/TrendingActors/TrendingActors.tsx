@@ -2,14 +2,14 @@ import { memo, useEffect, useState } from 'react'
 import { Box } from '@mui/material'
 import InfiniteSlider from '../Components/InfiniteSlider'
 import ActorDetails from './ActorDetails'
-import fetchTrendingActors from '../Helpers/fetchActors'
+import fetchActors from '../Helpers/fetchActors'
 
 const TrendingActors = () => {
     const [trendingActors, setTrendingActors] = useState([])
 
     useEffect(() => {
         const fetchData = async () => {
-            const actors = await fetchTrendingActors()
+            const actors = await fetchActors()
             setTrendingActors(actors)
         }
 
@@ -39,7 +39,6 @@ const TrendingActors = () => {
     )
 }
 
-/* Memoize the TrendingActors component */
 const MemoizedTrendingActors = memo(TrendingActors)
 
 export default MemoizedTrendingActors

@@ -7,20 +7,13 @@ const fetchActors = async () => {
     )
     const data = await response.json()
 
-    const actors = data.results.slice(0, 10).map((actor: Actor) => ({
+    return data.results.slice(0, 10).map((actor: Actor) => ({
         name: actor.name,
         vote_average: actor.known_for[0].vote_average,
         known_for: actor.known_for,
         overview: actor.known_for[0].overview,
         profile_path: actor.profile_path,
     }))
-
-    return actors
 }
 
-const fetchTrendingActors = async () => {
-    const actors = await fetchActors()
-    return actors
-}
-
-export default fetchTrendingActors
+export default fetchActors

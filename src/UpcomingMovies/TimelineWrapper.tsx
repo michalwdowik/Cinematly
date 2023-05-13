@@ -1,26 +1,11 @@
 import { VerticalTimelineElement } from 'react-vertical-timeline-component'
 import CelebrationIcon from '@mui/icons-material/Celebration'
 import AccessTimeIcon from '@mui/icons-material/AccessTime'
-import { CSSProperties, ReactNode, useEffect, useState } from 'react'
+import { CSSProperties, ReactNode } from 'react'
 import useThemeColors from '../Hooks/useThemeColors'
-import { Movie } from '../MovieCard/types'
-import fetchMovies from '../Helpers/fetchMovies'
 
 const TimelineWrapper = ({ releaseDate, children }: TimelineWrapperProps) => {
     const { mainThemeColor } = useThemeColors()
-
-    // const [justReleasedMovies, setJustReleasedMovies] = useState<Movie[]>([])
-    // useEffect(() => {
-    //     fetchData()
-    // }, [])
-
-    // const fetchData = async () => {
-    //     const justReleasedMoviesData = await fetchMovies({
-    //         type: 'justReleased',
-    //     })
-
-    //     setJustReleasedMovies(justReleasedMoviesData)
-    // }
 
     const today = new Date()
     const movieReleaseDate = new Date(releaseDate)
