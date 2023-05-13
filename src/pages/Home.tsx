@@ -1,20 +1,20 @@
 import { useParams } from 'react-router-dom'
 import { ParallaxProvider } from 'react-scroll-parallax'
-import { createPortal } from 'react-dom'
+// import { createPortal } from 'react-dom'
 // import { lazy, Suspense } from 'react'
 import TrendingMovies from '../TrendingMovies/TrendingMovies'
 import TrendingMovieModal from '../TrendingMovies/TrendingMovieModal'
 import MoviesCarousel from '../Carousel/MoviesCarousel'
 import Quote from '../Components/Quote'
 import SectionHeading from '../Components/SectionHeading'
-import TrendingActors from '../TrendingActors/TrendingActors'
+import MemoizedTrendingActors from '../TrendingActors/TrendingActors'
 
 // const LazyTrendingActors = lazy(
 //     () => import('../TrendingActors/TrendingActors')
 // )
 const Home = () => {
     const { id } = useParams()
-    const modal = document.getElementById('modal')
+    // const modal = document.getElementById('modal')
 
     return (
         <ParallaxProvider>
@@ -27,11 +27,11 @@ const Home = () => {
                     subheading="Stay up-to-date with the latest buzz in the entertainment world and find your next binge-worthy watch."
                 />
                 <TrendingMovies />
-                {createPortal(
+                {/* {createPortal(
                     id && <TrendingMovieModal id={id} />,
                     modal as Element
-                )}
-                {/* {id && <TrendingMovieModal id={id} />} */}
+                )} */}
+                {id && <TrendingMovieModal id={id} />}
 
                 <SectionHeading
                     enableParallax
@@ -41,7 +41,7 @@ const Home = () => {
             Section Covers It All - Don't Miss Out on the Latest
             Scoop!"
                 />
-                <TrendingActors />
+                <MemoizedTrendingActors />
                 {/* <Suspense fallback={<div>Loading...</div>}>
                     <LazyTrendingActors />
                 </Suspense> */}

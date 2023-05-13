@@ -17,7 +17,9 @@ const TrendingMovieModal = ({ id }: { id: string }) => {
                     className="card-content"
                     layoutId={`card-container-${id}`}
                 >
-                    {trendingMovie && <MovieCard movie={trendingMovie} />}
+                    {trendingMovie && (
+                        <MovieCard type="trending" movie={trendingMovie} />
+                    )}
                 </motion.div>
             </Box>
         </>

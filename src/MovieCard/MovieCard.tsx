@@ -1,9 +1,9 @@
 import MovieCardDetails from './MovieCardDetails'
 import MovieCardHeading from './MovieCardHeading'
 import MovieCardImage from './MovieCardImage'
-import { MovieProps } from './types'
+import { Movie } from './types'
 
-const MovieCard = ({ movie }: MovieProps) => {
+const MovieCard = ({ movie, type }: MovieCardType) => {
     return (
         <>
             <MovieCardHeading
@@ -11,10 +11,19 @@ const MovieCard = ({ movie }: MovieProps) => {
                 title={movie.title}
                 id={movie.id}
             />
-            <MovieCardImage backdrop_path={movie.backdrop_path} id={movie.id} />
+            <MovieCardImage
+                type={type}
+                backdrop_path={movie.backdrop_path}
+                id={movie.id}
+            />
             <MovieCardDetails movie={movie} />
         </>
     )
 }
 
 export default MovieCard
+
+type MovieCardType = {
+    movie: Movie
+    type: 'upcoming' | 'trending'
+}

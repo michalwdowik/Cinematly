@@ -11,23 +11,26 @@ import useScrollToTop from '../Hooks/useScrollToTop'
 import fetchMovies from '../Helpers/fetchMovies'
 import { Movie } from '../MovieCard/types'
 
+const upcomingMovies = await fetchMovies({ type: 'upcoming' })
+const justReleasedMovies = await fetchMovies({ type: 'justReleased' })
+
 const Upcoming = () => {
     useScrollToTop()
 
-    const [upcomingMovies, setUpcomingMovies] = useState<Movie[]>([])
-    const [justReleasedMovies, setJustReleasedMovies] = useState<Movie[]>([])
+    // const [upcomingMovies, setUpcomingMovies] = useState<Movie[]>([])
+    // const [justReleasedMovies, setJustReleasedMovies] = useState<Movie[]>([])
 
-    useEffect(() => {
-        fetchData()
-    }, [])
+    // useEffect(() => {
+    //     fetchData()
+    // }, [])
 
-    const fetchData = async () => {
-        const upcomingData = await fetchMovies({ type: 'upcoming' })
-        const justReleasedData = await fetchMovies({ type: 'justReleased' })
+    // const fetchData = async () => {
+    //     const upcomingData = await fetchMovies({ type: 'upcoming' })
+    //     const justReleasedData = await fetchMovies({ type: 'justReleased' })
 
-        setUpcomingMovies(upcomingData)
-        setJustReleasedMovies(justReleasedData)
-    }
+    //     setUpcomingMovies(upcomingData)
+    //     setJustReleasedMovies(justReleasedData)
+    // }
 
     return (
         <ParallaxProvider>

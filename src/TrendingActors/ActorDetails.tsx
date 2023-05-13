@@ -59,7 +59,7 @@ const ActorKnownFor = ({ known_for }: ActorKnownForProps) => {
 const ActorRoleOverview = ({ overview }: ActorRoleOverviewProps) => {
     const { textColor } = useContext(ThemeContext)
     return (
-        <Box sx={{ color: textColor, marginBottom: '10px' }}>
+        <Box sx={{ color: textColor, marginBottom: '10px', opacity: '70%' }}>
             {shortenOverview(overview, 25)}
         </Box>
     )

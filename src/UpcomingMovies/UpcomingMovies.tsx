@@ -9,8 +9,11 @@ const UpcomingMovies = ({ movies }: UpcomingMoviesProps) => {
     return (
         <Timeline lineColor={mainThemeColor}>
             {movies.map((movie: Movie) => (
-                <TimelineWrapper key={movie.id} movies={movies}>
-                    <MovieCard movie={movie} />
+                <TimelineWrapper
+                    key={movie.id}
+                    releaseDate={movie.release || movie.release_date}
+                >
+                    <MovieCard type="upcoming" movie={movie} />
                 </TimelineWrapper>
             ))}
         </Timeline>

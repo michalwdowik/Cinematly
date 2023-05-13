@@ -13,25 +13,23 @@ const WatchlistMovies = () => {
     const { watchlist } = useWatchlistContext()
 
     return (
-        <List>
-            <TransitionGroup component={null}>
-                {watchlist.map((movie: Movie) => (
-                    <ListItem key={movie.id}>
-                        <Collapse in key={movie.id}>
-                            <Box sx={watchlistRowStyles}>
-                                <FormControlLabel
-                                    control={
-                                        <WatchlistMovieCheckbox movie={movie} />
-                                    }
-                                    label={<WatchlistMovie movie={movie} />}
-                                />
-                            </Box>
-                            <WatchlistMovieDivider />
-                        </Collapse>
-                    </ListItem>
-                ))}
-            </TransitionGroup>
-        </List>
+        // <List>
+        <TransitionGroup>
+            {watchlist.map((movie: Movie) => (
+                // <ListItem key={movie.id}>
+                <Collapse in key={movie.id}>
+                    <Box sx={watchlistRowStyles}>
+                        <FormControlLabel
+                            control={<WatchlistMovieCheckbox movie={movie} />}
+                            label={<WatchlistMovie movie={movie} />}
+                        />
+                    </Box>
+                    <WatchlistMovieDivider />
+                </Collapse>
+                // </ListItem>
+            ))}
+        </TransitionGroup>
+        // </List>
     )
 }
 

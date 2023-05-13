@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react'
+import { memo, useEffect, useState } from 'react'
 import { Box } from '@mui/material'
 import InfiniteSlider from '../Components/InfiniteSlider'
 import ActorDetails from './ActorDetails'
@@ -39,7 +39,11 @@ const TrendingActors = () => {
     )
 }
 
-export default TrendingActors
+/* Memoize the TrendingActors component */
+const MemoizedTrendingActors = memo(TrendingActors)
+
+export default MemoizedTrendingActors
+
 /* --------------------------------- STYLES --------------------------------- */
 const trendingActorsStyles = {
     background: 'transparent',

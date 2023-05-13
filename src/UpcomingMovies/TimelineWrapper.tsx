@@ -6,28 +6,33 @@ import useThemeColors from '../Hooks/useThemeColors'
 import { Movie } from '../MovieCard/types'
 import fetchMovies from '../Helpers/fetchMovies'
 
-const TimelineWrapper = ({ movies, children }: TimelineWrapperProps) => {
+const TimelineWrapper = ({ releaseDate, children }: TimelineWrapperProps) => {
     const { mainThemeColor } = useThemeColors()
 
-    const [justReleasedMovies, setJustReleasedMovies] = useState<Movie[]>([])
-    useEffect(() => {
-        fetchData()
-    }, [])
+    // const [justReleasedMovies, setJustReleasedMovies] = useState<Movie[]>([])
+    // useEffect(() => {
+    //     fetchData()
+    // }, [])
 
-    const fetchData = async () => {
-        const justReleasedMoviesData = await fetchMovies({
-            type: 'justReleased',
-        })
+    // const fetchData = async () => {
+    //     const justReleasedMoviesData = await fetchMovies({
+    //         type: 'justReleased',
+    //     })
 
-        setJustReleasedMovies(justReleasedMoviesData)
-    }
+    //     setJustReleasedMovies(justReleasedMoviesData)
+    // }
+
+    const today = new Date()
+    const movieReleaseDate = new Date(releaseDate)
+    const isMovieAlreadyReleased = movieReleaseDate < today
+
     return (
         <VerticalTimelineElement
             contentStyle={timelineWrapperStyles}
             className="scaleOnHover"
             iconStyle={timelineWrapperIconStyles(mainThemeColor)}
             icon={
-                movies === justReleasedMovies ? (
+                isMovieAlreadyReleased ? (
                     <CelebrationIcon />
                 ) : (
                     <AccessTimeIcon />
@@ -61,6 +66,6 @@ const timelineWrapperIconStyles = (mainThemeColor: string) => {
 
 /* --------------------------------- TYPES --------------------------------- */
 type TimelineWrapperProps = {
-    movies: Movie[]
+    releaseDate: string
     children: ReactNode
 }

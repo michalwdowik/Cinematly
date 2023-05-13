@@ -82,11 +82,10 @@
     display: flex;
     flex-direction: column;
     max-width: 700px;
-    pointer-events: none;
     margin-top: 10vh;
     background: rgba(255, 255, 255, 0.95);
     height: auto;
-    z-index: 10000;
+    z-index: 1;
   }
   
 
@@ -148,8 +147,10 @@
   }
 
   .trendingMovieRating {
+    display: flex;
     color: #fff;
     font-size: 0.8rem;
+    font-weight: 300;
     text-transform: uppercase;
   }
 
@@ -188,6 +189,14 @@
 
   }
 
+
+  @media only screen and (max-width: 900px) {
+    .title-container {
+      font-size: 0.8rem;
+    }
+  }
+
+
   
   @media only screen and (max-width: 800px) {
     .card {
@@ -204,11 +213,9 @@
       flex: 1 0 100%;
       max-width: 100%;
     }
-/*   
-    .card-content-container.open {
-      padding: 10px;
-      margin-bottom: 10px;  
-    } */
+    .title-container {
+      font-size: 1rem;
+    }
     .open .card-image-container {
     max-height: 43vh;
     }

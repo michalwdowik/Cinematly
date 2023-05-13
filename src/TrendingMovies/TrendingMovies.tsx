@@ -1,4 +1,4 @@
-import { Parallax } from 'react-scroll-parallax'
+// import { Parallax } from 'react-scroll-parallax'
 import TrendingMovie from './TrendingMovie'
 import { TrendingMovieProps } from './types'
 import fetchMovies from '../Helpers/fetchMovies'
@@ -10,6 +10,7 @@ const TrendingMovies = () => {
         // <Parallax
         //     easing="easeInCubic"
         //     speed={100}
+        //     scale={[1.25, 0.5]}
         //     translateY={['350px', '-50px']}
         // >
         <ul className="card-list">

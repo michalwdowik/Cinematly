@@ -29,9 +29,9 @@ export const WatchlistContextProvider = ({
     }
 
     const removeMovieFromWatchlist = (movie: Movie) => {
-        setTimeout(() => {
-            setWatchlist(watchlist.filter((m) => movie.id !== m.id))
-        }, 1000)
+        setWatchlist(watchlist.filter((m) => movie.id !== m.id))
+        // setTimeout(() => {
+        // }, 1000)
     }
 
     const value = useMemo(
