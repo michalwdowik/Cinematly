@@ -2,6 +2,8 @@ import { Link } from 'react-router-dom'
 import { motion } from 'framer-motion'
 import StarIcon from '@mui/icons-material/Star'
 import { Box } from '@mui/material'
+import { Helmet } from 'react-helmet'
+import { useEffect } from 'react'
 import { TrendingMovieDetailsProps, TrendingMovieProps } from './types'
 
 const TrendingMovie = ({
@@ -35,19 +37,33 @@ const TrendingMovie = ({
 export default TrendingMovie
 
 const TrendingMovieImage = ({ id, backdrop_path }: MovieImageProps) => {
+    useEffect(() => {
+        const image = new Image()
+        image.src = `https://image.tmdb.org/t/p/w780/${backdrop_path}`
+    }, [backdrop_path])
+
     return (
-        <motion.div
-            className="card-image-container"
-            layoutId={`card-image-container-${id}`}
-        >
-            <img
-                width="800px"
-                height="450px"
-                className="card-image"
-                src={`https://image.tmdb.org/t/p/w780/${backdrop_path}`}
-                alt="trending movie"
-            />
-        </motion.div>
+        <>
+            <Helmet>
+                <link
+                    rel="preload"
+                    as="image"
+                    href={`https://image.tmdb.org/t/p/w780/${backdrop_path}`}
+                />
+            </Helmet>
+            <motion.div
+                className="card-image-container"
+                layoutId={`card-image-container-${id}`}
+            >
+                <img
+                    width="800px"
+                    height="450px"
+                    className="card-image"
+                    src={`https://image.tmdb.org/t/p/w780/${backdrop_path}`}
+                    alt="trending movie"
+                />
+            </motion.div>
+        </>
     )
 }
 

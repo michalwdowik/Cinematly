@@ -1,6 +1,8 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import StarIcon from '@mui/icons-material/Star'
 import { Box } from '@mui/material'
-import { CSSProperties } from 'react'
+import { CSSProperties, useEffect } from 'react'
+import { Helmet } from 'react-helmet'
 import { MovieProps } from '../MovieCard/types'
 
 export const MovieImage = ({ movie }: MovieProps) => {
@@ -11,22 +13,32 @@ export const MovieImage = ({ movie }: MovieProps) => {
         return `${baseUrl}${size}${backdropPath}`
     }
 
+    useEffect(() => {
+        const image = new Image()
+        image.src = getImageUrl('w1280')
+    }, [])
+
     return (
-        <img
-            style={movieImageStyle}
-            alt={movie.title}
-            srcSet={`
+        <>
+            <Helmet>
+                <link rel="preload" as="image" href={getImageUrl('w1280')} />
+            </Helmet>
+            <img
+                style={movieImageStyle}
+                alt={movie.title}
+                srcSet={`
           ${getImageUrl('w300')} 300w,
           ${getImageUrl('w780')} 780w,
           ${getImageUrl('w1280')} 1280w
         `}
-            sizes="
+                sizes="
           (max-width: 600px) 300px,
           (max-width: 1200px) 780px,
           1280px
         "
-            src={getImageUrl('w1280')}
-        />
+                src={getImageUrl('w1280')}
+            />
+        </>
     )
 }
 
