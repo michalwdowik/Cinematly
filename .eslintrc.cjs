@@ -21,6 +21,7 @@ module.exports = {
         'dist/assets/index-0a31b44f.js',
         'workbox-cbd5c79e.js',
         '/dev-dist/sw.js',
+        'dist/assets/index-040437b5.js',
     ],
     parser: '@typescript-eslint/parser',
     parserOptions: {
