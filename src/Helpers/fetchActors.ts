@@ -1,11 +1,13 @@
+import axios from 'axios'
 import { Actor } from '../TrendingActors/types'
-import { API_KEY } from './fetchMovies'
+
+const API_KEY = import.meta.env.VITE_API_KEY
 
 const fetchActors = async () => {
-    const response = await fetch(
+    const response = await axios.get(
         `https://api.themoviedb.org/3/person/popular?api_key=${API_KEY}&language=en-US&page=1`
     )
-    const data = await response.json()
+    const { data } = response
 
     return data.results.slice(0, 10).map((actor: Actor) => ({
         name: actor.name,

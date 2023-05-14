@@ -1,6 +1,5 @@
 import TextField from '@mui/material/TextField'
 import { useContext } from 'react'
-import useThemeColors from '../Hooks/useThemeColors'
 import { ThemeContext } from '../Components/ThemeContext'
 
 const SearchMovieInput = ({
@@ -8,7 +7,7 @@ const SearchMovieInput = ({
     handleSearchChange,
 }: SearchMovieInputProps) => {
     const { textColor } = useContext(ThemeContext)
-    const { mainThemeColor } = useThemeColors()
+    const { mainThemeColor } = useContext(ThemeContext)
     return (
         <TextField
             value={searchQuery}

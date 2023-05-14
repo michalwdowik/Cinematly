@@ -1,6 +1,6 @@
 import { MotionStyle, motion, useScroll, useSpring } from 'framer-motion'
 
-const BottomScroll = () => {
+const BottomScrollBar = () => {
     const { scrollYProgress } = useScroll()
     const scaleX = useSpring(scrollYProgress, {
         stiffness: 100,
@@ -19,7 +19,7 @@ const BottomScroll = () => {
     )
 }
 
-export default BottomScroll
+export default BottomScrollBar
 
 /* --------------------------------- STYLES --------------------------------- */
 const progressStyles: MotionStyle = {

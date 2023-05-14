@@ -1,32 +1,20 @@
 import AppBar from '@mui/material/AppBar'
 import Toolbar from '@mui/material/Toolbar'
 import useScreenType from 'react-screentype-hook'
-import { useContext, useEffect, useState } from 'react'
+import { useState } from 'react'
 import { DarkModeSwitch } from 'react-toggle-dark-mode'
 import NavbarDrawer from './NavbarDrawer'
 import NavbarMenu from './NavbarMenu'
 import pages from '../Helpers/pages'
-import useThemeColors from '../Hooks/useThemeColors'
-import { ThemeContext } from '../Components/ThemeContext'
+import useModeToggle from '../Hooks/useModeToggle'
 
 const NavBar = () => {
-    const { toggleDarkMode, backgroundColor } = useContext(ThemeContext)
-    const { mainThemeColor } = useThemeColors()
     const screenType = useScreenType()
-    const [isDarkMode, setDarkMode] = useState(true)
-
-    const handleColorModeToggle = () => {
-        setDarkMode(!isDarkMode)
-        toggleDarkMode()
-    }
+    const { isDarkMode, handleColorModeToggle, mainThemeColor } =
+        useModeToggle()
     const [pageLabel, setPageLabel] = useState<number>(
         Object.values(pages)[0].label
     )
-
-    useEffect(() => {
-        const body = document.getElementsByTagName('body')[0]
-        body.style.backgroundColor = backgroundColor
-    }, [backgroundColor])
 
     return (
         <AppBar sx={{ border: 'none', position: 'sticky' }}>
@@ -51,6 +39,7 @@ const NavBar = () => {
         </AppBar>
     )
 }
+
 export default NavBar
 
 /* --------------------------------- STYLES --------------------------------- */

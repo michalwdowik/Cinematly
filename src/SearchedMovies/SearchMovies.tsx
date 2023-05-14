@@ -1,7 +1,7 @@
 import { useContext, useState } from 'react'
 import { Box } from '@mui/material'
-import SearchedMovies from '../SearchedMovies/SearchedMovies'
-import SearchMovieInput from '../SearchedMovies/SearchMovieInput'
+import SearchedMovies from './SearchedMovies'
+import SearchMovieInput from './SearchMovieInput'
 import { ThemeContext } from '../Components/ThemeContext'
 import fetchMovies from '../Helpers/fetchMovies'
 import { Movie } from '../MovieCard/types'
@@ -13,7 +13,7 @@ const SearchMovies = ({ handleClick }: SearchMoviesProps) => {
     const handleSearchChange = (event: React.ChangeEvent<HTMLInputElement>) => {
         setSearchQuery(event.target.value)
         fetchMovies({
-            type: 'searched',
+            movieCategory: 'searched',
             movieTitle: `${event.target.value}`,
         }).then((results) => setSearchedMovies(results))
     }
@@ -22,7 +22,10 @@ const SearchMovies = ({ handleClick }: SearchMoviesProps) => {
         handleClick('SEARCH')
     }
     return (
-        <Box className="serachMovieFadeIn" sx={searchMoviesSx(backgroundColor)}>
+        <Box
+            className="serachMovieFadeIn"
+            sx={searchMoviesStyles(backgroundColor)}
+        >
             <SearchMovieInput
                 searchQuery={searchQuery}
                 handleSearchChange={handleSearchChange}
@@ -31,24 +34,6 @@ const SearchMovies = ({ handleClick }: SearchMoviesProps) => {
             <SearchMoviesOverlay handleOverlayClick={handleOverlayClick} />
         </Box>
     )
-}
-
-const searchMoviesSx = (backgroundColor: string) => {
-    return {
-        position: 'fixed',
-        top: '70px',
-        left: 0,
-        width: '100%',
-        height: '500px',
-        zIndex: 2,
-        display: 'flex',
-        overflowX: 'scroll',
-        paddingTop: '2rem',
-        flexDirection: 'column',
-        alignItems: 'center',
-        justifyContent: 'flex-start',
-        backgroundColor,
-    }
 }
 
 export default SearchMovies
@@ -69,6 +54,24 @@ const searchMoviesOverlayStyles = {
     backgroundColor: 'rgba(0, 0, 0, 0.9)',
     zIndex: 1,
     cursor: 'pointer',
+}
+
+const searchMoviesStyles = (backgroundColor: string) => {
+    return {
+        position: 'fixed',
+        top: '70px',
+        left: 0,
+        width: '100%',
+        height: '500px',
+        zIndex: 2,
+        display: 'flex',
+        overflowX: 'scroll',
+        paddingTop: '2rem',
+        flexDirection: 'column',
+        alignItems: 'center',
+        justifyContent: 'flex-start',
+        backgroundColor,
+    }
 }
 
 /* --------------------------------- TYPES --------------------------------- */

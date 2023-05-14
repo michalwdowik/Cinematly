@@ -18,3 +18,11 @@ export interface Movie {
 export type MovieProps = {
     movie: Movie
 }
+
+export type MovieCategory =
+    | 'topRated'
+    | 'nowPlaying'
+    | 'trending'
+    | 'searched'
+    | 'upcoming'
+    | 'justReleased'

@@ -1,11 +1,12 @@
 import { VerticalTimeline as Timeline } from 'react-vertical-timeline-component'
-import useThemeColors from '../Hooks/useThemeColors'
+import { useContext } from 'react'
 import TimelineWrapper from './TimelineWrapper'
 import { Movie } from '../MovieCard/types'
 import MovieCard from '../MovieCard/MovieCard'
+import { ThemeContext } from '../Components/ThemeContext'
 
 const UpcomingMovies = ({ movies }: UpcomingMoviesProps) => {
-    const { mainThemeColor } = useThemeColors()
+    const { mainThemeColor } = useContext(ThemeContext)
     return (
         <Timeline lineColor={mainThemeColor}>
             {movies.map((movie: Movie) => (

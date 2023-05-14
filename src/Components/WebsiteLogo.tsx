@@ -8,12 +8,7 @@ const WebsiteLogo = ({ navbarLogo }: WebsiteLogoProps) => {
 
     return (
         <Link to="/" aria-label="Cinematly Home Button">
-            <CinematlyLogo
-                sx={{
-                    fontSize: '55px',
-                    color: navbarLogo ? 'white' : textColor,
-                }}
-            />
+            <CinematlyLogo sx={logoStyles(textColor, navbarLogo)} />
         </Link>
     )
 }
@@ -23,4 +18,13 @@ export default WebsiteLogo
 /* --------------------------------- TYPES --------------------------------- */
 type WebsiteLogoProps = {
     navbarLogo: boolean
+}
+
+/* --------------------------------- STYLES --------------------------------- */
+
+const logoStyles = (textColor: string, navbarLogo: boolean) => {
+    return {
+        fontSize: '55px',
+        color: navbarLogo ? 'white' : textColor,
+    }
 }

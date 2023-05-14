@@ -1,8 +1,9 @@
 import Button from '@mui/material/Button'
 import WatchLaterIcon from '@mui/icons-material/WatchLater'
-import useThemeColors from '../Hooks/useThemeColors'
+import { useContext } from 'react'
 import { Movie } from '../MovieCard/types'
 import { useWatchlistContext } from '../Watchlist/WatchlistContext'
+import { ThemeContext } from './ThemeContext'
 
 const AddToWatchlistButton = ({
     absolute,
@@ -10,8 +11,7 @@ const AddToWatchlistButton = ({
     movie,
 }: AddToWatchlistButtonProps) => {
     const { addToWatchlist } = useWatchlistContext()
-    const { mainThemeColorSecondary } = useThemeColors()
-
+    const { mainThemeColorSecondary, mainThemeColor } = useContext(ThemeContext)
     const handleAddToWatchlist = () => {
         addToWatchlist(movie)
     }
@@ -23,10 +23,16 @@ const AddToWatchlistButton = ({
             sx={
                 absolute
                     ? {
-                          ...watchLaterButtonStyles(mainThemeColorSecondary),
+                          ...watchLaterButtonStyles(
+                              mainThemeColorSecondary,
+                              mainThemeColor
+                          ),
                           ...watchLaterButtonStylesAbsolute,
                       }
-                    : watchLaterButtonStyles(mainThemeColorSecondary)
+                    : watchLaterButtonStyles(
+                          mainThemeColorSecondary,
+                          mainThemeColor
+                      )
             }
             onClick={handleAddToWatchlist}
         >
@@ -38,10 +44,13 @@ const AddToWatchlistButton = ({
 export default AddToWatchlistButton
 
 /* --------------------------------- STYLES --------------------------------- */
-const watchLaterButtonStyles = (mainThemeColorSecondary: string) => {
+const watchLaterButtonStyles = (
+    mainThemeColorSecondary: string,
+    mainThemeColor: string
+) => {
     return {
         transitionDuration: '0.3s',
-        backgroundColor: 'orange',
+        backgroundColor: mainThemeColor,
         borderRadius: '30px',
         margin: 'auto',
         width: 'auto',

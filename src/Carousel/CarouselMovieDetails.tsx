@@ -1,5 +1,6 @@
 import StarIcon from '@mui/icons-material/Star'
 import { Box } from '@mui/material'
+import { CSSProperties } from 'react'
 import { MovieProps } from '../MovieCard/types'
 
 export const MovieImage = ({ movie }: MovieProps) => {
@@ -12,11 +13,7 @@ export const MovieImage = ({ movie }: MovieProps) => {
 
     return (
         <img
-            style={{
-                width: '100%',
-                height: '100%',
-                objectFit: 'cover',
-            }}
+            style={movieImageStyle}
             alt={movie.title}
             srcSet={`
           ${getImageUrl('w300')} 300w,
@@ -58,6 +55,12 @@ export const MovieOverview = ({ movie }: MovieProps) => {
 }
 
 /* --------------------------------- STYLES --------------------------------- */
+const movieImageStyle: CSSProperties = {
+    width: '100%',
+    height: '100%',
+    objectFit: 'cover',
+}
+
 const carouselMovieTitleStyles = {
     color: 'white',
     fontWeight: '900',

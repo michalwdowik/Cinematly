@@ -1,10 +1,9 @@
 import { BrowserRouter as Router } from 'react-router-dom'
-import { Box } from '@mui/material'
 import ThemeProvider from './Components/ThemeContext'
 import NavBar from './NavBar/NavBar'
-import AnimatedRoutes from './pages/AnimatedRoutes'
+import RoutesComponent from './pages/RoutesComponent'
 import Footer from './Footer/Footer'
-import BottomScroll from './Components/BottomScroll'
+import BottomScrollBar from './Components/BottomScrollBar'
 import { WatchlistContextProvider } from './Watchlist/WatchlistContext'
 import WatchlistSpeedDial from './Watchlist/WatchlistSpeedDial'
 
@@ -14,23 +13,14 @@ const App = () => {
             <ThemeProvider>
                 <WatchlistContextProvider>
                     <NavBar />
+                    <RoutesComponent />
                     <WatchlistSpeedDial />
-                    <Box sx={appBoxStyles}>
-                        <AnimatedRoutes />
-                    </Box>
                 </WatchlistContextProvider>
                 <Footer />
-                <BottomScroll />
             </ThemeProvider>
+            <BottomScrollBar />
         </Router>
     )
 }
 
 export default App
-
-/* --------------------------------- STYLES --------------------------------- */
-const appBoxStyles = {
-    position: 'relative',
-    minHeight: '100vh',
-    height: '100%',
-}

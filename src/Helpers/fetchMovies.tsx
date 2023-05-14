@@ -1,97 +1,78 @@
-import { Movie } from '../MovieCard/types'
+import axios from 'axios'
+import { Movie, MovieCategory } from '../MovieCard/types'
+import createMovieObject from './createMovieObject'
+import fetchLink from './fetchLink'
+import sortMoviesByReleaseDate from './sortMoviesByReleaseDate'
 
-export const API_KEY = '48f69edf43ba636d1b1574a2cca22035'
+const fetchMovies = async ({
+    movieCategory,
+    movieTitle,
+}: FetchMoviesProps): Promise<Movie[]> => {
+    const link = fetchLink(movieCategory, movieTitle)
+    const response = await axios.get(link)
+    const { results } = response.data
 
-const fetchLink = (type: MovieType, movieTitle?: string) => {
-    switch (type) {
-        case 'topRated':
-            return `https://api.themoviedb.org/3/movie/top_rated?api_key=${API_KEY}&language=en-US&page=1`
-        case 'nowPlaying':
-            return `https://api.themoviedb.org/3/movie/now_playing?api_key=${API_KEY}&language=en-US&page=1`
-        case 'trending':
-            return `https://api.themoviedb.org/3/trending/all/day?api_key=${API_KEY}`
-        case 'searched':
-            return `https://api.themoviedb.org/3/search/movie?api_key=${API_KEY}&language=en-US&page=1&include_adult=false&query=${movieTitle}`
-        case 'upcoming':
-        case 'justReleased':
-            return `https://api.themoviedb.org/3/movie/upcoming?api_key=${API_KEY}&language=en-US&page=1`
+    let movies: Movie[] = results.map((movie: Movie) =>
+        createMovieObject(movie)
+    )
 
-        default:
-            throw new Error('Invalid movie type')
-    }
-}
+    const isMovieUpcoming = movieCategory === 'upcoming'
+    const isMovieJustReleased = movieCategory === 'justReleased'
 
-const createMovieObject = (movie: Movie) => ({
-    id: `:${movie.title || movie.name}`,
-    title: movie.title || movie.name,
-    vote_average: movie.vote_average.toFixed(2),
-    backdrop_path: movie.backdrop_path,
-    overview: movie.overview,
-    release: movie.release_date || movie.first_air_date || movie.release,
-    original_title: movie.original_title,
-    original_language: movie.original_language,
-    poster_path: movie.poster_path,
-    popularity: movie.popularity,
-})
-
-const fetchMovies = async ({ type, movieTitle }: FetchMoviesProps) => {
-    const link = fetchLink(type, movieTitle)
-    const response = await fetch(link)
-    const data = await response.json()
-    let movies: Movie[]
-
-    if (type === 'upcoming' || type === 'justReleased') {
-        movies = data.results
-            .map((movie: Movie) => createMovieObject(movie))
-            .sort((a: Movie, b: Movie) => {
-                const releaseDateA = new Date(a.release_date)
-                const releaseDateB = new Date(b.release_date)
-                return releaseDateA.getTime() - releaseDateB.getTime()
-            })
-
-        const today = new Date()
-        const thirtyDaysAgo = new Date(
-            today.getTime() - 30 * 24 * 60 * 60 * 1000
+    if (isMovieUpcoming || isMovieJustReleased) {
+        const sortedMovies = sortMoviesByReleaseDate(movies)
+        const filteredMovies = getFilteredMovies(
+            sortedMovies,
+            isMovieJustReleased
         )
-
-        if (type === 'justReleased') {
-            const justReleased = movies.filter((movie: Movie) => {
-                const releaseDate = new Date(movie.release)
-                return releaseDate <= today && releaseDate >= thirtyDaysAgo
-            })
-            return justReleased
-        }
-        const upcomingMovies = movies.filter((movie: Movie) => {
-            const releaseDate = new Date(movie.release)
-            return releaseDate > today
-        })
-
-        return upcomingMovies
+        movies = filteredMovies
     }
-    movies = data.results
-        .slice(0, 10)
-        .map((movie: Movie) => createMovieObject(movie))
+    if (!isMovieJustReleased && !isMovieUpcoming) {
+        movies = movies.slice(0, 10)
+    }
+
     return movies
 }
 
 export default fetchMovies
 
-export const nowPlayingMovies = await fetchMovies({ type: 'nowPlaying' })
-export const upcomingMovies = await fetchMovies({ type: 'upcoming' })
-export const justReleasedMovies = await fetchMovies({ type: 'justReleased' })
-export const topRatedMovies = await fetchMovies({ type: 'topRated' })
-export const trendingMovies = await fetchMovies({ type: 'trending' })
+const getFilteredMovies = (
+    movies: Movie[],
+    isMovieJustReleased: boolean
+): Movie[] => {
+    const today = new Date()
+    const thirtyDaysAgo = new Date(today.getTime() - 30 * 24 * 60 * 60 * 1000)
+
+    const filteredMovies = movies.filter((movie: Movie) => {
+        const releaseDate = new Date(movie.release)
+        if (isMovieJustReleased) {
+            return releaseDate <= today && releaseDate >= thirtyDaysAgo
+        }
+        return releaseDate > today
+    })
+
+    return filteredMovies
+}
+
+const fetchMovieByCategory = async (
+    movieCategory: MovieCategory
+): Promise<Movie[]> => {
+    return fetchMovies({ movieCategory })
+}
+
+export const nowPlayingMovies: Movie[] = await fetchMovieByCategory(
+    'nowPlaying'
+)
+export const upcomingMovies: Movie[] = await fetchMovieByCategory('upcoming')
+export const justReleasedMovies: Movie[] = await fetchMovieByCategory(
+    'justReleased'
+)
+export const topRatedMovies: Movie[] = await fetchMovieByCategory('topRated')
+export const trendingMovies: Movie[] = await fetchMovieByCategory('trending')
 
 /* --------------------------------- TYPES --------------------------------- */
-type MovieType =
-    | 'topRated'
-    | 'nowPlaying'
-    | 'trending'
-    | 'searched'
-    | 'upcoming'
-    | 'justReleased'
 
 type FetchMoviesProps = {
-    type: MovieType
+    movieCategory: MovieCategory
     movieTitle?: string
 }

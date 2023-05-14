@@ -6,7 +6,7 @@ import pages from '../Helpers/pages'
 import { ThemeContext } from '../Components/ThemeContext'
 
 const FooterMenu = () => {
-    const { textColor } = useContext(ThemeContext)
+    const { textColor, mainThemeColor } = useContext(ThemeContext)
 
     return (
         <Box sx={footerMenuStyles}>
@@ -22,7 +22,7 @@ const FooterMenu = () => {
                                 transition: 'all 0.3s ease',
                                 '&:hover': {
                                     backgroundColor: 'transparent',
-                                    color: '#fc9803',
+                                    color: mainThemeColor,
                                     opacity: 0.5,
                                 },
                             }}

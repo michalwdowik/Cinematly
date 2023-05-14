@@ -6,7 +6,7 @@ import { useState } from 'react'
 import { Box } from '@mui/material'
 import WebsiteLogo from '../Components/WebsiteLogo'
 import pages, { Page } from '../Helpers/pages'
-import SearchMovies from '../pages/SearchMovies'
+import SearchMovies from '../SearchedMovies/SearchMovies'
 
 const NavbarMenu = ({ pageLabel, setPageLabel }: NavbarProps) => {
     return (

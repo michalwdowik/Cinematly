@@ -1,11 +1,11 @@
 import { VerticalTimelineElement } from 'react-vertical-timeline-component'
 import CelebrationIcon from '@mui/icons-material/Celebration'
 import AccessTimeIcon from '@mui/icons-material/AccessTime'
-import { CSSProperties, ReactNode } from 'react'
-import useThemeColors from '../Hooks/useThemeColors'
+import { CSSProperties, ReactNode, useContext } from 'react'
+import { ThemeContext } from '../Components/ThemeContext'
 
 const TimelineWrapper = ({ releaseDate, children }: TimelineWrapperProps) => {
-    const { mainThemeColor } = useThemeColors()
+    const { mainThemeColor } = useContext(ThemeContext)
 
     const today = new Date()
     const movieReleaseDate = new Date(releaseDate)

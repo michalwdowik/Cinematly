@@ -12,8 +12,9 @@ const ActorDetails = ({
     overview,
     profile_path,
 }: Actor) => {
+    const { mainThemeColorSecondary } = useContext(ThemeContext)
     return (
-        <Box sx={actorDetailsStyles}>
+        <Box sx={actorDetailsStyles(mainThemeColorSecondary)}>
             <Box
                 sx={{
                     width: '60%',
@@ -106,14 +107,16 @@ const ActorImage = ({ profile_path }: ActorImageProps) => {
 export default ActorDetails
 
 /* --------------------------------- STYLES --------------------------------- */
-const actorDetailsStyles = {
-    display: 'flex',
-    justifyContent: 'space-between',
-    width: '550px',
-    border: '2px #fc7703 solid',
-    padding: '2rem',
-    borderImage: 'linear-gradient(45deg, #fc7703 1%, transparent 12%) 2',
-    marginTop: '1.5rem',
+const actorDetailsStyles = (mainThemeColorSecondary: string) => {
+    return {
+        display: 'flex',
+        justifyContent: 'space-between',
+        width: '550px',
+        border: `2px ${mainThemeColorSecondary} solid`,
+        padding: '2rem',
+        borderImage: `linear-gradient(45deg, ${mainThemeColorSecondary} 1%, transparent 12%) 2`,
+        marginTop: '1.5rem',
+    }
 }
 
 const actorNameStyles = {

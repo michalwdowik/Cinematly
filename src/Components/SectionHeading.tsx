@@ -47,9 +47,10 @@ const GradientDivider = ({ leftAligned }: GradientDividerProps) => {
 }
 
 const Subheading = ({ subheading, leftAligned }: SubheadingProps) => {
+    const { mainThemeColor } = useContext(ThemeContext)
     return (
         <Box sx={subheadingBoxStyles(leftAligned)}>
-            <Typography sx={subheadingStyles(leftAligned)}>
+            <Typography sx={subheadingStyles(leftAligned, mainThemeColor)}>
                 {subheading}
             </Typography>
         </Box>
@@ -85,8 +86,8 @@ const subheadingBoxStyles = (leftAligned: boolean) => ({
     textShadow: '1px 1px 1px rgba(66, 68, 90, 1)',
 })
 
-const subheadingStyles = (leftAligned: boolean) => ({
-    color: '#fc9803',
+const subheadingStyles = (leftAligned: boolean, mainThemeColor: string) => ({
+    color: mainThemeColor,
     fontSize: { xs: '12px', md: '15px' },
     width: { xs: '75%', sm: '55%', md: '60%' },
     textAlign: `${leftAligned ? 'right' : 'left'}`,
