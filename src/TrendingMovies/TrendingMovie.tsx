@@ -42,7 +42,7 @@ const TrendingMovieImage = ({ id, backdrop_path }: MovieImageProps) => {
         >
             <img
                 width="800px"
-                height="auto"
+                height="450px"
                 className="card-image"
                 src={`https://image.tmdb.org/t/p/w780/${backdrop_path}`}
                 alt="trending movie"
