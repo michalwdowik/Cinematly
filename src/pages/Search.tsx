@@ -1,15 +1,17 @@
 import { useContext, useState } from 'react'
 import { Box } from '@mui/material'
-import SearchedMovies from './SearchedMovies'
-import SearchMovieInput from './SearchMovieInput'
+import { useNavigate } from 'react-router-dom'
+import SearchedMovies from '../SearchedMovies/SearchedMovies'
+import SearchMovieInput from '../SearchedMovies/SearchMovieInput'
 import { ThemeContext } from '../Components/ThemeContext'
 import fetchMovies from '../Helpers/fetchMovies'
 import { Movie } from '../MovieCard/types'
 
-const SearchMovies = ({ handleClick }: SearchMoviesProps) => {
+const Search = () => {
     const [searchQuery, setSearchQuery] = useState('')
     const [searchedMovies, setSearchedMovies] = useState<Movie[]>([])
     const { backgroundColor } = useContext(ThemeContext)
+
     const handleSearchChange = (event: React.ChangeEvent<HTMLInputElement>) => {
         setSearchQuery(event.target.value)
         fetchMovies({
@@ -17,9 +19,9 @@ const SearchMovies = ({ handleClick }: SearchMoviesProps) => {
             movieTitle: `${event.target.value}`,
         }).then((results) => setSearchedMovies(results))
     }
-
+    const navigate = useNavigate()
     const handleOverlayClick = () => {
-        handleClick('SEARCH')
+        navigate('/')
     }
     return (
         <Box
@@ -36,7 +38,7 @@ const SearchMovies = ({ handleClick }: SearchMoviesProps) => {
     )
 }
 
-export default SearchMovies
+export default Search
 
 const SearchMoviesOverlay = ({
     handleOverlayClick,
@@ -51,7 +53,7 @@ const searchMoviesOverlayStyles = {
     left: 0,
     height: '100%',
     width: '100%',
-    backgroundColor: 'rgba(0, 0, 0, 0.9)',
+    backgroundColor: 'rgba(0, 0, 0, 0.8)',
     zIndex: 1,
     cursor: 'pointer',
 }
@@ -75,10 +77,6 @@ const searchMoviesStyles = (backgroundColor: string) => {
 }
 
 /* --------------------------------- TYPES --------------------------------- */
-type SearchMoviesProps = {
-    handleClick: (pageLabel: string) => void
-}
-
 type SearchMoviesOverlayProps = {
     handleOverlayClick: () => void
 }

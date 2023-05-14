@@ -7,7 +7,7 @@ import shortenOverview from '../Helpers/cutText'
 const MovieCardDetails = ({ movie }: MovieProps) => {
     return (
         <Box sx={movieCardDetailsStyles}>
-            <Box className="movieModalDetails">
+            <Box className="movieCardDetails">
                 <AddToWatchlistButton absolute movie={movie} />
                 <MovieCardTitle
                     title={movie.title}

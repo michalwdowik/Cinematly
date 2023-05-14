@@ -1,11 +1,11 @@
 import { Box } from '@mui/material'
 import TopRatedMovieHeadings from './TopRatedMovieHeadings'
-import TopRatedMovieHovered from './TopRatedMovieHovered'
+import TopRatedMovieHovered from './TopRatedMovieDetails'
 import { Movie } from '../MovieCard/types'
 
 const TopRatedMovie = ({ movie, rankPosition }: TopRatedMovieProps) => {
     return (
-        <Box className="movie">
+        <Box className="topRatedMovie">
             <TopRatedMovieRank rankPosition={rankPosition} />
             <TopRatedMovieHeadings movie={movie} />
             <TopRatedMovieImage
@@ -20,7 +20,7 @@ const TopRatedMovie = ({ movie, rankPosition }: TopRatedMovieProps) => {
 export default TopRatedMovie
 
 const TopRatedMovieRank = ({ rankPosition }: TopRatedMovieRankProps) => {
-    return <Box className="movieRankPosition">{rankPosition + 1}</Box>
+    return <Box className="topRatedMovieRankPosition">{rankPosition + 1}</Box>
 }
 
 const TopRatedMovieImage = ({
@@ -30,7 +30,7 @@ const TopRatedMovieImage = ({
     return (
         <img
             alt={`${title}`}
-            className="movie__img--hover"
+            className="topRatedMovie__img--hover"
             src={`https://image.tmdb.org/t/p/w1280/${backdrop_path}`}
         />
     )

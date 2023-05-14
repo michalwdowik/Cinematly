@@ -1,8 +1,6 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
 import { Box, Drawer, ListItem, Tab, Typography } from '@mui/material'
-import { useContext, useState } from 'react'
+import { useContext } from 'react'
 import { Link } from 'react-router-dom'
-import SearchMovies from '../SearchedMovies/SearchMovies'
 import { ThemeContext } from '../Components/ThemeContext'
 import pages, { Page } from '../Helpers/pages'
 
@@ -11,42 +9,31 @@ const DrawerList = ({
     isDrawerOpen,
     setIsDrawerOpen,
 }: DrawerListProps) => {
-    const [isSearchClicked, setIsSearchClicked] = useState(false)
     const { mainThemeColor } = useContext(ThemeContext)
-    const handleClick = (pageName?: string) => {
+    const handleClick = () => {
         setIsDrawerOpen(false)
-        if (pageName === 'SEARCH') {
-            setIsSearchClicked(!isSearchClicked)
-        }
     }
 
     return (
-        <>
-            <Drawer
-                anchor="top"
-                open={isDrawerOpen}
-                onClose={toggleDrawer(false)}
-                PaperProps={{ sx: { backgroundColor: mainThemeColor } }}
-            >
-                {Object.values(pages).map((page) => (
-                    <ListItem sx={drawerListItemStyles} key={page.name}>
-                        <Tab
-                            onClick={() => handleClick(page.name)}
-                            key={page.label}
-                            label={<DrawerListItemRow page={page} />}
-                            component={Link}
-                            to={
-                                page.name === 'SEARCH'
-                                    ? (undefined as any)
-                                    : page.link
-                            }
-                            sx={drawerLinkStyles}
-                        />
-                    </ListItem>
-                ))}
-            </Drawer>
-            {isSearchClicked && <SearchMovies handleClick={handleClick} />}
-        </>
+        <Drawer
+            anchor="top"
+            open={isDrawerOpen}
+            onClose={toggleDrawer(false)}
+            PaperProps={{ sx: { backgroundColor: mainThemeColor } }}
+        >
+            {Object.values(pages).map((page) => (
+                <ListItem sx={drawerListItemStyles} key={page.name}>
+                    <Tab
+                        onClick={handleClick}
+                        key={page.label}
+                        label={<DrawerListItemRow page={page} />}
+                        component={Link}
+                        to={page.link}
+                        sx={drawerLinkStyles}
+                    />
+                </ListItem>
+            ))}
+        </Drawer>
     )
 }
 

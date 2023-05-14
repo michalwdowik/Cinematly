@@ -1,12 +1,9 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
 import Tabs from '@mui/material/Tabs'
 import Tab from '@mui/material/Tab'
 import { Link } from 'react-router-dom'
-import { useState } from 'react'
 import { Box } from '@mui/material'
 import WebsiteLogo from '../Components/WebsiteLogo'
 import pages, { Page } from '../Helpers/pages'
-import SearchMovies from '../SearchedMovies/SearchMovies'
 
 const NavbarMenu = ({ pageLabel, setPageLabel }: NavbarProps) => {
     return (
@@ -39,27 +36,13 @@ const NavbarTabs = ({ pageLabel, setPageLabel }: NavbarProps) => {
 }
 
 const NavbarTab = ({ page }: NavbarTabProps) => {
-    const [isSearchClicked, setIsSearchClicked] = useState(false)
-
-    const handleClick = () => {
-        if (page.name === 'SEARCH') {
-            setIsSearchClicked(!isSearchClicked)
-        }
-    }
     return (
-        <>
-            <Tab
-                sx={navbarTabStyles}
-                label={page.name}
-                component={Link}
-                to={page.name === 'SEARCH' ? (undefined as any) : page.link}
-                onClick={handleClick}
-            />
-
-            <Box>
-                {isSearchClicked && <SearchMovies handleClick={handleClick} />}
-            </Box>
-        </>
+        <Tab
+            sx={navbarTabStyles}
+            label={page.name}
+            component={Link}
+            to={page.link}
+        />
     )
 }
 

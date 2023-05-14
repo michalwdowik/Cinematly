@@ -1,5 +1,6 @@
 import { CSSProperties, useContext } from 'react'
 import { Link } from 'react-router-dom'
+import { Typography } from '@mui/material'
 import { ThemeContext } from '../Components/ThemeContext'
 
 const NotFound = () => {
@@ -27,7 +28,9 @@ const NotFoundImage = () => {
 const NotFoundMessage = ({ mainThemeColor }: NotFoundMessageProps) => {
     return (
         <>
-            <h1> Page Not Found</h1>
+            <Typography sx={notFoundMessageHeadingStyles}>
+                Page Not Found
+            </Typography>
             <p>Oops! Looks like you have stumbled upon an unknown path.</p>
             <Link to="/" style={{ color: mainThemeColor }}>
                 Go to Home
@@ -51,6 +54,8 @@ const notFoundImageStyles = {
     height: '300px',
     marginBottom: '20px',
 }
+
+const notFoundMessageHeadingStyles = { fontSize: '2rem', fontWeight: 'bold' }
 
 /* --------------------------------- TYPES --------------------------------- */
 

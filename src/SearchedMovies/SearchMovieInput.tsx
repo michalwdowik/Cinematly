@@ -15,9 +15,7 @@ const SearchMovieInput = ({
             label="Search Movies"
             placeholder="Type here"
             variant="outlined"
-            InputLabelProps={{
-                style: { color: mainThemeColor },
-            }}
+            InputLabelProps={inputLabelPropsStyles(mainThemeColor)}
             inputProps={{ style: { color: textColor } }}
             sx={searchMovieInputStyles}
         />
@@ -34,6 +32,12 @@ const searchMovieInputStyles = {
             borderColor: 'orange !important',
         },
     },
+}
+
+const inputLabelPropsStyles = (mainThemeColor: string) => {
+    return {
+        style: { color: mainThemeColor },
+    }
 }
 
 /* --------------------------------- TYPES --------------------------------- */

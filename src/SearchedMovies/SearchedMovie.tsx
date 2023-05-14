@@ -1,6 +1,6 @@
 import { Box } from '@mui/material'
 import { MovieProps } from '../MovieCard/types'
-import SearchedMovieHovered from './SearchedMovieDetails'
+import SearchedMovieDetails from './SearchedMovieDetails'
 
 const SearchedMovie = ({ movie }: MovieProps) => {
     return (
@@ -11,7 +11,7 @@ const SearchedMovie = ({ movie }: MovieProps) => {
                     searchedMoviePoster={movie.poster_path}
                 />
             )}
-            <SearchedMovieHovered movie={movie} />
+            <SearchedMovieDetails movie={movie} />
         </Box>
     )
 }
@@ -29,7 +29,12 @@ const SearchedMoviePoster = ({
             src={`https://image.tmdb.org/t/p/w300/${searchedMoviePoster}`}
         />
     ) : (
-        <div>No poster</div>
+        <img
+            alt="No poster placeholder}"
+            className="searchedMoviePoster"
+            src={`https://upload.wikimedia.org/wikipedia/commons/thumb/6/65/No-Image-Placeholder.svg/1665px-No-Image-Placeholder.svg.png
+            `}
+        />
     )
 }
 

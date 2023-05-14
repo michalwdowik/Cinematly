@@ -1,8 +1,7 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import { ReactNode, createContext, useContext, useMemo, useState } from 'react'
-import Alert from '@mui/material/Alert'
-import Snackbar from '@mui/material/Snackbar'
 import { Movie } from '../MovieCard/types'
+import WatchlistAlert from '../Components/WatchlistAlert'
 
 const WatchlistContext = createContext<WatchlistContextType>({
     watchlist: [],
@@ -17,8 +16,11 @@ export const WatchlistContextProvider = ({
     const [watchlist, setWatchlist] = useState<Movie[]>([])
     const [showAlert, setShowAlert] = useState(false)
 
+    const isMovieOnWatchlist = (movieId: string) =>
+        watchlist.some((movie) => movie.id === movieId)
+
     const addToWatchlist = (movie: Movie) => {
-        if (!watchlist.some((m) => m.id === movie.id)) {
+        if (!isMovieOnWatchlist(movie.id)) {
             setWatchlist([...watchlist, movie])
         } else {
             setShowAlert(true)
@@ -30,8 +32,6 @@ export const WatchlistContextProvider = ({
 
     const removeMovieFromWatchlist = (movie: Movie) => {
         setWatchlist(watchlist.filter((m) => movie.id !== m.id))
-        // setTimeout(() => {
-        // }, 1000)
     }
 
     const value = useMemo(
@@ -46,11 +46,7 @@ export const WatchlistContextProvider = ({
 
     return (
         <>
-            <Snackbar open={showAlert}>
-                <Alert severity="warning" sx={{ borderRadius: '1rem' }}>
-                    Movie already on the watchlist
-                </Alert>
-            </Snackbar>
+            <WatchlistAlert showAlert={showAlert} />
             <WatchlistContext.Provider value={value}>
                 {children}
             </WatchlistContext.Provider>

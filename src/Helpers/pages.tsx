@@ -15,7 +15,7 @@ const pages: Pages = {
         label: 1,
         name: 'SEARCH',
         icon: <Search />,
-        link: '/',
+        link: '/search',
     },
     UPCOMING: {
         label: 2,

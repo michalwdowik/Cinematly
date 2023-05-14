@@ -1,8 +1,21 @@
+@import url('./keyframes.css');
+@import url('./trendingMovies.css');
+@import url('./topRatedMovies.css');
+@import url('./searchedMovies.css');
 
 html {
 width: 100vw;
 overflow-x: hidden;
 }
+
+html {
+  scrollbar-width: none;
+}
+
+body {
+  margin: 0;
+}
+
 
 * {
   box-sizing: border-box;
@@ -11,6 +24,10 @@ overflow-x: hidden;
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
   transition: color 0.5s ease-in-out;
   transition: background-color 0.5s ease-in-out;
+}
+
+::-webkit-scrollbar {
+  display: none; 
 }
 
 .watchlistHide {
@@ -35,7 +52,7 @@ overflow-x: hidden;
   height: 1px;
 }
 
-.movieModalDetails {
+.movieCardDetails {
   position: relative;
   display: flex;
   flex-direction: column;
@@ -57,96 +74,12 @@ overflow-x: hidden;
   display: none; 
 }
 
-::-webkit-scrollbar {
-  display: none; 
-}
-
-html {
-  scrollbar-width: none;
-}
-
-body {
-  margin: 0;
-}
-
 .credits {
   font-style: italic;
   margin: 3;
   color: gray;
   font-size: 0.7em;
   display: block;
-}
-
-
-/* SEARCHED MOVIES STYLES */
-
-.searchedMovie {
-  display: flex;
-  justify-content: center;
-  transition: all .4s cubic-bezier(0.175, 0.885, 0, 1);
-  animation: fadeIn 1s cubic-bezier(0.175, 0.885, 0, 1);
-  position: relative;
-  border-radius: 50px;
-  overflow: hidden;
-  min-width: 250px;
-  box-shadow: 8px 8px 12px -5px rgb(0, 0, 0);
-}
-
-.searchedMovie:hover {
-  color: white;
-  transform: scale(1.05, 1.05);
-}
-
-.searchedMoviePoster:hover .searchedMovie__details {   
-  visibility: visible;
-}
-
-.searchedMovie:hover .searchedMoviePoster {
-  filter: brightness(0.3);
-  scale: 120%;
-  transition: all 0.15s ease-in-out;
-}
-
-.searchedMovie:hover .addToWatchlist {
-  visibility: visible;
-}
-
-.addToWatchlist {
-  visibility: hidden;
-}
-
-.searchedMovie:hover .searchedMovieRankPosition {
-  visibility: hidden;
-}
-
-.searchedMovieDetails {
-  visibility: hidden;
-  position: absolute;
-  padding-left: 0.5rem;
-  padding-right: 0.5rem;
-  padding-top: 0.8rem;
-  text-align: center;
-  font-weight: 200;
-  display: flex;
-  flex-direction: column;
-  justify-content: 'center';
-  align-items: 'center';
-  align-content: 'center';
-  gap: 1rem;
-}
-
-.searchedMovie:hover .searchedMovieDetails {
-  visibility: visible;
-}
-
-.serachMovieFadeIn {
-  animation-name: fadeIn;
-  animation-duration: 0.25s;
-}
-
-.searchMovieFadeOut {
-  animation-name: fadeOut;
-  animation-duration: 0.25s;
 }
 
 .container {

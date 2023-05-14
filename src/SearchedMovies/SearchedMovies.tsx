@@ -5,10 +5,6 @@ import { Movie } from '../MovieCard/types'
 import CallToActionLabel from '../Components/CallToActionLabel'
 import { ThemeContext } from '../Components/ThemeContext'
 
-type SearchedMoviesProps = {
-    searchedMovies: Movie[]
-}
-
 const SearchedMovies = ({ searchedMovies }: SearchedMoviesProps) => {
     const { textColor } = useContext(ThemeContext)
 
@@ -39,4 +35,9 @@ const searchedMoviesStyles = {
     maxWidth: '100vw',
     overflowX: 'scroll',
     padding: '1rem',
+}
+
+/* --------------------------------- TYPES --------------------------------- */
+type SearchedMoviesProps = {
+    searchedMovies: Movie[]
 }

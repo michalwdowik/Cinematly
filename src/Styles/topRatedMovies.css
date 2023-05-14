@@ -2,7 +2,7 @@
   --mainTheme: #fc9803;
 }
 
-.movie {
+.topRatedMovie {
   display: flex;
   justify-content: center;
   transition: all .4s cubic-bezier(0.175, 0.885, 0, 1);
@@ -15,14 +15,14 @@
 }
 
 
-.movie:hover {
+.topRatedMovie:hover {
   color: white;
   transform: scale(1.10, 1.10);
   box-shadow: 8px 8px 12px -5px rgb(0, 0, 0, 1);
 
 }
 
-.movie__img--hover {
+.topRatedMovie__img--hover {
   transition: 0.2s all ease-out;
   position: absolute;
   height: 70%;
@@ -32,14 +32,14 @@
   margin-left: -2rem;
 }
 
-.movie:hover .addToWatchlist {
+.topRatedMovie:hover .addToWatchlist {
 visibility: visible;
 }
 .addToWatchlist {
 visibility: hidden;
 }
 
-.movieRankPosition {
+.topRatedMovieRankPosition {
   z-index: 2;
   position: absolute;
   top: 0;
@@ -54,7 +54,7 @@ visibility: hidden;
   background-color: var(--mainTheme);
 }
 
-.movie:hover .movieRankPosition {
+.topRatedMovie:hover .topRatedMovieRankPosition {
 visibility: hidden;
 }
 
@@ -75,11 +75,11 @@ visibility: hidden;
 
 }
 
-.movie:hover .topRatedMovie__details {
+.topRatedMovie:hover .topRatedMovie__details {
   visibility: visible;
 }
 
-.movie:hover .movie__img--hover {
+.topRatedMovie:hover .topRatedMovie__img--hover {
     height: 100%;
     filter: brightness(0.3);}
 

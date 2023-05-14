@@ -4,12 +4,12 @@ import AddToWatchlistButton from '../Components/AddToWatchlistButton'
 import { MovieProps } from '../MovieCard/types'
 import shortenOverview from '../Helpers/cutText'
 
-const TopRatedMovieHovered = ({ movie }: MovieProps) => {
+const TopRatedMovieDetails = ({ movie }: MovieProps) => {
     return (
         <Box className="topRatedMovie__details">
             <TopRatedMovieOverview movie={movie} />
             <DetailsDivider />
-            <TopRatedMovieDetails movie={movie} />
+            <TopRatedMovieInfo movie={movie} />
             <AddToWatchlistButton
                 styles="addToWatchlist"
                 absolute={false}
@@ -31,7 +31,7 @@ export const DetailsDivider = () => {
     return <Box className="dividerStyle" />
 }
 
-const TopRatedMovieDetails = ({ movie }: MovieProps) => {
+const TopRatedMovieInfo = ({ movie }: MovieProps) => {
     return (
         <Typography variant="subtitle2">
             <b>Original title: </b>
@@ -49,7 +49,7 @@ const TopRatedMovieDetails = ({ movie }: MovieProps) => {
     )
 }
 
-export default TopRatedMovieHovered
+export default TopRatedMovieDetails
 
 /* --------------------------------- STYLES --------------------------------- */
 const topRatedMovieOverviewStyles = {

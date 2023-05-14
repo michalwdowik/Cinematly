@@ -15,23 +15,9 @@ const ActorDetails = ({
     const { mainThemeColorSecondary } = useContext(ThemeContext)
     return (
         <Box sx={actorDetailsStyles(mainThemeColorSecondary)}>
-            <Box
-                sx={{
-                    width: '60%',
-                    padding: '0.3rem',
-                    marginRight: '1.5rem',
-                }}
-            >
+            <Box sx={actorInfoStyles}>
                 <ActorName name={name} />
-                <Box
-                    sx={{
-                        display: 'flex',
-                        alignItems: 'center',
-                        gap: '5px',
-                        fontStyle: 'italic',
-                        marginY: '0.5rem',
-                    }}
-                >
+                <Box sx={knownForWrapperStyles}>
                     <ActorRating vote_average={vote_average} />
                     <ActorKnownFor known_for={known_for} />
                 </Box>
@@ -60,7 +46,7 @@ const ActorKnownFor = ({ known_for }: ActorKnownForProps) => {
 const ActorRoleOverview = ({ overview }: ActorRoleOverviewProps) => {
     const { textColor } = useContext(ThemeContext)
     return (
-        <Box sx={{ color: textColor, marginBottom: '10px', opacity: '70%' }}>
+        <Box sx={actorRoleOverviewStyles(textColor)}>
             {shortenOverview(overview, 25)}
         </Box>
     )
@@ -70,14 +56,7 @@ const ActorRating = ({ vote_average }: ActorRatingProps) => {
     const { textColor } = useContext(ThemeContext)
 
     return (
-        <Box
-            sx={{
-                color: textColor,
-                fontSize: '1rem',
-                display: 'flex',
-                minWidth: '30px',
-            }}
-        >
+        <Box sx={actorRatingStyles(textColor)}>
             <span>
                 <StarIcon sx={{ fontSize: '0.9rem' }} />
                 {vote_average}
@@ -89,13 +68,7 @@ const ActorRating = ({ vote_average }: ActorRatingProps) => {
 const ActorImage = ({ profile_path }: ActorImageProps) => {
     return (
         <img
-            style={{
-                borderRadius: '50px',
-                boxShadow: '8px 8px 12px -5px rgba(0, 0, 0, 1)',
-                height: 'auto',
-                alignSelf: 'center',
-                objectPosition: 'center top',
-            }}
+            style={actorImageStyles}
             width="278px"
             height="185px"
             src={`https://image.tmdb.org/t/p/w185/${profile_path}`}
@@ -119,6 +92,12 @@ const actorDetailsStyles = (mainThemeColorSecondary: string) => {
     }
 }
 
+const actorInfoStyles = {
+    width: '60%',
+    padding: '0.3rem',
+    marginRight: '1.5rem',
+}
+
 const actorNameStyles = {
     fontSize: { xs: '24px', md: '32px', lg: '40px' },
     fontWeight: 'bold',
@@ -129,7 +108,38 @@ const knownForStyles = {
     color: '#fc7b03',
     fontWeight: 'bold',
 }
+const knownForWrapperStyles = {
+    display: 'flex',
+    alignItems: 'center',
+    gap: '5px',
+    fontStyle: 'italic',
+    marginY: '.5rem',
+}
 
+const actorRoleOverviewStyles = (textColor: string) => {
+    return {
+        color: textColor,
+        marginBottom: '10px',
+        opacity: '70%',
+    }
+}
+
+const actorRatingStyles = (textColor: string) => {
+    return {
+        color: textColor,
+        fontSize: '1rem',
+        display: 'flex',
+        minWidth: '30px',
+    }
+}
+
+const actorImageStyles = {
+    borderRadius: '50px',
+    boxShadow: '8px 8px 12px -5px rgba(0, 0, 0, 1)',
+    height: 'auto',
+    alignSelf: 'center',
+    objectPosition: 'center top',
+}
 /* --------------------------------- TYPES --------------------------------- */
 type ActorNameProps = Pick<Actor, 'name'>
 type ActorKnownForProps = Pick<Actor, 'known_for'>

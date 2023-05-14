@@ -1,4 +1,4 @@
-import { useParams } from 'react-router-dom'
+import { useLocation, useParams } from 'react-router-dom'
 import { ParallaxProvider } from 'react-scroll-parallax'
 import TrendingMovies from '../TrendingMovies/TrendingMovies'
 import TrendingMovieModal from '../TrendingMovies/TrendingMovieModal'
@@ -7,9 +7,12 @@ import Quote from '../Components/Quote'
 import SectionHeading from '../Components/SectionHeading'
 import MemoizedTrendingActors from '../TrendingActors/TrendingActors'
 import { trendingMovies } from '../Helpers/fetchMovies'
+import Search from './Search'
 
 const Home = () => {
     const { id } = useParams()
+    const location = useLocation()
+    const isSearchRoute = location.pathname === '/search'
 
     const belongsToMovies =
         id && trendingMovies.some((movie) => movie.id !== id)
@@ -26,6 +29,7 @@ const Home = () => {
                 <TrendingMovies />
 
                 {belongsToMovies ? <TrendingMovieModal id={id} /> : null}
+                {isSearchRoute && <Search />}
 
                 <SectionHeading
                     enableParallax

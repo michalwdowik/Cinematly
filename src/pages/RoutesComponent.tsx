@@ -11,6 +11,7 @@ const RoutesComponent = () => {
         <div>
             <Routes key={location.pathname} location={location}>
                 <Route path="/" element={<Home />} />
+                <Route path="/search" element={<Home />} />
                 <Route path="/top-rated" element={<TopRated />} />
                 <Route path="/upcoming" element={<Upcoming />} />
                 <Route path="/:id" element={<Home />} />
