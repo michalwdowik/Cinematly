@@ -1,4 +1,5 @@
 import { Box } from '@mui/material'
+import { LazyLoadImage } from 'react-lazy-load-image-component'
 import { MovieProps } from '../MovieCard/types'
 import SearchedMovieDetails from './SearchedMovieDetails'
 
@@ -23,13 +24,13 @@ const SearchedMoviePoster = ({
     searchedMoviePoster,
 }: SearchedMoviePosterProps) => {
     return searchedMoviePoster ? (
-        <img
+        <LazyLoadImage
             alt={`${searchedMovieTitle}`}
             className="searchedMoviePoster"
             src={`https://image.tmdb.org/t/p/w300/${searchedMoviePoster}`}
         />
     ) : (
-        <img
+        <LazyLoadImage
             alt="No poster placeholder}"
             className="searchedMoviePoster"
             src={`https://upload.wikimedia.org/wikipedia/commons/thumb/6/65/No-Image-Placeholder.svg/1665px-No-Image-Placeholder.svg.png

@@ -1,8 +1,12 @@
 import { motion } from 'framer-motion'
 import { Box } from '@mui/material'
+import { lazy } from 'react'
 import SectionHeading from '../Components/SectionHeading'
-import TopRatedMovies from '../TopRatedMovies/TopRatedMovies'
 import useScrollToTop from '../Hooks/useScrollToTop'
+
+const LazyTopRatedMovies = lazy(
+    () => import('../TopRatedMovies/TopRatedMovies')
+)
 
 const TopRated = () => {
     useScrollToTop()
@@ -21,7 +25,7 @@ const TopRated = () => {
                     enableParallax={false}
                 />
             </Box>
-            <TopRatedMovies />
+            <LazyTopRatedMovies />
         </motion.div>
     )
 }

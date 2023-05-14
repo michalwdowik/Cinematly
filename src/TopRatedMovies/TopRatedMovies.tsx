@@ -1,7 +1,7 @@
 import { Box } from '@mui/material'
-import TopRatedMovie from './TopRatedMovie'
 import { Movie } from '../MovieCard/types'
 import { topRatedMovies } from '../Helpers/fetchMovies'
+import TopRatedMovie from './TopRatedMovie'
 
 const TopRatedMovies = () => {
     return (

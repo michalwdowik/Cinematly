@@ -1,6 +1,7 @@
 import { CSSProperties, useContext } from 'react'
 import { Link } from 'react-router-dom'
 import { Typography } from '@mui/material'
+import { LazyLoadImage } from 'react-lazy-load-image-component'
 import { ThemeContext } from '../Components/ThemeContext'
 
 const NotFound = () => {
@@ -17,7 +18,7 @@ export default NotFound
 
 const NotFoundImage = () => {
     return (
-        <img
+        <LazyLoadImage
             src="https://cdn.pixabay.com/photo/2021/07/21/12/49/error-6482984_960_720.png"
             alt="Error 404"
             style={notFoundImageStyles}

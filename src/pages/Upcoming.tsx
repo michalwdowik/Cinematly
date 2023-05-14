@@ -1,12 +1,15 @@
 import 'react-vertical-timeline-component/style.min.css'
 import { ParallaxProvider } from 'react-scroll-parallax'
-import { CSSProperties } from 'react'
+import { CSSProperties, lazy } from 'react'
 import { motion } from 'framer-motion'
 import SectionHeading from '../Components/SectionHeading'
-import UpcomingMovies from '../UpcomingMovies/UpcomingMovies'
 import useScrollToTop from '../Hooks/useScrollToTop'
 import { justReleasedMovies, upcomingMovies } from '../Helpers/fetchMovies'
 import Heading from '../Components/Heading'
+
+const LazyUpcomingMovies = lazy(
+    () => import('../UpcomingMovies/UpcomingMovies')
+)
 
 const Upcoming = () => {
     useScrollToTop()
@@ -27,9 +30,9 @@ const Upcoming = () => {
                     enableParallax={false}
                 />
                 <Heading label="Just released" />
-                <UpcomingMovies movies={justReleasedMovies} />
+                <LazyUpcomingMovies movies={justReleasedMovies} />
                 <Heading label="Upcoming" />
-                <UpcomingMovies movies={upcomingMovies} />
+                <LazyUpcomingMovies movies={upcomingMovies} />
                 <Heading label="Stay tuned!" />
             </motion.div>
         </ParallaxProvider>

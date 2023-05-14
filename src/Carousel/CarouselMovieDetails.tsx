@@ -1,44 +1,24 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import StarIcon from '@mui/icons-material/Star'
 import { Box } from '@mui/material'
-import { CSSProperties, useEffect } from 'react'
-import { Helmet } from 'react-helmet'
+import { CSSProperties } from 'react'
+import { LazyLoadImage } from 'react-lazy-load-image-component'
 import { MovieProps } from '../MovieCard/types'
 
 export const MovieImage = ({ movie }: MovieProps) => {
-    const getImageUrl = (size: string) => {
+    const getImageUrl = () => {
         const baseUrl = 'https://image.tmdb.org/t/p/'
         const backdropPath = movie && movie.backdrop_path
 
-        return `${baseUrl}${size}${backdropPath}`
+        return `${baseUrl}w780${backdropPath}`
     }
 
-    useEffect(() => {
-        const image = new Image()
-        image.src = getImageUrl('w1280')
-    }, [])
-
     return (
-        <>
-            <Helmet>
-                <link rel="preload" as="image" href={getImageUrl('w1280')} />
-            </Helmet>
-            <img
-                style={movieImageStyle}
-                alt={movie.title}
-                srcSet={`
-          ${getImageUrl('w300')} 300w,
-          ${getImageUrl('w780')} 780w,
-          ${getImageUrl('w1280')} 1280w
-        `}
-                sizes="
-          (max-width: 600px) 300px,
-          (max-width: 1200px) 780px,
-          1280px
-        "
-                src={getImageUrl('w1280')}
-            />
-        </>
+        <LazyLoadImage
+            style={movieImageStyle}
+            alt={movie.title}
+            src={getImageUrl()}
+        />
     )
 }
 

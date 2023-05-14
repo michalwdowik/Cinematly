@@ -1,7 +1,7 @@
 import StarIcon from '@mui/icons-material/Star'
-import { useContext, useEffect } from 'react'
+import { useContext } from 'react'
 import { Box } from '@mui/material'
-import { Helmet } from 'react-helmet'
+import { LazyLoadImage } from 'react-lazy-load-image-component'
 import { ThemeContext } from '../Components/ThemeContext'
 import { Actor } from './types'
 import shortenOverview from '../Helpers/cutText'
@@ -67,28 +67,14 @@ const ActorRating = ({ vote_average }: ActorRatingProps) => {
 }
 
 const ActorImage = ({ profile_path }: ActorImageProps) => {
-    useEffect(() => {
-        const image = new Image()
-        image.src = `https://image.tmdb.org/t/p/w185/${profile_path}`
-    }, [profile_path])
-
     return (
-        <>
-            <Helmet>
-                <link
-                    rel="preload"
-                    as="image"
-                    href={`https://image.tmdb.org/t/p/w185/${profile_path}`}
-                />
-            </Helmet>
-            <img
-                style={actorImageStyles}
-                width="278px"
-                height="185px"
-                src={`https://image.tmdb.org/t/p/w185/${profile_path}`}
-                alt="actor"
-            />
-        </>
+        <LazyLoadImage
+            style={actorImageStyles}
+            alt="actor"
+            height="185px"
+            src={`https://image.tmdb.org/t/p/w185/${profile_path}`}
+            width="278px"
+        />
     )
 }
 
@@ -144,7 +130,7 @@ const actorRatingStyles = (textColor: string) => {
         color: textColor,
         fontSize: '1rem',
         display: 'flex',
-        minWidth: '30px',
+        minWidth: '40px',
     }
 }
 

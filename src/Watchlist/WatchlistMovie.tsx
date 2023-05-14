@@ -1,5 +1,6 @@
 import Typography from '@mui/material/Typography'
 import { Box } from '@mui/material'
+import { LazyLoadImage } from 'react-lazy-load-image-component'
 import { MovieProps } from '../MovieCard/types'
 import shortenOverview from '../Helpers/cutText'
 
@@ -40,7 +41,7 @@ const WatchlistMovieImage = ({
     movieBackdropPath,
 }: WatchlistMovieImageProps) => {
     return movieBackdropPath ? (
-        <img
+        <LazyLoadImage
             style={watchlistMovieImageStyles}
             src={`https://image.tmdb.org/t/p/w300/${movieBackdropPath}`}
             alt={movieTitle}
@@ -52,7 +53,7 @@ const WatchlistMovieImage = ({
 
 const NoImagePlaceholder = () => {
     return (
-        <img
+        <LazyLoadImage
             src="https://heuft.com/upload/image/400x267/no_image_placeholder.png"
             alt="empty img placeholder"
         />

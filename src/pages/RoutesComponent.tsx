@@ -1,8 +1,10 @@
 import { Routes, Route, useLocation } from 'react-router-dom'
+import { lazy, Suspense } from 'react'
 import Home from './Home'
-import TopRated from './TopRated'
-import Upcoming from './Upcoming'
-import NotFound from './NotFound'
+
+const LazyTopRated = lazy(() => import('./TopRated'))
+const LazyUpcoming = lazy(() => import('./Upcoming'))
+const LazyNotFound = lazy(() => import('./NotFound'))
 
 const RoutesComponent = () => {
     const location = useLocation()
@@ -12,10 +14,31 @@ const RoutesComponent = () => {
             <Routes key={location.pathname} location={location}>
                 <Route path="/" element={<Home />} />
                 <Route path="/search" element={<Home />} />
-                <Route path="/top-rated" element={<TopRated />} />
-                <Route path="/upcoming" element={<Upcoming />} />
+                <Route
+                    path="/top-rated"
+                    element={
+                        <Suspense fallback={<div>Loading Top Rated...</div>}>
+                            <LazyTopRated />
+                        </Suspense>
+                    }
+                />
+                <Route
+                    path="/upcoming"
+                    element={
+                        <Suspense fallback={<div>Loading Upcoming...</div>}>
+                            <LazyUpcoming />
+                        </Suspense>
+                    }
+                />
                 <Route path="/:id" element={<Home />} />
-                <Route path="*" element={<NotFound />} />
+                <Route
+                    path="*"
+                    element={
+                        <Suspense fallback={<div>Loading Not Found...</div>}>
+                            <LazyNotFound />
+                        </Suspense>
+                    }
+                />
             </Routes>
         </div>
     )

@@ -1,4 +1,5 @@
 import { Box } from '@mui/material'
+import { LazyLoadImage } from 'react-lazy-load-image-component'
 import TopRatedMovieHeadings from './TopRatedMovieHeadings'
 import TopRatedMovieHovered from './TopRatedMovieDetails'
 import { Movie } from '../MovieCard/types'
@@ -28,7 +29,7 @@ const TopRatedMovieImage = ({
     title,
 }: TopRatedMovieImageProps) => {
     return (
-        <img
+        <LazyLoadImage
             alt={`${title}`}
             className="topRatedMovie__img--hover"
             src={`https://image.tmdb.org/t/p/w1280/${backdrop_path}`}
