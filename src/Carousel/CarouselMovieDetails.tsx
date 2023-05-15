@@ -13,13 +13,7 @@ export const MovieImage = ({ movie }: MovieProps) => {
         return `${baseUrl}w780${backdropPath}`
     }
 
-    return (
-        <LazyLoadImage
-            style={movieImageStyle}
-            alt={movie.title}
-            src={getImageUrl()}
-        />
-    )
+    return <img style={movieImageStyle} alt={movie.title} src={getImageUrl()} />
 }
 
 export const MovieTitle = ({ movie }: MovieProps) => {

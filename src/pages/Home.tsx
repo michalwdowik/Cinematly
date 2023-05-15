@@ -1,19 +1,15 @@
-import { useLocation, useParams } from 'react-router-dom'
+import { useParams } from 'react-router-dom'
 import { ParallaxProvider } from 'react-scroll-parallax'
 import TrendingMovies from '../TrendingMovies/TrendingMovies'
 import TrendingMovieModal from '../TrendingMovies/TrendingMovieModal'
 import MoviesCarousel from '../Carousel/MoviesCarousel'
 import Quote from '../Components/Quote'
-import SectionHeading from '../Components/SectionHeading'
+import SectionHeading from '../SectionHeading/SectionHeadline'
 import MemoizedTrendingActors from '../TrendingActors/TrendingActors'
 import { trendingMovies } from '../Helpers/fetchMovies'
-import Search from './Search'
 
 const Home = () => {
     const { id } = useParams()
-    const location = useLocation()
-    const isSearchRoute = location.pathname === '/search'
-
     const belongsToMovies =
         id && trendingMovies.some((movie) => movie.id !== id)
     return (
@@ -23,19 +19,19 @@ const Home = () => {
                 <SectionHeading
                     enableParallax
                     leftAligned
-                    heading="What's hot?"
-                    subheading="Stay up-to-date with the latest buzz in the entertainment world and find your next binge-worthy watch."
+                    title="What's hot?"
+                    subtitle="Stay up-to-date with the latest buzz in the entertainment world and find your next binge-worthy watch."
                 />
                 <TrendingMovies />
 
                 {belongsToMovies ? <TrendingMovieModal id={id} /> : null}
-                {isSearchRoute && <Search />}
+                {/* {showSearch && <Search />} */}
 
                 <SectionHeading
                     enableParallax
                     leftAligned={false}
-                    heading=" Trending Actors"
-                    subheading="From Blockbuster Hits to Indie Gems, Our Trending Actors
+                    title=" Trending Actors"
+                    subtitle="From Blockbuster Hits to Indie Gems, Our Trending Actors
             Section Covers It All - Don't Miss Out on the Latest
             Scoop!"
                 />

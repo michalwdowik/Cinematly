@@ -2,7 +2,7 @@ import Button from '@mui/material/Button'
 import { Link } from 'react-router-dom'
 import { useContext } from 'react'
 import { Box } from '@mui/material'
-import pages from '../Helpers/pages'
+import { websitePages } from '../Helpers/pages'
 import { ThemeContext } from '../Components/ThemeContext'
 
 const FooterMenu = () => {
@@ -10,11 +10,10 @@ const FooterMenu = () => {
 
     return (
         <Box sx={footerMenuStyles}>
-            {Object.keys(pages).map((name) => {
-                const page = pages[name]
-                const isSearch = name === 'SEARCH'
+            {websitePages.map((page) => {
+                const searchPage = page.name === 'SEARCH'
                 return (
-                    !isSearch && (
+                    !searchPage && (
                         <Button
                             key={page.link}
                             sx={{

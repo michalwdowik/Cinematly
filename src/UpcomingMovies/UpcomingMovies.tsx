@@ -1,6 +1,6 @@
 import { VerticalTimeline as Timeline } from 'react-vertical-timeline-component'
 import { useContext } from 'react'
-import TimelineMovie from './TimelineWrapper'
+import TimelineMovie from './TimelineMovie'
 import { Movie } from '../MovieCard/types'
 import MovieCard from '../MovieCard/MovieCard'
 import { ThemeContext } from '../Components/ThemeContext'

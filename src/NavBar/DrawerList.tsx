@@ -1,59 +1,74 @@
-import { Box, Drawer, ListItem, Tab, Typography } from '@mui/material'
-import { useContext } from 'react'
+/* eslint-disable @typescript-eslint/no-explicit-any */
+import Drawer from '@mui/material/Drawer'
+import ListItem from '@mui/material/ListItem'
+import Tab from '@mui/material/Tab'
+import Typography from '@mui/material/Typography'
 import { Link } from 'react-router-dom'
-import { ThemeContext } from '../Components/ThemeContext'
-import pages, { Page } from '../Helpers/pages'
+import { Box } from '@mui/material'
+import { Page, websitePages } from '../Helpers/pages'
+import Search from '../pages/Search'
+import useShowSearchModal from '../Hooks/useShowSearchModal'
 
 const DrawerList = ({
     toggleDrawer,
     isDrawerOpen,
     setIsDrawerOpen,
 }: DrawerListProps) => {
-    const { mainThemeColor } = useContext(ThemeContext)
-    const handleClick = () => {
-        setIsDrawerOpen(false)
-    }
-
+    const { showSearchModal, handleShowSearchModal } = useShowSearchModal()
+    const hideDrawer = () => setIsDrawerOpen(false)
     return (
-        <Drawer
-            anchor="top"
-            open={isDrawerOpen}
-            onClose={toggleDrawer(false)}
-            PaperProps={{ sx: { backgroundColor: mainThemeColor } }}
-        >
-            {Object.values(pages).map((page) => (
-                <ListItem sx={drawerListItemStyles} key={page.name}>
-                    <Tab
-                        onClick={handleClick}
-                        key={page.label}
-                        label={<DrawerListItemRow page={page} />}
-                        component={Link}
-                        to={page.link}
-                        sx={drawerLinkStyles}
-                    />
-                </ListItem>
-            ))}
-        </Drawer>
+        <>
+            <Drawer
+                anchor="top"
+                open={isDrawerOpen}
+                onClose={toggleDrawer(false)}
+                PaperProps={{ sx: drawerPaperStyles }}
+            >
+                {websitePages.map((page) => (
+                    <ListItem sx={drawerListItemStyles} key={page.name}>
+                        <Tab
+                            onClick={() =>
+                                handleShowSearchModal(page.name, hideDrawer)
+                            }
+                            key={page.label}
+                            label={<DrawerListRow page={page} />}
+                            component={Link}
+                            to={
+                                page.name === 'SEARCH'
+                                    ? (undefined as any)
+                                    : page.link
+                            }
+                            sx={drawerLinkStyles}
+                        />
+                    </ListItem>
+                ))}
+            </Drawer>
+            {showSearchModal && (
+                <Search handleShowSearchModal={handleShowSearchModal} />
+            )}
+        </>
     )
 }
-
 export default DrawerList
 
-type DrawerListItemRowProps = {
-    page: Page
-}
-
-const DrawerListItemRow = ({ page }: DrawerListItemRowProps) => {
+const DrawerListRow = ({ page }: DrawerListRowProps) => {
     return (
-        <Box sx={drawerListItemRowStyles}>
+        <Box sx={drawerListRowStyles}>
             {page.icon}
-            <Typography variant="body2">{page.name}</Typography>
+            <Typography sx={drawerListRowNameStyles} variant="body2">
+                {page.name}
+            </Typography>
         </Box>
     )
 }
-
 /* --------------------------------- STYLES --------------------------------- */
-
+const drawerPaperStyles = {
+    backgroundColor: '#fc9803',
+}
+const drawerListItemStyles = {
+    padding: '0',
+    margin: '0',
+}
 const drawerLinkStyles = {
     color: 'white',
     textDecoration: 'none',
@@ -61,21 +76,21 @@ const drawerLinkStyles = {
         opacity: 0.8,
     },
 }
-
-const drawerListItemStyles = {
-    padding: '0',
-    margin: '0',
-}
-
-const drawerListItemRowStyles = {
+const drawerListRowStyles = {
     color: 'white',
     display: 'flex',
     alignItems: 'center',
     gap: '0.5rem',
 }
+const drawerListRowNameStyles = { opacity: '1', color: 'white' }
+
 /* --------------------------------- TYPES --------------------------------- */
 type DrawerListProps = {
     toggleDrawer: (open: boolean) => () => void
     setIsDrawerOpen: React.Dispatch<React.SetStateAction<boolean>>
     isDrawerOpen: boolean
+}
+
+type DrawerListRowProps = {
+    page: Page
 }

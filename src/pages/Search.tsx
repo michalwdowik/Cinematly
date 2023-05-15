@@ -1,13 +1,12 @@
 import { useContext, useState } from 'react'
 import { Box } from '@mui/material'
-import { useNavigate } from 'react-router-dom'
 import SearchedMovies from '../SearchedMovies/SearchedMovies'
 import SearchMovieInput from '../SearchedMovies/SearchMovieInput'
 import { ThemeContext } from '../Components/ThemeContext'
 import fetchMovies from '../Helpers/fetchMovies'
 import { Movie } from '../MovieCard/types'
 
-const Search = () => {
+const Search = ({ handleShowSearchModal }: SearchProps) => {
     const [searchQuery, setSearchQuery] = useState('')
     const [searchedMovies, setSearchedMovies] = useState<Movie[]>([])
     const { backgroundColor } = useContext(ThemeContext)
@@ -19,9 +18,8 @@ const Search = () => {
             movieTitle: `${event.target.value}`,
         }).then((results) => setSearchedMovies(results))
     }
-    const navigate = useNavigate()
     const handleOverlayClick = () => {
-        navigate('/')
+        handleShowSearchModal('SEARCH')
     }
     return (
         <Box
@@ -77,6 +75,9 @@ const searchMoviesStyles = (backgroundColor: string) => {
 }
 
 /* --------------------------------- TYPES --------------------------------- */
+type SearchProps = {
+    handleShowSearchModal: (pageLabel: string) => void
+}
 type SearchMoviesOverlayProps = {
     handleOverlayClick: () => void
 }

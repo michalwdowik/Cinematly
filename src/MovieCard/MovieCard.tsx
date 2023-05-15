@@ -1,3 +1,4 @@
+import { Box, Skeleton } from '@mui/material'
 import MovieCardDetails from './MovieCardDetails'
 import MovieCardHeading from './MovieCardHeading'
 import MovieCardImage from './MovieCardImage'

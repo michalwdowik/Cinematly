@@ -1,32 +1,35 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import Tabs from '@mui/material/Tabs'
 import Tab from '@mui/material/Tab'
 import { Link } from 'react-router-dom'
 import { Box } from '@mui/material'
 import WebsiteLogo from '../Components/WebsiteLogo'
-import pages, { Page } from '../Helpers/pages'
+import { websitePages, Page } from '../Helpers/pages'
+import Search from '../pages/Search'
+import useShowSearchModal from '../Hooks/useShowSearchModal'
+import Portal from '../Components/Portal'
 
-const NavbarMenu = ({ pageLabel, setPageLabel }: NavbarProps) => {
+const NavbarMenu = () => {
     return (
         <Box sx={navbarMenuStyles}>
             <WebsiteLogo navbarLogo />
-            <NavbarTabs pageLabel={pageLabel} setPageLabel={setPageLabel} />
+            <NavbarTabs />
         </Box>
     )
 }
 
-const NavbarTabs = ({ pageLabel, setPageLabel }: NavbarProps) => {
+const NavbarTabs = () => {
     return (
         <Tabs
-            value={pageLabel}
-            onChange={(_, label) => setPageLabel(label)}
+            value={0}
             textColor="primary"
             TabIndicatorProps={{
                 style: { display: 'none' },
                 color: 'none',
             }}
         >
-            {Object.values(pages).map(
-                (page: Page) =>
+            {websitePages.map(
+                (page) =>
                     !(page.name === 'HOME') && (
                         <NavbarTab page={page} key={page.label} />
                     )
@@ -36,13 +39,23 @@ const NavbarTabs = ({ pageLabel, setPageLabel }: NavbarProps) => {
 }
 
 const NavbarTab = ({ page }: NavbarTabProps) => {
+    const { showSearchModal, handleShowSearchModal } = useShowSearchModal()
     return (
-        <Tab
-            sx={navbarTabStyles}
-            label={page.name}
-            component={Link}
-            to={page.link}
-        />
+        <>
+            <Tab
+                value={page.label}
+                onClick={() => handleShowSearchModal(page.name)}
+                sx={navbarTabStyles}
+                label={page.name}
+                component={Link}
+                to={page.name === 'SEARCH' ? (undefined as any) : page.link}
+            />
+            <Portal>
+                {showSearchModal && (
+                    <Search handleShowSearchModal={handleShowSearchModal} />
+                )}
+            </Portal>
+        </>
     )
 }
 
@@ -63,11 +76,6 @@ const navbarMenuStyles = {
     alignItems: 'center',
 }
 /* --------------------------------- TYPES --------------------------------- */
-type NavbarProps = {
-    pageLabel: number
-    setPageLabel: (pageLabel: number) => void
-}
-
 type NavbarTabProps = {
     page: Page
 }

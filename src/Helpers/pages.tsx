@@ -15,7 +15,7 @@ const pages: Pages = {
         label: 1,
         name: 'SEARCH',
         icon: <Search />,
-        link: '/search',
+        link: '/',
     },
     UPCOMING: {
         label: 2,
@@ -31,7 +31,7 @@ const pages: Pages = {
     },
 }
 
-export default pages
+export const websitePages = Object.values(pages)
 
 /* --------------------------------- TYPES --------------------------------- */
 export type Page = {

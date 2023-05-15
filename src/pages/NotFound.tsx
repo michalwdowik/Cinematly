@@ -1,41 +1,71 @@
-import { CSSProperties, useContext } from 'react'
+/* eslint-disable react/jsx-no-useless-fragment */
+import { CSSProperties, useContext, useState } from 'react'
 import { Link } from 'react-router-dom'
 import { Typography } from '@mui/material'
-import { LazyLoadImage } from 'react-lazy-load-image-component'
 import { ThemeContext } from '../Components/ThemeContext'
+import {
+    NotFoundImagePlaceholder,
+    NotFoundMessagePlaceholder,
+    notFoundContainerStyles,
+} from '../Skeletons/NotFoundPlaceholder'
 
 const NotFound = () => {
     const { textColor, mainThemeColor } = useContext(ThemeContext)
+    const [loaded, setLoaded] = useState(false)
+    const onLoad = () => {
+        setLoaded(true)
+    }
     return (
-        <div style={notFoundPageStyles(textColor)}>
-            <NotFoundImage />
-            <NotFoundMessage mainThemeColor={mainThemeColor} />
-        </div>
+        <>
+            <div style={notFoundPageStyles(textColor)}>
+                <NotFoundImage loaded={loaded} onLoad={onLoad} />
+                <NotFoundMessage
+                    loaded={loaded}
+                    mainThemeColor={mainThemeColor}
+                />
+            </div>
+        </>
     )
 }
 
 export default NotFound
 
-const NotFoundImage = () => {
+type NotFoundImageProps = {
+    loaded: boolean
+    onLoad: () => void
+}
+const NotFoundImage = ({ loaded, onLoad }: NotFoundImageProps) => {
     return (
-        <LazyLoadImage
-            src="https://cdn.pixabay.com/photo/2021/07/21/12/49/error-6482984_960_720.png"
-            alt="Error 404"
-            style={notFoundImageStyles}
-        />
+        <>
+            <img
+                src="https://cdn.pixabay.com/photo/2021/07/21/12/49/error-6482984_960_720.png"
+                alt="Error 404"
+                style={notFoundImageStyles(loaded)}
+                onLoad={onLoad}
+            />
+            {!loaded && <NotFoundImagePlaceholder />}
+        </>
     )
 }
 
-const NotFoundMessage = ({ mainThemeColor }: NotFoundMessageProps) => {
+const NotFoundMessage = ({ mainThemeColor, loaded }: NotFoundMessageProps) => {
     return (
         <>
-            <Typography sx={notFoundMessageHeadingStyles}>
-                Page Not Found
-            </Typography>
-            <p>Oops! Looks like you have stumbled upon an unknown path.</p>
-            <Link to="/" style={{ color: mainThemeColor }}>
-                Go to Home
-            </Link>
+            {loaded ? (
+                <div style={notFoundContainerStyles}>
+                    <Typography sx={notFoundMessageHeadingStyles}>
+                        Page Not Found
+                    </Typography>
+                    <p style={{ margin: '0' }}>
+                        Oops! Looks like you have stumbled upon an unknown path.
+                    </p>
+                    <Link to="/" style={{ color: mainThemeColor }}>
+                        Go to Home
+                    </Link>
+                </div>
+            ) : (
+                <NotFoundMessagePlaceholder />
+            )}
         </>
     )
 }
@@ -50,16 +80,18 @@ const notFoundPageStyles = (textColor: string): CSSProperties => {
     }
 }
 
-const notFoundImageStyles = {
-    width: '300px',
-    height: '300px',
-    marginBottom: '20px',
+const notFoundImageStyles = (loaded: boolean) => {
+    return {
+        display: loaded ? '' : 'none',
+        width: '300px',
+        height: '300px',
+    }
 }
 
 const notFoundMessageHeadingStyles = { fontSize: '2rem', fontWeight: 'bold' }
 
 /* --------------------------------- TYPES --------------------------------- */
-
 type NotFoundMessageProps = {
     mainThemeColor: string
+    loaded: boolean
 }

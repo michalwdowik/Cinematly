@@ -12,7 +12,7 @@ const NavbarDrawer = () => {
     return (
         <>
             <Button
-                sx={navbarDrawerButtonStyles}
+                sx={drawerButtonStyles}
                 onClick={toggleDrawer(true)}
                 aria-label="Toggle drawer menu"
             >
@@ -31,5 +31,4 @@ const NavbarDrawer = () => {
 export default NavbarDrawer
 
 /* --------------------------------- STYLES --------------------------------- */
-
-const navbarDrawerButtonStyles = { padding: '0', marginLeft: '-16px' }
+const drawerButtonStyles = { padding: '0', marginLeft: '-16px' }

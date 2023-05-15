@@ -2,7 +2,8 @@ import 'react-vertical-timeline-component/style.min.css'
 import { ParallaxProvider } from 'react-scroll-parallax'
 import { CSSProperties, lazy } from 'react'
 import { motion } from 'framer-motion'
-import SectionHeading from '../Components/SectionHeading'
+import { Skeleton } from '@mui/material'
+import SectionHeading from '../SectionHeading/SectionHeadline'
 import useScrollToTop from '../Hooks/useScrollToTop'
 import { justReleasedMovies, upcomingMovies } from '../Helpers/fetchMovies'
 import Heading from '../Components/Heading'
@@ -24,16 +25,23 @@ const Upcoming = () => {
                 className="upcomingMovies"
             >
                 <SectionHeading
-                    heading="Upcoming Movies"
-                    subheading="From highly-anticipated sequels to exciting new releases, stay in the loop with our Upcoming Movies section"
+                    loaded={false}
+                    title="Upcoming Movies"
+                    subtitle="From highly-anticipated sequels to exciting new releases, stay in the loop with our Upcoming Movies section"
                     leftAligned
                     enableParallax={false}
                 />
-                <Heading label="Just released" />
+                <Skeleton sx={{ bgcolor: 'grey.900' }}>
+                    <Heading label="Just released" />
+                </Skeleton>
                 <LazyUpcomingMovies movies={justReleasedMovies} />
-                <Heading label="Upcoming" />
+                <Skeleton sx={{ bgcolor: 'grey.900' }}>
+                    <Heading label="Upcoming" />
+                </Skeleton>
                 <LazyUpcomingMovies movies={upcomingMovies} />
-                <Heading label="Stay tuned!" />
+                <Skeleton sx={{ bgcolor: 'grey.900' }}>
+                    <Heading label="Stay tuned!" />
+                </Skeleton>
             </motion.div>
         </ParallaxProvider>
     )

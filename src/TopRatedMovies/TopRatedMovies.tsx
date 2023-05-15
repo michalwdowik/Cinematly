@@ -2,16 +2,22 @@ import { Box } from '@mui/material'
 import { Movie } from '../MovieCard/types'
 import { topRatedMovies } from '../Helpers/fetchMovies'
 import TopRatedMovie from './TopRatedMovie'
+import TopRatedMovieSkeleton from './TopRatedMovieSkeleton'
 
-const TopRatedMovies = () => {
+const TopRatedMovies = ({ loaded, onLoad }: TopRatedMoviesProps) => {
     return (
         <Box sx={topRatedMovieCardsStyles}>
             {topRatedMovies.map((movie: Movie, rankPosition: number) => (
-                <TopRatedMovie
-                    key={movie.id}
-                    movie={movie}
-                    rankPosition={rankPosition}
-                />
+                <>
+                    <TopRatedMovie
+                        key={movie.id}
+                        onLoad={onLoad}
+                        movie={movie}
+                        rankPosition={rankPosition}
+                        loaded={loaded}
+                    />
+                    {!loaded && <TopRatedMovieSkeleton key={movie.id} />}
+                </>
             ))}
         </Box>
     )
@@ -27,3 +33,6 @@ const topRatedMovieCardsStyles = {
     justifyContent: 'center',
     alignContent: 'center',
 }
+
+/* --------------------------------- TYPES --------------------------------- */
+type TopRatedMoviesProps = { loaded: boolean; onLoad: () => void }
