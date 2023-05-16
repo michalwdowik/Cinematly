@@ -2,7 +2,7 @@
 import { CSSProperties, useContext, useState } from 'react'
 import { Link } from 'react-router-dom'
 import { Typography } from '@mui/material'
-import { ThemeContext } from '../Components/ThemeContext'
+import { ThemeContext } from '../Contexts/ThemeContext'
 import {
     NotFoundImageSkeleton,
     NotFoundMessageSkeleton,

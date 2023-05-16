@@ -1,20 +1,18 @@
 import axios from 'axios'
 import { Movie, MovieCategory } from '../MovieCard/types'
-import createMovieObject from './createMovieObject'
-import fetchLink from './fetchLink'
+import createMovie from './createMovie'
+import getLink from './getLink'
 import sortMoviesByReleaseDate from './sortMoviesByReleaseDate'
 
 const fetchMovies = async ({
     movieCategory,
     movieTitle,
 }: FetchMoviesProps): Promise<Movie[]> => {
-    const link = fetchLink(movieCategory, movieTitle)
+    const link = getLink(movieCategory, movieTitle)
     const response = await axios.get(link)
     const { results } = response.data
 
-    let movies: Movie[] = results.map((movie: Movie) =>
-        createMovieObject(movie)
-    )
+    let movies: Movie[] = results.map((movie: Movie) => createMovie(movie))
 
     const isMovieUpcoming = movieCategory === 'upcoming'
     const isMovieJustReleased = movieCategory === 'justReleased'

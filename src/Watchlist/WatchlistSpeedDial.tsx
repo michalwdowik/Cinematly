@@ -6,11 +6,12 @@ import { useContext } from 'react'
 import AccessAlarmIcon from '@mui/icons-material/AccessAlarm'
 import { Box } from '@mui/material'
 import { useWatchlistContext } from './WatchlistContext'
-import { ThemeContext } from '../Components/ThemeContext'
+import { ThemeContext } from '../Contexts/ThemeContext'
 import useEscapeKeyPress from '../Hooks/useEscapeKeyPress'
 import useWatchlistButtonAnimation from '../Hooks/useWatchlistButtonAnimation'
 import useShowWatchlist from '../Hooks/useShowWatchlist'
 import Watchlist from './Watchlist'
+import Portal from '../Components/Portal'
 
 const WatchlistSpeedDial = () => {
     const { watchlist } = useWatchlistContext()
@@ -38,10 +39,12 @@ const WatchlistSpeedDial = () => {
                     />
                 </Badge>
             </Tooltip>
-            <Watchlist
-                showWatchlist={showWatchlist}
-                toggleWatchlist={toggleWatchlist}
-            />
+            <Portal id="watchlist">
+                <Watchlist
+                    showWatchlist={showWatchlist}
+                    toggleWatchlist={toggleWatchlist}
+                />
+            </Portal>
         </Box>
     )
 }

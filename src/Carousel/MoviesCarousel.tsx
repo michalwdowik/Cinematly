@@ -1,26 +1,20 @@
-import { Carousel as CarouselComponent } from 'react-responsive-carousel'
+import { Carousel } from 'react-responsive-carousel'
 import 'react-responsive-carousel/lib/styles/carousel.min.css'
 import useScreenType from 'react-screentype-hook'
 import { v4 as uuid } from 'uuid'
-import { ReactNode } from 'react'
-import { Box, Skeleton } from '@mui/material'
-import {
-    MovieImage,
-    MovieOverview,
-    MovieRating,
-    MovieReleaseDate,
-    MovieTitle,
-} from './CarouselMovieDetails'
+import { Skeleton } from '@mui/material'
+import MovieCarouselImage from './MovieCarouselImage'
 import { Movie } from '../MovieCard/types'
 import { nowPlayingMovies } from '../Helpers/fetchMovies'
 import useLoadingState from '../Hooks/useLoadingState'
+import MovieCarouselDetails from './MovieCarouselDetails'
 
 const MoviesCarousel = () => {
     const screenType = useScreenType()
     const [isLoaded, onLoad] = useLoadingState()
 
     return (
-        <CarouselComponent
+        <Carousel
             key={nowPlayingMovies.length}
             autoPlay
             infiniteLoop
@@ -31,105 +25,50 @@ const MoviesCarousel = () => {
         >
             {nowPlayingMovies.map((movie: Movie) =>
                 isLoaded ? (
-                    <div key={uuid()}>
-                        <MovieImage onLoad={onLoad} movie={movie} />
-                        <MovieDetails movie={movie} />
-                    </div>
-                ) : (
-                    <Skeleton
-                        width="100%"
+                    <MovieCarousel
                         key={movie.id}
-                        variant="rounded"
-                        sx={{
-                            backgroundColor: 'grey.900',
-                        }}
-                    >
-                        <div key={uuid()}>
-                            <MovieImage onLoad={onLoad} movie={movie} />
-                            <MovieDetails movie={movie} />
-                        </div>
-                    </Skeleton>
+                        onLoad={onLoad}
+                        movie={movie}
+                    />
+                ) : (
+                    <MovieCarouselSkeleton
+                        key={movie.id}
+                        onLoad={onLoad}
+                        movie={movie}
+                    />
                 )
             )}
-        </CarouselComponent>
+        </Carousel>
     )
 }
 export default MoviesCarousel
 
-export const CarouselOverlay = ({ children }: CarouselOverlayProps) => {
-    return <Box sx={carouselMovieOverlayStyles}>{children}</Box>
-}
-
-export type MovieDetailsProps = {
-    movie: Movie
-}
-const MovieDetails = ({ movie }: MovieDetailsProps) => {
-    const screenType = useScreenType()
-
+const MovieCarousel = ({ onLoad, movie }: MovieCarouselProps) => {
     return (
-        <CarouselOverlay>
-            <Box sx={carouselMovieDetailsStyles}>
-                <MovieTitle movie={movie} />
-                <Box sx={carouselMovieReleaseDateStyles}>
-                    <MovieRating movie={movie} />
-                    <MovieReleaseDate movie={movie} />
-                </Box>
-                {!screenType.isMobile && <MovieOverview movie={movie} />}
-            </Box>
-        </CarouselOverlay>
+        <div key={uuid()}>
+            <MovieCarouselImage onLoad={onLoad} movie={movie} />
+            <MovieCarouselDetails movie={movie} />
+        </div>
     )
 }
 
-/* --------------------------------- STYLES --------------------------------- */
-const carouselMovieOverlayStyles = {
-    position: 'absolute',
-    bottom: '0px',
-    height: '100%',
-    display: 'flex',
-    flexDirection: 'column',
-    width: '100%',
-    justifyContent: 'flex-end',
-    alignItems: 'flex-start',
-    backgroundImage: 'linear-gradient(rgb(18,18,18,0), rgb(18,18,18,1))',
-    opacity: '0.9',
-    transition: 'opacity 0.3s',
-    padding: {
-        xs: '0rem',
-        sm: '3rem',
-        md: '4rem',
-        lg: '5rem',
-    },
-    ':hover': {
-        opacity: '1',
-    },
+const MovieCarouselSkeleton = ({ onLoad, movie }: MovieCarouselProps) => {
+    return (
+        <Skeleton
+            width="100%"
+            key={movie.id}
+            variant="rounded"
+            sx={{
+                backgroundColor: 'grey.900',
+            }}
+        >
+            <MovieCarousel key={movie.id} onLoad={onLoad} movie={movie} />
+        </Skeleton>
+    )
 }
 
-const carouselMovieReleaseDateStyles = {
-    display: 'flex',
-    gap: '25px',
-    marginBottom: '1rem',
-    alignItems: 'center',
-    color: 'white',
-    fontSize: {
-        xs: '14px',
-        sm: '18px',
-        lg: '18px',
-    },
-    marginLeft: {
-        xs: '13px',
-        sm: '0px',
-        md: '0px',
-    },
-}
-
-const carouselMovieDetailsStyles = {
-    position: 'absolute',
-    bottom: {
-        lg: '15%',
-        md: '10%',
-    },
-}
 /* --------------------------------- TYPES --------------------------------- */
-type CarouselOverlayProps = {
-    children: ReactNode
+type MovieCarouselProps = {
+    onLoad: () => void
+    movie: Movie
 }

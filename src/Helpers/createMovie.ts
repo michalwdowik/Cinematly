@@ -1,6 +1,6 @@
 import { Movie } from '../MovieCard/types'
 
-const createMovieObject = (movie: Movie): Movie => ({
+const createMovie = (movie: Movie): Movie => ({
     id: `:${movie.title || movie.name}`,
     name: movie.name,
     release_date: movie.release_date,
@@ -16,4 +16,4 @@ const createMovieObject = (movie: Movie): Movie => ({
     first_air_date: movie.first_air_date,
 })
 
-export default createMovieObject
+export default createMovie

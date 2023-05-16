@@ -3,7 +3,6 @@ import { Parallax, ParallaxProvider } from 'react-scroll-parallax'
 import { ReactNode } from 'react'
 import { Box } from '@mui/material'
 import WebsiteLogo from '../Components/WebsiteLogo'
-
 import FooterMenu from './FooterMenu'
 
 const Footer = () => (
@@ -36,9 +35,9 @@ const footerStyles = {
     display: 'flex',
     flexDirection: 'column',
     alignItems: 'center',
-    gap: '20px',
-    marginTop: '100px',
-    marginBottom: '40px',
+    gap: '1.25rem',
+    marginTop: '6.25rem',
+    marginBottom: '2.5rem',
 }
 
 /* --------------------------------- TYPES --------------------------------- */

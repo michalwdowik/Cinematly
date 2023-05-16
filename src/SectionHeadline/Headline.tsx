@@ -1,6 +1,6 @@
 import { Box, Typography } from '@mui/material'
 import { useContext } from 'react'
-import { ThemeContext } from '../Components/ThemeContext'
+import { ThemeContext } from '../Contexts/ThemeContext'
 import { HeadlineProps } from './types'
 
 const Headline = ({ title, subtitle, leftAligned }: HeadlineProps) => {

@@ -1,7 +1,7 @@
 import Typography from '@mui/material/Typography'
 import { Parallax } from 'react-scroll-parallax'
 import { useContext } from 'react'
-import { ThemeContext } from './ThemeContext'
+import { ThemeContext } from '../Contexts/ThemeContext'
 
 const quote = `"Hollywood is a place where they will pay you a thousand
                 dollars for a kiss and fifty cents for your soul"`
@@ -14,7 +14,7 @@ const Quote = () => {
             <Typography color={textColor} sx={quoteStyles(mainThemeColor)}>
                 <Typography>{quote}</Typography>
 
-                <span className="credits">{credits}</span>
+                <span style={creditsStyles}>{credits}</span>
             </Typography>
         </Parallax>
     )
@@ -30,11 +30,11 @@ const quoteStyles = (mainThemeColor: string) => {
         fontSize: {
             xs: '1rem',
             sm: '1rem',
-            md: '1.2rem',
-            lg: '1.5rem',
+            md: '1.1rem',
+            lg: '1.3rem',
         },
-        width: { xs: '77%', sm: '70%', md: '60%', lg: '50%' },
-        margin: '20px auto',
+        width: { xs: '77%', sm: '70%', md: '60%', lg: '57%' },
+        margin: '1.25rem auto',
         textAlign: 'center',
         transition: 'background 0.25s, color 0.25s',
         '&:hover': {
@@ -43,4 +43,12 @@ const quoteStyles = (mainThemeColor: string) => {
         },
         marginTop: '5rem',
     }
+}
+
+const creditsStyles = {
+    fontStyle: 'italic',
+    margin: '3',
+    color: 'gray',
+    fontSize: '0.7em',
+    display: 'block',
 }

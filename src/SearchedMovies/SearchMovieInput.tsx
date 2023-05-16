@@ -1,6 +1,6 @@
 import TextField from '@mui/material/TextField'
 import { useContext } from 'react'
-import { ThemeContext } from '../Components/ThemeContext'
+import { ThemeContext } from '../Contexts/ThemeContext'
 
 const SearchMovieInput = ({
     searchQuery,

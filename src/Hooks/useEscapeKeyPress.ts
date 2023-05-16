@@ -7,7 +7,7 @@ const useEscapeKeyPress = (
     useEffect(() => {
         const handleEscapeKeyPress = (event: KeyboardEvent): void => {
             if (event.key === 'Escape' && showWatchlist) {
-                setOpen(false)
+                if (setOpen) setOpen(false)
             }
         }
 

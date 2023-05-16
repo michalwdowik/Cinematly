@@ -50,7 +50,7 @@ const NavbarTab = ({ page }: NavbarTabProps) => {
                 component={Link}
                 to={page.name === 'SEARCH' ? (undefined as any) : page.link}
             />
-            <Portal>
+            <Portal id="searchMovie">
                 {showSearchModal && (
                     <Search handleShowSearchModal={handleShowSearchModal} />
                 )}

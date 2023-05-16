@@ -3,7 +3,7 @@ import { Box, Skeleton } from '@mui/material'
 import SearchedMovie from './SearchedMovie'
 import { Movie } from '../MovieCard/types'
 import CallToActionLabel from '../Components/CallToActionLabel'
-import { ThemeContext } from '../Components/ThemeContext'
+import { ThemeContext } from '../Contexts/ThemeContext'
 import useLoadingState from '../Hooks/useLoadingState'
 
 const SearchedMovies = ({ searchedMovies }: SearchedMoviesProps) => {

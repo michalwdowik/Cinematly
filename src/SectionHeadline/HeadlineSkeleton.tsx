@@ -9,7 +9,7 @@ import {
     titleStyles,
     subtitleStyles,
 } from './Headline'
-import { ThemeContext } from '../Components/ThemeContext'
+import { ThemeContext } from '../Contexts/ThemeContext'
 import { HeadlineProps } from './types'
 
 const HeadlineSkeleton = ({ leftAligned, title, subtitle }: HeadlineProps) => {

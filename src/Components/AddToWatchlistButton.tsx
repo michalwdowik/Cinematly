@@ -3,7 +3,7 @@ import WatchLaterIcon from '@mui/icons-material/WatchLater'
 import { useContext } from 'react'
 import { Movie } from '../MovieCard/types'
 import { useWatchlistContext } from '../Watchlist/WatchlistContext'
-import { ThemeContext } from './ThemeContext'
+import { ThemeContext } from '../Contexts/ThemeContext'
 
 const AddToWatchlistButton = ({
     absolute,
@@ -51,10 +51,10 @@ const watchLaterButtonStyles = (
     return {
         transitionDuration: '0.3s',
         backgroundColor: mainThemeColor,
-        borderRadius: '30px',
+        borderRadius: '1.875rem',
         margin: 'auto',
         width: 'auto',
-        fontSize: '11px',
+        fontSize: '0.6875rem',
         zIndex: '1',
         overflow: 'visible',
         '&:hover': {

@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom'
 import CinematlyLogo from '@mui/icons-material/Animation'
 import { useContext } from 'react'
-import { ThemeContext } from './ThemeContext'
+import { ThemeContext } from '../Contexts/ThemeContext'
 
 const WebsiteLogo = ({ navbarLogo }: WebsiteLogoProps) => {
     const { textColor } = useContext(ThemeContext)
@@ -21,10 +21,9 @@ type WebsiteLogoProps = {
 }
 
 /* --------------------------------- STYLES --------------------------------- */
-
 const logoStyles = (textColor: string, navbarLogo: boolean) => {
     return {
-        fontSize: '55px',
+        fontSize: '3.438rem',
         color: navbarLogo ? 'white' : textColor,
     }
 }

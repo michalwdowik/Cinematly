@@ -1,7 +1,7 @@
 import StarIcon from '@mui/icons-material/Star'
 import { useContext } from 'react'
 import { Box, Skeleton } from '@mui/material'
-import { ThemeContext } from '../Components/ThemeContext'
+import { ThemeContext } from '../Contexts/ThemeContext'
 import { Actor } from './types'
 import shortenOverview from '../Helpers/cutText'
 import useLoadingState from '../Hooks/useLoadingState'

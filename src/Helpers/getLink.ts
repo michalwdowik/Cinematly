@@ -4,10 +4,7 @@ const API_KEY = import.meta.env.VITE_API_KEY as string
 const baseUrl = 'https://api.themoviedb.org/3'
 const queryParams = `api_key=${API_KEY}&language=en-US&page=1`
 
-const fetchLink = (
-    movieCategory: MovieCategory,
-    movieTitle?: string
-): string => {
+const getLink = (movieCategory: MovieCategory, movieTitle?: string): string => {
     switch (movieCategory) {
         case 'topRated':
             return `${baseUrl}/movie/top_rated?${queryParams}`
@@ -26,4 +23,4 @@ const fetchLink = (
     }
 }
 
-export default fetchLink
+export default getLink

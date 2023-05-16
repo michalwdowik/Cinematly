@@ -2,7 +2,7 @@ import { useContext, useState } from 'react'
 import { Box } from '@mui/material'
 import SearchedMovies from '../SearchedMovies/SearchedMovies'
 import SearchMovieInput from '../SearchedMovies/SearchMovieInput'
-import { ThemeContext } from '../Components/ThemeContext'
+import { ThemeContext } from '../Contexts/ThemeContext'
 import fetchMovies from '../Helpers/fetchMovies'
 import { Movie } from '../MovieCard/types'
 

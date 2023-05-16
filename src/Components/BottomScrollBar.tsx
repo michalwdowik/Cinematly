@@ -27,9 +27,9 @@ const progressStyles: MotionStyle = {
     position: 'fixed',
     left: '0',
     right: '0',
-    height: '5px',
+    height: '0.3125rem',
     backgroundColor: 'orange',
     opacity: '60%',
     bottom: '0px',
-    borderRadius: '100px',
+    borderRadius: '6.25rem',
 }

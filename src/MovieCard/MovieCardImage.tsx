@@ -31,7 +31,7 @@ const MovieCardImage = ({
 
 export default MovieCardImage
 
-// /* --------------------------------- STYLES --------------------------------- */
+/* --------------------------------- STYLES --------------------------------- */
 const movieCardImageStyles: CSSProperties = {
     overflow: 'hidden',
 }

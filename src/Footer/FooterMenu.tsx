@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom'
 import { useContext } from 'react'
 import { Box } from '@mui/material'
 import { websitePages } from '../Helpers/pages'
-import { ThemeContext } from '../Components/ThemeContext'
+import { ThemeContext } from '../Contexts/ThemeContext'
 
 const FooterMenu = () => {
     const { textColor, mainThemeColor } = useContext(ThemeContext)
@@ -16,15 +16,10 @@ const FooterMenu = () => {
                     !searchPage && (
                         <Button
                             key={page.link}
-                            sx={{
-                                color: textColor,
-                                transition: 'all 0.3s ease',
-                                '&:hover': {
-                                    backgroundColor: 'transparent',
-                                    color: mainThemeColor,
-                                    opacity: 0.5,
-                                },
-                            }}
+                            sx={footerMenuButtonStyles(
+                                textColor,
+                                mainThemeColor
+                            )}
                             to={page.link}
                             component={Link}
                         >
@@ -42,6 +37,18 @@ export default FooterMenu
 const footerMenuStyles = {
     display: 'flex',
     justifyContent: 'center',
-    marginLeft: '35px',
-    gap: { xs: '25px', md: '90px' },
+    marginLeft: '2.188rem',
+    gap: { xs: '1.563rem', md: '5.625rem' },
+}
+
+const footerMenuButtonStyles = (textColor: string, mainThemeColor: string) => {
+    return {
+        color: textColor,
+        transition: 'all 0.3s ease',
+        '&:hover': {
+            backgroundColor: 'transparent',
+            color: mainThemeColor,
+            opacity: 0.5,
+        },
+    }
 }

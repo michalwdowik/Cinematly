@@ -1,5 +1,5 @@
 import { BrowserRouter as Router } from 'react-router-dom'
-import ThemeProvider from './Components/ThemeContext'
+import ThemeProvider from './Contexts/ThemeContext'
 import NavBar from './NavBar/NavBar'
 import RoutesComponent from './pages/RoutesComponent'
 import Footer from './Footer/Footer'

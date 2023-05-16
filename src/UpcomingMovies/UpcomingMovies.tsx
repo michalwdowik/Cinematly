@@ -3,7 +3,7 @@ import { useContext } from 'react'
 import TimelineMovie from './TimelineMovie'
 import { Movie } from '../MovieCard/types'
 import MovieCard from '../MovieCard/MovieCard'
-import { ThemeContext } from '../Components/ThemeContext'
+import { ThemeContext } from '../Contexts/ThemeContext'
 
 const UpcomingMovies = ({ movies }: UpcomingMoviesProps) => {
     const { mainThemeColor } = useContext(ThemeContext)

@@ -9,6 +9,20 @@ const MovieCard = ({ movie, type }: MovieCardType) => {
     const [isLoaded, onLoad] = useLoadingState()
 
     return isLoaded || type === 'trending' ? (
+        <MovieCardComponent onLoad={onLoad} type={type} movie={movie} />
+    ) : (
+        <MovieCardComponentSkeleton onLoad={onLoad} type={type} movie={movie} />
+    )
+}
+
+export default MovieCard
+
+const MovieCardComponent = ({
+    movie,
+    onLoad,
+    type,
+}: MovieCardComponentProps) => {
+    return (
         <>
             <MovieCardHeading
                 voteAverage={movie.vote_average}
@@ -23,34 +37,30 @@ const MovieCard = ({ movie, type }: MovieCardType) => {
             />
             <MovieCardDetails movie={movie} />
         </>
-    ) : (
+    )
+}
+
+const MovieCardComponentSkeleton = ({
+    type,
+    movie,
+    onLoad,
+}: MovieCardComponentProps) => {
+    return (
         <Skeleton
-            height={type === 'upcoming' ? '430px' : 'auto'}
+            height={type === 'upcoming' ? '26.875rem' : 'auto'}
             width="100%"
             variant="rounded"
             sx={{ bgcolor: 'grey.900' }}
         >
-            <>
-                <MovieCardHeading
-                    voteAverage={movie.vote_average}
-                    title={movie.title}
-                    id={movie.id}
-                />
-                <MovieCardImage
-                    onLoad={onLoad}
-                    type={type}
-                    backdrop_path={movie.backdrop_path}
-                    id={movie.id}
-                />
-                <MovieCardDetails movie={movie} />
-            </>
+            <MovieCardComponent onLoad={onLoad} type={type} movie={movie} />
         </Skeleton>
     )
 }
 
-export default MovieCard
-
+/* --------------------------------- TYPES --------------------------------- */
 type MovieCardType = {
     movie: Movie
     type: 'upcoming' | 'trending'
 }
+
+type MovieCardComponentProps = MovieCardType & { onLoad: () => void }

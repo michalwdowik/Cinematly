@@ -2,7 +2,7 @@ import Typography from '@mui/material/Typography'
 import { Parallax } from 'react-scroll-parallax'
 import { useContext } from 'react'
 import useScreenType from 'react-screentype-hook'
-import { ThemeContext } from './ThemeContext'
+import { ThemeContext } from '../Contexts/ThemeContext'
 
 const Heading = ({ label }: HeadingProps) => {
     const { textColor } = useContext(ThemeContext)
@@ -22,7 +22,6 @@ const Heading = ({ label }: HeadingProps) => {
 export default Heading
 
 /* --------------------------------- STYLES --------------------------------- */
-
 const headingStyles = (textColor: string) => {
     return { fontWeight: '700', padding: '2rem', color: textColor }
 }
