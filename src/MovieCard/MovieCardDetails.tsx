@@ -95,6 +95,7 @@ export const movieCardDetailsStyles = {
     flexDirection: 'column',
     padding: '0.7rem',
     color: 'black',
+    backgroundColor: 'white',
 }
 /* --------------------------------- TYPES --------------------------------- */
 type MovieCardTitleProps = {

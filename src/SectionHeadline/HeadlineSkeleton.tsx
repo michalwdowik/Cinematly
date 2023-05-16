@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { Skeleton } from '@mui/material'
 import { useContext } from 'react'
 import {
@@ -11,12 +12,7 @@ import {
 import { ThemeContext } from '../Components/ThemeContext'
 import { HeadlineProps } from './types'
 
-const HeadlineSkeleton = ({
-    leftAligned,
-    title,
-    subtitle,
-    loaded,
-}: HeadlineProps) => {
+const HeadlineSkeleton = ({ leftAligned, title, subtitle }: HeadlineProps) => {
     const { mainThemeColor, textColor } = useContext(ThemeContext)
     return (
         <>
@@ -27,7 +23,6 @@ const HeadlineSkeleton = ({
                 <Title
                     title={title}
                     leftAligned={leftAligned}
-                    loaded={loaded}
                     textColor={textColor}
                 />
             </SkeletonWrapper>
@@ -42,11 +37,7 @@ const HeadlineSkeleton = ({
                 variant="subheading"
                 styles={subtitleStyles(leftAligned, mainThemeColor)}
             >
-                <Subtitle
-                    subtitle={subtitle}
-                    leftAligned={leftAligned}
-                    loaded={loaded}
-                />
+                <Subtitle subtitle={subtitle} leftAligned={leftAligned} />
             </SkeletonWrapper>
         </>
     )

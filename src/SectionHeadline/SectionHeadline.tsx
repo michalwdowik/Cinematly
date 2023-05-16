@@ -1,31 +1,34 @@
 import { Parallax, ParallaxProvider } from 'react-scroll-parallax'
 import { Box } from '@mui/material'
-import Headline from './Headline'
+
+import { Suspense, lazy } from 'react'
 import HeadlineSkeleton from './HeadlineSkeleton'
 import { SectionHeadlineProps } from './types'
 
+const LazyHeadline = lazy(() => import('./Headline'))
 const SectionHeadline = ({
     title,
     subtitle,
     leftAligned,
     enableParallax = true,
-    loaded,
 }: SectionHeadlineProps) => {
     const xMove = leftAligned ? -5 : 5
-    const content = loaded ? (
-        <Headline
-            title={title}
-            subtitle={subtitle}
-            leftAligned={leftAligned}
-            loaded={loaded}
-        />
-    ) : (
-        <HeadlineSkeleton
-            title={title}
-            subtitle={subtitle}
-            leftAligned={leftAligned}
-            loaded={loaded}
-        />
+    const content = (
+        <Suspense
+            fallback={
+                <HeadlineSkeleton
+                    title={title}
+                    subtitle={subtitle}
+                    leftAligned={leftAligned}
+                />
+            }
+        >
+            <LazyHeadline
+                title={title}
+                subtitle={subtitle}
+                leftAligned={leftAligned}
+            />
+        </Suspense>
     )
 
     return enableParallax ? (

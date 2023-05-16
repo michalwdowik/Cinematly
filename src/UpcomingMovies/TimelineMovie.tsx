@@ -6,7 +6,6 @@ import { ThemeContext } from '../Components/ThemeContext'
 
 const TimelineMovie = ({ releaseDate, children }: TimelineWrapperProps) => {
     const { mainThemeColor } = useContext(ThemeContext)
-
     const today = new Date()
     const movieReleaseDate = new Date(releaseDate)
     const isMovieAlreadyReleased = movieReleaseDate < today
@@ -15,6 +14,7 @@ const TimelineMovie = ({ releaseDate, children }: TimelineWrapperProps) => {
         <VerticalTimelineElement
             contentStyle={timelineWrapperStyles}
             className="scaleOnHover"
+            dateClassName="dateStyles"
             iconStyle={timelineWrapperIconStyles(mainThemeColor)}
             icon={
                 isMovieAlreadyReleased ? (
@@ -35,6 +35,7 @@ export default TimelineMovie
 const timelineWrapperStyles: CSSProperties = {
     borderRadius: '4rem',
     color: '#fff',
+    backgroundColor: 'transparent',
     display: 'flex',
     flexDirection: 'column',
     overflow: 'hidden',

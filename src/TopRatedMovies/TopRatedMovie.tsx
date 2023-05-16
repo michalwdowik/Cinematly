@@ -7,10 +7,10 @@ const TopRatedMovie = ({
     movie,
     rankPosition,
     onLoad,
-    loaded,
+    isLoaded,
 }: TopRatedMovieProps) => {
     return (
-        <Box sx={{ display: loaded ? '' : 'none' }} className="topRatedMovie">
+        <Box sx={{ display: isLoaded ? '' : 'none' }} className="topRatedMovie">
             <TopRatedMovieRank rankPosition={rankPosition} />
             <TopRatedMovieHeadings movie={movie} />
             <TopRatedMovieImage
@@ -49,7 +49,7 @@ type TopRatedMovieProps = {
     movie: Movie
     rankPosition: number
     onLoad: () => void
-    loaded: boolean
+    isLoaded: boolean
 }
 
 type TopRatedMovieImageProps = {

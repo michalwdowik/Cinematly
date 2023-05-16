@@ -3,7 +3,7 @@ import 'react-responsive-carousel/lib/styles/carousel.min.css'
 import useScreenType from 'react-screentype-hook'
 import { v4 as uuid } from 'uuid'
 import { ReactNode } from 'react'
-import { Box } from '@mui/material'
+import { Box, Skeleton } from '@mui/material'
 import {
     MovieImage,
     MovieOverview,
@@ -13,9 +13,12 @@ import {
 } from './CarouselMovieDetails'
 import { Movie } from '../MovieCard/types'
 import { nowPlayingMovies } from '../Helpers/fetchMovies'
+import useLoadingState from '../Hooks/useLoadingState'
 
 const MoviesCarousel = () => {
     const screenType = useScreenType()
+    const [isLoaded, onLoad] = useLoadingState()
+
     return (
         <CarouselComponent
             key={nowPlayingMovies.length}
@@ -26,12 +29,28 @@ const MoviesCarousel = () => {
             showThumbs={false}
             showIndicators={!screenType.isMobile}
         >
-            {nowPlayingMovies.map((movie: Movie) => (
-                <div key={uuid()}>
-                    <MovieImage movie={movie} />
-                    <MovieDetails movie={movie} />
-                </div>
-            ))}
+            {nowPlayingMovies.map((movie: Movie) =>
+                isLoaded ? (
+                    <div key={uuid()}>
+                        <MovieImage onLoad={onLoad} movie={movie} />
+                        <MovieDetails movie={movie} />
+                    </div>
+                ) : (
+                    <Skeleton
+                        width="100%"
+                        key={movie.id}
+                        variant="rounded"
+                        sx={{
+                            backgroundColor: 'grey.900',
+                        }}
+                    >
+                        <div key={uuid()}>
+                            <MovieImage onLoad={onLoad} movie={movie} />
+                            <MovieDetails movie={movie} />
+                        </div>
+                    </Skeleton>
+                )
+            )}
         </CarouselComponent>
     )
 }

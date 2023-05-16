@@ -12,7 +12,8 @@ const Quote = () => {
     return (
         <Parallax opacity={[0, 1.5]}>
             <Typography color={textColor} sx={quoteStyles(mainThemeColor)}>
-                {quote}
+                <Typography>{quote}</Typography>
+
                 <span className="credits">{credits}</span>
             </Typography>
         </Parallax>
@@ -24,6 +25,8 @@ export default Quote
 /* --------------------------------- STYLES --------------------------------- */
 const quoteStyles = (mainThemeColor: string) => {
     return {
+        display: 'flex',
+        flexDirection: 'column',
         fontSize: {
             xs: '1rem',
             sm: '1rem',

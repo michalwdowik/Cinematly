@@ -3,8 +3,10 @@ import { Movie } from '../MovieCard/types'
 import { topRatedMovies } from '../Helpers/fetchMovies'
 import TopRatedMovie from './TopRatedMovie'
 import TopRatedMovieSkeleton from './TopRatedMovieSkeleton'
+import useLoadingState from '../Hooks/useLoadingState'
 
-const TopRatedMovies = ({ loaded, onLoad }: TopRatedMoviesProps) => {
+const TopRatedMovies = () => {
+    const [isLoaded, onLoad] = useLoadingState()
     return (
         <Box sx={topRatedMovieCardsStyles}>
             {topRatedMovies.map((movie: Movie, rankPosition: number) => (
@@ -14,9 +16,9 @@ const TopRatedMovies = ({ loaded, onLoad }: TopRatedMoviesProps) => {
                         onLoad={onLoad}
                         movie={movie}
                         rankPosition={rankPosition}
-                        loaded={loaded}
+                        isLoaded={isLoaded}
                     />
-                    {!loaded && <TopRatedMovieSkeleton key={movie.id} />}
+                    {!isLoaded && <TopRatedMovieSkeleton key={movie.id} />}
                 </>
             ))}
         </Box>
@@ -33,6 +35,3 @@ const topRatedMovieCardsStyles = {
     justifyContent: 'center',
     alignContent: 'center',
 }
-
-/* --------------------------------- TYPES --------------------------------- */
-type TopRatedMoviesProps = { loaded: boolean; onLoad: () => void }

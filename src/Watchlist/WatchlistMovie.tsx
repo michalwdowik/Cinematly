@@ -1,18 +1,28 @@
 import Typography from '@mui/material/Typography'
-import { Box } from '@mui/material'
-import { LazyLoadImage } from 'react-lazy-load-image-component'
+import { Box, Skeleton } from '@mui/material'
 import { MovieProps } from '../MovieCard/types'
 import shortenOverview from '../Helpers/cutText'
+import useLoadingState from '../Hooks/useLoadingState'
 
 const WatchlistMovie = ({ movie }: MovieProps) => {
+    const [isLoaded, onLoad] = useLoadingState()
+
     return (
         <Box sx={watchlistMovieStyles}>
             <WatchlistMovieDetails
+                isLoaded={isLoaded}
+                onLoad={onLoad}
                 movieTitle={movie.title}
                 movieReleaseDate={movie.release || movie.release_date}
                 movieBackdropPath={movie.backdrop_path}
             />
-            <WatchlistMovieOverview movieOverview={movie.overview} />
+            {isLoaded ? (
+                <WatchlistMovieOverview movieOverview={movie.overview} />
+            ) : (
+                <Skeleton variant="text" sx={watchlistMovieOverviewStyles}>
+                    <WatchlistMovieOverview movieOverview={movie.overview} />
+                </Skeleton>
+            )}
         </Box>
     )
 }
@@ -20,18 +30,48 @@ const WatchlistMovie = ({ movie }: MovieProps) => {
 export default WatchlistMovie
 
 const WatchlistMovieDetails = ({
+    isLoaded,
+    onLoad,
     movieTitle,
     movieReleaseDate,
     movieBackdropPath,
 }: WatchlistMovieDetailsProps) => {
     return (
         <Box sx={watchlistMovieDetailsStyles}>
-            <WatchlistMovieImage
-                movieTitle={movieTitle}
-                movieBackdropPath={movieBackdropPath}
-            />
-            <WatchlistMovieTitle movieTitle={movieTitle} />
-            <WatchlistMovieReleaseDate movieReleaseDate={movieReleaseDate} />
+            {isLoaded ? (
+                <WatchlistMovieImage
+                    onLoad={onLoad}
+                    movieTitle={movieTitle}
+                    movieBackdropPath={movieBackdropPath}
+                />
+            ) : (
+                <Skeleton variant="rounded">
+                    <WatchlistMovieImage
+                        onLoad={onLoad}
+                        movieTitle={movieTitle}
+                        movieBackdropPath={movieBackdropPath}
+                    />
+                </Skeleton>
+            )}
+            {isLoaded ? (
+                <>
+                    <WatchlistMovieTitle movieTitle={movieTitle} />
+                    <WatchlistMovieReleaseDate
+                        movieReleaseDate={movieReleaseDate}
+                    />
+                </>
+            ) : (
+                <>
+                    <Skeleton variant="text">
+                        <WatchlistMovieTitle movieTitle={movieTitle} />
+                    </Skeleton>
+                    <Skeleton variant="text">
+                        <WatchlistMovieReleaseDate
+                            movieReleaseDate={movieReleaseDate}
+                        />
+                    </Skeleton>
+                </>
+            )}
         </Box>
     )
 }
@@ -39,12 +79,14 @@ const WatchlistMovieDetails = ({
 const WatchlistMovieImage = ({
     movieTitle,
     movieBackdropPath,
+    onLoad,
 }: WatchlistMovieImageProps) => {
     return movieBackdropPath ? (
-        <LazyLoadImage
+        <img
             style={watchlistMovieImageStyles}
             src={`https://image.tmdb.org/t/p/w300/${movieBackdropPath}`}
             alt={movieTitle}
+            onLoad={onLoad}
         />
     ) : (
         <NoImagePlaceholder />
@@ -53,7 +95,7 @@ const WatchlistMovieImage = ({
 
 const NoImagePlaceholder = () => {
     return (
-        <LazyLoadImage
+        <img
             src="https://heuft.com/upload/image/400x267/no_image_placeholder.png"
             alt="empty img placeholder"
         />
@@ -132,6 +174,8 @@ const watchlistMovieOverviewStyles = {
 
 /* --------------------------------- TYPES --------------------------------- */
 type WatchlistMovieDetailsProps = {
+    isLoaded: boolean
+    onLoad: () => void
     movieTitle: string
     movieReleaseDate: string
     movieBackdropPath: string | null
@@ -140,6 +184,7 @@ type WatchlistMovieDetailsProps = {
 type WatchlistMovieImageProps = {
     movieTitle: string
     movieBackdropPath: string | null
+    onLoad: () => void
 }
 
 type WatchlistMovieTitleProps = {

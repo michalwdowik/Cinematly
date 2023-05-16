@@ -1,16 +1,12 @@
 import { motion } from 'framer-motion'
 import { Box } from '@mui/material'
-import { useState } from 'react'
-import SectionHeading from '../SectionHeading/SectionHeadline'
+import SectionHeading from '../SectionHeadline/SectionHeadline'
 import useScrollToTop from '../Hooks/useScrollToTop'
 import TopRatedMovies from '../TopRatedMovies/TopRatedMovies'
 
 const TopRated = () => {
     useScrollToTop()
-    const [loaded, setLoaded] = useState(false)
-    const onLoad = () => {
-        setLoaded(true)
-    }
+
     return (
         <motion.div
             initial={{ opacity: 0 }}
@@ -20,14 +16,13 @@ const TopRated = () => {
         >
             <Box sx={topRatedPageBoxStyles}>
                 <SectionHeading
-                    loaded={loaded}
                     title="Top Rated Movies"
                     subtitle="Revisit the Legends of the Silver Screen - Our Curated Collection of Timeless Classics"
                     leftAligned
                     enableParallax={false}
                 />
             </Box>
-            <TopRatedMovies loaded={loaded} onLoad={onLoad} />
+            <TopRatedMovies />
         </motion.div>
     )
 }

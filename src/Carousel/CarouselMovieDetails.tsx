@@ -2,10 +2,9 @@
 import StarIcon from '@mui/icons-material/Star'
 import { Box } from '@mui/material'
 import { CSSProperties } from 'react'
-import { LazyLoadImage } from 'react-lazy-load-image-component'
-import { MovieProps } from '../MovieCard/types'
+import { Movie, MovieProps } from '../MovieCard/types'
 
-export const MovieImage = ({ movie }: MovieProps) => {
+export const MovieImage = ({ movie, onLoad }: MovieImageProps) => {
     const getImageUrl = () => {
         const baseUrl = 'https://image.tmdb.org/t/p/'
         const backdropPath = movie && movie.backdrop_path
@@ -13,7 +12,14 @@ export const MovieImage = ({ movie }: MovieProps) => {
         return `${baseUrl}w780${backdropPath}`
     }
 
-    return <img style={movieImageStyle} alt={movie.title} src={getImageUrl()} />
+    return (
+        <img
+            onLoad={onLoad}
+            style={movieImageStyle}
+            alt={movie.title}
+            src={getImageUrl()}
+        />
+    )
 }
 
 export const MovieTitle = ({ movie }: MovieProps) => {
@@ -95,4 +101,9 @@ const carouselMovieRatingStyles = {
     padding: '0',
     alignItems: 'center',
     justifyContent: 'center',
+}
+
+type MovieImageProps = {
+    movie: Movie
+    onLoad: () => void
 }

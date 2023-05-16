@@ -1,8 +1,9 @@
 import { Link } from 'react-router-dom'
 import { motion } from 'framer-motion'
 import StarIcon from '@mui/icons-material/Star'
-import { Box } from '@mui/material'
+import { Box, Typography } from '@mui/material'
 import { TrendingMovieDetailsProps, TrendingMovieProps } from './types'
+// import useLoadingState from '../Hooks/useLoadingState'
 
 const TrendingMovie = ({
     id,
@@ -35,18 +36,38 @@ const TrendingMovie = ({
 export default TrendingMovie
 
 const TrendingMovieImage = ({ id, backdrop_path }: MovieImageProps) => {
+    // const [isLoaded, onLoad] = useLoadingState()
     return (
         <motion.div
             className="card-image-container"
             layoutId={`card-image-container-${id}`}
         >
+            {/* {isLoaded ? ( */}
             <img
+                // onLoad={onLoad}
                 width="800px"
                 height="450px"
                 className="card-image"
                 src={`https://image.tmdb.org/t/p/w780/${backdrop_path}`}
                 alt="trending movie"
             />
+            {/* ) : (
+                <Skeleton
+                    variant="rounded"
+                    sx={{
+                        backgroundColor: 'grey.800',
+                    }}
+                >
+                    <img
+                        onLoad={onLoad}
+                        width="800px"
+                        height="450px"
+                        className="card-image"
+                        src={`https://image.tmdb.org/t/p/w780/${backdrop_path}`}
+                        alt="trending movie"
+                    />
+                </Skeleton>
+            )} */}
         </motion.div>
     )
 }
@@ -68,7 +89,11 @@ const TrendingMovieDetails = ({
 }
 
 const TrendingMovieTitle = ({ title }: MovieTitleProps) => {
-    return <h1>{title}</h1>
+    return (
+        <Typography sx={{ fontSize: '1.5rem', fontWeight: 'bold' }}>
+            {title}
+        </Typography>
+    )
 }
 
 const TrendingMovieRating = ({ vote_average }: MovieRatingProps) => {

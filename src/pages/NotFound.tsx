@@ -4,10 +4,10 @@ import { Link } from 'react-router-dom'
 import { Typography } from '@mui/material'
 import { ThemeContext } from '../Components/ThemeContext'
 import {
-    NotFoundImagePlaceholder,
-    NotFoundMessagePlaceholder,
+    NotFoundImageSkeleton,
+    NotFoundMessageSkeleton,
     notFoundContainerStyles,
-} from '../Skeletons/NotFoundPlaceholder'
+} from '../Skeletons/NotFoundSkeleton'
 
 const NotFound = () => {
     const { textColor, mainThemeColor } = useContext(ThemeContext)
@@ -43,7 +43,7 @@ const NotFoundImage = ({ loaded, onLoad }: NotFoundImageProps) => {
                 style={notFoundImageStyles(loaded)}
                 onLoad={onLoad}
             />
-            {!loaded && <NotFoundImagePlaceholder />}
+            {!loaded && <NotFoundImageSkeleton />}
         </>
     )
 }
@@ -64,7 +64,7 @@ const NotFoundMessage = ({ mainThemeColor, loaded }: NotFoundMessageProps) => {
                     </Link>
                 </div>
             ) : (
-                <NotFoundMessagePlaceholder />
+                <NotFoundMessageSkeleton />
             )}
         </>
     )

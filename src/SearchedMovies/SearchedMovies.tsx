@@ -1,20 +1,39 @@
 import { useContext } from 'react'
-import { Box } from '@mui/material'
+import { Box, Skeleton } from '@mui/material'
 import SearchedMovie from './SearchedMovie'
 import { Movie } from '../MovieCard/types'
 import CallToActionLabel from '../Components/CallToActionLabel'
 import { ThemeContext } from '../Components/ThemeContext'
+import useLoadingState from '../Hooks/useLoadingState'
 
 const SearchedMovies = ({ searchedMovies }: SearchedMoviesProps) => {
     const { textColor } = useContext(ThemeContext)
+    const [isLoaded, onLoad] = useLoadingState()
 
     return searchedMovies.length > 0 ? (
         <Box sx={searchedMoviesStyles}>
-            {searchedMovies.map(
-                (movie) =>
-                    movie.poster_path && (
-                        <SearchedMovie key={movie.id} movie={movie} />
-                    )
+            {searchedMovies.map((movie) =>
+                isLoaded ? (
+                    <SearchedMovie
+                        onLoad={onLoad}
+                        key={movie.id}
+                        movie={movie}
+                    />
+                ) : (
+                    <Skeleton
+                        width="253px"
+                        height="380px"
+                        sx={{ bgcolor: 'grey.900', borderRadius: '3rem' }}
+                        variant="rounded"
+                        key={movie.id}
+                    >
+                        <SearchedMovie
+                            onLoad={onLoad}
+                            key={movie.id}
+                            movie={movie}
+                        />
+                    </Skeleton>
+                )
             )}
         </Box>
     ) : (

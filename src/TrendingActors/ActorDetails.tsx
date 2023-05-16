@@ -1,10 +1,10 @@
 import StarIcon from '@mui/icons-material/Star'
 import { useContext } from 'react'
-import { Box } from '@mui/material'
-import { LazyLoadImage } from 'react-lazy-load-image-component'
+import { Box, Skeleton } from '@mui/material'
 import { ThemeContext } from '../Components/ThemeContext'
 import { Actor } from './types'
 import shortenOverview from '../Helpers/cutText'
+import useLoadingState from '../Hooks/useLoadingState'
 
 const ActorDetails = ({
     name,
@@ -14,17 +14,72 @@ const ActorDetails = ({
     profile_path,
 }: Actor) => {
     const { mainThemeColorSecondary } = useContext(ThemeContext)
+    const [isLoaded, onLoad] = useLoadingState()
+
     return (
         <Box sx={actorDetailsStyles(mainThemeColorSecondary)}>
             <Box sx={actorInfoStyles}>
-                <ActorName name={name} />
-                <Box sx={knownForWrapperStyles}>
-                    <ActorRating vote_average={vote_average} />
-                    <ActorKnownFor known_for={known_for} />
-                </Box>
-                <ActorRoleOverview overview={overview} />
+                {isLoaded ? (
+                    <>
+                        <ActorName name={name} />
+                        <Box sx={knownForWrapperStyles}>
+                            <ActorRating vote_average={vote_average} />
+                            <ActorKnownFor known_for={known_for} />
+                        </Box>
+                        <ActorRoleOverview overview={overview} />
+                    </>
+                ) : (
+                    <>
+                        <Skeleton
+                            variant="text"
+                            height="45px"
+                            sx={{
+                                ...actorNameStyles,
+                                bgcolor: 'grey.900',
+                            }}
+                        >
+                            <ActorName name={name} />
+                        </Skeleton>
+                        <Skeleton
+                            variant="text"
+                            height="30px"
+                            sx={{
+                                ...knownForStyles,
+                                bgcolor: 'grey.900',
+                            }}
+                        >
+                            <Box sx={knownForWrapperStyles}>
+                                <ActorRating vote_average={vote_average} />
+                                <ActorKnownFor known_for={known_for} />
+                            </Box>
+                        </Skeleton>
+                        <Skeleton
+                            variant="text"
+                            sx={{
+                                ...actorRoleOverviewStyles,
+                                bgcolor: 'grey.900',
+                            }}
+                        >
+                            <ActorRoleOverview overview={overview} />
+                        </Skeleton>
+                    </>
+                )}
             </Box>
-            <ActorImage profile_path={profile_path} />
+            {isLoaded ? (
+                <ActorImage onLoad={onLoad} profile_path={profile_path} />
+            ) : (
+                <Skeleton
+                    width="185px"
+                    height="278px"
+                    variant="rounded"
+                    sx={{
+                        ...actorImageStyles,
+                        bgcolor: 'grey.900',
+                    }}
+                >
+                    <ActorImage onLoad={onLoad} profile_path={profile_path} />
+                </Skeleton>
+            )}
         </Box>
     )
 }
@@ -66,14 +121,15 @@ const ActorRating = ({ vote_average }: ActorRatingProps) => {
     )
 }
 
-const ActorImage = ({ profile_path }: ActorImageProps) => {
+const ActorImage = ({ profile_path, onLoad }: ActorImageProps) => {
     return (
-        <LazyLoadImage
+        <img
             style={actorImageStyles}
             alt="actor"
-            height="185px"
+            width="185px"
             src={`https://image.tmdb.org/t/p/w185/${profile_path}`}
-            width="278px"
+            height="278px"
+            onLoad={onLoad}
         />
     )
 }
@@ -145,5 +201,5 @@ const actorImageStyles = {
 type ActorNameProps = Pick<Actor, 'name'>
 type ActorKnownForProps = Pick<Actor, 'known_for'>
 type ActorRatingProps = Pick<Actor, 'vote_average'>
-type ActorImageProps = Pick<Actor, 'profile_path'>
+type ActorImageProps = Pick<Actor, 'profile_path'> & { onLoad: () => void }
 type ActorRoleOverviewProps = Pick<Actor, 'overview'>

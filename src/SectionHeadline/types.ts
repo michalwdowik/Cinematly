@@ -3,7 +3,6 @@ export interface SectionHeadlineProps {
     subtitle: string
     leftAligned: boolean
     enableParallax: boolean
-    loaded: boolean
 }
 
 export type HeadlineProps = Omit<SectionHeadlineProps, 'enableParallax'>

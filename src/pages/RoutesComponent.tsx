@@ -1,7 +1,7 @@
 import { Routes, Route, useLocation } from 'react-router-dom'
 import { lazy, Suspense } from 'react'
 import Home from './Home'
-import RouteLoadingPlaceholder from '../Skeletons/RouteLoadingPlaceholder'
+import RouteLoadingSkeleton from '../Skeletons/RouteLoadingSkeleton'
 
 const LazyTopRated = lazy(() => import('./TopRated'))
 const LazyUpcoming = lazy(() => import('./Upcoming'))
@@ -17,7 +17,7 @@ const RoutesComponent = () => {
                 <Route
                     path="/top-rated"
                     element={
-                        <Suspense fallback={<RouteLoadingPlaceholder />}>
+                        <Suspense fallback={<RouteLoadingSkeleton />}>
                             <LazyTopRated />
                         </Suspense>
                     }
@@ -25,7 +25,7 @@ const RoutesComponent = () => {
                 <Route
                     path="/upcoming"
                     element={
-                        <Suspense fallback={<RouteLoadingPlaceholder />}>
+                        <Suspense fallback={<RouteLoadingSkeleton />}>
                             <LazyUpcoming />
                         </Suspense>
                     }
@@ -34,7 +34,7 @@ const RoutesComponent = () => {
                 <Route
                     path="*"
                     element={
-                        <Suspense fallback={<RouteLoadingPlaceholder />}>
+                        <Suspense fallback={<RouteLoadingSkeleton />}>
                             <LazyNotFound />
                         </Suspense>
                     }

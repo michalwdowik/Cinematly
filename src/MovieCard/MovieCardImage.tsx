@@ -1,9 +1,15 @@
 import { CSSProperties } from 'react'
 import { motion } from 'framer-motion'
 
-const MovieCardImage = ({ backdrop_path, id, type }: MovieCardImageProps) => {
+const MovieCardImage = ({
+    backdrop_path,
+    id,
+    type,
+    onLoad,
+}: MovieCardImageProps) => {
     const movieCardImage = (
         <img
+            onLoad={onLoad}
             className="card-image"
             style={movieCardImageStyles}
             alt="Trending Movie"
@@ -32,6 +38,7 @@ const movieCardImageStyles: CSSProperties = {
 
 /* --------------------------------- TYPES --------------------------------- */
 type MovieCardImageProps = {
+    onLoad: () => void
     backdrop_path: string | null
     id: string
     type: 'upcoming' | 'trending'

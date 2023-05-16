@@ -2,8 +2,8 @@ import { Box } from '@mui/material'
 import React from 'react'
 import ContentLoader from 'react-content-loader'
 
-const RouteLoadingPlaceholder = () => (
-    <Box sx={routeLoadingPlaceholderStyles}>
+const RouteLoadingSkeleton = () => (
+    <Box sx={routeLoadingSkeletonStyles}>
         <ContentLoader
             viewBox="0 0 400 160"
             height={160}
@@ -17,10 +17,10 @@ const RouteLoadingPlaceholder = () => (
     </Box>
 )
 
-export default RouteLoadingPlaceholder
+export default RouteLoadingSkeleton
 
 /* --------------------------------- STYLES --------------------------------- */
-const routeLoadingPlaceholderStyles = {
+const routeLoadingSkeletonStyles = {
     display: 'flex',
     justifyContent: 'center',
     alignItems: 'center',

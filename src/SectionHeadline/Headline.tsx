@@ -3,7 +3,7 @@ import { useContext } from 'react'
 import { ThemeContext } from '../Components/ThemeContext'
 import { HeadlineProps } from './types'
 
-const Headline = ({ title, subtitle, leftAligned, loaded }: HeadlineProps) => {
+const Headline = ({ title, subtitle, leftAligned }: HeadlineProps) => {
     const { textColor } = useContext(ThemeContext)
 
     return (
@@ -11,15 +11,10 @@ const Headline = ({ title, subtitle, leftAligned, loaded }: HeadlineProps) => {
             <Title
                 title={title}
                 leftAligned={leftAligned}
-                loaded={loaded}
                 textColor={textColor}
             />
             <Divider leftAligned={leftAligned} />
-            <Subtitle
-                subtitle={subtitle}
-                leftAligned={leftAligned}
-                loaded={loaded}
-            />
+            <Subtitle subtitle={subtitle} leftAligned={leftAligned} />
         </>
     )
 }

@@ -4,7 +4,7 @@ import TrendingMovies from '../TrendingMovies/TrendingMovies'
 import TrendingMovieModal from '../TrendingMovies/TrendingMovieModal'
 import MoviesCarousel from '../Carousel/MoviesCarousel'
 import Quote from '../Components/Quote'
-import SectionHeading from '../SectionHeading/SectionHeadline'
+import SectionHeadline from '../SectionHeadline/SectionHeadline'
 import MemoizedTrendingActors from '../TrendingActors/TrendingActors'
 import { trendingMovies } from '../Helpers/fetchMovies'
 
@@ -16,7 +16,7 @@ const Home = () => {
         <ParallaxProvider>
             <div className="container">
                 <MoviesCarousel />
-                <SectionHeading
+                <SectionHeadline
                     enableParallax
                     leftAligned
                     title="What's hot?"
@@ -25,9 +25,8 @@ const Home = () => {
                 <TrendingMovies />
 
                 {belongsToMovies ? <TrendingMovieModal id={id} /> : null}
-                {/* {showSearch && <Search />} */}
 
-                <SectionHeading
+                <SectionHeadline
                     enableParallax
                     leftAligned={false}
                     title=" Trending Actors"

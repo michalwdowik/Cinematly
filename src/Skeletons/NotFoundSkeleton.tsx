@@ -1,7 +1,7 @@
 import { Skeleton } from '@mui/material'
 import { CSSProperties } from 'react'
 
-export const NotFoundImagePlaceholder = () => {
+export const NotFoundImageSkeleton = () => {
     return (
         <Skeleton
             sx={{
@@ -16,7 +16,7 @@ export const NotFoundImagePlaceholder = () => {
     )
 }
 
-export const NotFoundMessagePlaceholder = () => {
+export const NotFoundMessageSkeleton = () => {
     return (
         <div style={notFoundContainerStyles}>
             <Skeleton
