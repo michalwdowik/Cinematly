@@ -9,9 +9,9 @@ const MovieCarouselDetails = ({ movie }: MovieDetailsProps) => {
 
     return (
         <MovieCarouselOverlay>
-            <Box sx={carouselMovieDetailsStyles}>
+            <Box className="carouselMovieDetails">
                 <MovieTitle movie={movie} />
-                <Box sx={carouselMovieReleaseDateStyles}>
+                <Box className="carouselMovieReleaseDate">
                     <MovieRating movie={movie} />
                     <MovieReleaseDate movie={movie} />
                 </Box>
@@ -24,7 +24,7 @@ const MovieCarouselDetails = ({ movie }: MovieDetailsProps) => {
 export default MovieCarouselDetails
 
 const MovieTitle = ({ movie }: MovieProps) => {
-    return <Box sx={carouselMovieTitleStyles}>{movie ? movie.title : ''}</Box>
+    return <Box className="carouselMovieTitle">{movie ? movie.title : ''}</Box>
 }
 
 const MovieReleaseDate = ({ movie }: MovieProps) => {
@@ -33,95 +33,18 @@ const MovieReleaseDate = ({ movie }: MovieProps) => {
 
 const MovieRating = ({ movie }: MovieProps) => {
     return (
-        <Box sx={carouselMovieRatingStyles}>
-            <StarIcon sx={starIconStyles} />
+        <Box className="carouselMovieRating">
+            <StarIcon className="starIcon" />
             {movie ? movie.vote_average : ''}
         </Box>
     )
 }
 const MovieOverview = ({ movie }: MovieProps) => {
     return (
-        <Box sx={carouselMovieOverviewStyles}>
+        <Box className="carouselMovieOverview">
             {movie ? movie.overview : ''}
         </Box>
     )
-}
-
-/* --------------------------------- STYLES --------------------------------- */
-const carouselMovieTitleStyles = {
-    color: 'white',
-    fontWeight: '900',
-    marginBottom: '1rem',
-    textAlign: 'left',
-    width: '55%',
-    fontSize: {
-        xs: '1.5rem',
-        sm: '2rem',
-        md: '2.8125rem',
-        lg: '3.4375rem',
-    },
-    marginLeft: {
-        xs: '0.8125rem',
-        sm: '0px',
-        md: '0px',
-    },
-}
-
-const carouselMovieOverviewStyles = {
-    color: 'white',
-    fontStyle: 'italic',
-    fontSize: '1rem',
-    marginRight: '0.625rem',
-    display: 'flex',
-    textAlign: 'left',
-    width: {
-        xs: '70vh',
-        sm: '70vh',
-        md: '60vh',
-        lg: '50vh',
-    },
-}
-
-const starIconStyles = {
-    color: 'white',
-    fontSize: {
-        xs: '0.875rem',
-        md: '1rem',
-        lg: '1.25rem',
-    },
-}
-
-const carouselMovieRatingStyles = {
-    display: 'flex',
-    padding: '0',
-    alignItems: 'center',
-    justifyContent: 'center',
-}
-
-const carouselMovieReleaseDateStyles = {
-    display: 'flex',
-    gap: '1.5625rem',
-    marginBottom: '1rem',
-    alignItems: 'center',
-    color: 'white',
-    fontSize: {
-        xs: '0.875rem',
-        sm: '1.125rem',
-        lg: '1.125rem',
-    },
-    marginLeft: {
-        xs: '0.8125rem',
-        sm: '0px',
-        md: '0px',
-    },
-}
-
-const carouselMovieDetailsStyles = {
-    position: 'absolute',
-    bottom: {
-        lg: '15%',
-        md: '10%',
-    },
 }
 
 /* --------------------------------- TYPES --------------------------------- */

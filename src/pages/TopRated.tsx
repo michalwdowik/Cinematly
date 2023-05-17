@@ -14,7 +14,7 @@ const TopRated = () => {
             exit={{ opacity: 0 }}
             transition={{ duration: 0.15 }}
         >
-            <Box sx={topRatedPageBoxStyles}>
+            <Box className="topRatedPageBox">
                 <Headline
                     title="Top Rated Movies"
                     subtitle="Revisit the Legends of the Silver Screen - Our Curated Collection of Timeless Classics"
@@ -28,11 +28,3 @@ const TopRated = () => {
 }
 
 export default TopRated
-
-/* --------------------------------- STYLES --------------------------------- */
-const topRatedPageBoxStyles = {
-    marginTop: '3rem',
-    padding: '0',
-    display: 'flex',
-    justifyContent: 'center',
-}

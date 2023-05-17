@@ -1,4 +1,3 @@
-import Button from '@mui/material/Button'
 import MenuIcon from '@mui/icons-material/Menu'
 import { useState } from 'react'
 import WebsiteLogo from '../Components/WebsiteLogo'
@@ -11,13 +10,14 @@ const NavbarDrawer = () => {
     }
     return (
         <>
-            <Button
-                sx={drawerButtonStyles}
+            <button
+                type="button"
+                className="drawerButton"
                 onClick={toggleDrawer(true)}
                 aria-label="Toggle drawer menu"
             >
                 <MenuIcon sx={{ color: 'white' }} />
-            </Button>
+            </button>
             <DrawerList
                 toggleDrawer={toggleDrawer}
                 isDrawerOpen={isDrawerOpen}
@@ -29,6 +29,3 @@ const NavbarDrawer = () => {
 }
 
 export default NavbarDrawer
-
-/* --------------------------------- STYLES --------------------------------- */
-const drawerButtonStyles = { padding: '0', marginLeft: '-16px' }

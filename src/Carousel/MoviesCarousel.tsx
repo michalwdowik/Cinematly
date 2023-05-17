@@ -18,7 +18,7 @@ const MoviesCarousel = () => {
             key={nowPlayingMovies.length}
             autoPlay
             infiniteLoop
-            className="carouselStyles"
+            className="carousel"
             showStatus={false}
             showThumbs={false}
             showIndicators={!screenType.isMobile}

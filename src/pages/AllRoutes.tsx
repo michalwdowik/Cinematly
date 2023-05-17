@@ -1,7 +1,10 @@
 import { Routes, Route, useLocation } from 'react-router-dom'
-import { lazy, Suspense } from 'react'
+import React, { lazy, Suspense, useContext } from 'react'
+import { Box } from '@mui/material'
+import ContentLoader from 'react-content-loader'
 import Home from './Home'
-import RouteLoadingSkeleton from '../Skeletons/RouteLoadingSkeleton'
+
+import { ThemeContext } from '../Contexts/ThemeContext'
 
 const LazyTopRated = lazy(() => import('./TopRated'))
 const LazyUpcoming = lazy(() => import('./Upcoming'))
@@ -11,7 +14,7 @@ const AllRoutes = () => {
     const location = useLocation()
 
     return (
-        <div>
+        <Box display="flex" justifyContent="center">
             <Routes key={location.pathname} location={location}>
                 <Route path="/" element={<Home />} />
                 <Route
@@ -48,8 +51,24 @@ const AllRoutes = () => {
                     }
                 />
             </Routes>
-        </div>
+        </Box>
     )
 }
 
 export default AllRoutes
+
+const RouteLoadingSkeleton = () => {
+    const { mainThemeColor } = useContext(ThemeContext)
+    return (
+        <ContentLoader
+            viewBox="0 0 400 160"
+            height="100vh"
+            width="100vw"
+            backgroundColor={mainThemeColor}
+        >
+            <circle cx="150" cy="50" r="6" />
+            <circle cx="194" cy="50" r="6" />
+            <circle cx="238" cy="50" r="6" />
+        </ContentLoader>
+    )
+}

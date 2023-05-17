@@ -11,7 +11,7 @@ import Portal from '../Components/Portal'
 
 const NavbarMenu = () => {
     return (
-        <Box sx={navbarMenuStyles}>
+        <Box className="navbarMenu">
             <WebsiteLogo navbarLogo />
             <NavbarTabs />
         </Box>
@@ -65,17 +65,11 @@ export default NavbarMenu
 /* --------------------------------- STYLES --------------------------------- */
 const navbarTabStyles = {
     color: 'white',
-    opacity: 1,
+    opacity: '1',
     transition: 'opacity 0.2s ease-in-out',
-    '&:hover': {
-        opacity: 0.4,
-    },
+    '&:hover': { opacity: '0.4' },
 }
 
-const navbarMenuStyles = {
-    display: 'flex',
-    alignItems: 'center',
-}
 /* --------------------------------- TYPES --------------------------------- */
 type NavbarTabProps = {
     page: Page

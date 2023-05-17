@@ -1,4 +1,3 @@
-import Typography from '@mui/material/Typography'
 import { Box } from '@mui/material'
 import AddToWatchlistButton from '../Components/AddToWatchlistButton'
 import { MovieProps } from '../MovieCard/types'
@@ -21,19 +20,19 @@ const SearchedMovieDetails = ({ movie }: MovieProps) => {
 
 const SearchedMovieOverview = ({ movie }: MovieProps) => {
     return (
-        <Typography sx={topRatedMovieOverviewStyles}>
+        <Box component="span" className="searchMovieOverview">
             &quot;{shortenOverview(movie.overview, 20)}&quot;
-        </Typography>
+        </Box>
     )
 }
 
 export const DetailsDivider = () => {
-    return <Box className="dividerStyle" />
+    return <Box className="divider" />
 }
 
 const SearchedMovieInfo = ({ movie }: MovieProps) => {
     return (
-        <Typography sx={topRatedMovieDetailsStyles} variant="subtitle2">
+        <Box component="span" className="searchMovieDetails">
             <b>Original title: </b>
             {movie.original_title}
             <br />
@@ -45,30 +44,8 @@ const SearchedMovieInfo = ({ movie }: MovieProps) => {
             <br />
             <b>Original language: </b>
             {movie.original_language}
-        </Typography>
+        </Box>
     )
 }
 
 export default SearchedMovieDetails
-
-/* --------------------------------- STYLES --------------------------------- */
-const topRatedMovieOverviewStyles = {
-    maxHeight: '11rem',
-    padding: '0.5rem',
-    color: 'white',
-    fontSize: '0.9rem',
-    wordWrap: 'break-word',
-    whiteSpace: 'normal',
-    width: '85%',
-    alignSelf: 'center',
-    justifySelf: 'center',
-    overflow: 'scroll',
-}
-
-const topRatedMovieDetailsStyles = {
-    wordWrap: 'break-word',
-    whiteSpace: 'normal',
-    fontSize: '0.7rem',
-    maxWidth: '12rem',
-    alignSelf: 'center',
-}

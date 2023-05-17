@@ -6,7 +6,7 @@ import shortenOverview from '../Helpers/cutText'
 
 const MovieCardDetails = ({ movie }: MovieProps) => {
     return (
-        <Box sx={movieCardDetailsStyles}>
+        <Box className="movieCardDetails">
             <Box className="movieCardDetails">
                 <AddToWatchlistButton absolute movie={movie} />
                 <MovieCardTitle
@@ -88,15 +88,6 @@ const MovieCardOverview = ({ overview }: MovieCardOverviewProps) => {
     )
 }
 
-/* --------------------------------- STYLES --------------------------------- */
-export const movieCardDetailsStyles = {
-    position: 'relative',
-    display: 'flex',
-    flexDirection: 'column',
-    padding: '0.7rem',
-    color: 'black',
-    backgroundColor: 'white',
-}
 /* --------------------------------- TYPES --------------------------------- */
 type MovieCardTitleProps = {
     title: string

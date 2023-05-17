@@ -11,8 +11,10 @@ const TimelineHeadline = ({ label }: HeadingProps) => {
     return (
         <Parallax speed={-10} opacity={[2.5, 0]}>
             <Typography
+                color={textColor}
+                fontWeight={700}
+                padding="2rem"
                 variant={screenType.isMobile ? 'h4' : 'h2'}
-                sx={headingStyles(textColor)}
             >
                 {label}
             </Typography>
@@ -20,11 +22,6 @@ const TimelineHeadline = ({ label }: HeadingProps) => {
     )
 }
 export default TimelineHeadline
-
-/* --------------------------------- STYLES --------------------------------- */
-const headingStyles = (textColor: string) => {
-    return { fontWeight: '700', padding: '2rem', color: textColor }
-}
 
 /* --------------------------------- TYPES --------------------------------- */
 type HeadingProps = {

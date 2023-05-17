@@ -1,13 +1,8 @@
 /* eslint-disable react/jsx-no-useless-fragment */
-import { CSSProperties, useContext, useState } from 'react'
+import { useContext, useState } from 'react'
 import { Link } from 'react-router-dom'
-import { Typography } from '@mui/material'
+import { Skeleton, Box } from '@mui/material'
 import { ThemeContext } from '../Contexts/ThemeContext'
-import {
-    NotFoundImageSkeleton,
-    NotFoundMessageSkeleton,
-    notFoundContainerStyles,
-} from '../Skeletons/NotFoundSkeleton'
 
 const NotFound = () => {
     const { textColor, mainThemeColor } = useContext(ThemeContext)
@@ -17,13 +12,13 @@ const NotFound = () => {
     }
     return (
         <>
-            <div style={notFoundPageStyles(textColor)}>
+            <Box component="div" color={textColor} className="notFoundPage">
                 <NotFoundImage loaded={loaded} onLoad={onLoad} />
                 <NotFoundMessage
                     loaded={loaded}
                     mainThemeColor={mainThemeColor}
                 />
-            </div>
+            </Box>
         </>
     )
 }
@@ -40,7 +35,8 @@ const NotFoundImage = ({ loaded, onLoad }: NotFoundImageProps) => {
             <img
                 src="https://cdn.pixabay.com/photo/2021/07/21/12/49/error-6482984_960_720.png"
                 alt="Error 404"
-                style={notFoundImageStyles(loaded)}
+                className="notFoundImage"
+                style={{ display: loaded ? '' : 'none' }}
                 onLoad={onLoad}
             />
             {!loaded && <NotFoundImageSkeleton />}
@@ -52,10 +48,10 @@ const NotFoundMessage = ({ mainThemeColor, loaded }: NotFoundMessageProps) => {
     return (
         <>
             {loaded ? (
-                <div style={notFoundContainerStyles}>
-                    <Typography sx={notFoundMessageHeadingStyles}>
+                <div className="notFoundContainer">
+                    <Box component="span" className="notFoundMessageHeading">
                         Page Not Found
-                    </Typography>
+                    </Box>
                     <p style={{ margin: '0' }}>
                         Oops! Looks like you have stumbled upon an unknown path.
                     </p>
@@ -70,25 +66,50 @@ const NotFoundMessage = ({ mainThemeColor, loaded }: NotFoundMessageProps) => {
     )
 }
 
-/* --------------------------------- STYLES --------------------------------- */
-
-const notFoundPageStyles = (textColor: string): CSSProperties => {
-    return {
-        textAlign: 'center',
-        marginTop: '0',
-        color: textColor,
-    }
+const NotFoundImageSkeleton = () => {
+    return (
+        <Skeleton
+            sx={{
+                bgcolor: 'grey.900',
+                borderRadius: '2rem',
+                margin: 'auto',
+            }}
+            width={300}
+            height={300}
+            variant="rectangular"
+        />
+    )
 }
 
-const notFoundImageStyles = (loaded: boolean) => {
-    return {
-        display: loaded ? '' : 'none',
-        width: '300px',
-        height: '300px',
-    }
-}
+const NotFoundMessageSkeleton = () => {
+    return (
+        <div className="notFoundContainer">
+            <Skeleton
+                sx={{
+                    bgcolor: 'grey.900',
+                }}
+                width={260}
+                height={50}
+            />
 
-const notFoundMessageHeadingStyles = { fontSize: '2rem', fontWeight: 'bold' }
+            <Skeleton
+                sx={{
+                    bgcolor: 'grey.900',
+                }}
+                width={440}
+                height={20}
+            />
+
+            <Skeleton
+                sx={{
+                    bgcolor: 'grey.900',
+                }}
+                width={70}
+                height={20}
+            />
+        </div>
+    )
+}
 
 /* --------------------------------- TYPES --------------------------------- */
 type NotFoundMessageProps = {

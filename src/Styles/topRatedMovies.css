@@ -2,6 +2,14 @@
   --mainTheme: #fc9803;
 }
 
+.topRatedPageBox {
+  margin-top: 3rem;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+}
+
+
 .topRatedMovie {
   display: flex;
   justify-content: center;
@@ -83,3 +91,65 @@ visibility: hidden;
     height: 100%;
     filter: brightness(0.3);}
 
+
+.topRatedMovieCards {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 2rem;
+      justify-content: center;
+      align-content: center;
+    }
+    
+
+.topRatedMovieSkeleton {
+  border-radius: 2rem;
+  margin: auto;
+}
+
+
+.topRatedMovieRating {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  font-size: 1.3rem;
+  padding: 1rem;
+  font-weight: 900;
+}
+
+.topRatedMovieTitle {
+  font-family: Roboto;
+  font-weight: 500;
+  color: black;
+  font-size: 2rem;
+}
+
+@media (max-width: 23em) {
+  .topRatedMovieTitle {
+    font-size: 1.7rem;
+  }
+}
+
+.topRatedMovieReleaseDate {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.topRatedMovieHeadings {
+  height: 30%;
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  padding: 1rem;
+  background-color: white;
+}
+
+.topRatedMovieOverview {
+  font-size: 0.9rem;
+  color: white;
+  max-height: 200px;
+  overflow: scroll;
+}

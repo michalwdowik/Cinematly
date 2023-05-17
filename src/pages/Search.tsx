@@ -24,8 +24,8 @@ const Search = ({ handleShowSearchModal }: SearchProps) => {
     }
     return (
         <Box
-            className="serachMovieFadeIn"
-            sx={searchMoviesStyles(backgroundColor)}
+            className="searchMovies serachMovieFadeIn"
+            bgcolor={backgroundColor}
         >
             <SearchMovieInput
                 searchQuery={searchQuery}
@@ -40,37 +40,7 @@ const Search = ({ handleShowSearchModal }: SearchProps) => {
 export default Search
 
 const SearchMoviesOverlay = ({ hideSearchModal }: SearchMoviesOverlayProps) => {
-    return <Box sx={searchMoviesOverlayStyles} onClick={hideSearchModal} />
-}
-
-/* --------------------------------- STYLES --------------------------------- */
-const searchMoviesOverlayStyles = {
-    position: 'fixed',
-    top: '570px',
-    left: 0,
-    height: '100%',
-    width: '100%',
-    backgroundColor: 'rgba(0, 0, 0, 0.8)',
-    zIndex: 1,
-    cursor: 'pointer',
-}
-
-const searchMoviesStyles = (backgroundColor: string) => {
-    return {
-        position: 'fixed',
-        top: '70px',
-        left: 0,
-        width: '100%',
-        height: '500px',
-        zIndex: 2,
-        display: 'flex',
-        overflowX: 'scroll',
-        paddingTop: '2rem',
-        flexDirection: 'column',
-        alignItems: 'center',
-        justifyContent: 'flex-start',
-        backgroundColor,
-    }
+    return <Box className="searchMoviesOverlay" onClick={hideSearchModal} />
 }
 
 /* --------------------------------- TYPES --------------------------------- */

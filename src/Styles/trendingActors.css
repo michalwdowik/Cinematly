@@ -1,0 +1,71 @@
+.actorDetails {
+    display: flex;
+    justify-content: space-between;
+    width: 34.375rem; 
+    /* border: 0.125rem solid var(--mainThemeColorSecondary);  */
+    padding: 2rem;
+    /* border-image: linear-gradient(45deg, var(--mainThemeColorSecondary) 1%, transparent 12%) 0.125rem; */
+    margin-top: 1.5rem;
+  }
+  
+  .actorInfo {
+    width: 60%;
+    padding: 0.3rem;
+    margin-right: 1.5rem;
+  }
+  
+  .actorName {
+    font-size: 1.5rem; 
+    font-size: 2rem; 
+    font-size: 2.5rem;
+    font-weight: bold;
+  }
+  
+  .knownFor {
+    font-size: 1rem;
+    color: #fc7b03;
+    font-weight: bold;
+  }
+  
+  .actorRoleOverview {
+    opacity: 70%;
+    margin-bottom: 10px;
+  }
+  
+  .actorImage {
+    border-radius: 3.125rem; 
+    box-shadow: 0.5rem 0.5rem 0.75rem -0.3125rem rgba(0, 0, 0, 1); 
+    height: auto;
+    align-self: center;
+    object-position: center top;
+    
+  }
+  
+  .knownForWrapper {
+    display: flex;
+    align-items: center;
+    gap: 0.3125rem; 
+    font-style: italic;
+    margin-top: 0.5rem;
+    margin-bottom: 0.5rem;
+  }
+  
+
+  .actorRating {
+  font-size: 1rem;
+  display: flex;
+  min-width: 40px;
+}
+
+.actorRoleOverview {
+  margin-bottom: 10px;
+  opacity: 70%;
+}
+
+.actorsInfiniteSlider {
+  background: transparent;
+  height: 400px;
+  width: 100%;
+  margin-bottom: 200px;
+  margin-top: -20px;
+}

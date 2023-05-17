@@ -1,0 +1,38 @@
+
+:root {
+    --mainThemeColor: #fc9803;
+    --mainThemeColorSecondary: #fc7703;
+  }
+  
+
+.toolbar {
+background-color: var(--mainThemeColor);
+height: 4.375rem;
+justify-content: space-between;
+
+}
+
+  .navbarMenu {
+    display: flex;
+    align-items: center;
+  }
+  
+  .drawerListRow {
+    color: white;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+  
+  .drawerListRowName {
+    opacity: 1;
+    font-size: 0.9rem;
+    color: white;
+  }
+  
+.drawerButton { 
+    padding: 0;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+}

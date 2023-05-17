@@ -1,14 +1,12 @@
 import { VerticalTimelineElement } from 'react-vertical-timeline-component'
 import CelebrationIcon from '@mui/icons-material/Celebration'
 import AccessTimeIcon from '@mui/icons-material/AccessTime'
-import { CSSProperties, ReactNode, useContext } from 'react'
-import { ThemeContext } from '../Contexts/ThemeContext'
+import { CSSProperties, ReactNode } from 'react'
 
 const TimelineMovieWrapper = ({
     releaseDate,
     children,
 }: TimelineWrapperProps) => {
-    const { mainThemeColor } = useContext(ThemeContext)
     const today = new Date()
     const movieReleaseDate = new Date(releaseDate)
     const isMovieAlreadyReleased = movieReleaseDate < today
@@ -16,9 +14,8 @@ const TimelineMovieWrapper = ({
     return (
         <VerticalTimelineElement
             contentStyle={timelineWrapperStyles}
-            className="scaleOnHover"
             dateClassName="dateStyles"
-            iconStyle={timelineWrapperIconStyles(mainThemeColor)}
+            iconClassName="timelineWrapperIcon"
             icon={
                 isMovieAlreadyReleased ? (
                     <CelebrationIcon />
@@ -43,14 +40,8 @@ const timelineWrapperStyles: CSSProperties = {
     flexDirection: 'column',
     overflow: 'hidden',
     padding: '0',
+    maxWidth: '90vw',
     boxShadow: '8px 8px 12px -5px rgb(0, 0, 0)',
-}
-
-const timelineWrapperIconStyles = (mainThemeColor: string) => {
-    return {
-        background: mainThemeColor,
-        color: '#fff',
-    }
 }
 
 /* --------------------------------- TYPES --------------------------------- */

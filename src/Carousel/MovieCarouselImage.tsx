@@ -1,4 +1,3 @@
-import { CSSProperties } from 'react'
 import { Movie } from '../MovieCard/types'
 import useGetProperImageSize from '../Hooks/useGetProperImageSize'
 
@@ -7,7 +6,7 @@ const MovieCarouselImage = ({ movie, onLoad }: MovieCarouselImageProps) => {
     return (
         <img
             onLoad={onLoad}
-            style={movieImageStyle}
+            className="carouselImage"
             alt={movie.title}
             src={imagePath}
         />
@@ -15,12 +14,6 @@ const MovieCarouselImage = ({ movie, onLoad }: MovieCarouselImageProps) => {
 }
 
 export default MovieCarouselImage
-/* --------------------------------- STYLES --------------------------------- */
-const movieImageStyle: CSSProperties = {
-    width: '100%',
-    height: '100%',
-    objectFit: 'cover',
-}
 
 /* --------------------------------- TYPES --------------------------------- */
 type MovieCarouselImageProps = {

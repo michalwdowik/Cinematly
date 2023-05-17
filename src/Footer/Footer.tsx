@@ -19,7 +19,7 @@ const Footer = () => (
 export default Footer
 
 const FooterWrapper = ({ children }: FooterProps) => {
-    return <Box sx={footerStyles}>{children}</Box>
+    return <Box className="footer">{children}</Box>
 }
 
 const FooterCopyright = () => {
@@ -28,16 +28,6 @@ const FooterCopyright = () => {
             © 2023 Cinematly
         </Typography>
     )
-}
-
-/* --------------------------------- STYLES --------------------------------- */
-const footerStyles = {
-    display: 'flex',
-    flexDirection: 'column',
-    alignItems: 'center',
-    gap: '1.25rem',
-    marginTop: '6.25rem',
-    marginBottom: '2.5rem',
 }
 
 /* --------------------------------- TYPES --------------------------------- */

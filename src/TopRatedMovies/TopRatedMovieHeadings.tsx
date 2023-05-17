@@ -1,12 +1,11 @@
 import Typography from '@mui/material/Typography'
 import StarIcon from '@mui/icons-material/Star'
 import { Box } from '@mui/material'
-
 import { MovieProps } from '../MovieCard/types'
 
 const TopRatedMovieHeadings = ({ movie }: MovieProps) => {
     return (
-        <Box sx={topRatedMovieHeadingsStyles}>
+        <Box className="topRatedMovieHeadings">
             <TopRatedMovieTitle title={movie.title} />
             <TopRatedMovieRating vote_average={movie.vote_average} />
             <TopRatedMovieReleaseDate release={movie.release} />
@@ -15,12 +14,20 @@ const TopRatedMovieHeadings = ({ movie }: MovieProps) => {
 }
 
 const TopRatedMovieTitle = ({ title }: TopRatedMovieTitleProps) => {
-    return <Typography sx={topRatedMovieTitleStyles(title)}>{title}</Typography>
+    return (
+        <Box
+            component="span"
+            className="topRatedMovieTitle"
+            fontSize={title.length > 23 ? '1.7rem' : '2rem'}
+        >
+            {title}
+        </Box>
+    )
 }
 
 const TopRatedMovieRating = ({ vote_average }: TopRatedMovieRatingProps) => {
     return (
-        <Box sx={topRatedMovieRatingStyles}>
+        <Box className="topRatedMovieRating">
             <StarIcon
                 sx={{
                     fontSize: '1.3rem',
@@ -35,7 +42,7 @@ const TopRatedMovieReleaseDate = ({
     release,
 }: TopRatedMovieReleaseDateProps) => {
     return (
-        <Box sx={topRatedMovieReleaseDateStyles}>
+        <Box className="topRatedMovieReleaseDate">
             <Typography variant="subtitle1" sx={{ fontWeight: '600' }}>
                 Release date:
             </Typography>
@@ -45,41 +52,6 @@ const TopRatedMovieReleaseDate = ({
 }
 
 export default TopRatedMovieHeadings
-
-/* --------------------------------- STYLES --------------------------------- */
-const topRatedMovieRatingStyles = {
-    display: 'flex',
-    justifyContent: 'center',
-    alignItems: 'center',
-    position: 'absolute',
-    bottom: '0',
-    right: '0',
-    fontSize: '1.3rem',
-    padding: '1rem',
-    fontWeight: '900',
-}
-
-const topRatedMovieTitleStyles = (title: string) => ({
-    fontFamily: 'Roboto',
-    fontWeight: '500',
-    color: 'black',
-    fontSize: title.length > 23 ? '1.7rem' : '2rem',
-})
-
-const topRatedMovieReleaseDateStyles = {
-    display: 'flex',
-    alignItems: 'center',
-    gap: '5px',
-}
-
-const topRatedMovieHeadingsStyles = {
-    height: '30%',
-    position: 'absolute',
-    bottom: '0',
-    width: '100%',
-    padding: '1rem',
-    backgroundColor: 'white',
-}
 
 /* --------------------------------- TYPES --------------------------------- */
 type TopRatedMovieRatingProps = {

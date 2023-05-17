@@ -1,6 +1,6 @@
 import 'react-vertical-timeline-component/style.min.css'
 import { ParallaxProvider } from 'react-scroll-parallax'
-import { CSSProperties, lazy } from 'react'
+import { lazy } from 'react'
 import { motion } from 'framer-motion'
 import useScrollToTop from '../Hooks/useScrollToTop'
 import { justReleasedMovies, upcomingMovies } from '../Helpers/fetchMovies'
@@ -19,8 +19,7 @@ const Upcoming = () => {
                 animate={{ opacity: 1 }}
                 exit={{ opacity: 0 }}
                 transition={{ duration: 0.15 }}
-                style={upcomingPageStyles}
-                className="upcomingMovies"
+                className="upcomingPage"
             >
                 <Headline
                     title="Upcoming Movies"
@@ -30,13 +29,9 @@ const Upcoming = () => {
                 />
 
                 <TimelineHeadline label="Just released" />
-
                 <LazyUpcomingMovies movies={justReleasedMovies} />
-
                 <TimelineHeadline label="Upcoming" />
-
                 <LazyUpcomingMovies movies={upcomingMovies} />
-
                 <TimelineHeadline label="Stay tuned!" />
             </motion.div>
         </ParallaxProvider>
@@ -44,13 +39,3 @@ const Upcoming = () => {
 }
 
 export default Upcoming
-
-/* --------------------------------- STYLES --------------------------------- */
-const upcomingPageStyles: CSSProperties = {
-    display: 'flex',
-    flexDirection: 'column',
-    justifyContent: 'center',
-    alignContent: 'center',
-    alignItems: 'center',
-    marginTop: '4rem',
-}

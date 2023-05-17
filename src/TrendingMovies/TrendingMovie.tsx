@@ -3,8 +3,8 @@ import { motion } from 'framer-motion'
 import StarIcon from '@mui/icons-material/Star'
 import { Box, Typography } from '@mui/material'
 import { TrendingMovieDetailsProps, TrendingMovieProps } from './types'
-import useLoadingState from '../Hooks/useLoadingState'
-import TrendingMovieSkeleton from './TrendingMovieSkeleton'
+// import useLoadingState from '../Hooks/useLoadingState'
+// import TrendingMovieSkeleton from './TrendingMovieSkeleton'
 
 const TrendingMovie = ({
     id,
@@ -37,27 +37,27 @@ const TrendingMovie = ({
 export default TrendingMovie
 
 const TrendingMovieImage = ({ id, backdrop_path }: MovieImageProps) => {
-    const [isLoaded, onLoad] = useLoadingState()
+    // const [isLoaded, onLoad] = useLoadingState()
     return (
         <motion.div
             className="card-image-container"
             layoutId={`card-image-container-${id}`}
         >
-            {isLoaded ? (
-                <img
-                    onLoad={onLoad}
-                    width="800px"
-                    height="450px"
-                    className="card-image"
-                    src={`https://image.tmdb.org/t/p/w780/${backdrop_path}`}
-                    alt="trending movie"
-                />
-            ) : (
+            {/* {isLoaded ? ( */}
+            <img
+                // onLoad={onLoad}
+                width="800px"
+                height="450px"
+                className="card-image"
+                src={`https://image.tmdb.org/t/p/w780/${backdrop_path}`}
+                alt="trending movie"
+            />
+            {/* ) : (
                 <TrendingMovieSkeleton
                     onLoad={onLoad}
                     backdrop_path={backdrop_path}
                 />
-            )}
+            )} */}
         </motion.div>
     )
 }

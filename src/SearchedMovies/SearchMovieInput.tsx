@@ -15,7 +15,7 @@ const SearchMovieInput = ({
             label="Search Movies"
             placeholder="Type here"
             variant="outlined"
-            InputLabelProps={inputLabelPropsStyles(mainThemeColor)}
+            InputLabelProps={{ style: { color: mainThemeColor } }}
             inputProps={{ style: { color: textColor } }}
             sx={searchMovieInputStyles}
         />
@@ -23,7 +23,6 @@ const SearchMovieInput = ({
 }
 export default SearchMovieInput
 
-/* --------------------------------- STYLES --------------------------------- */
 const searchMovieInputStyles = {
     width: '70%',
     '& .MuiOutlinedInput-root': {
@@ -33,13 +32,6 @@ const searchMovieInputStyles = {
         },
     },
 }
-
-const inputLabelPropsStyles = (mainThemeColor: string) => {
-    return {
-        style: { color: mainThemeColor },
-    }
-}
-
 /* --------------------------------- TYPES --------------------------------- */
 type SearchMovieInputProps = {
     searchQuery: string

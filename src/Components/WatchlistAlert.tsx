@@ -1,4 +1,4 @@
-import { Alert, Snackbar } from '@mui/material'
+import { Snackbar, Alert } from '@mui/material'
 
 const WatchlistAlert = ({ showAlert }: WatchlistAlertProps) => {
     return (

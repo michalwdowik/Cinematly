@@ -1,4 +1,3 @@
-// import { Parallax } from 'react-scroll-parallax'
 import TrendingMovie from './TrendingMovie'
 import { TrendingMovieProps } from './types'
 import { trendingMovies } from '../Helpers/fetchMovies'

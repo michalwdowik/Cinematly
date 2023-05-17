@@ -1,5 +1,4 @@
 import { Box, Skeleton } from '@mui/material'
-import { useContext } from 'react'
 import {
     ActorImageType,
     ActorNameType,
@@ -13,15 +12,6 @@ import {
     ActorRole,
     ActorRoleOverview,
 } from './ActorDetails'
-import { ThemeContext } from '../Contexts/ThemeContext'
-import {
-    actorDetailsStyles,
-    actorImageStyles,
-    actorInfoStyles,
-    actorNameStyles,
-    actorRoleOverviewStyles,
-    knownForStyles,
-} from './commonStyles'
 
 const ActorDetailsSkeleton = ({
     name,
@@ -31,10 +21,9 @@ const ActorDetailsSkeleton = ({
     known_for,
     overview,
 }: ActorDetailsType) => {
-    const { mainThemeColorSecondary } = useContext(ThemeContext)
     return (
-        <Box sx={actorDetailsStyles(mainThemeColorSecondary)}>
-            <Box sx={actorInfoStyles}>
+        <Box className="actorDetails">
+            <Box className="actorInfo">
                 <ActorNameSkeleton name={name} />
                 <ActorRoleSkeleton
                     vote_average={vote_average}
@@ -54,11 +43,9 @@ const ActorImageSkeleton = ({ profile_path, onLoad }: ActorImageType) => {
         <Skeleton
             width="185px"
             height="278px"
-            variant="rounded"
-            sx={{
-                ...actorImageStyles,
-                bgcolor: 'grey.900',
-            }}
+            variant="rectangular"
+            className="actorImage"
+            sx={{ bgcolor: 'grey.900' }}
         >
             <ActorImage onLoad={onLoad} profile_path={profile_path} />
         </Skeleton>
@@ -70,10 +57,8 @@ const ActorNameSkeleton = ({ name }: ActorNameType) => {
         <Skeleton
             variant="text"
             height="45px"
-            sx={{
-                ...actorNameStyles,
-                bgcolor: 'grey.900',
-            }}
+            className="actorName"
+            sx={{ bgcolor: 'grey.900' }}
         >
             <ActorName name={name} />
         </Skeleton>
@@ -85,10 +70,8 @@ const ActorRoleSkeleton = ({ known_for, vote_average }: ActorRoleType) => {
         <Skeleton
             variant="text"
             height="30px"
-            sx={{
-                ...knownForStyles,
-                bgcolor: 'grey.900',
-            }}
+            className="knownFor"
+            sx={{ bgcolor: 'grey.900' }}
         >
             <ActorRole known_for={known_for} vote_average={vote_average} />
         </Skeleton>
@@ -99,10 +82,8 @@ const ActorOverviewSkeleton = ({ overview }: ActorRoleOverviewType) => {
     return (
         <Skeleton
             variant="text"
-            sx={{
-                ...actorRoleOverviewStyles,
-                bgcolor: 'grey.900',
-            }}
+            className="actorRoleOverview"
+            sx={{ bgcolor: 'grey.900' }}
         >
             <ActorRoleOverview overview={overview} />
         </Skeleton>

@@ -21,9 +21,9 @@ const TopRatedMovieDetails = ({ movie }: MovieProps) => {
 
 const TopRatedMovieOverview = ({ movie }: MovieProps) => {
     return (
-        <Typography sx={topRatedMovieOverviewStyles}>
+        <Box component="span" className="topRatedMovieOverview">
             &quot;{shortenOverview(movie.overview, 20)}&quot;
-        </Typography>
+        </Box>
     )
 }
 
@@ -50,11 +50,3 @@ const TopRatedMovieInfo = ({ movie }: MovieProps) => {
 }
 
 export default TopRatedMovieDetails
-
-/* --------------------------------- STYLES --------------------------------- */
-const topRatedMovieOverviewStyles = {
-    fontSize: '0.9rem',
-    color: 'white',
-    maxHeight: '200px',
-    overflow: 'scroll',
-}

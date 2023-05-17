@@ -2,7 +2,6 @@
 import Drawer from '@mui/material/Drawer'
 import ListItem from '@mui/material/ListItem'
 import Tab from '@mui/material/Tab'
-import Typography from '@mui/material/Typography'
 import { Link } from 'react-router-dom'
 import { Box } from '@mui/material'
 import { Page, websitePages } from '../Helpers/pages'
@@ -23,10 +22,10 @@ const DrawerList = ({
                 anchor="top"
                 open={isDrawerOpen}
                 onClose={toggleDrawer(false)}
-                PaperProps={{ sx: drawerPaperStyles }}
+                PaperProps={{ sx: { backgroundColor: '#fc9803' } }}
             >
                 {websitePages.map((page) => (
-                    <ListItem sx={drawerListItemStyles} key={page.name}>
+                    <ListItem sx={{ padding: '0' }} key={page.name}>
                         <Tab
                             onClick={() =>
                                 handleShowSearchModal(page.name, hideDrawer)
@@ -35,7 +34,7 @@ const DrawerList = ({
                             label={<DrawerListRow page={page} />}
                             component={Link}
                             to={
-                                page.name !== 'SEARCH'
+                                page.name === 'SEARCH'
                                     ? (undefined as any)
                                     : page.link
                             }
@@ -56,36 +55,22 @@ export default DrawerList
 
 const DrawerListRow = ({ page }: DrawerListRowProps) => {
     return (
-        <Box sx={drawerListRowStyles}>
+        <Box className="drawerListRow">
             {page.icon}
-            <Typography sx={drawerListRowNameStyles} variant="body2">
-                {page.name}
-            </Typography>
+            <span className="drawerListRowName">{page.name}</span>
         </Box>
     )
 }
 /* --------------------------------- STYLES --------------------------------- */
-const drawerPaperStyles = {
-    backgroundColor: '#fc9803',
-}
-const drawerListItemStyles = {
-    padding: '0',
-    margin: '0',
-}
 const drawerLinkStyles = {
     color: 'white',
+    opacity: '1',
+    transition: 'opacity 0.2s ease-in-out',
     textDecoration: 'none',
     '&:hover': {
-        opacity: 0.8,
+        opacity: 0.4,
     },
 }
-const drawerListRowStyles = {
-    color: 'white',
-    display: 'flex',
-    alignItems: 'center',
-    gap: '0.5rem',
-}
-const drawerListRowNameStyles = { opacity: '1', color: 'white' }
 
 /* --------------------------------- TYPES --------------------------------- */
 type DrawerListProps = {

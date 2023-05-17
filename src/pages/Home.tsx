@@ -19,7 +19,7 @@ const Home = () => {
 
     return (
         <ParallaxProvider>
-            <div className="container">
+            <div className="homeContainer">
                 <MoviesCarousel />
                 <Headline
                     enableParallax

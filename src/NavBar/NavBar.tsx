@@ -8,12 +8,11 @@ import useModeToggle from '../Hooks/useModeToggle'
 
 const NavBar = () => {
     const screenType = useScreenType()
-    const { isDarkMode, handleColorModeToggle, mainThemeColor } =
-        useModeToggle()
+    const { isDarkMode, handleColorModeToggle } = useModeToggle()
 
     return (
-        <AppBar sx={appBarStyles}>
-            <Toolbar sx={toolbarStyles(mainThemeColor)}>
+        <AppBar sx={{ border: 'none', position: 'sticky' }}>
+            <Toolbar className="toolbar">
                 {screenType.isMobile ? <NavbarDrawer /> : <NavbarMenu />}
 
                 <DarkModeSwitch
@@ -29,13 +28,3 @@ const NavBar = () => {
 }
 
 export default NavBar
-
-/* --------------------------------- STYLES --------------------------------- */
-const appBarStyles = { border: 'none', position: 'sticky' }
-const toolbarStyles = (mainThemeColor: string) => {
-    return {
-        bgcolor: mainThemeColor,
-        justifyContent: 'space-between',
-        height: '70px',
-    }
-}

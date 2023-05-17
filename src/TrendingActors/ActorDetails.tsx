@@ -1,4 +1,4 @@
-import { Box } from '@mui/material'
+import { Box, Typography } from '@mui/material'
 import { useContext } from 'react'
 import StarIcon from '@mui/icons-material/Star'
 import { ThemeContext } from '../Contexts/ThemeContext'
@@ -12,15 +12,6 @@ import {
     ActorRoleOverviewType,
     ActorRoleType,
 } from './types'
-import {
-    actorDetailsStyles,
-    actorImageStyles,
-    actorInfoStyles,
-    actorNameStyles,
-    actorRoleOverviewStyles,
-    knownForStyles,
-    knownForWrapperStyles,
-} from './commonStyles'
 
 export const ActorDetails = ({
     name,
@@ -30,10 +21,9 @@ export const ActorDetails = ({
     known_for,
     overview,
 }: ActorDetailsType) => {
-    const { mainThemeColorSecondary } = useContext(ThemeContext)
     return (
-        <Box sx={actorDetailsStyles(mainThemeColorSecondary)}>
-            <Box sx={actorInfoStyles}>
+        <Box className="actorDetails">
+            <Box className="actorInfo">
                 <ActorName name={name} />
                 <ActorRole vote_average={vote_average} known_for={known_for} />
                 <ActorRoleOverview overview={overview} />
@@ -46,7 +36,7 @@ export const ActorDetails = ({
 export const ActorName = ({ name }: ActorNameType) => {
     const { textColor } = useContext(ThemeContext)
     return (
-        <Box color={textColor} sx={actorNameStyles}>
+        <Box color={textColor} className="actorName">
             {name}
         </Box>
     )
@@ -54,7 +44,9 @@ export const ActorName = ({ name }: ActorNameType) => {
 
 const ActorKnownFor = ({ known_for }: ActorKnownForType) => {
     return (
-        <Box sx={knownForStyles}>{known_for[0].title || known_for[0].name}</Box>
+        <Box className="knownFor">
+            {known_for[0].title || known_for[0].name}
+        </Box>
     )
 }
 
@@ -62,11 +54,11 @@ const ActorRating = ({ vote_average }: ActorRatingType) => {
     const { textColor } = useContext(ThemeContext)
 
     return (
-        <Box sx={actorRatingStyles(textColor)}>
-            <span>
+        <Box className="actorRating">
+            <Box component="span" color={textColor}>
                 <StarIcon sx={{ fontSize: '0.9rem' }} />
                 {vote_average}
-            </span>
+            </Box>
         </Box>
     )
 }
@@ -74,8 +66,10 @@ const ActorRating = ({ vote_average }: ActorRatingType) => {
 export const ActorRoleOverview = ({ overview }: ActorRoleOverviewType) => {
     const { textColor } = useContext(ThemeContext)
     return (
-        <Box sx={actorRoleOverviewStyles(textColor)}>
-            {shortenOverview(overview, 25)}
+        <Box className="actorRoleOverview">
+            <Typography color={textColor}>
+                {shortenOverview(overview, 25)}
+            </Typography>
         </Box>
     )
 }
@@ -83,7 +77,7 @@ export const ActorRoleOverview = ({ overview }: ActorRoleOverviewType) => {
 export const ActorImage = ({ profile_path, onLoad }: ActorImageType) => {
     return (
         <img
-            style={actorImageStyles}
+            className="actorImage"
             alt="actor"
             width="185px"
             src={`https://image.tmdb.org/t/p/w185/${profile_path}`}
@@ -95,19 +89,9 @@ export const ActorImage = ({ profile_path, onLoad }: ActorImageType) => {
 
 export const ActorRole = ({ known_for, vote_average }: ActorRoleType) => {
     return (
-        <Box sx={knownForWrapperStyles}>
+        <Box className="knownForWrapper">
             <ActorRating vote_average={vote_average} />
             <ActorKnownFor known_for={known_for} />
         </Box>
     )
-}
-
-/* --------------------------------- STYLES --------------------------------- */
-const actorRatingStyles = (textColor: string) => {
-    return {
-        color: textColor,
-        fontSize: '1rem',
-        display: 'flex',
-        minWidth: '40px',
-    }
 }

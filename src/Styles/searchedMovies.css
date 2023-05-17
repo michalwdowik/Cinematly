@@ -1,3 +1,37 @@
+.searchMoviesOverlay {
+  position: fixed;
+  top: 570px;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.8);
+  z-index: 1;
+  cursor: pointer;
+}
+
+.searchMovies {
+  position: fixed;
+  top: 70px;
+  left: 0;
+  width: 100%;
+  height: 500px;
+  z-index: 2;
+  display: flex;
+  overflow-x: scroll;
+  padding-top: 2rem;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.searchedMovies {
+  display: flex;
+  gap: 1rem;
+  max-width: 100vw;
+  overflow-x: scroll;
+  padding: 1rem;
+}
+
 .searchedMovie {
   display: flex;
   justify-content: center;
@@ -65,4 +99,25 @@
 .searchMovieFadeOut {
   animation-name: fadeOut;
   animation-duration: 0.25s;
+}
+
+.searchMovieOverview {
+  max-height: 11rem;
+  padding: 0.5rem;
+  color: white;
+  font-size: 0.9rem;
+  word-wrap: break-word;
+  white-space: normal;
+  width: 85%;
+  align-self: center;
+  justify-self: center;
+  overflow: scroll;
+}
+
+.searchMovieDetails {
+  word-wrap: break-word;
+  white-space: normal;
+  font-size: 0.7rem;
+  max-width: 12rem;
+  align-self: center;
 }

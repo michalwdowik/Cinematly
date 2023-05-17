@@ -11,7 +11,7 @@ const SearchedMovies = ({ searchedMovies }: SearchedMoviesProps) => {
     const [isLoaded, onLoad] = useLoadingState()
 
     return searchedMovies.length > 0 ? (
-        <Box sx={searchedMoviesStyles}>
+        <Box className="searchedMovies">
             {searchedMovies.map((movie) =>
                 isLoaded ? (
                     <SearchedMovie
@@ -38,15 +38,6 @@ const SearchedMovies = ({ searchedMovies }: SearchedMoviesProps) => {
 }
 
 export default SearchedMovies
-
-/* --------------------------------- STYLES --------------------------------- */
-const searchedMoviesStyles = {
-    display: 'flex',
-    gap: '1rem',
-    maxWidth: '100vw',
-    overflowX: 'scroll',
-    padding: '1rem',
-}
 
 /* --------------------------------- TYPES --------------------------------- */
 type SearchedMoviesProps = {

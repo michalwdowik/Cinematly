@@ -1,6 +1,6 @@
-import { Actor } from '../TrendingActors/types'
+import { ActorType } from '../TrendingActors/types'
 
-const createActor = (actor: Actor) => ({
+const createActor = (actor: ActorType) => ({
     name: actor.name,
     vote_average: actor.known_for[0].vote_average,
     known_for: actor.known_for,

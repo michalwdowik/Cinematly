@@ -1,17 +1,18 @@
-import { Box, Skeleton, Typography } from '@mui/material'
+import { Box, Skeleton } from '@mui/material'
 import { MovieProps } from '../MovieCard/types'
 import useLoadingState from '../Hooks/useLoadingState'
 import shortenOverview from '../Helpers/cutText'
-import { watchlistMovieDetailsStyles } from './commonStyles'
-import { WatchlistMovieDetails } from './WatchlistMovieDetails'
-import WatchlistMovieDetailsSkeleton from './WatchlistMovieDetailsSkeleton'
+import {
+    WatchlistMovieDetailsSkeleton,
+    WatchlistMovieDetails,
+} from './WatchlistMovieDetails'
 
 const WatchlistMovie = ({ movie }: MovieProps) => {
     const [isLoaded, onLoad] = useLoadingState()
 
     return (
-        <Box sx={watchlistMovieStyles}>
-            <Box sx={watchlistMovieDetailsStyles}>
+        <Box className="watchlistMovie">
+            <Box className="watchlistMovieDetails">
                 {isLoaded ? (
                     <WatchlistMovieDetails
                         onLoad={onLoad}
@@ -45,10 +46,10 @@ const WatchlistMovieOverview = ({
     movieOverview,
 }: WatchlistMovieOverviewProps) => {
     return (
-        <Typography sx={watchlistMovieOverviewStyles}>
+        <span className="watchlistMovieOverview">
             {shortenOverview(movieOverview, 20)}
             ..
-        </Typography>
+        </span>
     )
 }
 
@@ -56,31 +57,12 @@ const WatchlistMovieOverviewSkeleton = ({
     movieOverview,
 }: WatchlistMovieOverviewProps) => {
     return (
-        <Skeleton variant="text" sx={watchlistMovieOverviewStyles}>
+        <Skeleton variant="text" className="watchlistMovieOverview">
             <WatchlistMovieOverview movieOverview={movieOverview} />
         </Skeleton>
     )
 }
 
-/* --------------------------------- STYLES --------------------------------- */
-const watchlistMovieStyles = {
-    display: 'flex',
-    flexGrow: '1',
-    gap: '0.5rem',
-    alignItems: 'center',
-}
-
-const watchlistMovieOverviewStyles = {
-    alignSelf: 'start',
-    justifyContent: 'start',
-    overflow: 'scroll',
-    color: 'black',
-    fontSize: '0.75rem',
-    transition: '0.2s ease-in-out all',
-    ':hover': {
-        opacity: '40%',
-    },
-}
 /* --------------------------------- TYPES --------------------------------- */
 type WatchlistMovieOverviewProps = {
     movieOverview: string

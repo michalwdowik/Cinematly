@@ -5,10 +5,10 @@ import { ThemeContext } from '../Contexts/ThemeContext'
 
 const WebsiteLogo = ({ navbarLogo }: WebsiteLogoProps) => {
     const { textColor } = useContext(ThemeContext)
-
+    const color = navbarLogo ? 'white' : textColor
     return (
         <Link to="/" aria-label="Cinematly Home Button">
-            <CinematlyLogo sx={logoStyles(textColor, navbarLogo)} />
+            <CinematlyLogo sx={{ fontSize: '3.438rem', color }} />
         </Link>
     )
 }
@@ -18,12 +18,4 @@ export default WebsiteLogo
 /* --------------------------------- TYPES --------------------------------- */
 type WebsiteLogoProps = {
     navbarLogo: boolean
-}
-
-/* --------------------------------- STYLES --------------------------------- */
-const logoStyles = (textColor: string, navbarLogo: boolean) => {
-    return {
-        fontSize: '3.438rem',
-        color: navbarLogo ? 'white' : textColor,
-    }
 }

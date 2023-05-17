@@ -5,7 +5,7 @@ import Actor from './Actor'
 
 const ActorsInfiniteSlider = () => {
     return (
-        <Box sx={actorsInfiniteSliderStyles}>
+        <Box className="actorsInfiniteSlider">
             <InfiniteSlider actors={trendingActors} width={600} visible={3}>
                 {({
                     profile_path,
@@ -28,12 +28,3 @@ const ActorsInfiniteSlider = () => {
 }
 
 export default ActorsInfiniteSlider
-
-/* --------------------------------- STYLES --------------------------------- */
-const actorsInfiniteSliderStyles = {
-    background: 'transparent',
-    height: '400px',
-    width: '100%',
-    marginBottom: '200px',
-    marginTop: '-20px',
-}

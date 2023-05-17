@@ -4,7 +4,7 @@ import { a, useSprings, SpringValue } from '@react-spring/web'
 import { v4 as uuid } from 'uuid'
 import { Box } from '@mui/material'
 import useDragInfiniteSlider from '../Hooks/useDragInfiniteSlider'
-import { Actor } from '../TrendingActors/types'
+import { ActorType } from '../TrendingActors/types'
 
 const InfiniteSlider = ({
     actors,
@@ -60,7 +60,7 @@ const InfiniteSlider = ({
     useDragInfiniteSlider({ runSprings, target })
 
     return (
-        <Box ref={target} sx={infiniteSliderStyles}>
+        <Box ref={target} className="infiniteSlider">
             {springs.map(({ x }, i) => (
                 <Box
                     component={a.div}
@@ -75,13 +75,6 @@ const InfiniteSlider = ({
 export default InfiniteSlider
 
 /* --------------------------------- STYLES --------------------------------- */
-const infiniteSliderStyles = {
-    position: 'relative',
-    height: '100%',
-    width: '100%',
-    touchAction: 'none',
-}
-
 const springStyle = (x: SpringValue<number>) => ({
     position: 'absolute' as const,
     height: '100%',
@@ -92,8 +85,8 @@ const springStyle = (x: SpringValue<number>) => ({
 
 /* --------------------------------- TYPES --------------------------------- */
 type InfiniteSliderProps = {
-    actors: Actor[]
+    actors: ActorType[]
     width: number
     visible: number
-    children: (item: Actor) => React.ReactNode
+    children: (item: ActorType) => React.ReactNode
 }

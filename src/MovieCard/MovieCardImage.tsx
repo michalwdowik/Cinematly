@@ -1,4 +1,3 @@
-import { CSSProperties } from 'react'
 import { motion } from 'framer-motion'
 
 const MovieCardImage = ({
@@ -11,7 +10,6 @@ const MovieCardImage = ({
         <img
             onLoad={onLoad}
             className="card-image"
-            style={movieCardImageStyles}
             alt="Trending Movie"
             src={`https://image.tmdb.org/t/p/w780/${backdrop_path}`}
         />
@@ -30,11 +28,6 @@ const MovieCardImage = ({
 }
 
 export default MovieCardImage
-
-/* --------------------------------- STYLES --------------------------------- */
-const movieCardImageStyles: CSSProperties = {
-    overflow: 'hidden',
-}
 
 /* --------------------------------- TYPES --------------------------------- */
 type MovieCardImageProps = {
