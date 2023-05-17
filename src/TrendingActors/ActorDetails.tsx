@@ -13,7 +13,7 @@ import {
     ActorRoleType,
 } from './types'
 
-export const ActorDetails = ({
+const ActorDetails = ({
     name,
     profile_path,
     vote_average,
@@ -32,8 +32,9 @@ export const ActorDetails = ({
         </Box>
     )
 }
+export default ActorDetails
 
-export const ActorName = ({ name }: ActorNameType) => {
+const ActorName = ({ name }: ActorNameType) => {
     const { textColor } = useContext(ThemeContext)
     return (
         <Box color={textColor} className="actorName">
@@ -63,7 +64,7 @@ const ActorRating = ({ vote_average }: ActorRatingType) => {
     )
 }
 
-export const ActorRoleOverview = ({ overview }: ActorRoleOverviewType) => {
+const ActorRoleOverview = ({ overview }: ActorRoleOverviewType) => {
     const { textColor } = useContext(ThemeContext)
     return (
         <Box className="actorRoleOverview">
@@ -74,8 +75,8 @@ export const ActorRoleOverview = ({ overview }: ActorRoleOverviewType) => {
     )
 }
 
-export const ActorImage = ({ profile_path, onLoad }: ActorImageType) => {
-    return (
+const ActorImage = ({ profile_path, onLoad }: ActorImageType) => {
+    return profile_path ? (
         <img
             className="actorImage"
             alt="actor"
@@ -84,14 +85,34 @@ export const ActorImage = ({ profile_path, onLoad }: ActorImageType) => {
             height="278px"
             onLoad={onLoad}
         />
+    ) : (
+        <NoActorImagePlaceholder onLoad={onLoad} />
     )
 }
 
-export const ActorRole = ({ known_for, vote_average }: ActorRoleType) => {
+const NoActorImagePlaceholder = ({ onLoad }: NoActorImagePlaceholderProps) => {
+    return (
+        <img
+            className="actorImage"
+            onLoad={onLoad}
+            src="https://1fid.com/wp-content/uploads/2022/06/no-profile-picture-4-1024x1024.jpg
+            "
+            alt="no actor img"
+            width="185px"
+            height="278px"
+        />
+    )
+}
+
+const ActorRole = ({ known_for, vote_average }: ActorRoleType) => {
     return (
         <Box className="knownForWrapper">
             <ActorRating vote_average={vote_average} />
             <ActorKnownFor known_for={known_for} />
         </Box>
     )
+}
+
+type NoActorImagePlaceholderProps = {
+    onLoad: () => void
 }

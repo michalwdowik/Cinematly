@@ -1,8 +1,6 @@
 import Checkbox from '@mui/material/Checkbox'
 import Collapse from '@mui/material/Collapse'
 import FormControlLabel from '@mui/material/FormControlLabel'
-// import List from '@mui/material/List'
-// import ListItem from '@mui/material/ListItem'
 import { TransitionGroup } from 'react-transition-group'
 import { Box } from '@mui/material'
 import { Movie, MovieProps } from '../MovieCard/types'
@@ -13,10 +11,8 @@ const WatchlistMovies = () => {
     const { watchlist } = useWatchlistContext()
 
     return (
-        // <List>
         <TransitionGroup>
             {watchlist.map((movie: Movie) => (
-                // <ListItem key={movie.id}>
                 <Collapse in key={movie.id}>
                     <Box className="watchlistRow">
                         <FormControlLabel
@@ -26,10 +22,8 @@ const WatchlistMovies = () => {
                     </Box>
                     <WatchlistMovieDivider />
                 </Collapse>
-                // </ListItem>
             ))}
         </TransitionGroup>
-        // </List>
     )
 }
 
@@ -40,6 +34,11 @@ const WatchlistMovieCheckbox = ({ movie }: MovieProps) => {
 
     return (
         <Checkbox
+            sx={{
+                '&.Mui-checked': {
+                    color: '#ff7703',
+                },
+            }}
             className="watchlistMovieCheckbox"
             onChange={() => removeMovieFromWatchlist(movie)}
         />

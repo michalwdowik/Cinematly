@@ -1,5 +1,5 @@
 import { Parallax } from 'react-scroll-parallax'
-import { useContext } from 'react'
+import { memo, useContext } from 'react'
 import { Box } from '@mui/material'
 import { ThemeContext } from '../Contexts/ThemeContext'
 
@@ -19,5 +19,5 @@ const Quote = () => {
         </Parallax>
     )
 }
-
-export default Quote
+const MemoizedQuote = memo(Quote)
+export default MemoizedQuote

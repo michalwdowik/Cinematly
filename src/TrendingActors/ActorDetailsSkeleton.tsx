@@ -1,44 +1,21 @@
 import { Box, Skeleton } from '@mui/material'
-import {
-    ActorImageType,
-    ActorNameType,
-    ActorRoleOverviewType,
-    ActorDetailsType,
-    ActorRoleType,
-} from './types'
-import {
-    ActorImage,
-    ActorName,
-    ActorRole,
-    ActorRoleOverview,
-} from './ActorDetails'
 
-const ActorDetailsSkeleton = ({
-    name,
-    profile_path,
-    vote_average,
-    onLoad,
-    known_for,
-    overview,
-}: ActorDetailsType) => {
+const ActorDetailsSkeleton = () => {
     return (
         <Box className="actorDetails">
             <Box className="actorInfo">
-                <ActorNameSkeleton name={name} />
-                <ActorRoleSkeleton
-                    vote_average={vote_average}
-                    known_for={known_for}
-                />
-                <ActorOverviewSkeleton overview={overview} />
+                <ActorNameSkeleton />
+                <ActorRoleSkeleton />
+                <ActorOverviewSkeleton />
             </Box>
-            <ActorImageSkeleton onLoad={onLoad} profile_path={profile_path} />
+            <ActorImageSkeleton />
         </Box>
     )
 }
 
 export default ActorDetailsSkeleton
 
-const ActorImageSkeleton = ({ profile_path, onLoad }: ActorImageType) => {
+const ActorImageSkeleton = () => {
     return (
         <Skeleton
             width="185px"
@@ -46,46 +23,57 @@ const ActorImageSkeleton = ({ profile_path, onLoad }: ActorImageType) => {
             variant="rectangular"
             className="actorImage"
             sx={{ bgcolor: 'grey.900' }}
-        >
-            <ActorImage onLoad={onLoad} profile_path={profile_path} />
-        </Skeleton>
+        />
     )
 }
 
-const ActorNameSkeleton = ({ name }: ActorNameType) => {
+const ActorNameSkeleton = () => {
     return (
         <Skeleton
             variant="text"
-            height="45px"
+            height="75px"
             className="actorName"
             sx={{ bgcolor: 'grey.900' }}
-        >
-            <ActorName name={name} />
-        </Skeleton>
+        />
     )
 }
 
-const ActorRoleSkeleton = ({ known_for, vote_average }: ActorRoleType) => {
+const ActorRoleSkeleton = () => {
     return (
         <Skeleton
             variant="text"
             height="30px"
             className="knownFor"
             sx={{ bgcolor: 'grey.900' }}
-        >
-            <ActorRole known_for={known_for} vote_average={vote_average} />
-        </Skeleton>
+        />
     )
 }
 
-const ActorOverviewSkeleton = ({ overview }: ActorRoleOverviewType) => {
+const ActorOverviewSkeleton = () => {
     return (
-        <Skeleton
-            variant="text"
-            className="actorRoleOverview"
-            sx={{ bgcolor: 'grey.900' }}
-        >
-            <ActorRoleOverview overview={overview} />
-        </Skeleton>
+        <>
+            <Skeleton
+                variant="text"
+                className="actorRoleOverview"
+                sx={{ bgcolor: 'grey.900', marginTop: '1rem' }}
+            />
+            <Skeleton
+                variant="text"
+                className="actorRoleOverview"
+                sx={{ bgcolor: 'grey.900' }}
+            />
+            <Skeleton
+                variant="text"
+                width="75%"
+                className="actorRoleOverview"
+                sx={{ bgcolor: 'grey.900' }}
+            />
+            <Skeleton
+                variant="text"
+                width="30%"
+                className="actorRoleOverview"
+                sx={{ bgcolor: 'grey.900' }}
+            />
+        </>
     )
 }

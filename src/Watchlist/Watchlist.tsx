@@ -20,7 +20,6 @@ const Watchlist = ({ toggleWatchlist, showWatchlist }: WatchlistProps) => {
                 }`}
             >
                 <WatchlistHeading />
-                <AccessAlarmIcon className="accessAlarmIcon" />
                 <WatchlistMovies />
                 {isWatchlistEmpty && (
                     <CallToActionLabel
@@ -42,7 +41,15 @@ const Watchlist = ({ toggleWatchlist, showWatchlist }: WatchlistProps) => {
 export default Watchlist
 
 const WatchlistHeading = () => {
-    return <span className="watchlistHeading">Watchlist</span>
+    return (
+        <Box component="span" className="watchlistHeading">
+            <span className="watchlistHeadingText">Watchlist</span>
+            <AccessAlarmIcon
+                sx={{ fontSize: '2.2rem' }}
+                className="accessAlarmIcon"
+            />
+        </Box>
+    )
 }
 
 const WatchlistBackgroundOverlay = ({

@@ -1,10 +1,10 @@
 import { useLocation, useParams } from 'react-router-dom'
 import { ParallaxProvider } from 'react-scroll-parallax'
-import TrendingMovies from '../TrendingMovies/TrendingMovies'
+import MemoizedTrendingMovies from '../TrendingMovies/TrendingMovies'
 import TrendingMovieModal from '../TrendingMovies/TrendingMovieModal'
-import MoviesCarousel from '../Carousel/MoviesCarousel'
-import Quote from '../Components/Quote'
-import ActorsInfiniteSlider from '../TrendingActors/ActorsInfiniteSlider'
+import MemoizedMoviesCarousel from '../Carousel/MoviesCarousel'
+import MemoizedQuote from '../Components/Quote'
+import MemoizedActorsInfiniteSlider from '../TrendingActors/ActorsInfiniteSlider'
 import { trendingMovies } from '../Helpers/fetchMovies'
 import useRedirectToError404 from '../Hooks/useRedirectToError404'
 import Headline from '../Components/Headline'
@@ -20,14 +20,14 @@ const Home = () => {
     return (
         <ParallaxProvider>
             <div className="homeContainer">
-                <MoviesCarousel />
+                <MemoizedMoviesCarousel />
                 <Headline
                     enableParallax
                     leftAligned
                     title="What's hot?"
                     subtitle="Stay up-to-date with the latest buzz in the entertainment world and find your next binge-worthy watch."
                 />
-                <TrendingMovies />
+                <MemoizedTrendingMovies />
 
                 {isMovie && <TrendingMovieModal id={id} />}
 
@@ -39,8 +39,8 @@ const Home = () => {
             Section Covers It All - Don't Miss Out on the Latest
             Scoop!"
                 />
-                <ActorsInfiniteSlider />
-                <Quote />
+                <MemoizedActorsInfiniteSlider />
+                <MemoizedQuote />
             </div>
         </ParallaxProvider>
     )

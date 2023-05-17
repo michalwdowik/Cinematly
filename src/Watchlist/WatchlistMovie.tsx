@@ -13,28 +13,19 @@ const WatchlistMovie = ({ movie }: MovieProps) => {
     return (
         <Box className="watchlistMovie">
             <Box className="watchlistMovieDetails">
-                {isLoaded ? (
-                    <WatchlistMovieDetails
-                        onLoad={onLoad}
-                        movieTitle={movie.title}
-                        movieBackdropPath={movie.backdrop_path}
-                        movieReleaseDate={movie.release_date || movie.release}
-                    />
-                ) : (
-                    <WatchlistMovieDetailsSkeleton
-                        onLoad={onLoad}
-                        movieTitle={movie.title}
-                        movieBackdropPath={movie.backdrop_path}
-                        movieReleaseDate={movie.release_date || movie.release}
-                    />
-                )}
+                {!isLoaded && <WatchlistMovieDetailsSkeleton />}
+                <WatchlistMovieDetails
+                    onLoad={onLoad}
+                    isLoaded={isLoaded}
+                    movieTitle={movie.title}
+                    movieBackdropPath={movie.backdrop_path}
+                    movieReleaseDate={movie.release_date || movie.release}
+                />
             </Box>
             {isLoaded ? (
                 <WatchlistMovieOverview movieOverview={movie.overview} />
             ) : (
-                <WatchlistMovieOverviewSkeleton
-                    movieOverview={movie.overview}
-                />
+                <WatchlistMovieOverviewSkeleton />
             )}
         </Box>
     )
@@ -53,13 +44,13 @@ const WatchlistMovieOverview = ({
     )
 }
 
-const WatchlistMovieOverviewSkeleton = ({
-    movieOverview,
-}: WatchlistMovieOverviewProps) => {
+const WatchlistMovieOverviewSkeleton = () => {
     return (
-        <Skeleton variant="text" className="watchlistMovieOverview">
-            <WatchlistMovieOverview movieOverview={movieOverview} />
-        </Skeleton>
+        <div className="watchlistMovieOverview">
+            <Skeleton variant="text" sx={{ fontSize: '0.5rem' }} width={240} />
+            <Skeleton variant="text" sx={{ fontSize: '0.5rem' }} width={180} />
+            <Skeleton variant="text" sx={{ fontSize: '0.5rem' }} width={100} />
+        </div>
     )
 }
 

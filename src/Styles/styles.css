@@ -9,6 +9,7 @@
 @import url('./carousel.css');
 
 
+
 :root {
   --mainThemeColor: #fc9803;
   --mainThemeColorSecondary: #fc7703;
@@ -35,20 +36,6 @@ body {
 
 ::-webkit-scrollbar {
   display: none; 
-}
-
-.watchlistHide {
-  transform-origin: right bottom;
-  animation: watchlistRoll 0.3s ease-in-out forwards, fadeOut 0.3s ease-in-out forwards;
-}
-
-.watchlistShow {
-  transform-origin: right bottom;
-  animation: watchlistUnroll 0.2s ease-in-out forwards, fadeIn 0.3s ease-in-out forwards;
-}
-
-.animateAddToWatchlist {
-  animation: watchlistButtonAnimateAdd 0.8s ease-in-out;
 }
 
 .divider {
@@ -234,6 +221,7 @@ opacity: 0.5,
 
 .callToActionLabel {
   margin-top: 4rem;
+  margin: auto;
   opacity: 50%;
 }
 
@@ -346,4 +334,8 @@ opacity: 0.5,
   height: 0.313rem;
   width: 100%;
   box-shadow: 0.125rem 0.125rem 0.125rem 0rem rgba(0, 0, 0, 0.2);
+}
+
+.hidden {
+  display: none;
 }

@@ -1,3 +1,4 @@
+import { memo } from 'react'
 import TrendingMovie from './TrendingMovie'
 import { TrendingMovieProps } from './types'
 import { trendingMovies } from '../Helpers/fetchMovies'
@@ -17,5 +18,5 @@ const TrendingMovies = () => {
         </ul>
     )
 }
-
-export default TrendingMovies
+const MemoizedTrendingMovies = memo(TrendingMovies)
+export default MemoizedTrendingMovies

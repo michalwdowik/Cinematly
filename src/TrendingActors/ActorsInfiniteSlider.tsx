@@ -1,4 +1,5 @@
 import { Box } from '@mui/material'
+import { memo } from 'react'
 import InfiniteSlider from '../Components/InfiniteSlider'
 import { trendingActors } from '../Helpers/fetchActors'
 import Actor from './Actor'
@@ -27,4 +28,6 @@ const ActorsInfiniteSlider = () => {
     )
 }
 
-export default ActorsInfiniteSlider
+const MemoizedActorsInfiniteSlider = memo(ActorsInfiniteSlider)
+
+export default MemoizedActorsInfiniteSlider

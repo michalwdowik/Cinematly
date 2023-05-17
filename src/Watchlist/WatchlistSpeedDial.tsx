@@ -8,7 +8,7 @@ import useEscapeKeyPress from '../Hooks/useEscapeKeyPress'
 import useWatchlistButtonAnimation from '../Hooks/useWatchlistButtonAnimation'
 import useShowWatchlist from '../Hooks/useShowWatchlist'
 import Watchlist from './Watchlist'
-// import Portal from '../Components/Portal'
+import Portal from '../Components/Portal'
 
 const WatchlistSpeedDial = () => {
     const { watchlist } = useWatchlistContext()
@@ -26,7 +26,7 @@ const WatchlistSpeedDial = () => {
             >
                 <Badge
                     className={`watchlistBadge ${
-                        animateAdd ? 'animateAddToWatchlist' : ''
+                        animateAdd && 'animateAddToWatchlist'
                     }`}
                     showZero
                     color="warning"
@@ -37,14 +37,14 @@ const WatchlistSpeedDial = () => {
                     />
                 </Badge>
             </Tooltip>
-            {/* {showWatchlist && ( */}
-            {/* <Portal id="watchlist"> */}
-            <Watchlist
-                showWatchlist={showWatchlist}
-                toggleWatchlist={toggleWatchlist}
-            />
-            {/* </Portal> */}
-            {/* )} */}
+            {showWatchlist && (
+                <Portal id="watchlist">
+                    <Watchlist
+                        showWatchlist={showWatchlist}
+                        toggleWatchlist={toggleWatchlist}
+                    />
+                </Portal>
+            )}
         </Box>
     )
 }

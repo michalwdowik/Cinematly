@@ -3,6 +3,7 @@ import 'react-responsive-carousel/lib/styles/carousel.min.css'
 import useScreenType from 'react-screentype-hook'
 import { v4 as uuid } from 'uuid'
 import { Skeleton } from '@mui/material'
+import { memo } from 'react'
 import MovieCarouselImage from './MovieCarouselImage'
 import { Movie } from '../MovieCard/types'
 import { nowPlayingMovies } from '../Helpers/fetchMovies'
@@ -41,7 +42,8 @@ const MoviesCarousel = () => {
         </Carousel>
     )
 }
-export default MoviesCarousel
+const MemoizedMoviesCarousel = memo(MoviesCarousel)
+export default MemoizedMoviesCarousel
 
 const MovieCarousel = ({ onLoad, movie }: MovieCarouselProps) => {
     return (

@@ -3,8 +3,6 @@ import { motion } from 'framer-motion'
 import StarIcon from '@mui/icons-material/Star'
 import { Box, Typography } from '@mui/material'
 import { TrendingMovieDetailsProps, TrendingMovieProps } from './types'
-// import useLoadingState from '../Hooks/useLoadingState'
-// import TrendingMovieSkeleton from './TrendingMovieSkeleton'
 
 const TrendingMovie = ({
     id,
