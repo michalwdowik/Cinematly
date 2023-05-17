@@ -1,6 +1,6 @@
 import { useContext } from 'react'
-import { Box, Skeleton } from '@mui/material'
-import SearchedMovie from './SearchedMovie'
+import { Box } from '@mui/material'
+import SearchedMovie, { SearchedMovieSkeleton } from './SearchedMovie'
 import { Movie } from '../MovieCard/types'
 import CallToActionLabel from '../Components/CallToActionLabel'
 import { ThemeContext } from '../Contexts/ThemeContext'
@@ -20,19 +20,11 @@ const SearchedMovies = ({ searchedMovies }: SearchedMoviesProps) => {
                         movie={movie}
                     />
                 ) : (
-                    <Skeleton
-                        width="253px"
-                        height="380px"
-                        sx={{ bgcolor: 'grey.900', borderRadius: '3rem' }}
-                        variant="rounded"
+                    <SearchedMovieSkeleton
+                        onLoad={onLoad}
                         key={movie.id}
-                    >
-                        <SearchedMovie
-                            onLoad={onLoad}
-                            key={movie.id}
-                            movie={movie}
-                        />
-                    </Skeleton>
+                        movie={movie}
+                    />
                 )
             )}
         </Box>

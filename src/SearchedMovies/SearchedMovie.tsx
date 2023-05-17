@@ -1,4 +1,4 @@
-import { Box } from '@mui/material'
+import { Box, Skeleton } from '@mui/material'
 import SearchedMovieDetails from './SearchedMovieDetails'
 import { Movie } from '../MovieCard/types'
 
@@ -33,12 +33,29 @@ const SearchedMoviePoster = ({
         />
     ) : (
         <img
-            alt="No poster placeholder}"
+            alt="No poster placeholder"
             className="searchedMoviePoster"
             src={`https://upload.wikimedia.org/wikipedia/commons/thumb/6/65/No-Image-Placeholder.svg/1665px-No-Image-Placeholder.svg.png
             `}
             onLoad={onLoad}
         />
+    )
+}
+
+export const SearchedMovieSkeleton = ({
+    movie,
+    onLoad,
+}: SearchedMovieProps) => {
+    return (
+        <Skeleton
+            width="15.813rem"
+            height="23.75rem"
+            sx={{ bgcolor: 'grey.900', borderRadius: '3rem' }}
+            variant="rounded"
+            key={movie.id}
+        >
+            <SearchedMovie onLoad={onLoad} key={movie.id} movie={movie} />
+        </Skeleton>
     )
 }
 

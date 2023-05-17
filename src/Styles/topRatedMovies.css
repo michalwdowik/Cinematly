@@ -6,19 +6,19 @@
   display: flex;
   justify-content: center;
   transition: all .4s cubic-bezier(0.175, 0.885, 0, 1);
-  height: 400px;
-  width: min(400px, 95vw);
+  height: 25rem;
+  width: min(25rem, 95vw);
   position: relative;
-  border-radius: 50px;
+  border-radius: 3.125rem;
   overflow: hidden;
-  box-shadow: 8px 8px 12px -5px rgb(0, 0, 0, 1);
+  box-shadow: 0.5rem 0.5rem 0.75rem -0.313rem rgb(0, 0, 0, 1);
 }
 
 
 .topRatedMovie:hover {
   color: white;
   transform: scale(1.10, 1.10);
-  box-shadow: 8px 8px 12px -5px rgb(0, 0, 0, 1);
+  box-shadow: 0.5rem 0.5rem 0.75rem -0.313rem rgb(0, 0, 0, 1);
 
 }
 
@@ -26,8 +26,8 @@
   transition: 0.2s all ease-out;
   position: absolute;
   height: 70%;
-  border-top-left-radius: 12px;
-  border-top-right-radius: 12px;
+  border-top-left-radius: 0.75rem;
+  border-top-right-radius: 0.75rem;
   top: 0;
   margin-left: -2rem;
 }
@@ -50,7 +50,7 @@ visibility: hidden;
   color: white;
   padding: 0.7rem;
   opacity: 95%;
-  border-bottom-right-radius: 30px;
+  border-bottom-right-radius: 1.875rem;
   background-color: var(--mainTheme);
 }
 

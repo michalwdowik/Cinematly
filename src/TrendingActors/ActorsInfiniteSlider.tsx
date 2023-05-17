@@ -1,12 +1,11 @@
-import { memo } from 'react'
 import { Box } from '@mui/material'
 import InfiniteSlider from '../Components/InfiniteSlider'
-import ActorDetails from './ActorDetails'
 import { trendingActors } from '../Helpers/fetchActors'
+import Actor from './Actor'
 
-const TrendingActors = () => {
+const ActorsInfiniteSlider = () => {
     return (
-        <Box sx={trendingActorsStyles}>
+        <Box sx={actorsInfiniteSliderStyles}>
             <InfiniteSlider actors={trendingActors} width={600} visible={3}>
                 {({
                     profile_path,
@@ -15,7 +14,7 @@ const TrendingActors = () => {
                     known_for,
                     overview,
                 }) => (
-                    <ActorDetails
+                    <Actor
                         name={name}
                         vote_average={vote_average}
                         overview={overview}
@@ -28,12 +27,10 @@ const TrendingActors = () => {
     )
 }
 
-const MemoizedTrendingActors = memo(TrendingActors)
-
-export default MemoizedTrendingActors
+export default ActorsInfiniteSlider
 
 /* --------------------------------- STYLES --------------------------------- */
-const trendingActorsStyles = {
+const actorsInfiniteSliderStyles = {
     background: 'transparent',
     height: '400px',
     width: '100%',

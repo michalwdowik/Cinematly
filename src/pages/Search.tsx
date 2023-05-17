@@ -18,7 +18,8 @@ const Search = ({ handleShowSearchModal }: SearchProps) => {
             movieTitle: `${event.target.value}`,
         }).then((results) => setSearchedMovies(results))
     }
-    const handleOverlayClick = () => {
+
+    const hideSearchModal = () => {
         handleShowSearchModal('SEARCH')
     }
     return (
@@ -31,17 +32,15 @@ const Search = ({ handleShowSearchModal }: SearchProps) => {
                 handleSearchChange={handleSearchChange}
             />
             <SearchedMovies searchedMovies={searchedMovies} />
-            <SearchMoviesOverlay handleOverlayClick={handleOverlayClick} />
+            <SearchMoviesOverlay hideSearchModal={hideSearchModal} />
         </Box>
     )
 }
 
 export default Search
 
-const SearchMoviesOverlay = ({
-    handleOverlayClick,
-}: SearchMoviesOverlayProps) => {
-    return <Box sx={searchMoviesOverlayStyles} onClick={handleOverlayClick} />
+const SearchMoviesOverlay = ({ hideSearchModal }: SearchMoviesOverlayProps) => {
+    return <Box sx={searchMoviesOverlayStyles} onClick={hideSearchModal} />
 }
 
 /* --------------------------------- STYLES --------------------------------- */
@@ -79,5 +78,5 @@ type SearchProps = {
     handleShowSearchModal: (pageLabel: string) => void
 }
 type SearchMoviesOverlayProps = {
-    handleOverlayClick: () => void
+    hideSearchModal: () => void
 }

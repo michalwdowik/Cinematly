@@ -5,12 +5,6 @@ import { trendingMovies } from '../Helpers/fetchMovies'
 
 const TrendingMovies = () => {
     return (
-        // <Parallax
-        //     easing="easeInCubic"
-        //     speed={100}
-        //     scale={[1.25, 0.5]}
-        //     translateY={['350px', '-50px']}
-        // >
         <ul className="card-list">
             {trendingMovies.map((movie: TrendingMovieProps) => (
                 <TrendingMovie
@@ -22,7 +16,6 @@ const TrendingMovies = () => {
                 />
             ))}
         </ul>
-        // </Parallax>
     )
 }
 

@@ -1,7 +1,7 @@
 import { BrowserRouter as Router } from 'react-router-dom'
 import ThemeProvider from './Contexts/ThemeContext'
 import NavBar from './NavBar/NavBar'
-import RoutesComponent from './pages/RoutesComponent'
+import AllRoutes from './pages/AllRoutes'
 import Footer from './Footer/Footer'
 import BottomScrollBar from './Components/BottomScrollBar'
 import { WatchlistContextProvider } from './Watchlist/WatchlistContext'
@@ -13,7 +13,7 @@ const App = () => {
             <ThemeProvider>
                 <WatchlistContextProvider>
                     <NavBar />
-                    <RoutesComponent />
+                    <AllRoutes />
                     <WatchlistSpeedDial />
                 </WatchlistContextProvider>
                 <Footer />

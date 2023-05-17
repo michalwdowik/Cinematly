@@ -15,7 +15,7 @@ const MovieCard = ({ movie, type }: MovieCardType) => {
     )
 }
 
-export default MovieCard
+export { MovieCard as TimelineMovie, MovieCard as TrendingMovieModalCard }
 
 const MovieCardComponent = ({
     movie,

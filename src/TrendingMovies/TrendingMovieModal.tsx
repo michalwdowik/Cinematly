@@ -1,7 +1,7 @@
 import { motion } from 'framer-motion'
 import { Link } from 'react-router-dom'
 import { Box } from '@mui/material'
-import MovieCard from '../MovieCard/MovieCard'
+import { TrendingMovieModalCard } from '../MovieCard/MovieCard'
 import { Movie } from '../MovieCard/types'
 import fetchMovies from '../Helpers/fetchMovies'
 
@@ -18,7 +18,10 @@ const TrendingMovieModal = ({ id }: { id: string }) => {
                     layoutId={`card-container-${id}`}
                 >
                     {trendingMovie && (
-                        <MovieCard type="trending" movie={trendingMovie} />
+                        <TrendingMovieModalCard
+                            type="trending"
+                            movie={trendingMovie}
+                        />
                     )}
                 </motion.div>
             </Box>

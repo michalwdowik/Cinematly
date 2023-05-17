@@ -8,6 +8,7 @@ import { Box } from '@mui/material'
 import { Page, websitePages } from '../Helpers/pages'
 import Search from '../pages/Search'
 import useShowSearchModal from '../Hooks/useShowSearchModal'
+import Portal from '../Components/Portal'
 
 const DrawerList = ({
     toggleDrawer,
@@ -34,7 +35,7 @@ const DrawerList = ({
                             label={<DrawerListRow page={page} />}
                             component={Link}
                             to={
-                                page.name === 'SEARCH'
+                                page.name !== 'SEARCH'
                                     ? (undefined as any)
                                     : page.link
                             }
@@ -44,7 +45,9 @@ const DrawerList = ({
                 ))}
             </Drawer>
             {showSearchModal && (
-                <Search handleShowSearchModal={handleShowSearchModal} />
+                <Portal id="searchMovie">
+                    <Search handleShowSearchModal={handleShowSearchModal} />
+                </Portal>
             )}
         </>
     )

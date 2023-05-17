@@ -1,22 +1,27 @@
-import { useParams } from 'react-router-dom'
+import { useLocation, useParams } from 'react-router-dom'
 import { ParallaxProvider } from 'react-scroll-parallax'
 import TrendingMovies from '../TrendingMovies/TrendingMovies'
 import TrendingMovieModal from '../TrendingMovies/TrendingMovieModal'
 import MoviesCarousel from '../Carousel/MoviesCarousel'
 import Quote from '../Components/Quote'
-import SectionHeadline from '../SectionHeadline/SectionHeadline'
-import MemoizedTrendingActors from '../TrendingActors/TrendingActors'
+import ActorsInfiniteSlider from '../TrendingActors/ActorsInfiniteSlider'
 import { trendingMovies } from '../Helpers/fetchMovies'
+import useRedirectToError404 from '../Hooks/useRedirectToError404'
+import Headline from '../Components/Headline'
 
 const Home = () => {
     const { id } = useParams()
-    const belongsToMovies =
-        id && trendingMovies.some((movie) => movie.id !== id)
+    const location = useLocation()
+    const isRootPath = location.pathname === '/'
+    const isMovie = id && trendingMovies.some((movie) => movie.id === id)
+
+    useRedirectToError404(Boolean(isMovie), isRootPath)
+
     return (
         <ParallaxProvider>
             <div className="container">
                 <MoviesCarousel />
-                <SectionHeadline
+                <Headline
                     enableParallax
                     leftAligned
                     title="What's hot?"
@@ -24,9 +29,9 @@ const Home = () => {
                 />
                 <TrendingMovies />
 
-                {belongsToMovies ? <TrendingMovieModal id={id} /> : null}
+                {isMovie && <TrendingMovieModal id={id} />}
 
-                <SectionHeadline
+                <Headline
                     enableParallax
                     leftAligned={false}
                     title=" Trending Actors"
@@ -34,7 +39,7 @@ const Home = () => {
             Section Covers It All - Don't Miss Out on the Latest
             Scoop!"
                 />
-                <MemoizedTrendingActors />
+                <ActorsInfiniteSlider />
                 <Quote />
             </div>
         </ParallaxProvider>

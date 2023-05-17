@@ -1,90 +1,49 @@
-import StarIcon from '@mui/icons-material/Star'
+import { Box } from '@mui/material'
 import { useContext } from 'react'
-import { Box, Skeleton } from '@mui/material'
+import StarIcon from '@mui/icons-material/Star'
 import { ThemeContext } from '../Contexts/ThemeContext'
-import { Actor } from './types'
 import shortenOverview from '../Helpers/cutText'
-import useLoadingState from '../Hooks/useLoadingState'
+import {
+    ActorDetailsType,
+    ActorImageType,
+    ActorKnownForType,
+    ActorNameType,
+    ActorRatingType,
+    ActorRoleOverviewType,
+    ActorRoleType,
+} from './types'
+import {
+    actorDetailsStyles,
+    actorImageStyles,
+    actorInfoStyles,
+    actorNameStyles,
+    actorRoleOverviewStyles,
+    knownForStyles,
+    knownForWrapperStyles,
+} from './commonStyles'
 
-const ActorDetails = ({
+export const ActorDetails = ({
     name,
+    profile_path,
     vote_average,
+    onLoad,
     known_for,
     overview,
-    profile_path,
-}: Actor) => {
+}: ActorDetailsType) => {
     const { mainThemeColorSecondary } = useContext(ThemeContext)
-    const [isLoaded, onLoad] = useLoadingState()
-
     return (
         <Box sx={actorDetailsStyles(mainThemeColorSecondary)}>
             <Box sx={actorInfoStyles}>
-                {isLoaded ? (
-                    <>
-                        <ActorName name={name} />
-                        <Box sx={knownForWrapperStyles}>
-                            <ActorRating vote_average={vote_average} />
-                            <ActorKnownFor known_for={known_for} />
-                        </Box>
-                        <ActorRoleOverview overview={overview} />
-                    </>
-                ) : (
-                    <>
-                        <Skeleton
-                            variant="text"
-                            height="45px"
-                            sx={{
-                                ...actorNameStyles,
-                                bgcolor: 'grey.900',
-                            }}
-                        >
-                            <ActorName name={name} />
-                        </Skeleton>
-                        <Skeleton
-                            variant="text"
-                            height="30px"
-                            sx={{
-                                ...knownForStyles,
-                                bgcolor: 'grey.900',
-                            }}
-                        >
-                            <Box sx={knownForWrapperStyles}>
-                                <ActorRating vote_average={vote_average} />
-                                <ActorKnownFor known_for={known_for} />
-                            </Box>
-                        </Skeleton>
-                        <Skeleton
-                            variant="text"
-                            sx={{
-                                ...actorRoleOverviewStyles,
-                                bgcolor: 'grey.900',
-                            }}
-                        >
-                            <ActorRoleOverview overview={overview} />
-                        </Skeleton>
-                    </>
-                )}
+                <ActorName name={name} />
+                <ActorRole vote_average={vote_average} known_for={known_for} />
+                <ActorRoleOverview overview={overview} />
             </Box>
-            {isLoaded ? (
-                <ActorImage onLoad={onLoad} profile_path={profile_path} />
-            ) : (
-                <Skeleton
-                    width="185px"
-                    height="278px"
-                    variant="rounded"
-                    sx={{
-                        ...actorImageStyles,
-                        bgcolor: 'grey.900',
-                    }}
-                >
-                    <ActorImage onLoad={onLoad} profile_path={profile_path} />
-                </Skeleton>
-            )}
+            <ActorImage onLoad={onLoad} profile_path={profile_path} />{' '}
         </Box>
     )
 }
 
-const ActorName = ({ name }: ActorNameProps) => {
+export const ActorName = ({ name }: ActorNameType) => {
     const { textColor } = useContext(ThemeContext)
     return (
         <Box color={textColor} sx={actorNameStyles}>
@@ -93,22 +52,13 @@ const ActorName = ({ name }: ActorNameProps) => {
     )
 }
 
-const ActorKnownFor = ({ known_for }: ActorKnownForProps) => {
+const ActorKnownFor = ({ known_for }: ActorKnownForType) => {
     return (
         <Box sx={knownForStyles}>{known_for[0].title || known_for[0].name}</Box>
     )
 }
 
-const ActorRoleOverview = ({ overview }: ActorRoleOverviewProps) => {
-    const { textColor } = useContext(ThemeContext)
-    return (
-        <Box sx={actorRoleOverviewStyles(textColor)}>
-            {shortenOverview(overview, 25)}
-        </Box>
-    )
-}
-
-const ActorRating = ({ vote_average }: ActorRatingProps) => {
+const ActorRating = ({ vote_average }: ActorRatingType) => {
     const { textColor } = useContext(ThemeContext)
 
     return (
@@ -121,7 +71,16 @@ const ActorRating = ({ vote_average }: ActorRatingProps) => {
     )
 }
 
-const ActorImage = ({ profile_path, onLoad }: ActorImageProps) => {
+export const ActorRoleOverview = ({ overview }: ActorRoleOverviewType) => {
+    const { textColor } = useContext(ThemeContext)
+    return (
+        <Box sx={actorRoleOverviewStyles(textColor)}>
+            {shortenOverview(overview, 25)}
+        </Box>
+    )
+}
+
+export const ActorImage = ({ profile_path, onLoad }: ActorImageType) => {
     return (
         <img
             style={actorImageStyles}
@@ -134,53 +93,16 @@ const ActorImage = ({ profile_path, onLoad }: ActorImageProps) => {
     )
 }
 
-export default ActorDetails
+export const ActorRole = ({ known_for, vote_average }: ActorRoleType) => {
+    return (
+        <Box sx={knownForWrapperStyles}>
+            <ActorRating vote_average={vote_average} />
+            <ActorKnownFor known_for={known_for} />
+        </Box>
+    )
+}
 
 /* --------------------------------- STYLES --------------------------------- */
-const actorDetailsStyles = (mainThemeColorSecondary: string) => {
-    return {
-        display: 'flex',
-        justifyContent: 'space-between',
-        width: '550px',
-        border: `2px ${mainThemeColorSecondary} solid`,
-        padding: '2rem',
-        borderImage: `linear-gradient(45deg, ${mainThemeColorSecondary} 1%, transparent 12%) 2`,
-        marginTop: '1.5rem',
-    }
-}
-
-const actorInfoStyles = {
-    width: '60%',
-    padding: '0.3rem',
-    marginRight: '1.5rem',
-}
-
-const actorNameStyles = {
-    fontSize: { xs: '24px', md: '32px', lg: '40px' },
-    fontWeight: 'bold',
-}
-
-const knownForStyles = {
-    fontSize: '1rem',
-    color: '#fc7b03',
-    fontWeight: 'bold',
-}
-const knownForWrapperStyles = {
-    display: 'flex',
-    alignItems: 'center',
-    gap: '5px',
-    fontStyle: 'italic',
-    marginY: '.5rem',
-}
-
-const actorRoleOverviewStyles = (textColor: string) => {
-    return {
-        color: textColor,
-        marginBottom: '10px',
-        opacity: '70%',
-    }
-}
-
 const actorRatingStyles = (textColor: string) => {
     return {
         color: textColor,
@@ -189,17 +111,3 @@ const actorRatingStyles = (textColor: string) => {
         minWidth: '40px',
     }
 }
-
-const actorImageStyles = {
-    borderRadius: '50px',
-    boxShadow: '8px 8px 12px -5px rgba(0, 0, 0, 1)',
-    height: 'auto',
-    alignSelf: 'center',
-    objectPosition: 'center top',
-}
-/* --------------------------------- TYPES --------------------------------- */
-type ActorNameProps = Pick<Actor, 'name'>
-type ActorKnownForProps = Pick<Actor, 'known_for'>
-type ActorRatingProps = Pick<Actor, 'vote_average'>
-type ActorImageProps = Pick<Actor, 'profile_path'> & { onLoad: () => void }
-type ActorRoleOverviewProps = Pick<Actor, 'overview'>

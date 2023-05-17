@@ -4,7 +4,10 @@ import AccessTimeIcon from '@mui/icons-material/AccessTime'
 import { CSSProperties, ReactNode, useContext } from 'react'
 import { ThemeContext } from '../Contexts/ThemeContext'
 
-const TimelineMovie = ({ releaseDate, children }: TimelineWrapperProps) => {
+const TimelineMovieWrapper = ({
+    releaseDate,
+    children,
+}: TimelineWrapperProps) => {
     const { mainThemeColor } = useContext(ThemeContext)
     const today = new Date()
     const movieReleaseDate = new Date(releaseDate)
@@ -29,7 +32,7 @@ const TimelineMovie = ({ releaseDate, children }: TimelineWrapperProps) => {
     )
 }
 
-export default TimelineMovie
+export default TimelineMovieWrapper
 
 /* --------------------------------- STYLES --------------------------------- */
 const timelineWrapperStyles: CSSProperties = {

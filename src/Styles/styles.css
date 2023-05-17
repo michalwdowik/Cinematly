@@ -6,16 +6,12 @@
 html {
 width: 100vw;
 overflow-x: hidden;
-}
-
-html {
-  scrollbar-width: none;
+scrollbar-width: none;
 }
 
 body {
   margin: 0;
 }
-
 
 * {
   box-sizing: border-box;
@@ -49,7 +45,7 @@ body {
   width: 30%;
   margin: auto;
   opacity: 30%;
-  height: 1px;
+  height: 0.063rem;
 }
 
 .movieCardDetails {

@@ -1,8 +1,8 @@
 import { VerticalTimeline as Timeline } from 'react-vertical-timeline-component'
 import { useContext } from 'react'
-import TimelineMovie from './TimelineMovie'
+import TimelineMovieWrapper from './TimelineMovieWrapper'
 import { Movie } from '../MovieCard/types'
-import MovieCard from '../MovieCard/MovieCard'
+import { TimelineMovie } from '../MovieCard/MovieCard'
 import { ThemeContext } from '../Contexts/ThemeContext'
 
 const UpcomingMovies = ({ movies }: UpcomingMoviesProps) => {
@@ -10,12 +10,12 @@ const UpcomingMovies = ({ movies }: UpcomingMoviesProps) => {
     return (
         <Timeline lineColor={mainThemeColor}>
             {movies.map((movie: Movie) => (
-                <TimelineMovie
+                <TimelineMovieWrapper
                     key={movie.id}
                     releaseDate={movie.release || movie.release_date}
                 >
-                    <MovieCard type="upcoming" movie={movie} />
-                </TimelineMovie>
+                    <TimelineMovie type="upcoming" movie={movie} />
+                </TimelineMovieWrapper>
             ))}
         </Timeline>
     )

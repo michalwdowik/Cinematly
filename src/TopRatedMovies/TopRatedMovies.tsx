@@ -1,8 +1,7 @@
-import { Box } from '@mui/material'
+import { Box, Skeleton } from '@mui/material'
 import { Movie } from '../MovieCard/types'
 import { topRatedMovies } from '../Helpers/fetchMovies'
 import TopRatedMovie from './TopRatedMovie'
-import TopRatedMovieSkeleton from './TopRatedMovieSkeleton'
 import useLoadingState from '../Hooks/useLoadingState'
 
 const TopRatedMovies = () => {
@@ -26,6 +25,23 @@ const TopRatedMovies = () => {
 }
 
 export default TopRatedMovies
+
+const TopRatedMovieSkeleton = () => {
+    return (
+        <Box className="topRatedMovie">
+            <Skeleton
+                sx={{
+                    bgcolor: 'grey.900',
+                    borderRadius: '2rem',
+                    margin: 'auto',
+                }}
+                width={400}
+                height={400}
+                variant="rectangular"
+            />
+        </Box>
+    )
+}
 
 /* --------------------------------- STYLES --------------------------------- */
 const topRatedMovieCardsStyles = {

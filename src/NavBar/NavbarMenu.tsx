@@ -40,6 +40,7 @@ const NavbarTabs = () => {
 
 const NavbarTab = ({ page }: NavbarTabProps) => {
     const { showSearchModal, handleShowSearchModal } = useShowSearchModal()
+    const pageLink = page.name === 'SEARCH' ? (undefined as any) : page.link
     return (
         <>
             <Tab
@@ -48,13 +49,13 @@ const NavbarTab = ({ page }: NavbarTabProps) => {
                 sx={navbarTabStyles}
                 label={page.name}
                 component={Link}
-                to={page.name === 'SEARCH' ? (undefined as any) : page.link}
+                to={pageLink}
             />
-            <Portal id="searchMovie">
-                {showSearchModal && (
+            {showSearchModal && (
+                <Portal id="searchMovie">
                     <Search handleShowSearchModal={handleShowSearchModal} />
-                )}
-            </Portal>
+                </Portal>
+            )}
         </>
     )
 }

@@ -1,8 +1,8 @@
 import { motion } from 'framer-motion'
 import { Box } from '@mui/material'
-import SectionHeading from '../SectionHeadline/SectionHeadline'
 import useScrollToTop from '../Hooks/useScrollToTop'
 import TopRatedMovies from '../TopRatedMovies/TopRatedMovies'
+import Headline from '../Components/Headline'
 
 const TopRated = () => {
     useScrollToTop()
@@ -15,7 +15,7 @@ const TopRated = () => {
             transition={{ duration: 0.15 }}
         >
             <Box sx={topRatedPageBoxStyles}>
-                <SectionHeading
+                <Headline
                     title="Top Rated Movies"
                     subtitle="Revisit the Legends of the Silver Screen - Our Curated Collection of Timeless Classics"
                     leftAligned

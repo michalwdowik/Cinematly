@@ -39,12 +39,14 @@ const WatchlistSpeedDial = () => {
                     />
                 </Badge>
             </Tooltip>
-            <Portal id="watchlist">
-                <Watchlist
-                    showWatchlist={showWatchlist}
-                    toggleWatchlist={toggleWatchlist}
-                />
-            </Portal>
+            {/* {showWatchlist && ( */}
+            {/* <Portal id="watchlist"> */}
+            <Watchlist
+                showWatchlist={showWatchlist}
+                toggleWatchlist={toggleWatchlist}
+            />
+            {/* </Portal> */}
+            {/* )} */}
         </Box>
     )
 }

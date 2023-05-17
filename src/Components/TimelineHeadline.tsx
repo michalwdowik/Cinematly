@@ -4,7 +4,7 @@ import { useContext } from 'react'
 import useScreenType from 'react-screentype-hook'
 import { ThemeContext } from '../Contexts/ThemeContext'
 
-const Heading = ({ label }: HeadingProps) => {
+const TimelineHeadline = ({ label }: HeadingProps) => {
     const { textColor } = useContext(ThemeContext)
     const screenType = useScreenType()
 
@@ -19,7 +19,7 @@ const Heading = ({ label }: HeadingProps) => {
         </Parallax>
     )
 }
-export default Heading
+export default TimelineHeadline
 
 /* --------------------------------- STYLES --------------------------------- */
 const headingStyles = (textColor: string) => {

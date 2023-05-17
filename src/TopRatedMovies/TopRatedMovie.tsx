@@ -1,7 +1,7 @@
 import { Box } from '@mui/material'
 import TopRatedMovieHeadings from './TopRatedMovieHeadings'
-import TopRatedMovieHovered from './TopRatedMovieDetails'
 import { Movie } from '../MovieCard/types'
+import TopRatedMovieDetails from './TopRatedMovieDetails'
 
 const TopRatedMovie = ({
     movie,
@@ -18,7 +18,7 @@ const TopRatedMovie = ({
                 backdrop_path={movie.backdrop_path}
                 onLoad={onLoad}
             />
-            <TopRatedMovieHovered movie={movie} />
+            <TopRatedMovieDetails movie={movie} />
         </Box>
     )
 }

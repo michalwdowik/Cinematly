@@ -11,7 +11,7 @@ type WatchlistProps = {
 }
 const Watchlist = ({ toggleWatchlist, showWatchlist }: WatchlistProps) => {
     const { watchlist } = useWatchlistContext()
-    const watchlistIsEmpty = watchlist.length === 0
+    const isWatchlistEmpty = watchlist.length === 0
 
     return (
         <>
@@ -24,7 +24,7 @@ const Watchlist = ({ toggleWatchlist, showWatchlist }: WatchlistProps) => {
                 <WatchlistHeading />
                 <AccessAlarmIcon sx={accessAlarmIconStyles} />
                 <WatchlistMovies />
-                {watchlistIsEmpty && (
+                {isWatchlistEmpty && (
                     <CallToActionLabel
                         message="Add some movies..."
                         textSize="1.5rem"
@@ -71,9 +71,9 @@ const watchlistHeadingStyles = {
 const watchlistStyles = {
     background: 'rgba( 255, 255, 255, 0.45 )',
     backdropFilter: 'blur( 20px )',
-    position: 'absolute',
-    bottom: '80px',
-    right: '2px',
+    position: 'fixed',
+    bottom: '6.25rem',
+    right: '1.2rem',
     width: '450px',
     maxHeight: '600px',
     overflowY: 'auto',

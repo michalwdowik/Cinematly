@@ -60,7 +60,7 @@ const NotFoundMessage = ({ mainThemeColor, loaded }: NotFoundMessageProps) => {
                         Oops! Looks like you have stumbled upon an unknown path.
                     </p>
                     <Link to="/" style={{ color: mainThemeColor }}>
-                        Go to Home
+                        Go to Homepage
                     </Link>
                 </div>
             ) : (

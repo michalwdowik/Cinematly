@@ -7,7 +7,7 @@ const LazyTopRated = lazy(() => import('./TopRated'))
 const LazyUpcoming = lazy(() => import('./Upcoming'))
 const LazyNotFound = lazy(() => import('./NotFound'))
 
-const RoutesComponent = () => {
+const AllRoutes = () => {
     const location = useLocation()
 
     return (
@@ -32,7 +32,15 @@ const RoutesComponent = () => {
                 />
                 <Route path="/:id" element={<Home />} />
                 <Route
-                    path="*"
+                    path="/error404/*"
+                    element={
+                        <Suspense fallback={<RouteLoadingSkeleton />}>
+                            <LazyNotFound />
+                        </Suspense>
+                    }
+                />
+                <Route
+                    path="/*"
                     element={
                         <Suspense fallback={<RouteLoadingSkeleton />}>
                             <LazyNotFound />
@@ -44,4 +52,4 @@ const RoutesComponent = () => {
     )
 }
 
-export default RoutesComponent
+export default AllRoutes
