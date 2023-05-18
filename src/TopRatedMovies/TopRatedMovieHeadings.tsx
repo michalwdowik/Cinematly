@@ -1,40 +1,47 @@
 import Typography from '@mui/material/Typography'
 import StarIcon from '@mui/icons-material/Star'
 import { Box } from '@mui/material'
+import { LazyLoadComponent } from 'react-lazy-load-image-component'
 import { MovieProps } from '../MovieCard/types'
 
 const TopRatedMovieHeadings = ({ movie }: MovieProps) => {
     return (
-        <Box className="topRatedMovieHeadings">
-            <TopRatedMovieTitle title={movie.title} />
-            <TopRatedMovieRating vote_average={movie.vote_average} />
-            <TopRatedMovieReleaseDate release={movie.release} />
-        </Box>
+        <LazyLoadComponent>
+            <Box className="topRatedMovieHeadings">
+                <TopRatedMovieTitle title={movie.title} />
+                <TopRatedMovieRating vote_average={movie.vote_average} />
+                <TopRatedMovieReleaseDate release={movie.release} />
+            </Box>
+        </LazyLoadComponent>
     )
 }
 
 const TopRatedMovieTitle = ({ title }: TopRatedMovieTitleProps) => {
     return (
-        <Box
-            component="span"
-            className="topRatedMovieTitle"
-            fontSize={title.length > 23 ? '1.7rem' : '2rem'}
-        >
-            {title}
-        </Box>
+        <LazyLoadComponent>
+            <Box
+                component="span"
+                className="topRatedMovieTitle"
+                fontSize={title.length > 23 ? '1.7rem' : '2rem'}
+            >
+                {title}
+            </Box>
+        </LazyLoadComponent>
     )
 }
 
 const TopRatedMovieRating = ({ vote_average }: TopRatedMovieRatingProps) => {
     return (
-        <Box className="topRatedMovieRating">
-            <StarIcon
-                sx={{
-                    fontSize: '1.3rem',
-                }}
-            />
-            {vote_average}
-        </Box>
+        <LazyLoadComponent>
+            <Box className="topRatedMovieRating">
+                <StarIcon
+                    sx={{
+                        fontSize: '1.3rem',
+                    }}
+                />
+                {vote_average}
+            </Box>
+        </LazyLoadComponent>
     )
 }
 

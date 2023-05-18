@@ -9,13 +9,22 @@
   justify-content: center;
 }
 
+.topRatedMovies {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+  justify-content: center;
+  align-content: center;
+}
+
+
 
 .topRatedMovie {
   display: flex;
   justify-content: center;
   transition: all .4s cubic-bezier(0.175, 0.885, 0, 1);
-  height: 25rem;
-  width: min(25rem, 95vw);
+  height: 23rem;
+  width: min(23rem, 95vw);
   position: relative;
   border-radius: 3.125rem;
   overflow: hidden;
@@ -37,7 +46,7 @@
   border-top-left-radius: 0.75rem;
   border-top-right-radius: 0.75rem;
   top: 0;
-  margin-left: -2rem;
+  /* margin-left: -2rem; */
 }
 
 .topRatedMovie:hover .addToWatchlist {
@@ -92,15 +101,6 @@ visibility: hidden;
     filter: brightness(0.3);}
 
 
-.topRatedMovieCards {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 2rem;
-      justify-content: center;
-      align-content: center;
-    }
-    
-
 .topRatedMovieSkeleton {
   border-radius: 2rem;
   margin: auto;
@@ -129,6 +129,18 @@ visibility: hidden;
 @media (max-width: 23em) {
   .topRatedMovieTitle {
     font-size: 1.7rem;
+  }
+}
+
+@media (max-width: 47.5em) {
+  .topRatedMovie {
+    width: 28rem;
+  }
+}
+
+@media (max-width: 30em) {
+  .topRatedMovie {
+    width: 20rem;
   }
 }
 

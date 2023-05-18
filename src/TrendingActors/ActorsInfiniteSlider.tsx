@@ -1,10 +1,10 @@
 import { Box } from '@mui/material'
-import { memo } from 'react'
 import InfiniteSlider from '../Components/InfiniteSlider'
-import { trendingActors } from '../Helpers/fetchActors'
 import Actor from './Actor'
+import useFetchActors from '../Hooks/useFetchActors'
 
 const ActorsInfiniteSlider = () => {
+    const trendingActors = useFetchActors()
     return (
         <Box className="actorsInfiniteSlider">
             <InfiniteSlider actors={trendingActors} width={600} visible={3}>
@@ -28,6 +28,4 @@ const ActorsInfiniteSlider = () => {
     )
 }
 
-const MemoizedActorsInfiniteSlider = memo(ActorsInfiniteSlider)
-
-export default MemoizedActorsInfiniteSlider
+export default ActorsInfiniteSlider
