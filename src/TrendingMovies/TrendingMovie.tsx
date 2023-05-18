@@ -1,61 +1,65 @@
-import { Link } from 'react-router-dom'
+/* eslint-disable jsx-a11y/click-events-have-key-events */
+/* eslint-disable jsx-a11y/no-noninteractive-element-interactions */
+// import { Link } from 'react-router-dom'
 import { motion } from 'framer-motion'
 import StarIcon from '@mui/icons-material/Star'
 import { Box, Typography } from '@mui/material'
 import { TrendingMovieDetailsProps, TrendingMovieProps } from './types'
+import TrendingMovieModal from './TrendingMovieModal'
+import useModalLogic from '../Hooks/useShowModal'
+import Portal from '../Components/Portal'
 
 const TrendingMovie = ({
     id,
     title,
     backdrop_path,
     vote_average,
-}: TrendingMovieProps) => (
-    <li className="zoom-on-hover card">
-        <div className="card-content-container">
-            <motion.div
-                className="card-content"
-                layoutId={`card-container-${id}`}
-            >
-                <TrendingMovieImage backdrop_path={backdrop_path} id={id} />
-                <TrendingMovieDetails
-                    id={id}
-                    vote_average={vote_average}
-                    title={title}
-                />
-            </motion.div>
-        </div>
+}: TrendingMovieProps) => {
+    const { showModal, closeModal, openModal } = useModalLogic()
 
-        <Link
-            to={id}
-            className="card-open-link"
-            aria-label="Trending movie card"
-        />
-    </li>
-)
+    return (
+        <>
+            <li onClick={openModal} className="zoom-on-hover card">
+                <div className="card-content-container">
+                    <motion.div
+                        className="card-content"
+                        layoutId={`card-container-${id}`}
+                    >
+                        <TrendingMovieImage
+                            backdrop_path={backdrop_path}
+                            id={id}
+                        />
+                        <TrendingMovieDetails
+                            id={id}
+                            vote_average={vote_average}
+                            title={title}
+                        />
+                    </motion.div>
+                </div>
+            </li>
+            {showModal && (
+                <Portal id="trendingMovie">
+                    <TrendingMovieModal closeModal={closeModal} id={id} />
+                </Portal>
+            )}
+        </>
+    )
+}
 export default TrendingMovie
 
 const TrendingMovieImage = ({ id, backdrop_path }: MovieImageProps) => {
-    // const [isLoaded, onLoad] = useLoadingState()
     return (
         <motion.div
             className="card-image-container"
             layoutId={`card-image-container-${id}`}
         >
-            {/* {isLoaded ? ( */}
             <img
-                // onLoad={onLoad}
                 width="800px"
                 height="450px"
                 className="card-image"
                 src={`https://image.tmdb.org/t/p/w780/${backdrop_path}`}
                 alt="trending movie"
             />
-            {/* ) : (
-                <TrendingMovieSkeleton
-                    onLoad={onLoad}
-                    backdrop_path={backdrop_path}
-                />
-            )} */}
         </motion.div>
     )
 }

@@ -28,7 +28,7 @@ const ActorDetails = ({
                 <ActorRole vote_average={vote_average} known_for={known_for} />
                 <ActorRoleOverview overview={overview} />
             </Box>
-            <ActorImage onLoad={onLoad} profile_path={profile_path} />{' '}
+            <ActorImage onLoad={onLoad} profile_path={profile_path} />
         </Box>
     )
 }

@@ -337,5 +337,5 @@ opacity: 0.5,
 }
 
 .hidden {
-  display: none;
+  visibility: hidden;
 }

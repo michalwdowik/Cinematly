@@ -1,28 +1,30 @@
 import { Box } from '@mui/material'
+import { memo } from 'react'
+import { LazyLoadComponent } from 'react-lazy-load-image-component'
 import { Movie } from '../MovieCard/types'
-import { topRatedMovies } from '../Helpers/fetchMovies'
 import TopRatedMovie from './TopRatedMovie'
-import useLoadingState from '../Hooks/useLoadingState'
 import TopRatedMovieSkeleton from './TopRatedMoviesSkeleton'
+import useFetchMovie from '../Hooks/useFetchMovies'
 
 const TopRatedMovies = () => {
-    const [isLoaded, onLoad] = useLoadingState()
+    const topRatedMovies = useFetchMovie('topRated')
     return (
-        <Box className="topRatedMovieCards">
+        <Box className="topRatedMovies">
             {topRatedMovies.map((movie: Movie, rankPosition: number) => (
-                <>
+                <LazyLoadComponent
+                    key={movie.id}
+                    placeholder={<TopRatedMovieSkeleton />}
+                >
                     <TopRatedMovie
                         key={movie.id}
-                        onLoad={onLoad}
                         movie={movie}
                         rankPosition={rankPosition}
-                        isLoaded={isLoaded}
                     />
-                    {!isLoaded && <TopRatedMovieSkeleton key={movie.id} />}
-                </>
+                </LazyLoadComponent>
             ))}
         </Box>
     )
 }
 
-export default TopRatedMovies
+const MemoizedTopRatedMovies = memo(TopRatedMovies)
+export default MemoizedTopRatedMovies

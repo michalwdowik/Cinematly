@@ -1,22 +1,20 @@
 import { Box } from '@mui/material'
+import {
+    LazyLoadComponent,
+    LazyLoadImage,
+} from 'react-lazy-load-image-component'
 import TopRatedMovieHeadings from './TopRatedMovieHeadings'
 import { Movie } from '../MovieCard/types'
 import TopRatedMovieDetails from './TopRatedMovieDetails'
 
-const TopRatedMovie = ({
-    movie,
-    rankPosition,
-    onLoad,
-    isLoaded,
-}: TopRatedMovieProps) => {
+const TopRatedMovie = ({ movie, rankPosition }: TopRatedMovieProps) => {
     return (
-        <Box sx={{ display: isLoaded ? '' : 'none' }} className="topRatedMovie">
+        <Box className="topRatedMovie">
             <TopRatedMovieRank rankPosition={rankPosition} />
             <TopRatedMovieHeadings movie={movie} />
             <TopRatedMovieImage
                 title={movie.title}
                 backdrop_path={movie.backdrop_path}
-                onLoad={onLoad}
             />
             <TopRatedMovieDetails movie={movie} />
         </Box>
@@ -32,14 +30,12 @@ const TopRatedMovieRank = ({ rankPosition }: TopRatedMovieRankProps) => {
 const TopRatedMovieImage = ({
     backdrop_path,
     title,
-    onLoad,
 }: TopRatedMovieImageProps) => {
     return (
         <img
             alt={`${title}`}
             className="topRatedMovie__img--hover"
             src={`https://image.tmdb.org/t/p/w780/${backdrop_path}`}
-            onLoad={onLoad}
         />
     )
 }
@@ -48,14 +44,11 @@ const TopRatedMovieImage = ({
 type TopRatedMovieProps = {
     movie: Movie
     rankPosition: number
-    onLoad: () => void
-    isLoaded: boolean
 }
 
 type TopRatedMovieImageProps = {
     backdrop_path: string | null
     title: string
-    onLoad: () => void
 }
 
 type TopRatedMovieRankProps = Pick<TopRatedMovieProps, 'rankPosition'>

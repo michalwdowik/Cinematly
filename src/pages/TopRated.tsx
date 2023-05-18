@@ -1,12 +1,9 @@
 import { motion } from 'framer-motion'
 import { Box } from '@mui/material'
-import useScrollToTop from '../Hooks/useScrollToTop'
-import TopRatedMovies from '../TopRatedMovies/TopRatedMovies'
+import MemoizedTopRatedMovies from '../TopRatedMovies/TopRatedMovies'
 import Headline from '../Components/Headline'
 
 const TopRated = () => {
-    useScrollToTop()
-
     return (
         <motion.div
             initial={{ opacity: 0 }}
@@ -22,7 +19,7 @@ const TopRated = () => {
                     enableParallax={false}
                 />
             </Box>
-            <TopRatedMovies />
+            <MemoizedTopRatedMovies />
         </motion.div>
     )
 }

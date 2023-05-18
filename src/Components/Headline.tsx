@@ -1,7 +1,7 @@
 /* eslint-disable react/no-unused-prop-types */
 import { Box } from '@mui/material'
 import { useContext } from 'react'
-import { Parallax, ParallaxProvider } from 'react-scroll-parallax'
+import { Parallax } from 'react-scroll-parallax'
 import { ThemeContext } from '../Contexts/ThemeContext'
 
 const Headline = ({
@@ -20,11 +20,9 @@ const Headline = ({
         />
     )
     return enableParallax ? (
-        <ParallaxProvider>
-            <Parallax speed={-8} translateX={[0, xMove]}>
-                <Box className="sectionHeadline">{content}</Box>
-            </Parallax>
-        </ParallaxProvider>
+        <Parallax speed={-8} translateX={[0, xMove]}>
+            <Box className="sectionHeadline">{content}</Box>
+        </Parallax>
     ) : (
         <Box className="sectionHeadline">{content}</Box>
     )

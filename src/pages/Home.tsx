@@ -1,26 +1,19 @@
-import { useLocation, useParams } from 'react-router-dom'
 import { ParallaxProvider } from 'react-scroll-parallax'
+import { lazy, Suspense } from 'react'
 import MemoizedTrendingMovies from '../TrendingMovies/TrendingMovies'
-import TrendingMovieModal from '../TrendingMovies/TrendingMovieModal'
-import MemoizedMoviesCarousel from '../Carousel/MoviesCarousel'
 import MemoizedQuote from '../Components/Quote'
-import MemoizedActorsInfiniteSlider from '../TrendingActors/ActorsInfiniteSlider'
-import { trendingMovies } from '../Helpers/fetchMovies'
-import useRedirectToError404 from '../Hooks/useRedirectToError404'
+import ActorsInfiniteSlider from '../TrendingActors/ActorsInfiniteSlider'
 import Headline from '../Components/Headline'
 
+const LazyMoviesCarousel = lazy(() => import('../Carousel/MoviesCarousel'))
+
 const Home = () => {
-    const { id } = useParams()
-    const location = useLocation()
-    const isRootPath = location.pathname === '/'
-    const isMovie = id && trendingMovies.some((movie) => movie.id === id)
-
-    useRedirectToError404(Boolean(isMovie), isRootPath)
-
     return (
         <ParallaxProvider>
             <div className="homeContainer">
-                <MemoizedMoviesCarousel />
+                <Suspense fallback={<div>Loading...</div>}>
+                    <LazyMoviesCarousel />
+                </Suspense>
                 <Headline
                     enableParallax
                     leftAligned
@@ -28,9 +21,6 @@ const Home = () => {
                     subtitle="Stay up-to-date with the latest buzz in the entertainment world and find your next binge-worthy watch."
                 />
                 <MemoizedTrendingMovies />
-
-                {isMovie && <TrendingMovieModal id={id} />}
-
                 <Headline
                     enableParallax
                     leftAligned={false}
@@ -39,7 +29,7 @@ const Home = () => {
             Section Covers It All - Don't Miss Out on the Latest
             Scoop!"
                 />
-                <MemoizedActorsInfiniteSlider />
+                <ActorsInfiniteSlider />
                 <MemoizedQuote />
             </div>
         </ParallaxProvider>

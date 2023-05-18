@@ -3,8 +3,8 @@ import React, { lazy, Suspense, useContext } from 'react'
 import { Box } from '@mui/material'
 import ContentLoader from 'react-content-loader'
 import Home from './Home'
-
 import { ThemeContext } from '../Contexts/ThemeContext'
+import useScrollToTop from '../Hooks/useScrollToTop'
 
 const LazyTopRated = lazy(() => import('./TopRated'))
 const LazyUpcoming = lazy(() => import('./Upcoming'))
@@ -12,7 +12,7 @@ const LazyNotFound = lazy(() => import('./NotFound'))
 
 const AllRoutes = () => {
     const location = useLocation()
-
+    useScrollToTop()
     return (
         <Box display="flex" justifyContent="center">
             <Routes key={location.pathname} location={location}>
@@ -30,15 +30,6 @@ const AllRoutes = () => {
                     element={
                         <Suspense fallback={<RouteLoadingSkeleton />}>
                             <LazyUpcoming />
-                        </Suspense>
-                    }
-                />
-                <Route path="/:id" element={<Home />} />
-                <Route
-                    path="/error404/*"
-                    element={
-                        <Suspense fallback={<RouteLoadingSkeleton />}>
-                            <LazyNotFound />
                         </Suspense>
                     }
                 />
