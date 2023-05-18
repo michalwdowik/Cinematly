@@ -6,8 +6,6 @@ export const ThemeContext = createContext<ThemeContextProps>({
     toggleDarkMode: () => {},
     backgroundColor: 'black',
     textColor: 'white',
-    mainThemeColor: '#fc9803',
-    mainThemeColorSecondary: '#fc7703',
 })
 
 const ThemeProvider = ({ children }: ThemeProviderProps) => {
@@ -23,8 +21,6 @@ const ThemeProvider = ({ children }: ThemeProviderProps) => {
             toggleDarkMode,
             backgroundColor: isDarkMode ? '#F3F3F3' : '#121212',
             textColor: isDarkMode ? '#121212' : '#F3F3F3',
-            mainThemeColor: '#fc9803',
-            mainThemeColorSecondary: '#fc7703',
         }),
         [isDarkMode]
     )
@@ -46,6 +42,4 @@ interface ThemeContextProps {
     toggleDarkMode: () => void
     backgroundColor: string
     textColor: string
-    mainThemeColor: string
-    mainThemeColorSecondary: string
 }

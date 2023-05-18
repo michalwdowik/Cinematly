@@ -1,68 +1,56 @@
-/* eslint-disable react/jsx-no-useless-fragment */
-import { useContext, useState } from 'react'
+import { useContext } from 'react'
 import { Link } from 'react-router-dom'
 import { Skeleton, Box } from '@mui/material'
+import {
+    LazyLoadComponent,
+    LazyLoadImage,
+} from 'react-lazy-load-image-component'
 import { ThemeContext } from '../Contexts/ThemeContext'
+import PageWrapper from '../Components/PageWrapper'
 
 const NotFound = () => {
-    const { textColor, mainThemeColor } = useContext(ThemeContext)
-    const [loaded, setLoaded] = useState(false)
-    const onLoad = () => {
-        setLoaded(true)
-    }
+    const { textColor } = useContext(ThemeContext)
+
     return (
-        <>
+        <PageWrapper>
             <Box component="div" color={textColor} className="notFoundPage">
-                <NotFoundImage loaded={loaded} onLoad={onLoad} />
-                <NotFoundMessage
-                    loaded={loaded}
-                    mainThemeColor={mainThemeColor}
-                />
+                <NotFoundImage />
+                <NotFoundMessage />
             </Box>
-        </>
+        </PageWrapper>
     )
 }
 
 export default NotFound
 
-type NotFoundImageProps = {
-    loaded: boolean
-    onLoad: () => void
-}
-const NotFoundImage = ({ loaded, onLoad }: NotFoundImageProps) => {
+const NotFoundImage = () => {
     return (
-        <>
-            <img
-                src="https://cdn.pixabay.com/photo/2021/07/21/12/49/error-6482984_960_720.png"
-                alt="Error 404"
-                className="notFoundImage"
-                style={{ display: loaded ? '' : 'none' }}
-                onLoad={onLoad}
-            />
-            {!loaded && <NotFoundImageSkeleton />}
-        </>
+        <LazyLoadImage
+            placeholder={<NotFoundImageSkeleton />}
+            src="https://cdn.pixabay.com/photo/2021/07/21/12/49/error-6482984_960_720.png"
+            alt="Error 404"
+            className="notFoundImage"
+        />
     )
 }
 
-const NotFoundMessage = ({ mainThemeColor, loaded }: NotFoundMessageProps) => {
+const NotFoundMessage = () => {
+    const mainThemeColor = import.meta.env.VITE_MAIN_THEME_COLOR
+
     return (
-        <>
-            {loaded ? (
-                <div className="notFoundContainer">
-                    <Box component="span" className="notFoundMessageHeading">
-                        Page Not Found
-                    </Box>
-                    <p style={{ margin: '0' }}>
-                        Oops! Looks like you have stumbled upon an unknown path.
-                    </p>
-                    <Link to="/" style={{ color: mainThemeColor }}>
-                        Go to Homepage
-                    </Link>
-                </div>
-            ) : (
-                <NotFoundMessageSkeleton />
-            )}
-        </>
+        <LazyLoadComponent placeholder={<NotFoundMessageSkeleton />}>
+            <div className="notFoundContainer">
+                <Box component="span" className="notFoundMessageHeading">
+                    Page Not Found
+                </Box>
+                <p style={{ margin: '0' }}>
+                    Oops! Looks like you have stumbled upon an unknown path.
+                </p>
+                <Link to="/" style={{ color: mainThemeColor }}>
+                    Go to Homepage
+                </Link>
+            </div>
+        </LazyLoadComponent>
     )
 }
 
@@ -109,10 +97,4 @@ const NotFoundMessageSkeleton = () => {
             />
         </div>
     )
-}
-
-/* --------------------------------- TYPES --------------------------------- */
-type NotFoundMessageProps = {
-    mainThemeColor: string
-    loaded: boolean
 }

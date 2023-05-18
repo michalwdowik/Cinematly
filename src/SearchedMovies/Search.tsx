@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import { useContext, useState } from 'react'
 import { Box } from '@mui/material'
 import SearchedMovies from './SearchedMovies'
@@ -12,6 +13,7 @@ const Search = ({ handleShowSearchModal }: SearchProps) => {
     const handleSearchChange = (event: React.ChangeEvent<HTMLInputElement>) => {
         setSearchQuery(event.target.value)
     }
+
     const searchedMovies = useFetchMovies('searched', searchQuery)
 
     const hideSearchModal = () => {

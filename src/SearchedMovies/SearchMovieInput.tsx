@@ -7,7 +7,8 @@ const SearchMovieInput = ({
     handleSearchChange,
 }: SearchMovieInputProps) => {
     const { textColor } = useContext(ThemeContext)
-    const { mainThemeColor } = useContext(ThemeContext)
+    const mainThemeColor = import.meta.env.VITE_MAIN_THEME_COLOR
+
     return (
         <TextField
             value={searchQuery}

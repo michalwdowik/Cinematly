@@ -26,8 +26,8 @@ const MoviesCarousel = () => {
             {nowPlayingMovies.map((movie: Movie) => (
                 <LazyLoadComponent
                     key={movie.id}
-                    afterLoad={() => console.log('carousel')}
-                    placeholder={<MovieCarouselSkeleton movie={movie} />}
+                    // afterLoad={() => console.log('')}
+                    // placeholder={<MovieCarouselSkeleton movie={movie} />}
                 >
                     <MovieCarousel key={movie.id} movie={movie} />
                 </LazyLoadComponent>

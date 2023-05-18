@@ -3,7 +3,6 @@ import { ThemeContext } from '../Contexts/ThemeContext'
 
 const useModeToggle = () => {
     const { toggleDarkMode, backgroundColor } = useContext(ThemeContext)
-    const { mainThemeColor } = useContext(ThemeContext)
     const [isDarkMode, setDarkMode] = useState(true)
 
     const handleColorModeToggle = () => {
@@ -16,7 +15,7 @@ const useModeToggle = () => {
         body.style.backgroundColor = backgroundColor
     }, [backgroundColor])
 
-    return { isDarkMode, handleColorModeToggle, mainThemeColor }
+    return { isDarkMode, handleColorModeToggle }
 }
 
 export default useModeToggle
