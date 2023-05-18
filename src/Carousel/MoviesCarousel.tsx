@@ -2,17 +2,16 @@ import { Carousel } from 'react-responsive-carousel'
 import 'react-responsive-carousel/lib/styles/carousel.min.css'
 import useScreenType from 'react-screentype-hook'
 import { v4 as uuid } from 'uuid'
-import { Box, Skeleton } from '@mui/material'
 import { memo } from 'react'
+import { LazyLoadComponent } from 'react-lazy-load-image-component'
+import { Skeleton } from '@mui/material'
 import MovieCarouselImage from './MovieCarouselImage'
 import { Movie } from '../MovieCard/types'
-import useLoadingState from '../Hooks/useLoadingState'
 import MovieCarouselDetails from './MovieCarouselDetails'
 import useFetchMovie from '../Hooks/useFetchMovies'
 
 const MoviesCarousel = () => {
     const screenType = useScreenType()
-    const [isLoaded, onLoad] = useLoadingState()
     const nowPlayingMovies = useFetchMovie('nowPlaying')
     return (
         <Carousel
@@ -25,22 +24,13 @@ const MoviesCarousel = () => {
             showIndicators={!screenType.isMobile}
         >
             {nowPlayingMovies.map((movie: Movie) => (
-                <>
-                    <Box className={`${!isLoaded && 'hidden'}`}>
-                        <MovieCarousel
-                            key={movie.id}
-                            onLoad={onLoad}
-                            movie={movie}
-                        />
-                    </Box>
-                    {!isLoaded && (
-                        <MovieCarouselSkeleton
-                            key={movie.id}
-                            onLoad={onLoad}
-                            movie={movie}
-                        />
-                    )}
-                </>
+                <LazyLoadComponent
+                    key={movie.id}
+                    afterLoad={() => console.log('carousel')}
+                    placeholder={<MovieCarouselSkeleton movie={movie} />}
+                >
+                    <MovieCarousel key={movie.id} movie={movie} />
+                </LazyLoadComponent>
             ))}
         </Carousel>
     )
@@ -48,16 +38,16 @@ const MoviesCarousel = () => {
 const MemoizedMoviesCarousel = memo(MoviesCarousel)
 export default MemoizedMoviesCarousel
 
-const MovieCarousel = ({ onLoad, movie }: MovieCarouselProps) => {
+const MovieCarousel = ({ movie }: MovieCarouselProps) => {
     return (
         <div key={uuid()}>
-            <MovieCarouselImage onLoad={onLoad} movie={movie} />
+            <MovieCarouselImage movie={movie} />
             <MovieCarouselDetails movie={movie} />
         </div>
     )
 }
 
-const MovieCarouselSkeleton = ({ onLoad, movie }: MovieCarouselProps) => {
+const MovieCarouselSkeleton = ({ movie }: MovieCarouselProps) => {
     return (
         <Skeleton
             width="100%"
@@ -67,13 +57,12 @@ const MovieCarouselSkeleton = ({ onLoad, movie }: MovieCarouselProps) => {
                 backgroundColor: 'grey.900',
             }}
         >
-            <MovieCarousel key={movie.id} onLoad={onLoad} movie={movie} />
+            <MovieCarousel key={movie.id} movie={movie} />
         </Skeleton>
     )
 }
 
 /* --------------------------------- TYPES --------------------------------- */
 type MovieCarouselProps = {
-    onLoad: () => void
     movie: Movie
 }

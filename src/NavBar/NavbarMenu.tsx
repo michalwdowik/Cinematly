@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom'
 import { Box } from '@mui/material'
 import WebsiteLogo from '../Components/WebsiteLogo'
 import { websitePages, Page } from '../Helpers/pages'
-import Search from '../pages/Search'
+import Search from '../SearchedMovies/Search'
 import useShowSearchModal from '../Hooks/useShowSearchModal'
 import Portal from '../Components/Portal'
 

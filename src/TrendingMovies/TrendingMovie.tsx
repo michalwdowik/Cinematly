@@ -4,10 +4,15 @@
 import { motion } from 'framer-motion'
 import StarIcon from '@mui/icons-material/Star'
 import { Box, Typography } from '@mui/material'
+import {
+    LazyLoadComponent,
+    LazyLoadImage,
+} from 'react-lazy-load-image-component'
 import { TrendingMovieDetailsProps, TrendingMovieProps } from './types'
 import TrendingMovieModal from './TrendingMovieModal'
 import useModalLogic from '../Hooks/useShowModal'
 import Portal from '../Components/Portal'
+import TrendingMovieSkeleton from './TrendingMovieSkeleton'
 
 const TrendingMovie = ({
     id,
@@ -29,11 +34,13 @@ const TrendingMovie = ({
                             backdrop_path={backdrop_path}
                             id={id}
                         />
-                        <TrendingMovieDetails
-                            id={id}
-                            vote_average={vote_average}
-                            title={title}
-                        />
+                        <LazyLoadComponent>
+                            <TrendingMovieDetails
+                                id={id}
+                                vote_average={vote_average}
+                                title={title}
+                            />
+                        </LazyLoadComponent>
                     </motion.div>
                 </div>
             </li>
@@ -53,7 +60,8 @@ const TrendingMovieImage = ({ id, backdrop_path }: MovieImageProps) => {
             className="card-image-container"
             layoutId={`card-image-container-${id}`}
         >
-            <img
+            <LazyLoadImage
+                placeholder={<TrendingMovieSkeleton />}
                 width="800px"
                 height="450px"
                 className="card-image"

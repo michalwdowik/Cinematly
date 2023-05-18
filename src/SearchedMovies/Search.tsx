@@ -1,23 +1,18 @@
 import { useContext, useState } from 'react'
 import { Box } from '@mui/material'
-import SearchedMovies from '../SearchedMovies/SearchedMovies'
-import SearchMovieInput from '../SearchedMovies/SearchMovieInput'
+import SearchedMovies from './SearchedMovies'
+import SearchMovieInput from './SearchMovieInput'
 import { ThemeContext } from '../Contexts/ThemeContext'
-import fetchMovies from '../Helpers/fetchMovies'
-import { Movie } from '../MovieCard/types'
+import useFetchMovies from '../Hooks/useFetchMovies'
 
 const Search = ({ handleShowSearchModal }: SearchProps) => {
-    const [searchQuery, setSearchQuery] = useState('')
-    const [searchedMovies, setSearchedMovies] = useState<Movie[]>([])
     const { backgroundColor } = useContext(ThemeContext)
+    const [searchQuery, setSearchQuery] = useState('')
 
     const handleSearchChange = (event: React.ChangeEvent<HTMLInputElement>) => {
         setSearchQuery(event.target.value)
-        fetchMovies({
-            movieCategory: 'searched',
-            movieTitle: `${event.target.value}`,
-        }).then((results) => setSearchedMovies(results))
     }
+    const searchedMovies = useFetchMovies('searched', searchQuery)
 
     const hideSearchModal = () => {
         handleShowSearchModal('SEARCH')

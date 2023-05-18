@@ -5,7 +5,7 @@ import Tab from '@mui/material/Tab'
 import { Link } from 'react-router-dom'
 import { Box } from '@mui/material'
 import { Page, websitePages } from '../Helpers/pages'
-import Search from '../pages/Search'
+import Search from '../SearchedMovies/Search'
 import useShowSearchModal from '../Hooks/useShowSearchModal'
 import Portal from '../Components/Portal'
 
