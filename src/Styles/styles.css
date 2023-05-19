@@ -21,6 +21,7 @@ scrollbar-width: none;
 
 body {
   margin: 0;
+
 }
 
 * {
@@ -71,13 +72,13 @@ body {
   display: none !important;
 }
 
-.upcomingPage {
+.page {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-content: center;
   align-items: center;
-  margin-top: 4rem;
+  margin-top: 7rem;
 }
 
 /* MOVIE CARD STYLES */
@@ -88,29 +89,6 @@ body {
   padding: 0.7rem;
   color: black;
   background-color: white;
-}
-
-.movieCardHeading {
-  top: 30px;
-  left: 0;
-  min-width: 150px;
-  min-height: 70px;
-  background-color: #ffa500;
-  opacity: 0.92;
-  border-bottom-right-radius: 15px;
-  border-top-right-radius: 15px;
-  position: absolute;
-  max-width: 300px;
-  padding: 0.5rem;
-  display: flex;
-  z-index: 2;
-  flex-direction: column;
-  align-items: flex-start;
-  justify-content: center;
-  align-content: center;
-  color: white;
-  font-weight: bold;
-  font-size: 1.15rem;
 }
 
 .footer {

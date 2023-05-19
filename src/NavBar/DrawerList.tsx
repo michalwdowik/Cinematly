@@ -6,30 +6,28 @@ import { Link } from 'react-router-dom'
 import { Box } from '@mui/material'
 import { Page, websitePages } from '../Helpers/pages'
 import Search from '../SearchedMovies/Search'
-import useShowSearchModal from '../Hooks/useShowSearchModal'
-import Portal from '../Components/Portal'
+import useModalLogic from '../Hooks/useShowModal'
 
-const DrawerList = ({
-    toggleDrawer,
-    isDrawerOpen,
-    setIsDrawerOpen,
-}: DrawerListProps) => {
-    const { showSearchModal, handleShowSearchModal } = useShowSearchModal()
-    const hideDrawer = () => setIsDrawerOpen(false)
+const DrawerList = ({ hideDrawer, isDrawerOpen }: DrawerListProps) => {
+    const { showModal, closeModal, openModal } = useModalLogic()
+
+    const onClickMethod = (pageName: string) => {
+        if (pageName === 'SEARCH') openModal()
+        hideDrawer()
+    }
     return (
         <>
             <Drawer
                 anchor="top"
+                sx={{ zIndex: '9999' }}
                 open={isDrawerOpen}
-                onClose={toggleDrawer(false)}
+                onClose={hideDrawer}
                 PaperProps={{ sx: { backgroundColor: '#fc9803' } }}
             >
                 {websitePages.map((page) => (
                     <ListItem sx={{ padding: '0' }} key={page.name}>
                         <Tab
-                            onClick={() =>
-                                handleShowSearchModal(page.name, hideDrawer)
-                            }
+                            onClick={() => onClickMethod(page.name)}
                             key={page.label}
                             label={<DrawerListRow page={page} />}
                             component={Link}
@@ -43,11 +41,8 @@ const DrawerList = ({
                     </ListItem>
                 ))}
             </Drawer>
-            {showSearchModal && (
-                <Portal id="searchMovie">
-                    <Search handleShowSearchModal={handleShowSearchModal} />
-                </Portal>
-            )}
+
+            <Search showModal={showModal} closeModal={closeModal} />
         </>
     )
 }
@@ -74,8 +69,7 @@ const drawerLinkStyles = {
 
 /* --------------------------------- TYPES --------------------------------- */
 type DrawerListProps = {
-    toggleDrawer: (open: boolean) => () => void
-    setIsDrawerOpen: React.Dispatch<React.SetStateAction<boolean>>
+    hideDrawer: () => void
     isDrawerOpen: boolean
 }
 

@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import Tabs from '@mui/material/Tabs'
 import Tab from '@mui/material/Tab'
@@ -6,8 +7,7 @@ import { Box } from '@mui/material'
 import WebsiteLogo from '../Components/WebsiteLogo'
 import { websitePages, Page } from '../Helpers/pages'
 import Search from '../SearchedMovies/Search'
-import useShowSearchModal from '../Hooks/useShowSearchModal'
-import Portal from '../Components/Portal'
+import useModalLogic from '../Hooks/useShowModal'
 
 const NavbarMenu = () => {
     return (
@@ -39,23 +39,20 @@ const NavbarTabs = () => {
 }
 
 const NavbarTab = ({ page }: NavbarTabProps) => {
-    const { showSearchModal, handleShowSearchModal } = useShowSearchModal()
     const pageLink = page.name === 'SEARCH' ? (undefined as any) : page.link
+    const { showModal, closeModal, openModal } = useModalLogic()
+
     return (
         <>
             <Tab
                 value={page.label}
-                onClick={() => handleShowSearchModal(page.name)}
+                onClick={page.name === 'SEARCH' ? openModal : () => null}
                 sx={navbarTabStyles}
                 label={page.name}
                 component={Link}
                 to={pageLink}
             />
-            {showSearchModal && (
-                <Portal id="searchMovie">
-                    <Search handleShowSearchModal={handleShowSearchModal} />
-                </Portal>
-            )}
+            <Search showModal={showModal} closeModal={closeModal} />
         </>
     )
 }

@@ -1,21 +1,19 @@
+/* eslint-disable react/jsx-props-no-spreading */
 import Badge from '@mui/material/Badge'
 import Tooltip from '@mui/material/Tooltip'
 import Zoom from '@mui/material/Zoom'
 import AccessAlarmIcon from '@mui/icons-material/AccessAlarm'
-import { Box } from '@mui/material'
+import { Backdrop, Box, Fab, Grow, Modal } from '@mui/material'
 import { useWatchlistContext } from './WatchlistContext'
-import useEscapeKeyPress from '../Hooks/useEscapeKeyPress'
 import useWatchlistButtonAnimation from '../Hooks/useWatchlistButtonAnimation'
-import useShowWatchlist from '../Hooks/useShowWatchlist'
 import Watchlist from './Watchlist'
-import Portal from '../Components/Portal'
+import useModalLogic from '../Hooks/useShowModal'
 
 const WatchlistSpeedDial = () => {
     const { watchlist } = useWatchlistContext()
-    const { showWatchlist, setShowWatchlist, toggleWatchlist } =
-        useShowWatchlist()
+
     const animateAdd = useWatchlistButtonAnimation(watchlist)
-    useEscapeKeyPress(showWatchlist, setShowWatchlist)
+    const { showModal, closeModal, openModal } = useModalLogic()
 
     return (
         <Box className="watchlistSpeedDial">
@@ -33,18 +31,42 @@ const WatchlistSpeedDial = () => {
                     badgeContent={watchlist.length}
                 >
                     <WatchlistSpeedDialButton
-                        toggleWatchlist={toggleWatchlist}
+                        showModal={showModal}
+                        closeModal={closeModal}
+                        openModal={openModal}
                     />
                 </Badge>
             </Tooltip>
-            {showWatchlist && (
-                <Portal id="watchlist">
-                    <Watchlist
-                        showWatchlist={showWatchlist}
-                        toggleWatchlist={toggleWatchlist}
-                    />
-                </Portal>
-            )}
+
+            <Modal
+                // sx={{ marginTop: '70px' }}
+                open={showModal}
+                onClose={closeModal}
+                closeAfterTransition
+                slots={{ backdrop: Backdrop }}
+                slotProps={{
+                    backdrop: {
+                        timeout: 500,
+                        // sx: { marginTop: '70px' },
+                    },
+                }}
+            >
+                <Grow
+                    in={showModal}
+                    style={{
+                        transformOrigin: '100% 100% 0',
+                        position: 'fixed',
+                        bottom: '7rem',
+                        right: '1.2rem',
+                        backdropFilter: 'blur(20px)',
+                    }}
+                    {...(showModal ? { timeout: 500 } : {})}
+                >
+                    <div>
+                        <Watchlist />
+                    </div>
+                </Grow>
+            </Modal>
         </Box>
     )
 }
@@ -52,21 +74,34 @@ const WatchlistSpeedDial = () => {
 export default WatchlistSpeedDial
 
 const WatchlistSpeedDialButton = ({
-    toggleWatchlist,
+    openModal,
+    showModal,
+    closeModal,
 }: WatchlistSpeedDialButtonProps) => {
+    const mainThemeColor = import.meta.env.VITE_MAIN_THEME_COLOR
+    const mainThemeColorSecondary = import.meta.env
+        .VITE_MAIN_THEME_COLOR_SECONDARY
+
     return (
-        <button
+        <Fab
             type="button"
             className="fab"
-            onClick={toggleWatchlist}
+            onClick={showModal ? closeModal : openModal}
             aria-label="watchlist"
+            sx={{
+                bgcolor: mainThemeColor,
+                color: 'white',
+                '&:hover': { bgcolor: mainThemeColorSecondary },
+            }}
         >
             <AccessAlarmIcon />
-        </button>
+        </Fab>
     )
 }
 
 /* --------------------------------- TYPES --------------------------------- */
 type WatchlistSpeedDialButtonProps = {
-    toggleWatchlist: () => void
+    openModal: () => void
+    showModal: boolean
+    closeModal: () => void
 }

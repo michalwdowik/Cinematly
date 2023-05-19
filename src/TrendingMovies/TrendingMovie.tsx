@@ -1,6 +1,5 @@
 /* eslint-disable jsx-a11y/click-events-have-key-events */
 /* eslint-disable jsx-a11y/no-noninteractive-element-interactions */
-// import { Link } from 'react-router-dom'
 import { motion } from 'framer-motion'
 import StarIcon from '@mui/icons-material/Star'
 import { Box, Typography } from '@mui/material'
@@ -13,6 +12,7 @@ import TrendingMovieModal from './TrendingMovieModal'
 import useModalLogic from '../Hooks/useShowModal'
 import Portal from '../Components/Portal'
 import TrendingMovieSkeleton from './TrendingMovieSkeleton'
+import useCloseOnEscapeKey from '../Hooks/useCloseOnEscapeKey'
 
 const TrendingMovie = ({
     id,
@@ -21,6 +21,7 @@ const TrendingMovie = ({
     vote_average,
 }: TrendingMovieProps) => {
     const { showModal, closeModal, openModal } = useModalLogic()
+    useCloseOnEscapeKey({ closeModal })
 
     return (
         <>

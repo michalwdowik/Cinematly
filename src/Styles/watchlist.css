@@ -93,15 +93,11 @@
 
 .watchlist {
     background: rgba(255, 255, 255, 0.45);
-    backdrop-filter: blur(20px);
-    position: fixed;
-    bottom: 6.25rem;
-    right: 1.2rem;
     width: 450px;
     max-height: 600px;
     overflow-y: auto;
     border-radius: 2.5rem;
-    z-index: 9999;
+    z-index: 3;
     display: flex;
     flex-direction: column;
     align-content: center;
@@ -191,20 +187,6 @@
     display: none; 
   }
 
-.fab {
-    width: 4rem;
-    height: 4rem;
-    border: none;
-    background-color: var(--mainThemeColor);
-    color: white;
-    z-index: -1;
-    transition: 0.4s all ease-in-out;
-    border-radius: 50%;
-}
-
-.fab:hover {
-    background-color: var(--mainThemeColorSecondary);
-}
 
 .watchlistSpeedDial {
     position: fixed;
@@ -216,9 +198,9 @@
 .watchlistBadge {
     right: 10px;
     z-index: 9999;
-    transition: 0.4s all ease-in-out;
+    transition: 0.2s all ease-in-out;
 }
 
 .watchlistBadge:hover {
-    transform: scale(1.2);
+    transform: scale(1.15);
 }

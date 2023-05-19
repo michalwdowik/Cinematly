@@ -4,37 +4,22 @@ import WatchlistMovies from './WatchlistMovies'
 import { useWatchlistContext } from './WatchlistContext'
 import CallToActionLabel from '../Components/CallToActionLabel'
 
-type WatchlistProps = {
-    toggleWatchlist: () => void
-    showWatchlist: boolean
-}
-const Watchlist = ({ toggleWatchlist, showWatchlist }: WatchlistProps) => {
+const Watchlist = () => {
     const { watchlist } = useWatchlistContext()
     const isWatchlistEmpty = watchlist.length === 0
 
     return (
-        <>
-            <Box
-                className={`watchlist ${
-                    showWatchlist ? 'watchlistShow' : 'watchlistHide'
-                }`}
-            >
-                <WatchlistHeading />
-                <WatchlistMovies />
-                {isWatchlistEmpty && (
-                    <CallToActionLabel
-                        message="Add some movies..."
-                        textSize="1.5rem"
-                        textColor="black"
-                    />
-                )}
-            </Box>
-
-            <WatchlistBackgroundOverlay
-                showWatchlist={showWatchlist}
-                toggleWatchlist={toggleWatchlist}
-            />
-        </>
+        <Box className="watchlist">
+            <WatchlistHeading />
+            <WatchlistMovies />
+            {isWatchlistEmpty && (
+                <CallToActionLabel
+                    message="Add some movies..."
+                    textSize="1.5rem"
+                    textColor="black"
+                />
+            )}
+        </Box>
     )
 }
 
@@ -50,13 +35,4 @@ const WatchlistHeading = () => {
             />
         </Box>
     )
-}
-
-const WatchlistBackgroundOverlay = ({
-    toggleWatchlist,
-    showWatchlist,
-}: WatchlistProps) => {
-    return showWatchlist ? (
-        <Box className="overlay" onClick={toggleWatchlist} />
-    ) : null
 }

@@ -1,4 +1,3 @@
-import { motion } from 'framer-motion'
 import { Box } from '@mui/material'
 import MemoizedTopRatedMovies from '../TopRatedMovies/TopRatedMovies'
 import Headline from '../Components/Headline'
@@ -7,12 +6,7 @@ import PageWrapper from '../Components/PageWrapper'
 const TopRated = () => {
     return (
         <PageWrapper>
-            <motion.div
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                exit={{ opacity: 0 }}
-                transition={{ duration: 0.15 }}
-            >
+            <div className="page">
                 <Box className="topRatedPageBox">
                     <Headline
                         title="Top Rated Movies"
@@ -22,7 +16,7 @@ const TopRated = () => {
                     />
                 </Box>
                 <MemoizedTopRatedMovies />
-            </motion.div>
+            </div>
         </PageWrapper>
     )
 }

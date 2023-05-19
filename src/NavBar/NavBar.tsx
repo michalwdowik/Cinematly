@@ -11,7 +11,7 @@ const NavBar = () => {
     const { isDarkMode, handleColorModeToggle } = useModeToggle()
 
     return (
-        <AppBar sx={{ border: 'none', position: 'sticky' }}>
+        <AppBar sx={{ border: 'none', position: 'fixed', zIndex: '9998' }}>
             <Toolbar className="toolbar">
                 {screenType.isMobile ? <NavbarDrawer /> : <NavbarMenu />}
 

@@ -5,24 +5,22 @@ import DrawerList from './DrawerList'
 
 const NavbarDrawer = () => {
     const [isDrawerOpen, setIsDrawerOpen] = useState(false)
-    const toggleDrawer = (open: boolean) => () => {
-        setIsDrawerOpen(open)
+    const showDrawer = () => {
+        setIsDrawerOpen(!isDrawerOpen)
     }
+    const hideDrawer = () => setIsDrawerOpen(false)
+
     return (
         <>
             <button
                 type="button"
                 className="drawerButton"
-                onClick={toggleDrawer(true)}
+                onClick={showDrawer}
                 aria-label="Toggle drawer menu"
             >
                 <MenuIcon sx={{ color: 'white' }} />
             </button>
-            <DrawerList
-                toggleDrawer={toggleDrawer}
-                isDrawerOpen={isDrawerOpen}
-                setIsDrawerOpen={setIsDrawerOpen}
-            />
+            <DrawerList hideDrawer={hideDrawer} isDrawerOpen={isDrawerOpen} />
             <WebsiteLogo navbarLogo />
         </>
     )

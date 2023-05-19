@@ -72,8 +72,6 @@
   
   .zoom-on-hover:hover {
     transform: scale(1.05);
-  filter: brightness(130%);
-
   }
   
 
@@ -86,32 +84,27 @@
     height: auto;
     z-index: 1;
   }
-  
-
-
-  /* .card-open-link {
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;  
-  } */
-
 
   .card-image-container {
     position: absolute;
     left: -8.75rem;
     overflow: hidden;
     width: 100vw;
-    filter: brightness(60%);
+    opacity: 0.6;
+  transition: opacity 0.3s ease-in-out;
+
    }
+
+   .card-image-container:hover {
+  transition: opacity 0.3s ease-in-out;
+  opacity: 1 
+  }
 
 
   .open .card-image-container {
     position: static;
     z-index: 1;
-    filter: brightness(100%);
-    max-height: 43vh;
+    opacity: 1;
 
   
   }
@@ -120,7 +113,7 @@
     position: absolute;
     top: 0.938rem;
     left: 0.938rem;
-    max-width: 18.75rem;
+    /* max-width: 18.75rem; */
     padding: 0.313rem;
   }
   
@@ -158,12 +151,13 @@
   .trendingMovieModalOverlay {
     z-index: 1;
     position: fixed;
-    background: rgba(0, 0, 0, 0.8);
-    will-change: opacity;
+    backdrop-filter: blur(10px);
+    /* background: rgba(0, 0, 0, 0.8); */
+    /* will-change: opacity; */
     top: 0;
     bottom: 0;
-    left: 50%;
-    transform: translateX(-50%);
+    /* left: 50%; */
+    /* transform: translateX(-50%); */
     width: 100%;
   }
 
