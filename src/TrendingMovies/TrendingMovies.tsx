@@ -11,7 +11,7 @@ const TrendingMovies = () => {
         <Parallax
             easing="easeInCubic"
             speed={100}
-            scale={[1.25, 0.5]}
+            scale={[1.15, 0.5]}
             translateY={['350px', '-50px']}
         >
             <ul className="card-list">

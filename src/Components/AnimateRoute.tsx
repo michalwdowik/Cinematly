@@ -1,6 +1,6 @@
 import { motion } from 'framer-motion'
 
-const PageWrapper = ({ children }: PageWrapperType) => {
+const AnimateRoute = ({ children }: PageWrapperType) => {
     return (
         <motion.div
             className="container text-center"
@@ -14,7 +14,7 @@ const PageWrapper = ({ children }: PageWrapperType) => {
     )
 }
 
-export default PageWrapper
+export default AnimateRoute
 
 type PageWrapperType = {
     children: JSX.Element

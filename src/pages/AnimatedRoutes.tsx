@@ -5,41 +5,67 @@ import ContentLoader from 'react-content-loader'
 import { AnimatePresence } from 'framer-motion'
 import Home from './Home'
 import useScrollToTop from '../Hooks/useScrollToTop'
+import AnimateRoute from '../Components/AnimateRoute'
 
 const LazyTopRated = lazy(() => import('./TopRated'))
 const LazyUpcoming = lazy(() => import('./Upcoming'))
 const LazyNotFound = lazy(() => import('./NotFound'))
 
+type RouteWithSuspenseProps = {
+    fallback: JSX.Element
+    children: JSX.Element
+}
+
+const RouteWithSuspense = ({ fallback, children }: RouteWithSuspenseProps) => (
+    <Suspense fallback={fallback}>
+        <AnimateRoute>{children}</AnimateRoute>
+    </Suspense>
+)
+
 const AnimatedRoutes = () => {
     const location = useLocation()
     useScrollToTop()
+
     return (
         <AnimatePresence mode="wait">
             <Box display="flex" justifyContent="center">
                 <Routes key={location.pathname} location={location}>
-                    <Route path="/" element={<Home />} />
+                    <Route
+                        path="/"
+                        element={
+                            <Suspense fallback={<RouteLoadingSkeleton />}>
+                                <Home />
+                            </Suspense>
+                        }
+                    />
                     <Route
                         path="/top-rated"
                         element={
-                            <Suspense fallback={<RouteLoadingSkeleton />}>
+                            <RouteWithSuspense
+                                fallback={<RouteLoadingSkeleton />}
+                            >
                                 <LazyTopRated />
-                            </Suspense>
+                            </RouteWithSuspense>
                         }
                     />
                     <Route
                         path="/upcoming"
                         element={
-                            <Suspense fallback={<RouteLoadingSkeleton />}>
+                            <RouteWithSuspense
+                                fallback={<RouteLoadingSkeleton />}
+                            >
                                 <LazyUpcoming />
-                            </Suspense>
+                            </RouteWithSuspense>
                         }
                     />
                     <Route
                         path="/*"
                         element={
-                            <Suspense fallback={<RouteLoadingSkeleton />}>
+                            <RouteWithSuspense
+                                fallback={<RouteLoadingSkeleton />}
+                            >
                                 <LazyNotFound />
-                            </Suspense>
+                            </RouteWithSuspense>
                         }
                     />
                 </Routes>

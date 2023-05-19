@@ -9,14 +9,14 @@ const MovieCardHeading = ({
 }: UpcomingMovieHeadingProps) => {
     return (
         <motion.div
-            className="title-container movieCardHeading"
+            className="title-container "
             layoutId={`title-container-${id}`}
         >
+            {title}
             <Box component="span" className="trendingMovieRating">
                 <StarIcon sx={{ fontSize: '0.9rem' }} />
                 {voteAverage}
             </Box>
-            {title}
         </motion.div>
     )
 }

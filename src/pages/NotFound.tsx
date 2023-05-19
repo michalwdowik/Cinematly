@@ -6,18 +6,15 @@ import {
     LazyLoadImage,
 } from 'react-lazy-load-image-component'
 import { ThemeContext } from '../Contexts/ThemeContext'
-import PageWrapper from '../Components/PageWrapper'
 
 const NotFound = () => {
     const { textColor } = useContext(ThemeContext)
 
     return (
-        <PageWrapper>
-            <Box component="div" color={textColor} className="notFoundPage">
-                <NotFoundImage />
-                <NotFoundMessage />
-            </Box>
-        </PageWrapper>
+        <Box component="div" color={textColor} className="notFoundPage">
+            <NotFoundImage />
+            <NotFoundMessage />
+        </Box>
     )
 }
 

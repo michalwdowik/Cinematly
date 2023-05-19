@@ -4,23 +4,22 @@ import StarIcon from '@mui/icons-material/Star'
 import { ThemeContext } from '../Contexts/ThemeContext'
 import shortenOverview from '../Helpers/cutText'
 import {
-    ActorDetailsType,
     ActorImageType,
     ActorKnownForType,
     ActorNameType,
     ActorRatingType,
     ActorRoleOverviewType,
     ActorRoleType,
+    ActorType,
 } from './types'
 
 const ActorDetails = ({
     name,
     profile_path,
     vote_average,
-    onLoad,
     known_for,
     overview,
-}: ActorDetailsType) => {
+}: ActorType) => {
     return (
         <Box className="actorDetails">
             <Box className="actorInfo">
@@ -28,7 +27,7 @@ const ActorDetails = ({
                 <ActorRole vote_average={vote_average} known_for={known_for} />
                 <ActorRoleOverview overview={overview} />
             </Box>
-            <ActorImage onLoad={onLoad} profile_path={profile_path} />
+            <ActorImage profile_path={profile_path} />
         </Box>
     )
 }
@@ -75,7 +74,7 @@ const ActorRoleOverview = ({ overview }: ActorRoleOverviewType) => {
     )
 }
 
-const ActorImage = ({ profile_path, onLoad }: ActorImageType) => {
+const ActorImage = ({ profile_path }: ActorImageType) => {
     return profile_path ? (
         <img
             className="actorImage"
@@ -83,18 +82,16 @@ const ActorImage = ({ profile_path, onLoad }: ActorImageType) => {
             width="185px"
             src={`https://image.tmdb.org/t/p/w185/${profile_path}`}
             height="278px"
-            onLoad={onLoad}
         />
     ) : (
-        <NoActorImagePlaceholder onLoad={onLoad} />
+        <NoActorImagePlaceholder />
     )
 }
 
-const NoActorImagePlaceholder = ({ onLoad }: NoActorImagePlaceholderProps) => {
+const NoActorImagePlaceholder = () => {
     return (
         <img
             className="actorImage"
-            onLoad={onLoad}
             src="https://1fid.com/wp-content/uploads/2022/06/no-profile-picture-4-1024x1024.jpg
             "
             alt="no actor img"
@@ -111,8 +108,4 @@ const ActorRole = ({ known_for, vote_average }: ActorRoleType) => {
             <ActorKnownFor known_for={known_for} />
         </Box>
     )
-}
-
-type NoActorImagePlaceholderProps = {
-    onLoad: () => void
 }

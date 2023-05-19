@@ -1,6 +1,6 @@
 import { Box, Skeleton } from '@mui/material'
+import { LazyLoadComponent } from 'react-lazy-load-image-component'
 import { MovieProps } from '../MovieCard/types'
-import useLoadingState from '../Hooks/useLoadingState'
 import shortenOverview from '../Helpers/cutText'
 import {
     WatchlistMovieDetailsSkeleton,
@@ -8,25 +8,22 @@ import {
 } from './WatchlistMovieDetails'
 
 const WatchlistMovie = ({ movie }: MovieProps) => {
-    const [isLoaded, onLoad] = useLoadingState()
-
     return (
         <Box className="watchlistMovie">
             <Box className="watchlistMovieDetails">
-                {!isLoaded && <WatchlistMovieDetailsSkeleton />}
-                <WatchlistMovieDetails
-                    onLoad={onLoad}
-                    isLoaded={isLoaded}
-                    movieTitle={movie.title}
-                    movieBackdropPath={movie.backdrop_path}
-                    movieReleaseDate={movie.release_date || movie.release}
-                />
+                <LazyLoadComponent
+                    placeholder={<WatchlistMovieDetailsSkeleton />}
+                >
+                    <WatchlistMovieDetails
+                        movieTitle={movie.title}
+                        movieBackdropPath={movie.backdrop_path}
+                        movieReleaseDate={movie.release_date || movie.release}
+                    />
+                </LazyLoadComponent>
             </Box>
-            {isLoaded ? (
+            <LazyLoadComponent placeholder={<WatchlistMovieOverviewSkeleton />}>
                 <WatchlistMovieOverview movieOverview={movie.overview} />
-            ) : (
-                <WatchlistMovieOverviewSkeleton />
-            )}
+            </LazyLoadComponent>
         </Box>
     )
 }

@@ -91,7 +91,9 @@ const TrendingMovieDetails = ({
 
 const TrendingMovieTitle = ({ title }: MovieTitleProps) => {
     return (
-        <Typography sx={{ fontSize: '1.5rem', fontWeight: 'bold' }}>
+        <Typography
+            sx={{ fontSize: '1.45rem', fontWeight: 'bold', maxWidth: '12rem' }}
+        >
             {title}
         </Typography>
     )

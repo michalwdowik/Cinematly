@@ -1,43 +1,49 @@
+:root {
+  --mainThemeColor: #fc9803;
+  --mainThemeColorSecondary: #fc7703;
+}
+
 .card-list {
     display: flex;
     flex-wrap: wrap;
-    align-content: flex-start;
+    /* align-content: flex-start; */
     width: min(90vw, 71.875rem);
-    margin-bottom: 6.25rem;
+    /* margin-bottom: 8.25rem; */
     list-style: none;
     padding: 0;
-    margin: 0;
+    /* margin: 0; */
   }
 
 
   .card {
-    position: relative;
-    padding: 1.563rem;
+    /* position: relative; */
+    padding: 1.375rem;
     height: 27.5rem;
     flex: 0 0 40%;
     color: white;
+    cursor: pointer;
   }
 
 
   .card:nth-child(4n + 1),
   .card:nth-child(4n + 4) {
     flex: 0 0 60%;
-    max-width: 60%;
+    /* max-width: 60%; */
   }
   
-  .card:nth-child(odd) {
+  /* .card:nth-child(odd) {
     padding-left: 0;
-  }
+  } */
   
-  .card:nth-child(even) {
+  /* .card:nth-child(even) {
     padding-right: 0;
-  }
+  } */
 
   .card-content-container {
-    width: 100%;
+    /* width: 100%; */
     height: 100%;
-    position: relative;
-    display: block;
+    /* position: relative; */
+    /* display: block; */
     pointer-events: none;
   }
   
@@ -47,7 +53,7 @@
     right: 0;
     position: fixed;
     z-index: 1;
-    overflow: hidden;
+    overflow: scroll;
     padding: 2.5rem 0;
 
   }
@@ -57,17 +63,16 @@
     position: relative;
     border-radius: 2.5rem;
     overflow: hidden;
-    width: 95%;
     height: 100%;
     margin: 0 auto;
-    border: none ;
+    /* border: none ; */
     box-shadow: 0.5rem 0.5rem 0.75rem -0.313rem rgb(0, 0, 0, 1);
   }
   
 
 
   .zoom-on-hover {
-    transition: transform 0.1s ease-in-out, filter 0.3s ease-in-out;
+    transition: transform 0.15s ease-in-out, filter 0.3s ease-in-out;
   }
   
   .zoom-on-hover:hover {
@@ -76,37 +81,39 @@
   
 
   .open .card-content {
+    width: 95%;
     display: flex;
     flex-direction: column;
     max-width: 43.75rem;
     margin-top: 10vh;
     background: rgba(255, 255, 255, 0.95);
     height: auto;
-    z-index: 1;
+    /* z-index: 1; */
+  }
+
+  .card-image {
+  /* opacity: 0.5; */
   }
 
   .card-image-container {
     position: absolute;
-    left: -8.75rem;
-    overflow: hidden;
+    /* left: 0; */
+    /* left: -8.75rem; */
+    /* opacity: 0.5; */
+    /* overflow: hidden; */
     width: 100vw;
-    opacity: 0.6;
-  transition: opacity 0.3s ease-in-out;
-
+  /* transition: opacity 0.3s ease-in-out; */
    }
 
-   .card-image-container:hover {
-  transition: opacity 0.3s ease-in-out;
-  opacity: 1 
-  }
+   /* .card-image-container:hover { */
+  /* transition: opacity 0.3s ease-in-out; */
+  /* opacity: 1; */
+  /* } */
 
 
   .open .card-image-container {
     position: static;
     z-index: 1;
-    opacity: 1;
-
-  
   }
 
   .title-container {
@@ -114,44 +121,56 @@
     top: 0.938rem;
     left: 0.938rem;
     /* max-width: 18.75rem; */
+    max-width: 12rem;
     padding: 0.313rem;
+    /* font-size: 1.15rem; */
+    font-weight: bold;
+    font-size: 1.5rem;
+
+
   }
   
   .open .title-container {
-    top: 30px;
-    left: 0;
-    min-width: 150px;
-    min-height: 70px;
-    background-color: #ffa500;
-    opacity: 0.92;
-    border-bottom-right-radius: 15px;
-    border-top-right-radius: 15px;
-    position: absolute;
-    max-width: 300px;
-    padding: 0.5rem;
+    /* top: 30px; */
+    /* top: 0.938rem; */
+    /* left: 0.938rem; */
+
+    /* min-width: 150px; */
+    /* min-height: 70px; */
+    /* background-color: #ffa500; */
+    /* opacity: 0.92; */
+    /* border-bottom-right-radius: 15px; */
+    /* border-top-right-radius: 15px; */
+    /* position: absolute; */
+    /* max-width: 300px; */
+    /* padding: 0.5rem; */
     display: flex;
     z-index: 2;
     flex-direction: column;
-    align-items: flex-start;
-    justify-content: center;
-    align-content: center;
+    /* align-items: flex-start; */
+    /* justify-content: center; */
+    /* align-content: center; */
     color: white;
     font-weight: bold;
-    font-size: 1.15rem;
   }
 
   .trendingMovieRating {
-    display: flex;
-    color: #fff;
+    /* display: flex; */
+    color: var(--mainThemeColor);
     font-size: 0.8rem;
-    font-weight: 300;
-    text-transform: uppercase;
+    /* font-weight: 600; */
+    /* text-transform: uppercase; */
+  }
+
+  .open .trendingMovieRating {
+    /* color: white; */
+
   }
 
   .trendingMovieModalOverlay {
     z-index: 1;
     position: fixed;
-    backdrop-filter: blur(10px);
+    backdrop-filter: blur(5px);
     /* background: rgba(0, 0, 0, 0.8); */
     /* will-change: opacity; */
     top: 0;
@@ -162,7 +181,7 @@
   }
 
   
-  .trendingMovieModalOverlay a {
+  /* .trendingMovieModalOverlay a {
     display: block;
     position: fixed;
     top: 0;
@@ -172,17 +191,18 @@
     transform: translateX(-50%);
   }
 
-  
-  .content-container {
+   */
+  /* .content-container {
     display: flex;
     flex-direction: column;
     gap: 0.625;
     z-index: 2;
+    border: 2px red solid;
     margin-bottom: auto;
     padding: 0.938rem;
     padding-bottom: 1.25rem;
 
-  }
+  } */
 
 
   @media only screen and (max-width: 56.25rem) {

@@ -1,50 +1,41 @@
 import { Box, Skeleton } from '@mui/material'
 
 export const WatchlistMovieDetails = ({
-    onLoad,
     movieTitle,
     movieBackdropPath,
     movieReleaseDate,
-    isLoaded,
 }: WatchlistMovieDetailsProps) => {
     return (
-        <Box className={`${isLoaded ? '' : ' hidden'}`}>
+        <>
             <WatchlistMovieImage
-                onLoad={onLoad}
                 movieTitle={movieTitle}
                 movieBackdropPath={movieBackdropPath}
             />
             <WatchlistMovieTitle movieTitle={movieTitle} />
             <WatchlistMovieReleaseDate movieReleaseDate={movieReleaseDate} />
-        </Box>
+        </>
     )
 }
 
 const WatchlistMovieImage = ({
     movieTitle,
     movieBackdropPath,
-    onLoad,
 }: WatchlistMovieImageProps) => {
     return movieBackdropPath ? (
         <img
             className="watchlistMovieImage"
             src={`https://image.tmdb.org/t/p/w300/${movieBackdropPath}`}
             alt={movieTitle}
-            onLoad={onLoad}
         />
     ) : (
-        <NoImagePlaceholder onLoad={onLoad} />
+        <NoImagePlaceholder />
     )
 }
 
-type NoImagePlaceholderProps = {
-    onLoad: () => void
-}
-const NoImagePlaceholder = ({ onLoad }: NoImagePlaceholderProps) => {
+const NoImagePlaceholder = () => {
     return (
         <img
             className="watchlistMovieImage"
-            onLoad={onLoad}
             src="https://heuft.com/upload/image/400x267/no_image_placeholder.png"
             alt="empty img placeholder"
         />
@@ -106,8 +97,6 @@ const WatchlistMovieReleaseDateSkeleton = () => {
 
 /* ----------------------- TYPES ----------------------- */
 type WatchlistMovieDetailsProps = {
-    isLoaded: boolean
-    onLoad: () => void
     movieTitle: string
     movieReleaseDate: string
     movieBackdropPath: string | null
@@ -115,7 +104,6 @@ type WatchlistMovieDetailsProps = {
 type WatchlistMovieImageProps = {
     movieTitle: string
     movieBackdropPath: string | null
-    onLoad: () => void
 }
 type WatchlistMovieTitleProps = {
     movieTitle: string
