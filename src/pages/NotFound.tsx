@@ -6,6 +6,7 @@ import {
     LazyLoadImage,
 } from 'react-lazy-load-image-component'
 import { ThemeContext } from '../Contexts/ThemeContext'
+import '../Styles/notFoundPage.css'
 
 const NotFound = () => {
     const { textColor } = useContext(ThemeContext)

@@ -1,6 +1,7 @@
 import { Box } from '@mui/material'
 import MemoizedTopRatedMovies from '../TopRatedMovies/TopRatedMovies'
 import Headline from '../Components/Headline'
+import '../Styles/topRatedMovies.css'
 
 const TopRated = () => {
     return (

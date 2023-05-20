@@ -1,4 +1,5 @@
 import { VerticalTimeline as Timeline } from 'react-vertical-timeline-component'
+import { memo } from 'react'
 import TimelineMovieWrapper from './TimelineMovieWrapper'
 import { Movie } from '../MovieCard/types'
 import { TimelineMovie } from '../MovieCard/MovieCard'
@@ -20,7 +21,8 @@ const UpcomingMovies = ({ movies }: UpcomingMoviesProps) => {
     )
 }
 
-export default UpcomingMovies
+const MemoizedUpcomingMovies = memo(UpcomingMovies)
+export default MemoizedUpcomingMovies
 
 /* --------------------------------- TYPES --------------------------------- */
 type UpcomingMovieProps = {

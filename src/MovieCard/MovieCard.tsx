@@ -1,19 +1,15 @@
 // import { Skeleton } from '@mui/material'
+import { motion } from 'framer-motion'
 import MovieCardDetails from './MovieCardDetails'
 import MovieCardHeading from './MovieCardHeading'
 import { Movie } from './types'
 import MovieCardImage from './MovieCardImage'
 
 const MovieCard = ({ movie, type }: MovieCardType) => {
-    return <MovieCardComponent type={type} movie={movie} />
-}
-
-export { MovieCard as TimelineMovie, MovieCard as TrendingMovieModalCard }
-
-const MovieCardComponent = ({ movie, type }: MovieCardType) => {
     return (
-        <>
+        <motion.div className="content-container" animate>
             <MovieCardHeading
+                type={type}
                 voteAverage={movie.vote_average}
                 title={movie.title}
                 id={movie.id}
@@ -24,22 +20,11 @@ const MovieCardComponent = ({ movie, type }: MovieCardType) => {
                 id={movie.id}
             />
             <MovieCardDetails movie={movie} />
-        </>
+        </motion.div>
     )
 }
 
-// const MovieCardComponentSkeleton = ({ type, movie }: MovieCardType) => {
-//     return (
-//         <Skeleton
-//             height={type === 'upcoming' ? '26.875rem' : 'auto'}
-//             width="100%"
-//             variant="rounded"
-//             sx={{ bgcolor: 'grey.900' }}
-//         >
-//             <MovieCardComponent type={type} movie={movie} />
-//         </Skeleton>
-//     )
-// }
+export { MovieCard as TimelineMovie, MovieCard as TrendingMovieModalCard }
 
 /* --------------------------------- TYPES --------------------------------- */
 type MovieCardType = {

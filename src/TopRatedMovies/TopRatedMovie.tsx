@@ -1,8 +1,4 @@
 import { Box } from '@mui/material'
-import {
-    LazyLoadComponent,
-    LazyLoadImage,
-} from 'react-lazy-load-image-component'
 import TopRatedMovieHeadings from './TopRatedMovieHeadings'
 import { Movie } from '../MovieCard/types'
 import TopRatedMovieDetails from './TopRatedMovieDetails'

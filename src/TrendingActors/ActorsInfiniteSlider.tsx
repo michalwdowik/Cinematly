@@ -1,9 +1,11 @@
 import { Box } from '@mui/material'
 import { LazyLoadComponent } from 'react-lazy-load-image-component'
+import { memo } from 'react'
 import InfiniteSlider from '../Components/InfiniteSlider'
 import Actor from './Actor'
 import useFetchActors from '../Hooks/useFetchActors'
 import ActorDetailsSkeleton from './ActorDetailsSkeleton'
+import '../Styles/trendingActors.css'
 
 const ActorsInfiniteSlider = () => {
     const trendingActors = useFetchActors()
@@ -32,4 +34,5 @@ const ActorsInfiniteSlider = () => {
     )
 }
 
-export default ActorsInfiniteSlider
+const MemoizedActorsInfiniteSlider = memo(ActorsInfiniteSlider)
+export default MemoizedActorsInfiniteSlider

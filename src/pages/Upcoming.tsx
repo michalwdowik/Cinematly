@@ -1,9 +1,12 @@
 import 'react-vertical-timeline-component/style.min.css'
+import { lazy } from 'react'
 import TimelineHeadline from '../Components/TimelineHeadline'
 import Headline from '../Components/Headline'
 import useFetchMovie from '../Hooks/useFetchMovies'
-import UpcomingMovies from '../UpcomingMovies/UpcomingMovies'
 
+const LazyUpcomingMovies = lazy(
+    () => import('../UpcomingMovies/UpcomingMovies')
+)
 const Upcoming = () => {
     const upcomingMovies = useFetchMovie('upcoming')
     const justReleasedMovies = useFetchMovie('justReleased')
@@ -17,9 +20,9 @@ const Upcoming = () => {
                 enableParallax={false}
             />
             <TimelineHeadline label="Just released" />
-            <UpcomingMovies movies={justReleasedMovies} />
+            <LazyUpcomingMovies movies={justReleasedMovies} />
             <TimelineHeadline label="Upcoming" />
-            <UpcomingMovies movies={upcomingMovies} />
+            <LazyUpcomingMovies movies={upcomingMovies} />
             <TimelineHeadline label="Stay tuned!" />
         </div>
     )

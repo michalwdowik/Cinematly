@@ -2,7 +2,7 @@
 /* eslint-disable jsx-a11y/no-noninteractive-element-interactions */
 import { motion } from 'framer-motion'
 import StarIcon from '@mui/icons-material/Star'
-import { Box, Typography } from '@mui/material'
+import { Box } from '@mui/material'
 import {
     LazyLoadComponent,
     LazyLoadImage,
@@ -90,13 +90,7 @@ const TrendingMovieDetails = ({
 }
 
 const TrendingMovieTitle = ({ title }: MovieTitleProps) => {
-    return (
-        <Typography
-            sx={{ fontSize: '1.45rem', fontWeight: 'bold', maxWidth: '12rem' }}
-        >
-            {title}
-        </Typography>
-    )
+    return <p style={{ margin: '0', padding: '0' }}>{title}</p>
 }
 
 const TrendingMovieRating = ({ vote_average }: MovieRatingProps) => {

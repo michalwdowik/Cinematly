@@ -27,6 +27,7 @@
   width: min(23rem, 95vw);
   position: relative;
   border-radius: 3.125rem;
+  border: none;
   overflow: hidden;
   box-shadow: 0.5rem 0.5rem 0.75rem -0.313rem rgb(0, 0, 0, 1);
 }
@@ -46,7 +47,6 @@
   border-top-left-radius: 0.75rem;
   border-top-right-radius: 0.75rem;
   top: 0;
-  /* margin-left: -2rem; */
 }
 
 .topRatedMovie:hover .addToWatchlist {
@@ -123,7 +123,7 @@ visibility: hidden;
   font-family: Roboto;
   font-weight: 500;
   color: black;
-  font-size: 2rem;
+  font-size: 1.6rem;
 }
 
 @media (max-width: 23em) {

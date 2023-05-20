@@ -1,13 +1,14 @@
 import Typography from '@mui/material/Typography'
 import { Box } from '@mui/material'
+import { motion } from 'framer-motion'
 import { MovieProps } from './types'
 import AddToWatchlistButton from '../Components/AddToWatchlistButton'
 import shortenOverview from '../Helpers/cutText'
 
 const MovieCardDetails = ({ movie }: MovieProps) => {
     return (
-        <Box className="movieCardDetails">
-            <Box className="movieCardDetails">
+        <motion.div className="movieCardDetails" animate>
+            <div className="movieCardDetails">
                 <AddToWatchlistButton absolute movie={movie} />
                 <MovieCardTitle
                     title={movie.title}
@@ -20,8 +21,8 @@ const MovieCardDetails = ({ movie }: MovieProps) => {
                     originLanguage={movie.original_language}
                 />
                 <MovieCardOverview overview={movie.overview} />
-            </Box>
-        </Box>
+            </div>
+        </motion.div>
     )
 }
 

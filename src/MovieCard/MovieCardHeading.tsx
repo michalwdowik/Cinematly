@@ -6,10 +6,13 @@ const MovieCardHeading = ({
     voteAverage,
     title,
     id,
+    type,
 }: UpcomingMovieHeadingProps) => {
     return (
         <motion.div
-            className="title-container "
+            className={`title-container ${
+                type === 'upcoming' && 'movieCardHeading'
+            }`}
             layoutId={`title-container-${id}`}
         >
             {title}
@@ -24,6 +27,7 @@ export default MovieCardHeading
 
 /* --------------------------------- TYPES --------------------------------- */
 type UpcomingMovieHeadingProps = {
+    type: 'upcoming' | 'trending'
     voteAverage: number
     title: string
     id: string

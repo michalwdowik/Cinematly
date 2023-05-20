@@ -5,6 +5,7 @@ import SearchedMovies from './SearchedMovies'
 import SearchMovieInput from './SearchMovieInput'
 import { ThemeContext } from '../Contexts/ThemeContext'
 import useFetchMovies from '../Hooks/useFetchMovies'
+import '../Styles/searchedMovies.css'
 
 const Search = ({ closeModal, showModal }: SearchProps) => {
     const { backgroundColor } = useContext(ThemeContext)
@@ -25,7 +26,7 @@ const Search = ({ closeModal, showModal }: SearchProps) => {
             slotProps={{
                 backdrop: {
                     sx: {
-                        backdropFilter: 'blur(20px)',
+                        backdropFilter: 'blur(10px)',
                     },
                 },
             }}

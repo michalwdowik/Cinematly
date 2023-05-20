@@ -1,13 +1,3 @@
-@import url('./keyframes.css');
-@import url('./trendingMovies.css');
-@import url('./topRatedMovies.css');
-@import url('./searchedMovies.css');
-@import url('./watchlist.css');
-@import url('./trendingActors.css');
-@import url('./notFoundPage.css');
-@import url('./navbar.css');
-@import url('./carousel.css');
-
 :root {
   --mainThemeColor: #fc9803;
   --mainThemeColorSecondary: #fc7703;
@@ -45,15 +35,6 @@ body {
   height: 0.063rem;
 }
 
-/* .movieCardDetails {
-  position: relative;
-  display: flex;
-  flex-direction: column;
-  padding: 0.5rem;
-  padding-top: 0;
-  color: black;
-} */
-
 .homeContainer {
   flex: 1 1 100%;
   display: flex;
@@ -62,7 +43,6 @@ body {
   align-items: center;
 }
 
-/* UPCOMING MOVIES STYLES */
 .timelineWrapperIcon {
   background: var(--mainThemeColor);
   color: #fff;
@@ -79,16 +59,6 @@ body {
   align-content: center;
   align-items: center;
   margin-top: 7rem;
-}
-
-/* MOVIE CARD STYLES */
-.movieCardDetails {
-  position: relative;
-  /* display: flex; */
-  flex-direction: column;
-  padding: 0.7rem;
-  /* color: black; */
-  /* background-color: white; */
 }
 
 .footer {
@@ -125,24 +95,17 @@ opacity: 0.5,
   }
 }
 
-
-
-
 .watchLaterButton {
   transition-duration: 0.2s;
   background-color: var(--mainThemeColor);
   border-radius: 1.875rem;
-  /* margin: auto; */
-  /* width: auto; */
+  margin: auto;
   font-size: 0.6875rem;
   z-index: 3;
-  /* overflow: visible; */
   border: none;
   color: white;
   display: flex;
   align-items: center;
-  /* align-content: center; */
-  /* justify-content: center; */
   font-size: 0.9rem;
   cursor: pointer;
   padding-bottom: 0.5rem;
@@ -312,6 +275,46 @@ opacity: 0.5,
   box-shadow: 0.125rem 0.125rem 0.125rem 0rem rgba(0, 0, 0, 0.2);
 }
 
-.hidden {
-  visibility: hidden;
+.movieCardHeading {
+  position: absolute;
+  top: 2rem;
+  min-width: 8rem;
+  max-width: 13.75rem;
+  padding: 0.7rem;
+  font-weight: bold;
+  font-size: 1.2rem;
+  color: white;
+  display: flex;
+  z-index: 2;
+  flex-direction: column;
+  font-weight: bold;
+  left: 0;
+  border-bottom-right-radius: 1.1rem;
+  border-top-right-radius: 1.1rem;
+  background-color: var(--mainThemeColor);
+}
+
+.movieCardDetails {
+  position: relative;
+  flex-direction: column;
+  padding: 0.7rem;
+  background: white;
+  color: black
+}
+
+@keyframes watchlistButtonAnimateAdd {
+  0% {
+    transform: translateY(0) scale(1);
+  }
+  30% {
+    transform: translateY(-2.5rem) scale(1.4);
+  }
+
+  60% {
+    transform: translateY(-1.875rem) scale(1.25);
+  }
+
+  100% {
+    transform: translateY(0) scale(1);
+  }
 }

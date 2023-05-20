@@ -19,11 +19,7 @@ const TopRatedMovieHeadings = ({ movie }: MovieProps) => {
 const TopRatedMovieTitle = ({ title }: TopRatedMovieTitleProps) => {
     return (
         <LazyLoadComponent>
-            <Box
-                component="span"
-                className="topRatedMovieTitle"
-                fontSize={title.length > 23 ? '1.7rem' : '2rem'}
-            >
+            <Box component="span" className="topRatedMovieTitle">
                 {title}
             </Box>
         </LazyLoadComponent>

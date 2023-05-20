@@ -24,26 +24,24 @@ const MovieCarouselDetails = ({ movie }: MovieDetailsProps) => {
 export default MovieCarouselDetails
 
 const MovieTitle = ({ movie }: MovieProps) => {
-    return <Box className="carouselMovieTitle">{movie ? movie.title : ''}</Box>
+    return <Box className="carouselMovieTitle">{movie && movie.title}</Box>
 }
 
 const MovieReleaseDate = ({ movie }: MovieProps) => {
-    return <Box>{movie ? movie.release_date : ''}</Box>
+    return <Box>{movie && movie.release_date}</Box>
 }
 
 const MovieRating = ({ movie }: MovieProps) => {
     return (
         <Box className="carouselMovieRating">
             <StarIcon className="starIcon" />
-            {movie ? movie.vote_average : ''}
+            {movie && movie.vote_average}
         </Box>
     )
 }
 const MovieOverview = ({ movie }: MovieProps) => {
     return (
-        <Box className="carouselMovieOverview">
-            {movie ? movie.overview : ''}
-        </Box>
+        <Box className="carouselMovieOverview">{movie && movie.overview}</Box>
     )
 }
 

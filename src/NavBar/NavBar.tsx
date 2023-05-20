@@ -5,6 +5,7 @@ import { DarkModeSwitch } from 'react-toggle-dark-mode'
 import NavbarDrawer from './NavbarDrawer'
 import NavbarMenu from './NavbarMenu'
 import useModeToggle from '../Hooks/useModeToggle'
+import '../Styles/navbar.css'
 
 const NavBar = () => {
     const screenType = useScreenType()

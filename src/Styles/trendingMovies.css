@@ -6,44 +6,31 @@
 .card-list {
     display: flex;
     flex-wrap: wrap;
-    /* align-content: flex-start; */
     width: min(90vw, 71.875rem);
-    /* margin-bottom: 8.25rem; */
     list-style: none;
     padding: 0;
-    /* margin: 0; */
   }
 
-
   .card {
-    /* position: relative; */
+    position: relative;
     padding: 1.375rem;
     height: 27.5rem;
     flex: 0 0 40%;
     color: white;
     cursor: pointer;
+    
   }
-
 
   .card:nth-child(4n + 1),
   .card:nth-child(4n + 4) {
     flex: 0 0 60%;
-    /* max-width: 60%; */
   }
   
-  /* .card:nth-child(odd) {
-    padding-left: 0;
-  } */
-  
-  /* .card:nth-child(even) {
-    padding-right: 0;
-  } */
-
   .card-content-container {
-    /* width: 100%; */
+    width: 100%;
     height: 100%;
-    /* position: relative; */
-    /* display: block; */
+    position: relative;
+    display: block;
     pointer-events: none;
   }
   
@@ -53,9 +40,8 @@
     right: 0;
     position: fixed;
     z-index: 1;
-    overflow: scroll;
+    overflow: hidden;
     padding: 2.5rem 0;
-
   }
   
   .card-content {
@@ -63,14 +49,12 @@
     position: relative;
     border-radius: 2.5rem;
     overflow: hidden;
+    width: 100%;
     height: 100%;
     margin: 0 auto;
-    /* border: none ; */
     box-shadow: 0.5rem 0.5rem 0.75rem -0.313rem rgb(0, 0, 0, 1);
   }
   
-
-
   .zoom-on-hover {
     transition: transform 0.15s ease-in-out, filter 0.3s ease-in-out;
   }
@@ -79,37 +63,33 @@
     transform: scale(1.05);
   }
   
-
   .open .card-content {
     width: 95%;
     display: flex;
     flex-direction: column;
-    max-width: 43.75rem;
     margin-top: 10vh;
     background: rgba(255, 255, 255, 0.95);
     height: auto;
-    /* z-index: 1; */
+    max-width: 43.75rem;
+    overflow: hidden;
   }
 
   .card-image {
-  /* opacity: 0.5; */
+    filter: brightness(75%);
+    transition: filter 0.5s ease-in-out;
+  }
+
+  .open .card-image {
+    filter: brightness(90%)
   }
 
   .card-image-container {
     position: absolute;
-    /* left: 0; */
-    /* left: -8.75rem; */
-    /* opacity: 0.5; */
-    /* overflow: hidden; */
     width: 100vw;
-  /* transition: opacity 0.3s ease-in-out; */
+    top: 0;
+    left: 0;
+    overflow: hidden;
    }
-
-   /* .card-image-container:hover { */
-  /* transition: opacity 0.3s ease-in-out; */
-  /* opacity: 1; */
-  /* } */
-
 
   .open .card-image-container {
     position: static;
@@ -118,101 +98,50 @@
 
   .title-container {
     position: absolute;
-    top: 0.938rem;
-    left: 0.938rem;
-    /* max-width: 18.75rem; */
-    max-width: 12rem;
-    padding: 0.313rem;
-    /* font-size: 1.15rem; */
+    top: 2rem;
+    min-width: 8rem;
+    max-width: 18.75rem;
+    padding: 0.7rem;
     font-weight: bold;
-    font-size: 1.5rem;
-
-
+    font-size: 1.6rem;
+    color: white;
   }
   
   .open .title-container {
-    /* top: 30px; */
-    /* top: 0.938rem; */
-    /* left: 0.938rem; */
-
-    /* min-width: 150px; */
-    /* min-height: 70px; */
-    /* background-color: #ffa500; */
-    /* opacity: 0.92; */
-    /* border-bottom-right-radius: 15px; */
-    /* border-top-right-radius: 15px; */
-    /* position: absolute; */
-    /* max-width: 300px; */
-    /* padding: 0.5rem; */
     display: flex;
     z-index: 2;
     flex-direction: column;
-    /* align-items: flex-start; */
-    /* justify-content: center; */
-    /* align-content: center; */
-    color: white;
     font-weight: bold;
+    left: 0;
+    border-bottom-right-radius: 1.1rem;
+    border-top-right-radius: 1.1rem;
+    background-color: var(--mainThemeColor);
+
   }
 
   .trendingMovieRating {
-    /* display: flex; */
-    color: var(--mainThemeColor);
+    color: white;
     font-size: 0.8rem;
-    /* font-weight: 600; */
-    /* text-transform: uppercase; */
   }
 
-  .open .trendingMovieRating {
-    /* color: white; */
-
-  }
 
   .trendingMovieModalOverlay {
     z-index: 1;
     position: fixed;
-    backdrop-filter: blur(5px);
-    /* background: rgba(0, 0, 0, 0.8); */
-    /* will-change: opacity; */
+    backdrop-filter: blur(0.313rem);
     top: 0;
     bottom: 0;
-    /* left: 50%; */
-    /* transform: translateX(-50%); */
     width: 100%;
   }
 
-  
-  /* .trendingMovieModalOverlay a {
-    display: block;
-    position: fixed;
-    top: 0;
-    bottom: 0;
-    width: 100vw;
-    left: 50%;
-    transform: translateX(-50%);
-  }
 
-   */
-  /* .content-container {
+  .content-container {
     display: flex;
     flex-direction: column;
-    gap: 0.625;
-    z-index: 2;
-    border: 2px red solid;
-    margin-bottom: auto;
-    padding: 0.938rem;
-    padding-bottom: 1.25rem;
-
-  } */
-
-
-  @media only screen and (max-width: 56.25rem) {
-    .title-container {
-      font-size: 0.8rem;
-    }
+    z-index: 1;  
   }
-
-
   
+
   @media only screen and (max-width: 50rem) {
     .card-list {
       width: 70vw;
@@ -231,9 +160,7 @@
       flex: 1 0 100%;
       max-width: 100%;
     }
-    .title-container {
-      font-size: 1rem;
-    }
+
    
   }
 

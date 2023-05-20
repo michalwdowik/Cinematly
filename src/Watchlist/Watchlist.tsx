@@ -3,6 +3,7 @@ import { Box } from '@mui/material'
 import WatchlistMovies from './WatchlistMovies'
 import { useWatchlistContext } from './WatchlistContext'
 import CallToActionLabel from '../Components/CallToActionLabel'
+import '../Styles/watchlist.css'
 
 const Watchlist = () => {
     const { watchlist } = useWatchlistContext()
