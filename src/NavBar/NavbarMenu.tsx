@@ -1,4 +1,3 @@
-/* eslint-disable react-hooks/exhaustive-deps */
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import Tabs from '@mui/material/Tabs'
 import Tab from '@mui/material/Tab'
@@ -6,7 +5,7 @@ import { Link } from 'react-router-dom'
 import { Box } from '@mui/material'
 import WebsiteLogo from '../Components/WebsiteLogo'
 import { websitePages, Page } from '../Helpers/pages'
-import Search from '../SearchedMovies/Search'
+import SearchMoviesPanel from '../SearchedMovies/SearchMoviesPanel'
 import useModalLogic from '../Hooks/useShowModal'
 
 const NavbarMenu = () => {
@@ -19,6 +18,8 @@ const NavbarMenu = () => {
 }
 
 const NavbarTabs = () => {
+    const isHomePage = (page: Page) => page.name === 'HOME'
+
     return (
         <Tabs
             value={0}
@@ -30,7 +31,7 @@ const NavbarTabs = () => {
         >
             {websitePages.map(
                 (page) =>
-                    !(page.name === 'HOME') && (
+                    !isHomePage(page) && (
                         <NavbarTab page={page} key={page.label} />
                     )
             )}
@@ -39,33 +40,26 @@ const NavbarTabs = () => {
 }
 
 const NavbarTab = ({ page }: NavbarTabProps) => {
-    const pageLink = page.name === 'SEARCH' ? (undefined as any) : page.link
+    const isSearchPage = page.name === 'SEARCH'
+    const pageLink = isSearchPage ? (undefined as any) : page.link
     const { showModal, closeModal, openModal } = useModalLogic()
 
     return (
         <>
             <Tab
                 value={page.label}
-                onClick={page.name === 'SEARCH' ? openModal : () => null}
-                sx={navbarTabStyles}
+                onClick={isSearchPage ? openModal : () => null}
                 label={page.name}
                 component={Link}
                 to={pageLink}
+                className="navbarTab"
             />
-            <Search showModal={showModal} closeModal={closeModal} />
+            <SearchMoviesPanel showModal={showModal} closeModal={closeModal} />
         </>
     )
 }
 
 export default NavbarMenu
-
-/* --------------------------------- STYLES --------------------------------- */
-const navbarTabStyles = {
-    color: 'white',
-    opacity: '1',
-    transition: 'opacity 0.2s ease-in-out',
-    '&:hover': { opacity: '0.4' },
-}
 
 /* --------------------------------- TYPES --------------------------------- */
 type NavbarTabProps = {

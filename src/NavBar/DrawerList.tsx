@@ -5,7 +5,7 @@ import Tab from '@mui/material/Tab'
 import { Link } from 'react-router-dom'
 import { Box } from '@mui/material'
 import { Page, websitePages } from '../Helpers/pages'
-import Search from '../SearchedMovies/Search'
+import SearchMoviesPanel from '../SearchedMovies/SearchMoviesPanel'
 import useModalLogic from '../Hooks/useShowModal'
 
 const DrawerList = ({ hideDrawer, isDrawerOpen }: DrawerListProps) => {
@@ -36,13 +36,13 @@ const DrawerList = ({ hideDrawer, isDrawerOpen }: DrawerListProps) => {
                                     ? (undefined as any)
                                     : page.link
                             }
-                            sx={drawerLinkStyles}
+                            className="drawerLink"
                         />
                     </ListItem>
                 ))}
             </Drawer>
 
-            <Search showModal={showModal} closeModal={closeModal} />
+            <SearchMoviesPanel showModal={showModal} closeModal={closeModal} />
         </>
     )
 }
@@ -55,16 +55,6 @@ const DrawerListRow = ({ page }: DrawerListRowProps) => {
             <span className="drawerListRowName">{page.name}</span>
         </Box>
     )
-}
-/* --------------------------------- STYLES --------------------------------- */
-const drawerLinkStyles = {
-    color: 'white',
-    opacity: '1',
-    transition: 'opacity 0.2s ease-in-out',
-    textDecoration: 'none',
-    '&:hover': {
-        opacity: 0.4,
-    },
 }
 
 /* --------------------------------- TYPES --------------------------------- */

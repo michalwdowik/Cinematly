@@ -2,27 +2,27 @@
 import React, { ReactNode, createContext, useMemo, useState } from 'react'
 
 export const ThemeContext = createContext<ThemeContextProps>({
-    isDarkMode: false,
-    toggleDarkMode: () => {},
+    isDarkTheme: false,
+    toggleDarkTheme: () => {},
     backgroundColor: 'black',
     textColor: 'white',
 })
 
 const ThemeProvider = ({ children }: ThemeProviderProps) => {
-    const [isDarkMode, setIsDarkMode] = useState(false)
+    const [isDarkTheme, setIsDarkTheme] = useState(false)
 
-    const toggleDarkMode = () => {
-        setIsDarkMode(!isDarkMode)
+    const toggleDarkTheme = () => {
+        setIsDarkTheme(!isDarkTheme)
     }
 
     const theme = useMemo(
         () => ({
-            isDarkMode,
-            toggleDarkMode,
-            backgroundColor: isDarkMode ? '#F3F3F3' : '#121212',
-            textColor: isDarkMode ? '#121212' : '#F3F3F3',
+            isDarkTheme,
+            toggleDarkTheme,
+            backgroundColor: isDarkTheme ? '#F3F3F3' : '#121212',
+            textColor: isDarkTheme ? '#121212' : '#F3F3F3',
         }),
-        [isDarkMode]
+        [isDarkTheme]
     )
 
     return (
@@ -38,8 +38,8 @@ type ThemeProviderProps = {
 }
 
 interface ThemeContextProps {
-    isDarkMode: boolean
-    toggleDarkMode: () => void
+    isDarkTheme: boolean
+    toggleDarkTheme: () => void
     backgroundColor: string
     textColor: string
 }

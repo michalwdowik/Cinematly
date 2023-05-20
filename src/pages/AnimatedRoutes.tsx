@@ -11,11 +11,6 @@ const LazyTopRated = lazy(() => import('./TopRated'))
 const LazyUpcoming = lazy(() => import('./Upcoming'))
 const LazyNotFound = lazy(() => import('./NotFound'))
 
-type RouteWithSuspenseProps = {
-    fallback: JSX.Element
-    children: JSX.Element
-}
-
 const RouteWithSuspense = ({ fallback, children }: RouteWithSuspenseProps) => (
     <Suspense fallback={fallback}>
         <AnimateRoute>{children}</AnimateRoute>
@@ -91,4 +86,10 @@ const RouteLoadingSkeleton = () => {
             <circle cx="238" cy="50" r="6" />
         </ContentLoader>
     )
+}
+
+/* ----------------- TYPES ----------------- */
+type RouteWithSuspenseProps = {
+    fallback: JSX.Element
+    children: JSX.Element
 }

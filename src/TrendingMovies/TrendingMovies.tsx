@@ -2,7 +2,7 @@ import { memo } from 'react'
 import TrendingMovie from './TrendingMovie'
 import { TrendingMovieProps } from './types'
 import useFetchMovie from '../Hooks/useFetchMovies'
-import '../Styles/trendingMovies.css'
+import '../Styles/movieCard.css'
 
 const TrendingMovies = () => {
     const trendingMovies = useFetchMovie('trending')

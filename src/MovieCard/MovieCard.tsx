@@ -1,4 +1,3 @@
-// import { Skeleton } from '@mui/material'
 import { motion } from 'framer-motion'
 import MovieCardDetails from './MovieCardDetails'
 import MovieCardHeading from './MovieCardHeading'

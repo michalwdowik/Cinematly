@@ -12,7 +12,7 @@ const Upcoming = () => {
     const justReleasedMovies = useFetchMovie('justReleased')
 
     return (
-        <div className=" page">
+        <div className="upcomingPage">
             <Headline
                 title="Upcoming Movies"
                 subtitle="From highly-anticipated sequels to exciting new releases, stay in the loop with our Upcoming Movies section"

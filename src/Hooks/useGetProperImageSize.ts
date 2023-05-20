@@ -1,6 +1,6 @@
 import useScreenType from 'react-screentype-hook'
 
-const useGetProperImageSize = (path: string) => {
+const useGetProperImageSize = (path: string | null) => {
     const screenType = useScreenType()
     const baseUrl = 'https://image.tmdb.org/t/p/'
     const backdropPath = path

@@ -8,8 +8,8 @@ import { ThemeContext } from '../Contexts/ThemeContext'
 
 const SearchedMovies = ({ searchedMovies }: SearchedMoviesProps) => {
     const { textColor } = useContext(ThemeContext)
-
-    return searchedMovies.length > 0 ? (
+    const isAnyMovieSearched = searchedMovies.length > 0
+    return isAnyMovieSearched ? (
         <Box className="searchedMovies">
             {searchedMovies.map((movie) => (
                 <LazyLoadComponent
@@ -31,7 +31,7 @@ const SearchedMovies = ({ searchedMovies }: SearchedMoviesProps) => {
 
 export default SearchedMovies
 
-/* --------------------------------- TYPES --------------------------------- */
+/* ---------------------- TYPES ---------------------- */
 type SearchedMoviesProps = {
     searchedMovies: Movie[]
 }

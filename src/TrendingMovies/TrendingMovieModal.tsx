@@ -43,9 +43,7 @@ const TrendingMovieModalOverlay = ({
             exit={{ opacity: 0, transition: { duration: 0.15 } }}
             transition={{ duration: 0.2 }}
             className="trendingMovieModalOverlay"
-        >
-            {/* <Link to="/" /> */}
-        </motion.div>
+        />
     )
 }
 

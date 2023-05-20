@@ -44,7 +44,7 @@ const ActorName = ({ name }: ActorNameType) => {
 
 const ActorKnownFor = ({ known_for }: ActorKnownForType) => {
     return (
-        <Box className="knownFor">
+        <Box className="actorKnownFor">
             {known_for[0].title || known_for[0].name}
         </Box>
     )

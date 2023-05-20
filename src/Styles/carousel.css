@@ -8,6 +8,43 @@
   margin-top: 4.375rem;
   }  
 
+.carouselImage {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.carouselMovieDetails {
+  position: absolute;
+}
+
+.carouselMovieReleaseDate {
+  display: flex;
+  gap: 1.5625rem;
+  margin-bottom: 1rem;
+  align-items: center;
+  color: white;
+  font-size: 0.875rem;
+  margin-left: 0.8125rem;
+}
+
+.carouselMovieRating {
+  display: flex;
+  padding: 0;
+  align-items: center;
+  justify-content: center;
+}
+
+  
+.carouselMovieOverview {
+  color: white;
+  font-style: italic;
+  font-size: 1rem;
+  margin-right: 0.625rem;
+  display: flex;
+  text-align: left;
+  width: 70vh;
+}
 
 .carouselMovieTitle {
     color: white;
@@ -17,8 +54,34 @@
     width: 55%;
     font-size: 1.5rem;
     margin-left: 0.8125rem;
-  }
+}
   
+
+.starIcon {
+  color: white;
+  font-size: 0.875rem;
+}
+
+
+.carouselMovieOverlay {
+  position: absolute;
+  bottom: 0;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  justify-content: flex-end;
+  align-items: flex-start;
+  background-image: linear-gradient(rgba(18, 18, 18, 0), rgba(18, 18, 18, 1));
+  opacity: 0.9;
+  transition: opacity 0.3s;
+  padding: 0;
+}
+
+.carouselMovieOverlay:hover {
+  opacity: 1;
+
+}
   @media only screen and (min-width: 576px) {
     .carouselMovieTitle {
       font-size: 2rem;
@@ -38,16 +101,6 @@
     }
   }
   
-  .carouselMovieOverview {
-    color: white;
-    font-style: italic;
-    font-size: 1rem;
-    margin-right: 0.625rem;
-    display: flex;
-    text-align: left;
-    width: 70vh;
-  }
-  
   @media only screen and (min-width: 576px) {
     .carouselMovieOverview {
       width: 70vh;
@@ -63,13 +116,11 @@
   @media only screen and (min-width: 992px) {
     .carouselMovieOverview {
       width: 50vh;
+      margin-bottom: 3rem;
+
     }
   }
-  
-  .starIcon {
-    color: white;
-    font-size: 0.875rem;
-  }
+
   
   @media only screen and (min-width: 768px) {
     .starIcon {
@@ -83,22 +134,7 @@
     }
   }
   
-  .carouselMovieRating {
-    display: flex;
-    padding: 0;
-    align-items: center;
-    justify-content: center;
-  }
-  
-  .carouselMovieReleaseDate {
-    display: flex;
-    gap: 1.5625rem;
-    margin-bottom: 1rem;
-    align-items: center;
-    color: white;
-    font-size: 0.875rem;
-    margin-left: 0.8125rem;
-  }
+
   
   @media only screen and (min-width: 576px) {
     .carouselMovieReleaseDate {
@@ -113,57 +149,28 @@
     }
   }
   
-  .carouselMovieDetails {
-    position: absolute;
-  }
-  
+ 
   @media only screen and (min-width: 768px) {
     .carouselMovieDetails {
       bottom: 10%;
     }
   }
   
-
-.carouselImage {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-}
-
-.carouselMovieOverlay {
-    position: absolute;
-    bottom: 0;
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-    width: 100%;
-    justify-content: flex-end;
-    align-items: flex-start;
-    background-image: linear-gradient(rgba(18, 18, 18, 0), rgba(18, 18, 18, 1));
-    opacity: 0.9;
-    transition: opacity 0.3s;
-    padding: 0;
-  
-    &:hover {
-      opacity: 1;
-    }
-  }
-  
   @media only screen and (min-width: 576px) {
     .carouselMovieOverlay {
-      padding: 3rem;
+      padding: 2rem;
     }
   }
   
   @media only screen and (min-width: 768px) {
     .carouselMovieOverlay {
-      padding: 4rem;
+      padding: 3rem;
     }
   }
   
   @media only screen and (min-width: 992px) {
     .carouselMovieOverlay {
-      padding: 5rem;
+      padding: 4rem;
     }
   }
   

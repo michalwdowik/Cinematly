@@ -55,14 +55,6 @@
     box-shadow: 0.5rem 0.5rem 0.75rem -0.313rem rgb(0, 0, 0, 1);
   }
   
-  .zoom-on-hover {
-    transition: transform 0.15s ease-in-out, filter 0.3s ease-in-out;
-  }
-  
-  .zoom-on-hover:hover {
-    transform: scale(1.05);
-  }
-  
   .open .card-content {
     width: 95%;
     display: flex;
@@ -141,6 +133,14 @@
     z-index: 1;  
   }
   
+  .zoom-on-hover {
+    transition: transform 0.15s ease-in-out, filter 0.3s ease-in-out;
+  }
+  
+  .zoom-on-hover:hover {
+    transform: scale(1.05);
+  }
+
 
   @media only screen and (max-width: 50rem) {
     .card-list {
@@ -160,7 +160,5 @@
       flex: 1 0 100%;
       max-width: 100%;
     }
-
-   
   }
 

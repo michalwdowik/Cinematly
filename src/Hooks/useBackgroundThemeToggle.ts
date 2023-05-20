@@ -1,13 +1,13 @@
 import { useContext, useEffect, useState } from 'react'
 import { ThemeContext } from '../Contexts/ThemeContext'
 
-const useModeToggle = () => {
-    const { toggleDarkMode, backgroundColor } = useContext(ThemeContext)
+const useBackgroundThemeToggle = () => {
+    const { toggleDarkTheme, backgroundColor } = useContext(ThemeContext)
     const [isDarkMode, setDarkMode] = useState(true)
 
     const handleColorModeToggle = () => {
         setDarkMode(!isDarkMode)
-        toggleDarkMode()
+        toggleDarkTheme()
     }
 
     useEffect(() => {
@@ -18,4 +18,4 @@ const useModeToggle = () => {
     return { isDarkMode, handleColorModeToggle }
 }
 
-export default useModeToggle
+export default useBackgroundThemeToggle

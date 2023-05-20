@@ -31,7 +31,7 @@ const TimelineMovieWrapper = ({
 
 export default TimelineMovieWrapper
 
-/* --------------------------------- STYLES --------------------------------- */
+/* --------------------- STYLES --------------------- */
 const timelineWrapperStyles: CSSProperties = {
     borderRadius: '4rem',
     color: '#fff',
@@ -40,11 +40,12 @@ const timelineWrapperStyles: CSSProperties = {
     flexDirection: 'column',
     overflow: 'hidden',
     padding: '0',
-    maxWidth: '90vw',
+    maxWidth: 'min(80vw, 650px)',
+    maxHeight: '40rem',
     boxShadow: '8px 8px 12px -5px rgb(0, 0, 0)',
 }
 
-/* --------------------------------- TYPES --------------------------------- */
+/* --------------------- TYPES --------------------- */
 type TimelineWrapperProps = {
     releaseDate: string
     children: ReactNode

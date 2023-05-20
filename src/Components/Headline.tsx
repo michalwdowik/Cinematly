@@ -10,7 +10,7 @@ const Headline = ({
     leftAligned,
     enableParallax = true,
 }: HeadlineProps) => {
-    const xMove = leftAligned ? -5 : 5
+    const moveHorizontal = leftAligned ? -5 : 5
     const content = (
         <HeadlineElements
             title={title}
@@ -20,7 +20,7 @@ const Headline = ({
         />
     )
     return enableParallax ? (
-        <Parallax speed={-8} translateX={[0, xMove]}>
+        <Parallax speed={-8} translateX={[0, moveHorizontal]}>
             <Box className="sectionHeadline">{content}</Box>
         </Parallax>
     ) : (

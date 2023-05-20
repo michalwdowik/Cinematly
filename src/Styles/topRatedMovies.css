@@ -2,8 +2,8 @@
   --mainTheme: #fc9803;
 }
 
-.topRatedPageBox {
-  margin-top: 3rem;
+.topRatedPage {
+  margin-top: 7rem;
   padding: 0;
   display: flex;
   justify-content: center;
@@ -16,8 +16,6 @@
   justify-content: center;
   align-content: center;
 }
-
-
 
 .topRatedMovie {
   display: flex;
@@ -32,12 +30,10 @@
   box-shadow: 0.5rem 0.5rem 0.75rem -0.313rem rgb(0, 0, 0, 1);
 }
 
-
 .topRatedMovie:hover {
   color: white;
   transform: scale(1.10, 1.10);
   box-shadow: 0.5rem 0.5rem 0.75rem -0.313rem rgb(0, 0, 0, 1);
-
 }
 
 .topRatedMovie__img--hover {
@@ -62,8 +58,8 @@ visibility: hidden;
   top: 0;
   left: 0;
   font-weight: 700;
-    text-transform: uppercase;
-    font-size: 5rem;
+  text-transform: uppercase;
+  font-size: 5rem;
   color: white;
   padding: 0.7rem;
   opacity: 95%;
@@ -126,24 +122,6 @@ visibility: hidden;
   font-size: 1.6rem;
 }
 
-@media (max-width: 23em) {
-  .topRatedMovieTitle {
-    font-size: 1.7rem;
-  }
-}
-
-@media (max-width: 47.5em) {
-  .topRatedMovie {
-    width: 28rem;
-  }
-}
-
-@media (max-width: 30em) {
-  .topRatedMovie {
-    width: 20rem;
-  }
-}
-
 .topRatedMovieReleaseDate {
   display: flex;
   align-items: center;
@@ -164,4 +142,22 @@ visibility: hidden;
   color: white;
   max-height: 200px;
   overflow: scroll;
+}
+
+@media (max-width: 23em) {
+  .topRatedMovieTitle {
+    font-size: 1.7rem;
+  }
+}
+
+@media (max-width: 47.5em) {
+  .topRatedMovie {
+    width: 28rem;
+  }
+}
+
+@media (max-width: 30em) {
+  .topRatedMovie {
+    width: 20rem;
+  }
 }

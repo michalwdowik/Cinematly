@@ -1,11 +1,12 @@
-import { Box, Skeleton } from '@mui/material'
+import { Box } from '@mui/material'
 import { LazyLoadComponent } from 'react-lazy-load-image-component'
 import { MovieProps } from '../MovieCard/types'
 import shortenOverview from '../Helpers/cutText'
+import WatchlistMovieDetails from './WatchlistMovieDetails'
 import {
     WatchlistMovieDetailsSkeleton,
-    WatchlistMovieDetails,
-} from './WatchlistMovieDetails'
+    WatchlistMovieOverviewSkeleton,
+} from './WatchlistSkeleton'
 
 const WatchlistMovie = ({ movie }: MovieProps) => {
     return (
@@ -38,16 +39,6 @@ const WatchlistMovieOverview = ({
             {shortenOverview(movieOverview, 20)}
             ..
         </span>
-    )
-}
-
-const WatchlistMovieOverviewSkeleton = () => {
-    return (
-        <div className="watchlistMovieOverview">
-            <Skeleton variant="text" sx={{ fontSize: '0.5rem' }} width={240} />
-            <Skeleton variant="text" sx={{ fontSize: '0.5rem' }} width={180} />
-            <Skeleton variant="text" sx={{ fontSize: '0.5rem' }} width={100} />
-        </div>
     )
 }
 

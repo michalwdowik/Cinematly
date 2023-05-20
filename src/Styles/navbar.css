@@ -12,19 +12,29 @@ justify-content: space-between;
 
 }
 
-  .navbarMenu {
+
+.navbarTab {
+  transition: opacity 0.2s ease-in-out;
+}
+
+.navbarTab:hover {
+  opacity: 0.4;
+}
+
+
+.navbarMenu {
     display: flex;
     align-items: center;
   }
   
-  .drawerListRow {
+.drawerListRow {
     color: white;
     display: flex;
     align-items: center;
     gap: 0.5rem;
   }
   
-  .drawerListRowName {
+.drawerListRowName {
     opacity: 1;
     font-size: 0.9rem;
     color: white;
@@ -35,4 +45,15 @@ justify-content: space-between;
     background: transparent;
     border: none;
     cursor: pointer;
+}
+
+.drawerLink {
+  color: white;
+  opacity: 1;
+  transition: opacity 0.2s ease-in-out;
+  text-decoration: none;
+}
+
+.drawerLink:hover {
+  opacity: 0.4;
 }

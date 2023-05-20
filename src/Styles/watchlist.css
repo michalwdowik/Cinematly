@@ -10,7 +10,6 @@
     
 }
 
-
 .watchlistMovieDetails {
     display: flex;
     max-width: 7.5rem;
@@ -95,18 +94,6 @@
     scrollbar-width: none;
     overflow: scroll;
     min-height: 200px;
-}
-
-@media (max-width:400px) {
-    .watchlistHeadingText {
-    font-size: 2.2rem;
-    }
-}
-
-@media (max-width:767px) {
-    .watchlist {
-        max-width: 90vw;
-    }
 }
 
 .accessAlarmIcon {
@@ -194,4 +181,18 @@
 
 .watchlistBadge:hover {
     transform: scale(1.15);
+}
+
+/* ----------------------- MEDIA QUERIES ----------------------- */
+
+@media (max-width:400px) {
+    .watchlistHeadingText {
+    font-size: 2.2rem;
+    }
+}
+
+@media (max-width:767px) {
+    .watchlist {
+        max-width: 90vw;
+    }
 }

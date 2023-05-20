@@ -7,15 +7,13 @@ import { ThemeContext } from '../Contexts/ThemeContext'
 import useFetchMovies from '../Hooks/useFetchMovies'
 import '../Styles/searchedMovies.css'
 
-const Search = ({ closeModal, showModal }: SearchProps) => {
+const SearchMoviesPanel = ({ closeModal, showModal }: SearchProps) => {
     const { backgroundColor } = useContext(ThemeContext)
     const [searchQuery, setSearchQuery] = useState('')
-
+    const searchedMovies = useFetchMovies('searched', searchQuery)
     const handleSearchChange = (event: React.ChangeEvent<HTMLInputElement>) => {
         setSearchQuery(event.target.value)
     }
-
-    const searchedMovies = useFetchMovies('searched', searchQuery)
 
     return (
         <Modal
@@ -46,7 +44,7 @@ const Search = ({ closeModal, showModal }: SearchProps) => {
     )
 }
 
-export default Search
+export default SearchMoviesPanel
 
 type SearchProps = {
     closeModal: () => void

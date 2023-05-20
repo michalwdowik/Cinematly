@@ -5,7 +5,7 @@ const MovieCardImage = ({ backdrop_path, id, type }: MovieCardImageProps) => {
     const movieCardImage =
         type === 'upcoming' ? (
             <LazyLoadImage
-                className="card-image"
+                className="upcomingMovieImage"
                 alt="Trending Movie"
                 src={`https://image.tmdb.org/t/p/w780/${backdrop_path}`}
             />

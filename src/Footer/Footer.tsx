@@ -11,7 +11,7 @@ const Footer = () => (
             <FooterWrapper>
                 <WebsiteLogo navbarLogo={false} />
                 <FooterMenu />
-                <FooterCopyright />
+                <FooterPageName />
             </FooterWrapper>
         </Parallax>
     </ParallaxProvider>
@@ -22,10 +22,10 @@ const FooterWrapper = ({ children }: FooterProps) => {
     return <Box className="footer">{children}</Box>
 }
 
-const FooterCopyright = () => {
+const FooterPageName = () => {
     return (
         <Typography variant="body2" sx={{ color: 'gray' }}>
-            © 2023 Cinematly
+            2023 Cinematly
         </Typography>
     )
 }

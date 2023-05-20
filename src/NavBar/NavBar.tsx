@@ -4,12 +4,12 @@ import useScreenType from 'react-screentype-hook'
 import { DarkModeSwitch } from 'react-toggle-dark-mode'
 import NavbarDrawer from './NavbarDrawer'
 import NavbarMenu from './NavbarMenu'
-import useModeToggle from '../Hooks/useModeToggle'
+import useBackgroundThemeToggle from '../Hooks/useBackgroundThemeToggle'
 import '../Styles/navbar.css'
 
 const NavBar = () => {
     const screenType = useScreenType()
-    const { isDarkMode, handleColorModeToggle } = useModeToggle()
+    const { isDarkMode, handleColorModeToggle } = useBackgroundThemeToggle()
 
     return (
         <AppBar sx={{ border: 'none', position: 'fixed', zIndex: '9998' }}>

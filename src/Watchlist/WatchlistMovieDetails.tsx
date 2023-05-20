@@ -1,6 +1,6 @@
-import { Box, Skeleton } from '@mui/material'
+import { Box } from '@mui/material'
 
-export const WatchlistMovieDetails = ({
+const WatchlistMovieDetails = ({
     movieTitle,
     movieBackdropPath,
     movieReleaseDate,
@@ -16,6 +16,7 @@ export const WatchlistMovieDetails = ({
         </>
     )
 }
+export default WatchlistMovieDetails
 
 const WatchlistMovieImage = ({
     movieTitle,
@@ -50,49 +51,6 @@ const WatchlistMovieReleaseDate = ({
     movieReleaseDate,
 }: WatchlistMovieReleaseDateProps) => {
     return <Box className="watchlistMovieReleaseDate">{movieReleaseDate}</Box>
-}
-
-/* ----------------------- SKELETON ----------------------- */
-export const WatchlistMovieDetailsSkeleton = () => {
-    return (
-        <>
-            <WatchlistMovieImageSkeleton />
-            <WatchlistMovieTitleSkeleton />
-            <WatchlistMovieReleaseDateSkeleton />
-        </>
-    )
-}
-
-const WatchlistMovieImageSkeleton = () => {
-    return (
-        <Skeleton
-            variant="rounded"
-            sx={{ borderRadius: '0.5rem' }}
-            className="watchlistMovieImage"
-            width={120}
-            height={68}
-        />
-    )
-}
-
-const WatchlistMovieTitleSkeleton = () => {
-    return (
-        <>
-            <Skeleton variant="text" height={12} />
-            <Skeleton variant="text" height={12} width={90} />
-        </>
-    )
-}
-
-const WatchlistMovieReleaseDateSkeleton = () => {
-    return (
-        <Skeleton
-            variant="text"
-            width={60}
-            height={8}
-            sx={{ marginTop: '0.4rem' }}
-        />
-    )
 }
 
 /* ----------------------- TYPES ----------------------- */

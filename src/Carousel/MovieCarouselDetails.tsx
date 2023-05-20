@@ -1,7 +1,7 @@
 import StarIcon from '@mui/icons-material/Star'
 import { Box } from '@mui/material'
 import useScreenType from 'react-screentype-hook'
-import { Movie, MovieProps } from '../MovieCard/types'
+import { Movie } from '../MovieCard/types'
 import MovieCarouselOverlay from './MovieCarouselOverlay'
 
 const MovieCarouselDetails = ({ movie }: MovieDetailsProps) => {
@@ -10,12 +10,16 @@ const MovieCarouselDetails = ({ movie }: MovieDetailsProps) => {
     return (
         <MovieCarouselOverlay>
             <Box className="carouselMovieDetails">
-                <MovieTitle movie={movie} />
+                <MovieTitle movieTitle={movie.title} />
                 <Box className="carouselMovieReleaseDate">
-                    <MovieRating movie={movie} />
-                    <MovieReleaseDate movie={movie} />
+                    <MovieRating movieRating={movie.vote_average} />
+                    <MovieReleaseDate
+                        movieReleaseDate={movie.release_date || movie.release}
+                    />
                 </Box>
-                {!screenType.isMobile && <MovieOverview movie={movie} />}
+                {!screenType.isMobile && (
+                    <MovieOverview movieOverview={movie.overview} />
+                )}
             </Box>
         </MovieCarouselOverlay>
     )
@@ -23,29 +27,43 @@ const MovieCarouselDetails = ({ movie }: MovieDetailsProps) => {
 
 export default MovieCarouselDetails
 
-const MovieTitle = ({ movie }: MovieProps) => {
-    return <Box className="carouselMovieTitle">{movie && movie.title}</Box>
+const MovieTitle = ({ movieTitle }: MovieTitleProps) => {
+    return <Box className="carouselMovieTitle">{movieTitle}</Box>
 }
 
-const MovieReleaseDate = ({ movie }: MovieProps) => {
-    return <Box>{movie && movie.release_date}</Box>
+const MovieReleaseDate = ({ movieReleaseDate }: MovieReleaseDateProps) => {
+    return <Box>{movieReleaseDate}</Box>
 }
 
-const MovieRating = ({ movie }: MovieProps) => {
+const MovieRating = ({ movieRating }: MovieRatingProps) => {
     return (
         <Box className="carouselMovieRating">
             <StarIcon className="starIcon" />
-            {movie && movie.vote_average}
+            {movieRating}
         </Box>
     )
 }
-const MovieOverview = ({ movie }: MovieProps) => {
-    return (
-        <Box className="carouselMovieOverview">{movie && movie.overview}</Box>
-    )
+const MovieOverview = ({ movieOverview }: MovieOverviewProps) => {
+    return <Box className="carouselMovieOverview">{movieOverview}</Box>
 }
 
 /* --------------------------------- TYPES --------------------------------- */
 type MovieDetailsProps = {
     movie: Movie
+}
+
+type MovieTitleProps = {
+    movieTitle: string
+}
+
+type MovieRatingProps = {
+    movieRating: number
+}
+
+type MovieReleaseDateProps = {
+    movieReleaseDate: string
+}
+
+type MovieOverviewProps = {
+    movieOverview: string
 }
