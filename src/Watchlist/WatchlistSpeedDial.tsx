@@ -39,7 +39,6 @@ const WatchlistSpeedDial = () => {
             </Tooltip>
 
             <Modal
-                // sx={{ marginTop: '70px' }}
                 open={showModal}
                 onClose={closeModal}
                 closeAfterTransition
@@ -47,7 +46,6 @@ const WatchlistSpeedDial = () => {
                 slotProps={{
                     backdrop: {
                         timeout: 500,
-                        // sx: { marginTop: '70px' },
                     },
                 }}
             >
@@ -59,6 +57,8 @@ const WatchlistSpeedDial = () => {
                         bottom: '7rem',
                         right: '1.2rem',
                         backdropFilter: 'blur(20px)',
+                        WebkitBackdropFilter: 'blur(20px)',
+                        willChange: 'transform',
                     }}
                     {...(showModal ? { timeout: 500 } : {})}
                 >
