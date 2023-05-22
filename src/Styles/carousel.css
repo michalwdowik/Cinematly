@@ -86,6 +86,17 @@
     .carouselMovieTitle {
       font-size: 2rem;
     }
+    .carouselMovieOverview {
+      width: 70vh;
+    }
+
+    .carouselMovieReleaseDate {
+      font-size: 1.125rem;
+    }
+
+    .carouselMovieOverlay {
+      padding: 2rem;
+    }
   }
   
   @media only screen and (min-width: 768px) {
@@ -93,84 +104,45 @@
       font-size: 2.8125rem;
       margin-left: 0;
     }
-  }
-  
-  @media only screen and (min-width: 992px) {
-    .carouselMovieTitle {
-      font-size: 3.4375rem;
-    }
-  }
-  
-  @media only screen and (min-width: 576px) {
-    .carouselMovieOverview {
-      width: 70vh;
-    }
-  }
-  
-  @media only screen and (min-width: 768px) {
+
     .carouselMovieOverview {
       width: 60vh;
     }
-  }
-  
-  @media only screen and (min-width: 992px) {
-    .carouselMovieOverview {
-      width: 50vh;
-      margin-bottom: 3rem;
 
-    }
-  }
-
-  
-  @media only screen and (min-width: 768px) {
     .starIcon {
       font-size: 1rem;
     }
-  }
-  
-  @media only screen and (min-width: 992px) {
-    .starIcon {
-      font-size: 1.25rem;
-    }
-  }
-  
 
-  
-  @media only screen and (min-width: 576px) {
-    .carouselMovieReleaseDate {
-      font-size: 1.125rem;
-    }
-  }
-  
-  @media only screen and (min-width: 992px) {
-    .carouselMovieReleaseDate {
-      font-size: 1.125rem;
-      margin-left: 0;
-    }
-  }
-  
- 
-  @media only screen and (min-width: 768px) {
     .carouselMovieDetails {
       bottom: 10%;
     }
-  }
-  
-  @media only screen and (min-width: 576px) {
-    .carouselMovieOverlay {
-      padding: 2rem;
-    }
-  }
-  
-  @media only screen and (min-width: 768px) {
+
     .carouselMovieOverlay {
       padding: 3rem;
     }
   }
   
   @media only screen and (min-width: 992px) {
+    .carouselMovieTitle {
+      font-size: 3.4375rem;
+    }
+
+    .carouselMovieOverview {
+      width: 50vh;
+      margin-bottom: 3rem;
+  
+    }
+
+    .starIcon {
+      font-size: 1.25rem;
+    }
+
+    .carouselMovieReleaseDate {
+      font-size: 1.125rem;
+      margin-left: 0;
+    }
+
     .carouselMovieOverlay {
       padding: 4rem;
     }
   }
-  

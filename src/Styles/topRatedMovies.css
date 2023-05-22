@@ -124,7 +124,7 @@ visibility: hidden;
 .topRatedMovieReleaseDate {
   display: flex;
   align-items: center;
-  gap: 5px;
+  gap: 0.313rem;
 }
 
 .topRatedMovieHeadings {
@@ -139,7 +139,7 @@ visibility: hidden;
 .topRatedMovieOverview {
   font-size: 0.9rem;
   color: white;
-  max-height: 200px;
+  max-height: 12.5rem;
   overflow: scroll;
 }
 

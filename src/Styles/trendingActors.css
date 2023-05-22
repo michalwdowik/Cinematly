@@ -24,7 +24,7 @@
   
   .actorRoleOverview {
     opacity: 70%;
-    margin-bottom: 10px;
+    margin-bottom: 0.625rem;
   }
   
   .actorImage {
@@ -47,7 +47,7 @@
   .actorRating {
   font-size: 1rem;
   display: flex;
-  min-width: 40px;
+  min-width: 2.5rem;
 }
 
 .actorRoleOverview {
@@ -57,10 +57,10 @@
 
 .actorsInfiniteSlider {
   background: transparent;
-  height: 400px;
+  height: 25rem;
   width: 100%;
-  margin-bottom: 200px;
-  margin-top: -20px;
+  margin-bottom: 12.5rem;
+  margin-top: -1.25rem;
 }
 
 
