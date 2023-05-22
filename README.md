@@ -1,10 +1,10 @@
 
 # Cinematly
 
-Cinematly is a web application that serves as a movie database. User interface is built using React and Material-UI, providing a visually appealing and responsive design. The development workflow is powered by Vite. The application's navigation is powered by React Router, enabling seamless transitions between different sections and pages. Overall, Cinematly aims to be a go-to platform for movie enthusiasts, offering a comprehensive movie database, personalized watchlist functionality, and a user-friendly interface. Whether users want to discover trending movies, explore top-rated films, keep track of upcoming releases or add movies o Watchlist, Cinematly provides a rich set of features to cater to their movie-watching needs.
-
+Cinematly is a web application that serves as a movie database. User interface is built using React and Material-UI, providing a visually appealing and responsive design. The application's navigation is powered by React Router. Overall, Cinematly aims to be a go-to platform for movie enthusiasts, offering a comprehensive movie database, personalized watchlist functionality, and a user-friendly interface.
 
 ## 📸 Screenshots
+
 
 ## 🚀 Live Demo
 [Cinematly - Vercel Demo](https://cinematly.vercel.app/)
@@ -16,9 +16,8 @@ Cinematly is a web application that serves as a movie database. User interface i
 ![TypeScript](https://img.shields.io/badge/TypeScript-007ACC?style=for-the-badge&logo=typescript&logoColor=white)
 ![Vite](https://img.shields.io/badge/Vite-B73BFE?style=for-the-badge&logo=vite&logoColor=FFD62E)
 ![Eslint](https://img.shields.io/badge/eslint-3A33D1?style=for-the-badge&logo=eslint&logoColor=white)
-![MaterialUI](https://img.shields.io/badge/Tailwind_CSS-38B2AC?style=for-the-badge&logo=tailwind-css&logoColor=white)
 ![Prettier](https://img.shields.io/badge/prettier-1A2C34?style=for-the-badge&logo=prettier&logoColor=F7BA3E)
-
+![MaterialUI](https://res.cloudinary.com/practicaldev/image/fetch/s--yayk2pWn--/c_limit%2Cf_auto%2Cfl_progressive%2Cq_auto%2Cw_880/https://img.shields.io/badge/Material--UI-0081CB%3Fstyle%3Dfor-the-badge%26logo%3Dmaterial-ui%26logoColor%3Dwhite)
 
 
 ## 👨‍💻 Run Locally
