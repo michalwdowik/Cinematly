@@ -3,7 +3,7 @@
   --mainThemeColorSecondary: #fc7703;
 }
 
-.card-list {
+  .card-list {
     display: flex;
     flex-wrap: wrap;
     width: min(90vw, 71.875rem);
@@ -18,7 +18,6 @@
     flex: 0 0 40%;
     color: white;
     cursor: pointer;
-    
   }
 
   .card:nth-child(4n + 1),
@@ -161,4 +160,12 @@
       max-width: 100%;
     }
   }
-
+  
+  .movieCardDetails {
+    position: relative;
+    flex-direction: column;
+    padding: 0.7rem;
+    background: white;
+    color: black
+  }
+  

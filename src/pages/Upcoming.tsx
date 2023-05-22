@@ -3,6 +3,7 @@ import { lazy } from 'react'
 import TimelineHeadline from '../Components/TimelineHeadline'
 import Headline from '../Components/Headline'
 import useFetchMovie from '../Hooks/useFetchMovies'
+import '../Styles/upcomingMovies.css'
 
 const LazyUpcomingMovies = lazy(
     () => import('../UpcomingMovies/UpcomingMovies')

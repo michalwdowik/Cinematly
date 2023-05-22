@@ -1,0 +1,43 @@
+
+.upcomingPage {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-content: center;
+    align-items: center;
+    margin-top: 7rem;
+  }
+  
+  .upcomingMovieImage {
+  width: 100%;
+  }
+    
+  
+  .timelineWrapperIcon {
+    background: var(--mainThemeColor);
+    color: #fff;
+  }
+  
+  .dateStyles {
+    display: none !important;
+  }
+
+  .upcomingMovieHeading {
+    position: absolute;
+    top: 2rem;
+    min-width: 8rem;
+    max-width: 13.75rem;
+    padding: 0.7rem;
+    font-weight: bold;
+    font-size: 1rem !important;
+    color: white;
+    display: flex;
+    z-index: 2;
+    flex-direction: column;
+    font-weight: bold;
+    left: 0;
+    border-bottom-right-radius: 1.1rem;
+    border-top-right-radius: 1.1rem;
+    background-color: var(--mainThemeColor);
+  }
+  

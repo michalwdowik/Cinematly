@@ -1,4 +1,4 @@
-import { useContext } from 'react'
+import { useContext, useState } from 'react'
 import { Box } from '@mui/material'
 import { LazyLoadComponent } from 'react-lazy-load-image-component'
 import SearchedMovie, { SearchedMovieSkeleton } from './SearchedMovie'
@@ -8,16 +8,28 @@ import { ThemeContext } from '../Contexts/ThemeContext'
 
 const SearchedMovies = ({ searchedMovies }: SearchedMoviesProps) => {
     const { textColor } = useContext(ThemeContext)
+    const [isLoaded, setIsLoaded] = useState(false)
+    const onLoad = () => {
+        setIsLoaded(true)
+    }
     const isAnyMovieSearched = searchedMovies.length > 0
     return isAnyMovieSearched ? (
         <Box className="searchedMovies">
             {searchedMovies.map((movie) => (
-                <LazyLoadComponent
-                    key={movie.id}
-                    placeholder={<SearchedMovieSkeleton />}
-                >
-                    <SearchedMovie key={movie.id} movie={movie} />
-                </LazyLoadComponent>
+                <>
+                    {!isLoaded && <SearchedMovieSkeleton />}
+                    <LazyLoadComponent
+                        key={movie.id}
+                        placeholder={<SearchedMovieSkeleton />}
+                    >
+                        <SearchedMovie
+                            isLoaded={isLoaded}
+                            onLoad={onLoad}
+                            key={movie.id}
+                            movie={movie}
+                        />
+                    </LazyLoadComponent>
+                </>
             ))}
         </Box>
     ) : (

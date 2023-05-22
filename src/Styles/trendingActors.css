@@ -3,6 +3,7 @@
     width: 34.375rem; 
     margin-top: 1.5rem;
     align-items: flex-start;
+    margin-top: 6rem;
   }
   
   .actorInfo {
@@ -11,9 +12,7 @@
   }
   
   .actorName {
-    font-size: 1.5rem; 
     font-size: 2rem; 
-    font-size: 2.5rem;
     font-weight: bold;
   }
   
@@ -37,6 +36,7 @@
   .knownForWrapper {
     display: flex;
     align-items: center;
+    align-content: center;
     gap: 0.3125rem; 
     font-style: italic;
     margin-top: 0.5rem;
@@ -61,4 +61,11 @@
   width: 100%;
   margin-bottom: 200px;
   margin-top: -20px;
+}
+
+
+@media (max-width: 768px) {
+  .actorName {
+    font-size: 1.6rem; 
+  }
 }

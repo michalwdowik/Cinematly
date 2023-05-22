@@ -3,6 +3,7 @@ import { Box } from '@mui/material'
 import { useContext } from 'react'
 import { Parallax } from 'react-scroll-parallax'
 import { ThemeContext } from '../Contexts/ThemeContext'
+import '../Styles/headline.css'
 
 const Headline = ({
     title,
@@ -21,10 +22,10 @@ const Headline = ({
     )
     return enableParallax ? (
         <Parallax speed={-8} translateX={[0, moveHorizontal]}>
-            <Box className="sectionHeadline">{content}</Box>
+            <Box className="headline">{content}</Box>
         </Parallax>
     ) : (
-        <Box className="sectionHeadline">{content}</Box>
+        <Box className="headline">{content}</Box>
     )
 }
 

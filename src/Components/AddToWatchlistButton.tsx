@@ -1,6 +1,7 @@
 import WatchLaterIcon from '@mui/icons-material/WatchLater'
 import { Movie } from '../MovieCard/types'
 import { useWatchlistContext } from '../Watchlist/WatchlistContext'
+import '../Styles/watchLaterButton.css'
 
 const AddToWatchlistButton = ({
     absolute,

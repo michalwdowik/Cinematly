@@ -2,6 +2,8 @@ import { ParallaxProvider } from 'react-scroll-parallax'
 import { lazy, Suspense } from 'react'
 import MemoizedQuote from '../Components/Quote'
 import Headline from '../Components/Headline'
+import { MovieCarouselSkeleton } from '../Carousel/MoviesCarousel'
+import Loader from '../Components/Loader'
 
 const LazyMoviesCarousel = lazy(() => import('../Carousel/MoviesCarousel'))
 const LazyTrendingMovies = lazy(
@@ -15,7 +17,7 @@ const Home = () => {
     return (
         <ParallaxProvider>
             <div className="homePage">
-                <Suspense fallback={<div>Loading...</div>}>
+                <Suspense fallback={<MovieCarouselSkeleton />}>
                     <LazyMoviesCarousel />
                 </Suspense>
                 <Headline
@@ -24,7 +26,7 @@ const Home = () => {
                     title="What's hot?"
                     subtitle="Stay up-to-date with the latest buzz in the entertainment world and find your next binge-worthy watch."
                 />
-                <Suspense fallback={<div>Loading...</div>}>
+                <Suspense fallback={<Loader forElement />}>
                     <LazyTrendingMovies />
                 </Suspense>
                 <Headline
@@ -33,7 +35,7 @@ const Home = () => {
                     title=" Trending Actors"
                     subtitle="From Blockbuster Hits to Indie Gems, Our Trending Actors Section Covers It All - Don't Miss Out on the Latest Scoop!"
                 />
-                <Suspense fallback={<div>Loading...</div>}>
+                <Suspense fallback={<Loader forElement />}>
                     <LazyActorsInfiniteSlider />
                 </Suspense>
                 <MemoizedQuote />

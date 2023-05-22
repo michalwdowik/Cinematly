@@ -12,7 +12,7 @@ const NavBar = () => {
     const { isDarkMode, handleColorModeToggle } = useBackgroundThemeToggle()
 
     return (
-        <AppBar sx={{ border: 'none', position: 'fixed', zIndex: '9998' }}>
+        <AppBar sx={{ border: 'none', position: 'fixed' }}>
             <Toolbar className="toolbar">
                 {screenType.isMobile ? <NavbarDrawer /> : <NavbarMenu />}
 

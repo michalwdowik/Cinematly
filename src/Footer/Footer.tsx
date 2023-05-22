@@ -4,6 +4,7 @@ import { ReactNode } from 'react'
 import { Box } from '@mui/material'
 import WebsiteLogo from '../Components/WebsiteLogo'
 import FooterMenu from './FooterMenu'
+import '../Styles/footer.css'
 
 const Footer = () => (
     <ParallaxProvider>

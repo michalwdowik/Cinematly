@@ -4,6 +4,7 @@ import { motion } from 'framer-motion'
 import { MovieProps } from './types'
 import AddToWatchlistButton from '../Components/AddToWatchlistButton'
 import shortenOverview from '../Helpers/cutText'
+import '../styles/movieCard.css'
 
 const MovieCardDetails = ({ movie }: MovieProps) => {
     return (

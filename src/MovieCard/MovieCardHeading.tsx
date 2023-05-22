@@ -10,10 +10,10 @@ const MovieCardHeading = ({
 }: UpcomingMovieHeadingProps) => {
     return (
         <motion.div
-            className={`title-container ${
-                type === 'upcoming' && 'movieCardHeading'
+            className={`${
+                type === 'upcoming' ? 'upcomingMovieHeading' : 'title-container'
             }`}
-            layoutId={`title-container-${id}`}
+            layoutId={type !== 'upcoming' ? `title-container-${id}` : ''}
         >
             {title}
             <Box component="span" className="trendingMovieRating">

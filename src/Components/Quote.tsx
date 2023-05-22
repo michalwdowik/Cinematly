@@ -2,6 +2,7 @@ import { Parallax } from 'react-scroll-parallax'
 import { memo, useContext } from 'react'
 import { Box } from '@mui/material'
 import { ThemeContext } from '../Contexts/ThemeContext'
+import '../Styles/quote.css'
 
 const quote = `"Hollywood is a place where they will pay you a thousand
                 dollars for a kiss and fifty cents for your soul"`

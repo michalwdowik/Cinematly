@@ -1,0 +1,24 @@
+.headline {
+    display: flex;
+    flex-direction: column;
+    gap: 0.313rem;
+    justify-content: center;
+    align-content: center;
+    align-items: center;
+    width: 80vw;
+    margin-bottom: 5rem;
+  }
+  
+  .headlineTitle {
+    font-size: 2.5rem;
+    font-weight: bold;
+    margin-bottom: -0.313rem;
+    text-shadow: 0.063rem 0.125rem 0.125rem rgba(66, 68, 90, 1);
+  }
+  
+  .headlineSubtitle {
+    font-size: 0.75rem;
+    width: 75%;
+    font-weight: bold;
+    color: var(--mainThemeColor);
+  }

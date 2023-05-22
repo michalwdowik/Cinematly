@@ -6,8 +6,7 @@
 .watchlistMovie {
     display: flex;
     flex-grow: 1;
-    gap: 0.5rem;
-    
+    gap: 0.5rem; 
 }
 
 .watchlistMovieDetails {
@@ -16,7 +15,6 @@
     flex-direction: column;
     transition: 0.2s ease-in-out all;
     align-self: flex-start;
-    
 }
 
 .animateAddToWatchlist {
@@ -83,17 +81,16 @@
 
 .watchlist {
     background: rgba(255, 255, 255, 0.45);
-    width: 450px;
-    max-height: 600px;
+    width: 28.125rem;
+    max-height: 37.5rem;
     overflow-y: auto;
     border-radius: 2.5rem;
-    z-index: 3;
     display: flex;
     flex-direction: column;
     align-content: center;
     scrollbar-width: none;
     overflow: scroll;
-    min-height: 200px;
+    min-height: 12.5rem;
 }
 
 .accessAlarmIcon {
@@ -104,7 +101,7 @@
     position: fixed;
     background-color: black;
     opacity: 0.5;
-    top: 70px;
+    top: 4.375rem;
     left: 0;
     width: 100%;
     height: 100%;
@@ -170,12 +167,12 @@
     position: fixed;
     bottom: 20px;
     right: 20px;
-    z-index: 9999;
+    z-index: 6;
 }
 
 .watchlistBadge {
     right: 10px;
-    z-index: 9999;
+    z-index: 6;
     transition: 0.2s all ease-in-out;
 }
 

@@ -2,6 +2,7 @@ import { VerticalTimelineElement } from 'react-vertical-timeline-component'
 import CelebrationIcon from '@mui/icons-material/Celebration'
 import AccessTimeIcon from '@mui/icons-material/AccessTime'
 import { CSSProperties, ReactNode } from 'react'
+import '../Styles/movieCard.css'
 
 const TimelineMovieWrapper = ({
     releaseDate,

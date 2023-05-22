@@ -4,6 +4,7 @@ import useScreenType from 'react-screentype-hook'
 import { v4 as uuid } from 'uuid'
 import { LazyLoadComponent } from 'react-lazy-load-image-component'
 import { memo } from 'react'
+import { Skeleton } from '@mui/material'
 import MovieCarouselImage from './MovieCarouselImage'
 import { Movie } from '../MovieCard/types'
 import MovieCarouselDetails from './MovieCarouselDetails'
@@ -40,6 +41,20 @@ const MovieCarousel = ({ movie }: MovieCarouselProps) => {
             <MovieCarouselImage movie={movie} />
             <MovieCarouselDetails movie={movie} />
         </div>
+    )
+}
+
+export const MovieCarouselSkeleton = () => {
+    return (
+        <Skeleton
+            width="100%"
+            variant="rounded"
+            sx={{
+                backgroundColor: 'grey.900',
+            }}
+        >
+            <MoviesCarousel />
+        </Skeleton>
     )
 }
 

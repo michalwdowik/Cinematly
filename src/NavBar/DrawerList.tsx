@@ -19,7 +19,6 @@ const DrawerList = ({ hideDrawer, isDrawerOpen }: DrawerListProps) => {
         <>
             <Drawer
                 anchor="top"
-                sx={{ zIndex: '9999' }}
                 open={isDrawerOpen}
                 onClose={hideDrawer}
                 PaperProps={{ sx: { backgroundColor: '#fc9803' } }}

@@ -19,6 +19,8 @@ const SearchMoviesPanel = ({ closeModal, showModal }: SearchProps) => {
         <Modal
             open={showModal}
             onClose={closeModal}
+            sx={{ zIndex: '4' }}
+            container={() => document.getElementById('searchMoviesPanel')}
             closeAfterTransition
             slots={{ backdrop: Backdrop }}
             slotProps={{

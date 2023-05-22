@@ -2,11 +2,16 @@ import { Box, Skeleton } from '@mui/material'
 import SearchedMovieDetails from './SearchedMovieDetails'
 import { Movie } from '../MovieCard/types'
 
-const SearchedMovie = ({ movie }: SearchedMovieProps) => {
+const SearchedMovie = ({ movie, onLoad, isLoaded }: SearchedMovieProps) => {
     return (
-        <Box key={movie.id} className="searchedMovie">
+        <Box
+            display={isLoaded ? 'flex' : 'none'}
+            key={movie.id}
+            className="searchedMovie"
+        >
             {movie.poster_path && (
                 <SearchedMoviePoster
+                    onLoad={onLoad}
                     searchedMovieTitle={movie.title}
                     searchedMoviePoster={movie.poster_path}
                 />
@@ -21,12 +26,14 @@ export default SearchedMovie
 const SearchedMoviePoster = ({
     searchedMovieTitle,
     searchedMoviePoster,
+    onLoad,
 }: SearchedMoviePosterProps) => {
     return searchedMoviePoster ? (
         <img
             alt={`${searchedMovieTitle}`}
             className="searchedMoviePoster"
             src={`https://image.tmdb.org/t/p/w300/${searchedMoviePoster}`}
+            onLoad={onLoad}
         />
     ) : (
         <img
@@ -41,9 +48,9 @@ const SearchedMoviePoster = ({
 export const SearchedMovieSkeleton = () => {
     return (
         <Skeleton
-            width="15.813rem"
             height="23.75rem"
-            sx={{ bgcolor: 'grey.900', borderRadius: '3rem' }}
+            width="15.813em"
+            sx={{ bgcolor: 'grey.800', borderRadius: '3rem' }}
             variant="rounded"
         />
     )
@@ -53,6 +60,11 @@ export const SearchedMovieSkeleton = () => {
 type SearchedMoviePosterProps = {
     searchedMovieTitle: string
     searchedMoviePoster: string | null
+    onLoad: () => void
 }
 
-type SearchedMovieProps = { movie: Movie }
+type SearchedMovieProps = {
+    movie: Movie
+    onLoad: () => void
+    isLoaded: boolean
+}

@@ -1,11 +1,11 @@
 import { Routes, Route, useLocation } from 'react-router-dom'
 import { lazy, Suspense } from 'react'
 import { Box } from '@mui/material'
-import ContentLoader from 'react-content-loader'
 import { AnimatePresence } from 'framer-motion'
 import Home from './Home'
 import useScrollToTop from '../Hooks/useScrollToTop'
 import AnimateRoute from '../Components/AnimateRoute'
+import Loader from '../Components/Loader'
 
 const LazyTopRated = lazy(() => import('./TopRated'))
 const LazyUpcoming = lazy(() => import('./Upcoming'))
@@ -28,7 +28,7 @@ const AnimatedRoutes = () => {
                     <Route
                         path="/"
                         element={
-                            <Suspense fallback={<RouteLoadingSkeleton />}>
+                            <Suspense fallback={<Loader />}>
                                 <Home />
                             </Suspense>
                         }
@@ -36,9 +36,7 @@ const AnimatedRoutes = () => {
                     <Route
                         path="/top-rated"
                         element={
-                            <RouteWithSuspense
-                                fallback={<RouteLoadingSkeleton />}
-                            >
+                            <RouteWithSuspense fallback={<Loader />}>
                                 <LazyTopRated />
                             </RouteWithSuspense>
                         }
@@ -46,9 +44,7 @@ const AnimatedRoutes = () => {
                     <Route
                         path="/upcoming"
                         element={
-                            <RouteWithSuspense
-                                fallback={<RouteLoadingSkeleton />}
-                            >
+                            <RouteWithSuspense fallback={<Loader />}>
                                 <LazyUpcoming />
                             </RouteWithSuspense>
                         }
@@ -56,9 +52,7 @@ const AnimatedRoutes = () => {
                     <Route
                         path="/*"
                         element={
-                            <RouteWithSuspense
-                                fallback={<RouteLoadingSkeleton />}
-                            >
+                            <RouteWithSuspense fallback={<Loader />}>
                                 <LazyNotFound />
                             </RouteWithSuspense>
                         }
@@ -70,23 +64,6 @@ const AnimatedRoutes = () => {
 }
 
 export default AnimatedRoutes
-
-const RouteLoadingSkeleton = () => {
-    const mainThemeColor = import.meta.env.VITE_MAIN_THEME_COLOR
-
-    return (
-        <ContentLoader
-            viewBox="0 0 400 160"
-            height="100vh"
-            width="100vw"
-            backgroundColor={mainThemeColor}
-        >
-            <circle cx="150" cy="50" r="6" />
-            <circle cx="194" cy="50" r="6" />
-            <circle cx="238" cy="50" r="6" />
-        </ContentLoader>
-    )
-}
 
 /* ----------------- TYPES ----------------- */
 type RouteWithSuspenseProps = {

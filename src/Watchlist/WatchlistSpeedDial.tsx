@@ -40,6 +40,8 @@ const WatchlistSpeedDial = () => {
 
             <Modal
                 open={showModal}
+                container={() => document.getElementById('watchlist')}
+                sx={{ zIndex: '5' }}
                 onClose={closeModal}
                 closeAfterTransition
                 slots={{ backdrop: Backdrop }}
