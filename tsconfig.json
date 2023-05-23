@@ -14,8 +14,9 @@
     "resolveJsonModule": true,
     "isolatedModules": true,
     "noEmit": true,
-    "jsx": "react-jsx"
+    "jsx": "react-jsx",
+    "types": ["cypress", "node", "cypress-real-events"]
   },
-  "include": ["prettier.config.js","postcss.config.js",".eslintrc.cjs", "src", "vite-env.d.ts", "vite.config.ts"],
+  "include": ["cypress", "prettier.config.js","postcss.config.js",".eslintrc.cjs", "src", "vite-env.d.ts", "vite.config.ts"],
   "references": [{ "path": "./tsconfig.node.json" }]
 }
