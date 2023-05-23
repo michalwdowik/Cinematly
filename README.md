@@ -1,7 +1,7 @@
 
 # Cinematly
 
-Cinematly is a web application that serves as a movie database. User interface is built using React and Material-UI, providing a visually appealing and responsive design. The application's navigation is powered by React Router. Overall, Cinematly aims to be a go-to platform for movie enthusiasts, offering a comprehensive movie database, personalized watchlist functionality, and a user-friendly interface.
+Cinematly is a web application that serves as a movie database. User interface is built using React and Material-UI, providing a visually appealing and responsive design. The application's navigation is powered by React Router. Cinematly utilizes Cypress for end-to-end testing. Overall, Cinematly aims to be a go-to platform for movie enthusiasts, offering a comprehensive movie database, watchlist functionality, and a user-friendly interface.
 
 ## 📸 Screenshots
 
@@ -18,6 +18,7 @@ Cinematly is a web application that serves as a movie database. User interface i
 ![Eslint](https://img.shields.io/badge/eslint-3A33D1?style=for-the-badge&logo=eslint&logoColor=white)
 ![Prettier](https://img.shields.io/badge/prettier-1A2C34?style=for-the-badge&logo=prettier&logoColor=F7BA3E)
 ![MaterialUI](https://res.cloudinary.com/practicaldev/image/fetch/s--yayk2pWn--/c_limit%2Cf_auto%2Cfl_progressive%2Cq_auto%2Cw_880/https://img.shields.io/badge/Material--UI-0081CB%3Fstyle%3Dfor-the-badge%26logo%3Dmaterial-ui%26logoColor%3Dwhite)
+![cypress](https://img.shields.io/badge/-cypress-%23E5E5E5?style=for-the-badge&logo=cypress&logoColor=058a5e)
 
 
 ## 👨‍💻 Run Locally
@@ -49,6 +50,7 @@ Start the server
 - React Material-UI: The application is built using React and Material-UI, providing a modern and intuitive design system.
 - Warning Alert: When user wants to add movie to watchlist that is already added
 - Skeletons: Provide temporary placeholders that mimic the layout and structure of the content. 
+- Cypress end-to-end testing
 - PWA: Cinematly is a Progressive Web App, allowing you to install and access it directly from your device's home screen for a native-like experience. 
 
 ## 🛠️ Contributions
