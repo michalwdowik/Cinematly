@@ -17,3 +17,4 @@ describe('Search', () => {
         cy.get('.MuiBackdrop-root').click()
     })
 })
+export {}

@@ -16,3 +16,4 @@ describe('Upcoming', () => {
         cy.get('[data-testid=AccessAlarmIcon]').click()
     })
 })
+export {}

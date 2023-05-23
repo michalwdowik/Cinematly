@@ -25,3 +25,4 @@ describe('Navigation', () => {
         cy.get('.MuiListItem-root:nth-child(1) .drawerListRowName').click()
     })
 })
+export {}

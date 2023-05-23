@@ -14,3 +14,4 @@ describe('Trending', () => {
         cy.get('.MuiBackdrop-root').click()
     })
 })
+export {}

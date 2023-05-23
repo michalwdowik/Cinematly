@@ -9,3 +9,4 @@ describe('Carousel', () => {
         cy.get('.control-prev').click()
     })
 })
+export {}
