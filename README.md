@@ -36,6 +36,12 @@ Start the server
   npm run dev
 ```
 
+Run cypress tests
+
+```bash
+  npx cypress run
+```
+
 
 
 ## 🕹️ Features
