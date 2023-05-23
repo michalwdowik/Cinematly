@@ -13,6 +13,7 @@ module.exports = {
     ],
     overrides: [],
     ignorePatterns: [
+        'cypress.config.ts',
         '*.html',
         'registerSW.js',
         'dist/sw.js',
