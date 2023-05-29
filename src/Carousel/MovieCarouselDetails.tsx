@@ -9,9 +9,9 @@ const MovieCarouselDetails = ({ movie }: MovieDetailsProps) => {
 
     return (
         <MovieCarouselOverlay>
-            <Box className="carouselMovieDetails">
+            <Box className="carousel-movie-details">
                 <MovieTitle movieTitle={movie.title} />
-                <Box className="carouselMovieReleaseDate">
+                <Box className="carousel-movie-release-date">
                     <MovieRating movieRating={movie.vote_average} />
                     <MovieReleaseDate
                         movieReleaseDate={movie.release_date || movie.release}
@@ -28,7 +28,7 @@ const MovieCarouselDetails = ({ movie }: MovieDetailsProps) => {
 export default MovieCarouselDetails
 
 const MovieTitle = ({ movieTitle }: MovieTitleProps) => {
-    return <Box className="carouselMovieTitle">{movieTitle}</Box>
+    return <Box className="carousel-movie-title">{movieTitle}</Box>
 }
 
 const MovieReleaseDate = ({ movieReleaseDate }: MovieReleaseDateProps) => {
@@ -37,14 +37,14 @@ const MovieReleaseDate = ({ movieReleaseDate }: MovieReleaseDateProps) => {
 
 const MovieRating = ({ movieRating }: MovieRatingProps) => {
     return (
-        <Box className="carouselMovieRating">
-            <StarIcon className="starIcon" />
+        <Box className="carousel-movie-rating">
+            <StarIcon className="star-icon" />
             {movieRating}
         </Box>
     )
 }
 const MovieOverview = ({ movieOverview }: MovieOverviewProps) => {
-    return <Box className="carouselMovieOverview">{movieOverview}</Box>
+    return <Box className="carousel-movie-overview">{movieOverview}</Box>
 }
 
 /* --------------------------------- TYPES --------------------------------- */

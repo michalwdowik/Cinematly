@@ -8,14 +8,14 @@ const FooterMenu = () => {
     const { textColor } = useContext(ThemeContext)
 
     return (
-        <Box className="footerMenu">
+        <Box className="footer-menu">
             {websitePages.map((page) => {
                 const searchPage = page.name === 'SEARCH'
                 return (
                     !searchPage && (
                         <Box
                             key={page.link}
-                            className="footerMenuButton"
+                            className="footer-menu-button"
                             color={textColor}
                             to={page.link}
                             component={Link}

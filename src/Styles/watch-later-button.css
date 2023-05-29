@@ -1,0 +1,41 @@
+.watch-later-button {
+  transition-duration: 0.2s;
+  background-color: var(--mainThemeColor);
+  border-radius: 1.875rem;
+  margin: auto;
+  font-size: 0.6875rem;
+  z-index: 3;
+  border: none;
+  color: white;
+  display: flex;
+  align-items: center;
+  font-size: 0.9rem;
+  cursor: pointer;
+  padding-bottom: 0.5rem;
+  padding-top: 0.5rem;
+  padding-left: 0.8rem;
+  padding-right: 0.8rem;
+  gap: 0.5rem;
+  box-shadow: 0.3rem 0.3rem 0.55rem -0.3125rem rgb(0, 0, 0);
+}
+.watch-later-button:focus {
+  animation: flash-and-scale 0.4s;
+}
+.watch-later-button:hover {
+  background-color: var(--mainThemeColorSecondary);
+}
+.watch-later-button-absolute {
+  position: absolute;
+  top: -2rem;
+  right: 0;
+  align-self: flex-end;
+}
+@keyframes flash-and-scale {
+  0%, 100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(0.95);
+    filter: brightness(1.2);
+  }
+}

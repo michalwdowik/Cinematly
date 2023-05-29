@@ -54,7 +54,7 @@ export const Title = ({ title, leftAligned, textColor }: TitleProps) => {
             alignSelf={`${leftAligned ? 'flex-start' : 'flex-end'}`}
             textAlign={`${leftAligned ? 'left' : 'right'}`}
             color={textColor}
-            className="headlineTitle"
+            className="headline-title"
         >
             {title}
         </Box>
@@ -64,7 +64,7 @@ export const Title = ({ title, leftAligned, textColor }: TitleProps) => {
 export const Divider = ({ leftAligned }: DividerProps) => {
     return (
         <Box
-            className="headlineDivider"
+            className="headline-divider"
             sx={{
                 background: `${
                     leftAligned
@@ -82,7 +82,7 @@ export const Subtitle = ({ subtitle, leftAligned }: SubtitleProps) => {
             component="span"
             textAlign={`${leftAligned ? 'right' : 'left'}`}
             alignSelf={`${leftAligned ? 'flex-end' : 'flex-start'}`}
-            className="headlineSubtitle"
+            className="headline-subtitle"
         >
             {subtitle}
         </Box>

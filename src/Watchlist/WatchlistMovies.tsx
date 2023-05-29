@@ -14,7 +14,7 @@ const WatchlistMovies = () => {
         <TransitionGroup>
             {watchlist.map((movie: Movie) => (
                 <Collapse in key={movie.id}>
-                    <Box className="watchlistRow">
+                    <Box className="watchlist-row">
                         <FormControlLabel
                             control={<WatchlistMovieCheckbox movie={movie} />}
                             label={<WatchlistMovie movie={movie} />}
@@ -46,5 +46,5 @@ const WatchlistMovieCheckbox = ({ movie }: MovieProps) => {
 }
 
 const WatchlistMovieDivider = () => {
-    return <Box className="watchlistMovieDivider" />
+    return <Box className="watchlist-movie-divider" />
 }

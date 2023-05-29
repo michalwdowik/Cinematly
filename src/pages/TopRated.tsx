@@ -1,12 +1,12 @@
 import { Box } from '@mui/material'
 import MemoizedTopRatedMovies from '../TopRatedMovies/TopRatedMovies'
 import Headline from '../Components/Headline'
-import '../Styles/topRatedMovies.css'
+import '../Styles/top-rated-movies.css'
 
 const TopRated = () => {
     return (
-        <div className="page">
-            <Box className="topRatedPage">
+        <>
+            <Box className="top-rated-page">
                 <Headline
                     title="Top Rated Movies"
                     subtitle="Revisit the Legends of the Silver Screen - Our Curated Collection of Timeless Classics"
@@ -15,7 +15,7 @@ const TopRated = () => {
                 />
             </Box>
             <MemoizedTopRatedMovies />
-        </div>
+        </>
     )
 }
 

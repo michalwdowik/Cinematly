@@ -7,8 +7,8 @@ import shortenOverview from '../Helpers/cutText'
 
 const MovieCardDetails = ({ movie }: MovieProps) => {
     return (
-        <motion.div className="movieCardDetails" animate>
-            <div className="movieCardDetails">
+        <motion.div className="movie-card-details" animate>
+            <div className="movie-card-details">
                 <AddToWatchlistButton absolute movie={movie} />
                 <MovieCardTitle
                     title={movie.title}

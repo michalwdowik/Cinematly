@@ -21,8 +21,8 @@ const ActorDetails = ({
     overview,
 }: ActorType) => {
     return (
-        <Box className="actorDetails">
-            <Box className="actorInfo">
+        <Box className="actor-details">
+            <Box className="actor-info">
                 <ActorName name={name} />
                 <ActorRole vote_average={vote_average} known_for={known_for} />
                 <ActorRoleOverview overview={overview} />
@@ -36,7 +36,7 @@ export default ActorDetails
 const ActorName = ({ name }: ActorNameType) => {
     const { textColor } = useContext(ThemeContext)
     return (
-        <Box color={textColor} className="actorName">
+        <Box color={textColor} className="actor-name">
             {name}
         </Box>
     )
@@ -44,7 +44,7 @@ const ActorName = ({ name }: ActorNameType) => {
 
 const ActorKnownFor = ({ known_for }: ActorKnownForType) => {
     return (
-        <Box className="actorKnownFor">
+        <Box className="actor-known-for">
             {known_for[0].title || known_for[0].name}
         </Box>
     )
@@ -54,7 +54,7 @@ const ActorRating = ({ vote_average }: ActorRatingType) => {
     const { textColor } = useContext(ThemeContext)
 
     return (
-        <Box className="actorRating">
+        <Box className="actor-rating">
             <Box component="span" color={textColor}>
                 <StarIcon sx={{ fontSize: '0.9rem' }} />
                 {vote_average}
@@ -66,7 +66,7 @@ const ActorRating = ({ vote_average }: ActorRatingType) => {
 const ActorRoleOverview = ({ overview }: ActorRoleOverviewType) => {
     const { textColor } = useContext(ThemeContext)
     return (
-        <Box className="actorRoleOverview">
+        <Box className="actor-role-overview">
             <Typography color={textColor}>
                 {shortenOverview(overview, 25)}
             </Typography>
@@ -77,7 +77,7 @@ const ActorRoleOverview = ({ overview }: ActorRoleOverviewType) => {
 const ActorImage = ({ profile_path }: ActorImageType) => {
     return profile_path ? (
         <img
-            className="actorImage"
+            className="actor-image"
             alt="actor"
             width="185px"
             src={`https://image.tmdb.org/t/p/w185/${profile_path}`}
@@ -91,7 +91,7 @@ const ActorImage = ({ profile_path }: ActorImageType) => {
 const NoActorImagePlaceholder = () => {
     return (
         <img
-            className="actorImage"
+            className="actor-image"
             src="https://1fid.com/wp-content/uploads/2022/06/no-profile-picture-4-1024x1024.jpg
             "
             alt="no actor img"
@@ -103,7 +103,7 @@ const NoActorImagePlaceholder = () => {
 
 const ActorRole = ({ known_for, vote_average }: ActorRoleType) => {
     return (
-        <Box className="knownForWrapper">
+        <Box className="actor-known-for-wrapper">
             <ActorRating vote_average={vote_average} />
             <ActorKnownFor known_for={known_for} />
         </Box>

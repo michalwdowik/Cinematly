@@ -6,7 +6,7 @@ import shortenOverview from '../Helpers/cutText'
 
 const TopRatedMovieDetails = ({ movie }: MovieProps) => {
     return (
-        <Box className="topRatedMovie__details">
+        <Box className="top-rated-movie__details">
             <TopRatedMovieOverview movie={movie} />
             <DetailsDivider />
             <TopRatedMovieInfo movie={movie} />
@@ -21,7 +21,7 @@ const TopRatedMovieDetails = ({ movie }: MovieProps) => {
 
 const TopRatedMovieOverview = ({ movie }: MovieProps) => {
     return (
-        <Box component="span" className="topRatedMovieOverview">
+        <Box component="span" className="top-rated-movie-overview">
             &quot;{shortenOverview(movie.overview, 20)}&quot;
         </Box>
     )

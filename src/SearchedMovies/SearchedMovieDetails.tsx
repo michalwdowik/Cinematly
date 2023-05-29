@@ -5,12 +5,12 @@ import shortenOverview from '../Helpers/cutText'
 
 const SearchedMovieDetails = ({ movie }: MovieProps) => {
     return (
-        <Box className="searchedMovieDetails">
+        <Box className="searched-movie-details">
             <SearchedMovieOverview movie={movie} />
             <DetailsDivider />
             <SearchedMovieInfo movie={movie} />
             <AddToWatchlistButton
-                styles="addToWatchlist"
+                styles="add-to-watchlist-button"
                 absolute={false}
                 movie={movie}
             />
@@ -20,19 +20,19 @@ const SearchedMovieDetails = ({ movie }: MovieProps) => {
 
 const SearchedMovieOverview = ({ movie }: MovieProps) => {
     return (
-        <Box component="span" className="searchMovieOverview">
+        <Box component="span" className="search-movie-overview">
             &quot;{shortenOverview(movie.overview, 20)}&quot;
         </Box>
     )
 }
 
 export const DetailsDivider = () => {
-    return <Box className="divider" />
+    return <Box className="searched-movie-divider" />
 }
 
 const SearchedMovieInfo = ({ movie }: MovieProps) => {
     return (
-        <Box component="span" className="searchMovieDetails">
+        <Box component="footer" className="search-movie-details">
             <b>Original title: </b>
             {movie.original_title}
             <br />

@@ -6,19 +6,16 @@
   width: 100vw;
   margin-bottom: 8rem;
   margin-top: 4.375rem;
-  }  
-
-.carouselImage {
+}  
+.carousel-image {
   width: 100%;
   height: 100%;
   object-fit: cover;
 }
-
-.carouselMovieDetails {
+.carousel-movie-details {
   position: absolute;
 }
-
-.carouselMovieReleaseDate {
+.carousel-movie-release-date {
   display: flex;
   gap: 1.5625rem;
   margin-bottom: 1rem;
@@ -27,16 +24,13 @@
   font-size: 0.875rem;
   margin-left: 0.8125rem;
 }
-
-.carouselMovieRating {
+.carousel-movie-rating {
   display: flex;
   padding: 0;
   align-items: center;
   justify-content: center;
 }
-
-  
-.carouselMovieOverview {
+.carousel-movie-overview {
   color: white;
   font-style: italic;
   font-size: 1rem;
@@ -45,25 +39,20 @@
   text-align: left;
   width: 70vh;
 }
-
-.carouselMovieTitle {
-    color: white;
-    font-weight: 900;
-    margin-bottom: 1rem;
-    text-align: left;
-    width: 55%;
-    font-size: 1.5rem;
-    margin-left: 0.8125rem;
+.carousel-movie-title {
+  color: white;
+  font-weight: 900;
+  margin-bottom: 1rem;
+  text-align: left;
+  width: 55%;
+  font-size: 1.5rem;
+  margin-left: 0.8125rem;
 }
-  
-
-.starIcon {
+.star-icon {
   color: white;
   font-size: 0.875rem;
 }
-
-
-.carouselMovieOverlay {
+.carousel-movie-overlay {
   position: absolute;
   bottom: 0;
   height: 100%;
@@ -77,72 +66,57 @@
   transition: opacity 0.3s;
   padding: 0;
 }
-
-.carouselMovieOverlay:hover {
+.carousel-movie-overlay:hover {
   opacity: 1;
-
 }
   @media only screen and (min-width: 576px) {
-    .carouselMovieTitle {
-      font-size: 2rem;
-    }
-    .carouselMovieOverview {
-      width: 70vh;
-    }
-
-    .carouselMovieReleaseDate {
+      .carousel-movie-title {
+        font-size: 2rem;
+      }
+      .carousel-movie-overview {
+        width: 70vh;
+      }
+      .carousel-movie-release-date {
       font-size: 1.125rem;
-    }
-
-    .carouselMovieOverlay {
+      }
+      .carousel-movie-overlay {
       padding: 2rem;
-    }
+      }
   }
-  
   @media only screen and (min-width: 768px) {
-    .carouselMovieTitle {
+    .carousel-movie-title {
       font-size: 2.8125rem;
       margin-left: 0;
     }
-
-    .carouselMovieOverview {
+    .carousel-movie-overview {
       width: 60vh;
     }
-
-    .starIcon {
+    .star-icon {
       font-size: 1rem;
     }
-
-    .carouselMovieDetails {
+    .carousel-movie-details {
       bottom: 10%;
     }
-
-    .carouselMovieOverlay {
+    .carousel-movie-overlay {
       padding: 3rem;
     }
   }
-  
   @media only screen and (min-width: 992px) {
-    .carouselMovieTitle {
+    .carousel-movie-title {
       font-size: 3.4375rem;
     }
-
-    .carouselMovieOverview {
+    .carousel-movie-overview {
       width: 50vh;
       margin-bottom: 3rem;
-  
     }
-
-    .starIcon {
+    .star-icon {
       font-size: 1.25rem;
     }
-
-    .carouselMovieReleaseDate {
+    .carousel-movie-release-date {
       font-size: 1.125rem;
       margin-left: 0;
     }
-
-    .carouselMovieOverlay {
+    .carousel-movie-overlay {
       padding: 4rem;
     }
   }

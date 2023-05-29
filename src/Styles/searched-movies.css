@@ -1,5 +1,4 @@
-
-.searchMovies {
+.search-movies {
   position: fixed;
   top: 4.375rem;
   left: 0;
@@ -13,16 +12,15 @@
   align-items: center;
   justify-content: flex-start;
 }
-
-.searchedMovies {
+.searched-movies {
+  color: white;
   display: flex;
   gap: 1rem;
   max-width: 100%;
   overflow-x: scroll;
   padding: 1rem;
 }
-
-.searchedMovie {
+.searched-movie {
   display: flex;
   justify-content: center;
   transition: all 0.4s cubic-bezier(0.175, 0.885, 0, 1);
@@ -33,35 +31,25 @@
   min-width: 15.625rem;
   box-shadow: 0.5rem 0.5rem 0.75rem -0.3125rem rgb(0, 0, 0);
 }
-
-.searchedMovie:hover {
+.searched-movie:hover {
   color: white;
   transform: scale(1.05, 1.05);
 }
-
-.searchedMoviePoster:hover .searchedMovie__details {
-  visibility: visible;
+.searched-movie-poster:hover {
+  filter: brightness(0.3);
 }
-
-.searchedMovie:hover .searchedMoviePoster {
+.searched-movie:hover .searched-movie-poster {
   filter: brightness(0.3);
   scale: 120%;
   transition: all 0.15s ease-in-out;
 }
-
-.searchedMovie:hover .addToWatchlist {
+.searched-movie:hover .add-to-watchlist-button {
   visibility: visible;
 }
-
-.addToWatchlist {
+.add-to-watchlist-button {
   visibility: hidden;
 }
-
-.searchedMovie:hover .searchedMovieRankPosition {
-  visibility: hidden;
-}
-
-.searchedMovieDetails {
+.searched-movie-details {
   visibility: hidden;
   position: absolute;
   padding-left: 0.5rem;
@@ -75,23 +63,12 @@
   align-items: center;
   align-content: center; 
   gap: 0.625rem; 
-}
 
-.searchedMovie:hover .searchedMovieDetails {
+}
+.searched-movie:hover .searched-movie-details {
   visibility: visible;
 }
-
-.serachMovieFadeIn {
-  animation-name: fadeIn;
-  animation-duration: 0.25s;
-}
-
-.searchMovieFadeOut {
-  animation-name: fadeOut;
-  animation-duration: 0.25s;
-}
-
-.searchMovieOverview {
+.search-movie-overview {
   max-height: 11rem;
   padding: 0.5rem;
   color: white;
@@ -102,12 +79,19 @@
   align-self: center;
   justify-self: center;
   overflow: scroll;
-}
 
-.searchMovieDetails {
+}
+.search-movie-details {
   word-wrap: break-word;
   white-space: normal;
   font-size: 0.7rem;
   max-width: 12rem;
   align-self: center;
+}
+.searched-movie-divider {
+  background-color: white;
+  width: 30%;
+  margin: auto;
+  opacity: 30%;
+  height: 0.063rem;
 }

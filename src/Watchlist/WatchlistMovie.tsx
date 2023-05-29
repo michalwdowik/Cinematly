@@ -10,8 +10,8 @@ import {
 
 const WatchlistMovie = ({ movie }: MovieProps) => {
     return (
-        <Box className="watchlistMovie">
-            <Box className="watchlistMovieDetails">
+        <Box className="watchlist-movie">
+            <Box className="watchlist-movie-details">
                 <LazyLoadComponent
                     placeholder={<WatchlistMovieDetailsSkeleton />}
                 >
@@ -35,7 +35,7 @@ const WatchlistMovieOverview = ({
     movieOverview,
 }: WatchlistMovieOverviewProps) => {
     return (
-        <span className="watchlistMovieOverview">
+        <span className="watchlist-movie-overview">
             {shortenOverview(movieOverview, 20)}
             ..
         </span>

@@ -2,9 +2,9 @@ import { Box, Skeleton } from '@mui/material'
 
 const TopRatedMovieSkeleton = () => {
     return (
-        <Box className="topRatedMovie">
+        <Box className="top-rated-movie">
             <Skeleton
-                className="topRatedMovieSkeleton"
+                className="top-rated-movie-skeleton"
                 sx={{
                     bgcolor: 'grey.900',
                 }}

@@ -9,7 +9,7 @@ import useFetchMovie from '../Hooks/useFetchMovies'
 const TopRatedMovies = () => {
     const topRatedMovies = useFetchMovie('topRated')
     return (
-        <Box className="topRatedMovies">
+        <Box className="top-rated-movies">
             {topRatedMovies.map((movie: Movie, rankPosition: number) => (
                 <LazyLoadComponent
                     key={movie.id}

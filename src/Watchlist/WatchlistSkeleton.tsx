@@ -13,7 +13,7 @@ export const WatchlistMovieDetailsSkeleton = () => {
 
 export const WatchlistMovieOverviewSkeleton = () => {
     return (
-        <div className="watchlistMovieOverview">
+        <div className="watchlist-movie-overview">
             <Skeleton variant="text" sx={{ fontSize: '0.5rem' }} width={240} />
             <Skeleton variant="text" sx={{ fontSize: '0.5rem' }} width={180} />
             <Skeleton variant="text" sx={{ fontSize: '0.5rem' }} width={100} />
@@ -26,7 +26,7 @@ const WatchlistMovieImageSkeleton = () => {
         <Skeleton
             variant="rounded"
             sx={{ borderRadius: '0.5rem' }}
-            className="watchlistMovieImage"
+            className="watchlist-movie-image"
             width={120}
             height={68}
         />

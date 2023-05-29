@@ -60,7 +60,7 @@ const InfiniteSlider = ({
     useDragInfiniteSlider({ runSprings, target })
 
     return (
-        <Box ref={target} className="infiniteSlider">
+        <Box ref={target} className="infinite-slider">
             {springs.map(({ x }, i) => (
                 <Box
                     component={a.div}

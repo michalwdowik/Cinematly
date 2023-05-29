@@ -7,7 +7,7 @@ const CallToActionLabel = ({
 }: CallToActionLabelProps) => {
     return (
         <Box
-            className="callToActionLabel"
+            className="call-to-action-label"
             color={textColor}
             fontSize={textSize}
         >

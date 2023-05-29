@@ -1,23 +1,20 @@
 :root {
   --mainTheme: #fc9803;
 }
-
-.topRatedPage {
+.top-rated-page {
   margin-top: 7rem;
   padding: 0;
   display: flex;
   justify-content: center;
 }
-
-.topRatedMovies {
+.top-rated-movies {
   display: flex;
   flex-wrap: wrap;
   gap: 1.5rem;
   justify-content: center;
   align-content: center;
 }
-
-.topRatedMovie {
+.top-rated-movie {
   display: flex;
   justify-content: center;
   transition: all .4s cubic-bezier(0.175, 0.885, 0, 1);
@@ -29,14 +26,12 @@
   overflow: hidden;
   box-shadow: 0.5rem 0.5rem 0.75rem -0.313rem rgb(0, 0, 0, 1);
 }
-
-.topRatedMovie:hover {
+.top-rated-movie:hover {
   color: white;
   transform: scale(1.10, 1.10);
   box-shadow: 0.5rem 0.5rem 0.75rem -0.313rem rgb(0, 0, 0, 1);
 }
-
-.topRatedMovie__img--hover {
+.top-rated-movie__img--hover {
   transition: 0.2s all ease-out;
   position: absolute;
   height: 70%;
@@ -44,15 +39,13 @@
   border-top-right-radius: 0.75rem;
   top: 0;
 }
-
-.topRatedMovie:hover .addToWatchlist {
-visibility: visible;
+.top-rated-movie:hover .add-to-watchlist-button {
+  visibility: visible;
 }
-.addToWatchlist {
-visibility: hidden;
+.add-to-watchlist-button {
+  visibility: hidden;
 }
-
-.topRatedMovieRankPosition {
+.top-rated-movie-rank-position {
   z-index: 2;
   position: absolute;
   top: 0;
@@ -66,14 +59,13 @@ visibility: hidden;
   border-bottom-right-radius: 1.875rem;
   background-color: var(--mainTheme);
 }
-
-.topRatedMovie:hover .topRatedMovieRankPosition {
-visibility: hidden;
+.top-rated-movie:hover .top-rated-movie-rank-position {
+  visibility: hidden;
 }
-
-.topRatedMovie__details {
+.top-rated-movie__details {
   visibility: hidden;
   position: absolute;
+  color: white;
   top: 0;
   padding: 2rem;
   text-align: center;
@@ -85,25 +77,19 @@ visibility: hidden;
   align-items: 'center';
   align-content: 'center';
   gap: 1rem;
-
 }
-
-.topRatedMovie:hover .topRatedMovie__details {
+.top-rated-movie:hover .top-rated-movie__details {
   visibility: visible;
 }
-
-.topRatedMovie:hover .topRatedMovie__img--hover {
+.top-rated-movie:hover .top-rated-movie__img--hover {
     height: 100%;
-    filter: brightness(0.3);}
-
-
-.topRatedMovieSkeleton {
+    filter: brightness(0.3);
+}
+.top-rated-movie-skeleton {
   border-radius: 2rem;
   margin: auto;
 }
-
-
-.topRatedMovieRating {
+.top-rated-movie-rating {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -114,20 +100,17 @@ visibility: hidden;
   padding: 1rem;
   font-weight: 900;
 }
-
-.topRatedMovieTitle {
+.top-rated-movie-title {
   font-weight: 500;
   color: black;
   font-size: 1.6rem;
 }
-
-.topRatedMovieReleaseDate {
+.top-rated-movie-release-date {
   display: flex;
   align-items: center;
   gap: 0.313rem;
 }
-
-.topRatedMovieHeadings {
+.top-rated-movie-headings {
   height: 30%;
   position: absolute;
   bottom: 0;
@@ -135,28 +118,24 @@ visibility: hidden;
   padding: 1rem;
   background-color: white;
 }
-
-.topRatedMovieOverview {
+.top-rated-movie-overview {
   font-size: 0.9rem;
   color: white;
   max-height: 12.5rem;
   overflow: scroll;
 }
-
 @media (max-width: 23em) {
-  .topRatedMovieTitle {
+  .top-rated-movie-title {
     font-size: 1.7rem;
   }
 }
-
 @media (max-width: 47.5em) {
-  .topRatedMovie {
+  .top-rated-movie {
     width: 28rem;
   }
 }
-
 @media (max-width: 30em) {
-  .topRatedMovie {
+  .top-rated-movie {
     width: 20rem;
   }
 }

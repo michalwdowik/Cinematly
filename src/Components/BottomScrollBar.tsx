@@ -10,7 +10,7 @@ const BottomScrollBar = () => {
 
     return (
         <motion.div
-            className="bottomScrollBar"
+            className="bottom-scroll-bar"
             style={{
                 scaleX,
             }}

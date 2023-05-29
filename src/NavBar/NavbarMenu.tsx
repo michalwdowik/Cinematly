@@ -2,7 +2,6 @@
 import Tabs from '@mui/material/Tabs'
 import Tab from '@mui/material/Tab'
 import { Link } from 'react-router-dom'
-import { Box } from '@mui/material'
 import WebsiteLogo from '../Components/WebsiteLogo'
 import { websitePages, Page } from '../Helpers/pages'
 import SearchMoviesPanel from '../SearchedMovies/SearchMoviesPanel'
@@ -10,10 +9,10 @@ import useModalLogic from '../Hooks/useShowModal'
 
 const NavbarMenu = () => {
     return (
-        <Box className="navbarMenu">
+        <nav className="navbar-menu">
             <WebsiteLogo navbarLogo />
             <NavbarTabs />
-        </Box>
+        </nav>
     )
 }
 
@@ -21,21 +20,23 @@ const NavbarTabs = () => {
     const isHomePage = (page: Page) => page.name === 'HOME'
 
     return (
-        <Tabs
-            value={0}
-            textColor="primary"
-            TabIndicatorProps={{
-                style: { display: 'none' },
-                color: 'none',
-            }}
-        >
-            {websitePages.map(
-                (page) =>
-                    !isHomePage(page) && (
-                        <NavbarTab page={page} key={page.label} />
-                    )
-            )}
-        </Tabs>
+        <ul>
+            <Tabs
+                value={0}
+                textColor="primary"
+                TabIndicatorProps={{
+                    style: { display: 'none' },
+                    color: 'none',
+                }}
+            >
+                {websitePages.map(
+                    (page) =>
+                        !isHomePage(page) && (
+                            <NavbarTab page={page} key={page.label} />
+                        )
+                )}
+            </Tabs>
+        </ul>
     )
 }
 
@@ -45,17 +46,22 @@ const NavbarTab = ({ page }: NavbarTabProps) => {
     const { showModal, closeModal, openModal } = useModalLogic()
 
     return (
-        <>
+        <li>
             <Tab
                 value={page.label}
                 onClick={isSearchPage ? openModal : () => null}
                 label={page.name}
                 component={Link}
                 to={pageLink}
-                className="navbarTab"
+                sx={{
+                    opacity: '1',
+                    transition: 'opacity 0.2s',
+                    '&:hover': { opacity: '0.5' },
+                }}
+                className="navbar-tab"
             />
             <SearchMoviesPanel showModal={showModal} closeModal={closeModal} />
-        </>
+        </li>
     )
 }
 

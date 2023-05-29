@@ -2,8 +2,8 @@ import { Box, Skeleton } from '@mui/material'
 
 const ActorDetailsSkeleton = () => {
     return (
-        <Box className="actorDetails">
-            <Box className="actorInfo">
+        <Box className="actor-details">
+            <Box className="actor-info">
                 <ActorNameSkeleton />
                 <ActorRoleSkeleton />
                 <ActorOverviewSkeleton />
@@ -21,7 +21,7 @@ const ActorImageSkeleton = () => {
             width="185px"
             height="278px"
             variant="rectangular"
-            className="actorImage"
+            className="actor-image"
             sx={{ bgcolor: 'grey.900' }}
         />
     )
@@ -32,7 +32,7 @@ const ActorNameSkeleton = () => {
         <Skeleton
             variant="text"
             height="75px"
-            className="actorName"
+            className="actor-name"
             sx={{ bgcolor: 'grey.900' }}
         />
     )
@@ -54,24 +54,24 @@ const ActorOverviewSkeleton = () => {
         <>
             <Skeleton
                 variant="text"
-                className="actorRoleOverview"
+                className="actor-role-overview"
                 sx={{ bgcolor: 'grey.900', marginTop: '1rem' }}
             />
             <Skeleton
                 variant="text"
-                className="actorRoleOverview"
+                className="actor-role-overview"
                 sx={{ bgcolor: 'grey.900' }}
             />
             <Skeleton
                 variant="text"
                 width="75%"
-                className="actorRoleOverview"
+                className="actor-role-overview"
                 sx={{ bgcolor: 'grey.900' }}
             />
             <Skeleton
                 variant="text"
                 width="30%"
-                className="actorRoleOverview"
+                className="actor-role-overview"
                 sx={{ bgcolor: 'grey.900' }}
             />
         </>

@@ -16,15 +16,15 @@ const WatchlistSpeedDial = () => {
     const { showModal, closeModal, openModal } = useModalLogic()
 
     return (
-        <Box className="watchlistSpeedDial">
+        <Box className="watchlist-speed-dial">
             <Tooltip
                 placement="left-start"
                 TransitionComponent={Zoom}
                 title="Add, remove, and mark movies as watched."
             >
                 <Badge
-                    className={`watchlistBadge ${
-                        animateAdd && 'animateAddToWatchlist'
+                    className={`watchlist-badge ${
+                        animateAdd && 'animate-add-to-watchlist'
                     }`}
                     showZero
                     color="warning"

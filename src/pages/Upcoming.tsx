@@ -3,7 +3,7 @@ import { lazy } from 'react'
 import TimelineHeadline from '../Components/TimelineHeadline'
 import Headline from '../Components/Headline'
 import useFetchMovie from '../Hooks/useFetchMovies'
-import '../Styles/upcomingMovies.css'
+import '../Styles/upcoming-movies.css'
 
 const LazyUpcomingMovies = lazy(
     () => import('../UpcomingMovies/UpcomingMovies')
@@ -13,7 +13,7 @@ const Upcoming = () => {
     const justReleasedMovies = useFetchMovie('justReleased')
 
     return (
-        <div className="upcomingPage">
+        <div className="upcoming-page">
             <Headline
                 title="Upcoming Movies"
                 subtitle="From highly-anticipated sequels to exciting new releases, stay in the loop with our Upcoming Movies section"

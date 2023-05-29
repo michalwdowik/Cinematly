@@ -7,7 +7,7 @@ import { MovieProps } from '../MovieCard/types'
 const TopRatedMovieHeadings = ({ movie }: MovieProps) => {
     return (
         <LazyLoadComponent>
-            <Box className="topRatedMovieHeadings">
+            <Box className="top-rated-movie-headings">
                 <TopRatedMovieTitle title={movie.title} />
                 <TopRatedMovieRating vote_average={movie.vote_average} />
                 <TopRatedMovieReleaseDate release={movie.release} />
@@ -19,7 +19,7 @@ const TopRatedMovieHeadings = ({ movie }: MovieProps) => {
 const TopRatedMovieTitle = ({ title }: TopRatedMovieTitleProps) => {
     return (
         <LazyLoadComponent>
-            <Box component="span" className="topRatedMovieTitle">
+            <Box component="span" className="top-rated-movie-title">
                 {title}
             </Box>
         </LazyLoadComponent>
@@ -29,7 +29,7 @@ const TopRatedMovieTitle = ({ title }: TopRatedMovieTitleProps) => {
 const TopRatedMovieRating = ({ vote_average }: TopRatedMovieRatingProps) => {
     return (
         <LazyLoadComponent>
-            <Box className="topRatedMovieRating">
+            <Box className="top-rated-movie-rating">
                 <StarIcon
                     sx={{
                         fontSize: '1.3rem',
@@ -45,7 +45,7 @@ const TopRatedMovieReleaseDate = ({
     release,
 }: TopRatedMovieReleaseDateProps) => {
     return (
-        <Box className="topRatedMovieReleaseDate">
+        <Box className="top-rated-movie-release-date">
             <Typography variant="subtitle1" sx={{ fontWeight: '600' }}>
                 Release date:
             </Typography>

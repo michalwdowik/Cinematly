@@ -98,7 +98,7 @@ const TrendingMovieRating = ({ vote_average }: MovieRatingProps) => {
         <Box
             component="span"
             sx={{ display: 'flex' }}
-            className="trendingMovieRating"
+            className="trending-movie-rating"
         >
             <StarIcon sx={{ fontSize: '14px' }} />
             {vote_average}

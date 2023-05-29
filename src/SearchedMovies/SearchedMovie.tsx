@@ -7,7 +7,7 @@ const SearchedMovie = ({ movie, onLoad, isLoaded }: SearchedMovieProps) => {
         <Box
             display={isLoaded ? 'flex' : 'none'}
             key={movie.id}
-            className="searchedMovie"
+            className="searched-movie"
         >
             {movie.poster_path && (
                 <SearchedMoviePoster
@@ -31,14 +31,14 @@ const SearchedMoviePoster = ({
     return searchedMoviePoster ? (
         <img
             alt={`${searchedMovieTitle}`}
-            className="searchedMoviePoster"
+            className="searched-movie-poster"
             src={`https://image.tmdb.org/t/p/w300/${searchedMoviePoster}`}
             onLoad={onLoad}
         />
     ) : (
         <img
             alt="No poster placeholder"
-            className="searchedMoviePoster"
+            className="searched-movie-poster"
             src={`https://upload.wikimedia.org/wikipedia/commons/thumb/6/65/No-Image-Placeholder.svg/1665px-No-Image-Placeholder.svg.png
             `}
         />
