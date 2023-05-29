@@ -39,7 +39,7 @@ describe('TopRated', () => {
             cy.get('.MuiFab-root').click()
             cy.get('.watchlist-movie-overview').click()
             cy.get('.PrivateSwitchBase-input').as('switchInput')
-            cy.get('@switchInput').click()
+            cy.get('@switchInput').realClick()
             cy.get('.MuiBackdrop-root').click()
         })
 
