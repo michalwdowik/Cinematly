@@ -1,83 +1,7 @@
 :root {
     --mainThemeColor: #fc9803;
     --mainThemeColorSecondary: #fc7703;
-  }
-
-.watchlistMovie {
-    display: flex;
-    flex-grow: 1;
-    gap: 0.5rem; 
 }
-
-.watchlistMovieDetails {
-    display: flex;
-    max-width: 7.5rem;
-    flex-direction: column;
-    transition: 0.2s ease-in-out all;
-    align-self: flex-start;
-}
-
-.animateAddToWatchlist {
-    animation: watchlistButtonAnimateAdd 0.8s ease-in-out;
-  }
-
-.watchlistMovieDetails:hover {
-    opacity: 0.4;
-}
-
-.watchlistMovieImage {
-    width: 7.5rem;
-    height: 4.25rem;
-    border-radius: 0.5rem;
-    margin-bottom: 0.2rem;
-    margin-right: 0.5rem;
-}
-
-.watchlistMovieTitle {
-    font-size: 0.8rem;
-    font-weight: bold;
-    margin-bottom: 0.25rem;
-    margin-top: 0.15rem;
-}
-
-.watchlistMovieReleaseDate {
-    font-size: 0.5rem;
-    font-weight: bold;
-}
-
-.watchlistMovieOverview {
-    align-self: start;
-    justify-content: start;
-    overflow: scroll;
-    color: black;
-    font-size: 0.75rem;
-    transition: 0.2s ease-in-out all;
-    margin-top: -0.2rem;
-}
-
-.watchlistMovieOverview:hover {
-    opacity: 0.4;
-}
-
-.watchlistHeading {
-        display: flex;
-        align-content: center;
-        align-items: center;
-        justify-content: center;
-}
-
-.watchlistHeadingText {
-    font-weight: 600;
-    font-size: 3rem;
-    padding-top: 1rem;
-    padding-left: 2.6rem;
-    margin-bottom: 1rem;
-    z-index: 100;
-    color: black;
-    opacity: 0.85;
-    width: 100%;
-}
-
 .watchlist {
     background: rgba(255, 255, 255, 0.45);
     width: 28.125rem;
@@ -90,33 +14,78 @@
     scrollbar-width: none;
     overflow: scroll;
     min-height: 12.5rem;
-}
-
-.accessAlarmIcon {
-    margin: 1.5rem;
-}
-
-.overlay {
-    position: fixed;
-    background-color: black;
-    opacity: 0.5;
-    top: 4.375rem;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    z-index: 2;
-    cursor: pointer;
-}
-
-
-.watchlistMovie {
+}  
+.watchlist-movie {
     display: flex;
     flex-grow: 1;
     gap: 0.5rem;
     align-items: center;
 }
+.watchlist-movie-details {
+    display: flex;
+    max-width: 7.5rem;
+    flex-direction: column;
+    transition: 0.2s ease-in-out all;
+    align-self: flex-start;
+}
+.animate-add-to-watchlist {
+    animation: watchlist-button-animate-add 0.8s ease-in-out;
+}
+.watchlist-movie-details:hover {
+    opacity: 0.4;
+}
 
-.watchlistMovieOverview {
+.watchlist-movie-image {
+    width: 7.5rem;
+    height: 4.25rem;
+    border-radius: 0.5rem;
+    margin-bottom: 0.2rem;
+    margin-right: 0.5rem;
+}
+.watchlist-movie-title {
+    font-size: 0.8rem;
+    font-weight: bold;
+    margin-bottom: 0.25rem;
+    margin-top: 0.15rem;
+}
+.watchlist-movie-release-date {
+    font-size: 0.5rem;
+    font-weight: bold;
+}
+
+.watchlist-movie-overview {
+    align-self: start;
+    justify-content: start;
+    overflow: scroll;
+    color: black;
+    font-size: 0.75rem;
+    transition: 0.2s ease-in-out all;
+    margin-top: -0.2rem;
+} 
+.watchlist-movie-overview:hover {
+    opacity: 0.4;
+}
+.watchlist-heading {
+    display: flex;
+    align-content: center;
+    align-items: center;
+    justify-content: center;
+} 
+.watchlist-heading-text {
+    font-weight: 600;
+    font-size: 3rem;
+    padding-top: 1rem;
+    padding-left: 2.6rem;
+    margin-bottom: 1rem;
+    z-index: 100;
+    color: black;
+    opacity: 0.85;
+    width: 100%;
+}
+.access-alarm-icon {
+    margin: 1.5rem;
+} 
+.watchlist-movie-overview {
     align-self: start;
     justify-content: start;
     overflow: scroll;
@@ -127,11 +96,10 @@
     overflow-y: scroll;
 }
 
-.watchlistMovieOverview:hover {
+.watchlist-movie-overview:hover {
     opacity: 0.4;
 }
-
-.watchlistRow {
+.watchlist-row {
     display: flex;
     align-items: center;
     align-content: center;
@@ -141,8 +109,7 @@
     cursor: pointer;
     transition: all 0.3s ease;
 }
-
-.watchlistMovieDivider {
+.watchlist-movie-divider {
     width: 80%;
     height: 0.031rem;
     margin: auto;
@@ -154,41 +121,46 @@
     margin-top: 0.4rem;
     margin-bottom: 0.4rem;
 }
-
-/* ----------------------- WATCHLIST SPEEDDIAL ----------------------- */
-
+  /* ----------------------- WATCHLIST SPEEDDIAL ----------------------- */
 .speed-dial-list::-webkit-scrollbar {
-    display: none; 
-  }
-
-
-.watchlistSpeedDial {
+    display: none;
+} 
+.watchlist-speed-dial {
     position: fixed;
     bottom: 1.25rem;
     right: 1.25rem;
     z-index: 6;
-}
-
-.watchlistBadge {
+} 
+.watchlist-badge {
     right: 0.625rem;
     z-index: 6;
     transition: 0.2s all ease-in-out;
 }
-
-.watchlistBadge:hover {
+.watchlist-badge:hover {
     transform: scale(1.15);
-}
-
-/* ----------------------- MEDIA QUERIES ----------------------- */
-
-@media (max-width:400px) {
-    .watchlistHeadingText {
-    font-size: 2.2rem;
+} 
+@media (max-width: 400px) {
+    .watchlist-heading-text {
+        font-size: 2.2rem;
     }
 }
-
-@media (max-width:767px) {
+@media (max-width: 767px) {
     .watchlist {
         max-width: 90vw;
     }
 }
+@keyframes watchlist-button-animate-add {
+    0% {
+        transform: translateY(0) scale(1);
+    }
+    30% {
+        transform: translateY(-2.5rem) scale(1.4);
+    }
+    60% {
+        transform: translateY(-1.875rem) scale(1.25);
+    }
+    100% {
+        transform: translateY(0) scale(1);
+    }
+  }
+  

@@ -16,7 +16,7 @@ const LazyActorsInfiniteSlider = lazy(
 const Home = () => {
     return (
         <ParallaxProvider>
-            <div className="homePage">
+            <div className="home-page">
                 <Suspense fallback={<MovieCarouselSkeleton />}>
                     <LazyMoviesCarousel />
                 </Suspense>

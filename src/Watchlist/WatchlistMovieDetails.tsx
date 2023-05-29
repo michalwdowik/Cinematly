@@ -24,7 +24,7 @@ const WatchlistMovieImage = ({
 }: WatchlistMovieImageProps) => {
     return movieBackdropPath ? (
         <img
-            className="watchlistMovieImage"
+            className="watchlist-movie-image"
             src={`https://image.tmdb.org/t/p/w300/${movieBackdropPath}`}
             alt={movieTitle}
         />
@@ -36,7 +36,7 @@ const WatchlistMovieImage = ({
 const NoImagePlaceholder = () => {
     return (
         <img
-            className="watchlistMovieImage"
+            className="watchlist-movie-image"
             src="https://heuft.com/upload/image/400x267/no_image_placeholder.png"
             alt="empty img placeholder"
         />
@@ -44,13 +44,15 @@ const NoImagePlaceholder = () => {
 }
 
 const WatchlistMovieTitle = ({ movieTitle }: WatchlistMovieTitleProps) => {
-    return <Box className="watchlistMovieTitle ">{movieTitle}</Box>
+    return <Box className="watchlist-movie-title ">{movieTitle}</Box>
 }
 
 const WatchlistMovieReleaseDate = ({
     movieReleaseDate,
 }: WatchlistMovieReleaseDateProps) => {
-    return <Box className="watchlistMovieReleaseDate">{movieReleaseDate}</Box>
+    return (
+        <Box className="watchlist-movie-release-date">{movieReleaseDate}</Box>
+    )
 }
 
 /* ----------------------- TYPES ----------------------- */

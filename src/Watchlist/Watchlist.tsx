@@ -28,11 +28,11 @@ export default Watchlist
 
 const WatchlistHeading = () => {
     return (
-        <Box component="span" className="watchlistHeading">
-            <span className="watchlistHeadingText">Watchlist</span>
+        <Box component="span" className="watchlist-heading">
+            <span className="watchlist-heading-text">Watchlist</span>
             <AccessAlarmIcon
                 sx={{ fontSize: '2.2rem' }}
-                className="accessAlarmIcon"
+                className="access-alarm-icon"
             />
         </Box>
     )

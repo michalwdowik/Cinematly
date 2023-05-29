@@ -1,11 +1,11 @@
 describe('TopRated', () => {
     beforeEach(() => {
         cy.viewport(1000, 2600)
+        cy.visit('http://localhost:3000/top-rated')
     })
 
     describe('Theme', () => {
         it('should change theme to light and get back to dark', () => {
-            cy.visit('http://localhost:5173/top-rated')
             cy.get('body').should(
                 'have.css',
                 'background-color',
@@ -25,25 +25,27 @@ describe('TopRated', () => {
             )
         })
     })
+
     describe('Watchlist', () => {
         beforeEach(() => {
-            cy.visit('http://localhost:5173/top-rated')
+            cy.visit('http://localhost:3000/top-rated')
         })
 
-        it('should display animation of TopRatedMovie hovering and adding to watchlist', () => {
-            cy.get('.topRatedMovie:nth-child(1) .watchLaterButton')
+        it('should hover Top Rated Movie and add to watchlist', () => {
+            cy.get('.top-rated-movie:nth-child(1) .watch-later-button')
                 .realHover()
                 .click({ force: true })
 
             cy.get('.MuiFab-root').click()
-            cy.get('.watchlistMovieOverview').click()
-            cy.get('.PrivateSwitchBase-input').click()
+            cy.get('.watchlist-movie-overview').click()
+            cy.get('.PrivateSwitchBase-input').as('switchInput')
+            cy.get('@switchInput').click()
             cy.get('.MuiBackdrop-root').click()
         })
 
         it('should add and remove all TopRatedMovies from Watchlist', () => {
-            cy.get('.topRatedMovies')
-                .find('.topRatedMovie .watchLaterButton')
+            cy.get('.top-rated-movies')
+                .find('.top-rated-movie .watch-later-button')
                 .each(($movie) => {
                     cy.wrap($movie).click({ force: true })
                 })
@@ -53,4 +55,5 @@ describe('TopRated', () => {
         })
     })
 })
+
 export {}

@@ -11,12 +11,14 @@ const MovieCardHeading = ({
     return (
         <motion.div
             className={`${
-                type === 'upcoming' ? 'upcomingMovieHeading' : 'title-container'
+                type === 'upcoming'
+                    ? 'upcoming-movie-heading'
+                    : 'title-container'
             }`}
             layoutId={type !== 'upcoming' ? `title-container-${id}` : ''}
         >
             {title}
-            <Box component="span" className="trendingMovieRating">
+            <Box component="span" className="trending-movie-rating">
                 <StarIcon sx={{ fontSize: '0.9rem' }} />
                 {voteAverage}
             </Box>

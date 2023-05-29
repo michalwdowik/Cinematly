@@ -14,7 +14,7 @@ const NavbarDrawer = () => {
         <>
             <button
                 type="button"
-                className="drawerButton"
+                className="drawer-button"
                 onClick={showDrawer}
                 aria-label="Toggle drawer menu"
             >

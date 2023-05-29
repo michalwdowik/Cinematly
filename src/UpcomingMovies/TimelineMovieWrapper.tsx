@@ -2,7 +2,7 @@ import { VerticalTimelineElement } from 'react-vertical-timeline-component'
 import CelebrationIcon from '@mui/icons-material/Celebration'
 import AccessTimeIcon from '@mui/icons-material/AccessTime'
 import { CSSProperties, ReactNode } from 'react'
-import '../Styles/movieCard.css'
+import '../Styles/movie-card.css'
 
 const TimelineMovieWrapper = ({
     releaseDate,
@@ -15,8 +15,8 @@ const TimelineMovieWrapper = ({
     return (
         <VerticalTimelineElement
             contentStyle={timelineWrapperStyles}
-            dateClassName="dateStyles"
-            iconClassName="timelineWrapperIcon"
+            dateClassName="date-styles"
+            iconClassName="timeline-wrapper-icon"
             icon={
                 isMovieAlreadyReleased ? (
                     <CelebrationIcon />

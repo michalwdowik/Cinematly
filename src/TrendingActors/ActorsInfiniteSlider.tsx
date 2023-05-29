@@ -5,12 +5,12 @@ import InfiniteSlider from '../Components/InfiniteSlider'
 import Actor from './Actor'
 import useFetchActors from '../Hooks/useFetchActors'
 import ActorDetailsSkeleton from './ActorDetailsSkeleton'
-import '../Styles/trendingActors.css'
+import '../Styles/trending-actors.css'
 
 const ActorsInfiniteSlider = () => {
     const trendingActors = useFetchActors()
     return (
-        <Box className="actorsInfiniteSlider">
+        <Box className="actors-infinite-slider">
             <InfiniteSlider actors={trendingActors} width={600} visible={3}>
                 {({
                     profile_path,

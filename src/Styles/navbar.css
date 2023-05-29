@@ -1,59 +1,39 @@
-
 :root {
-    --mainThemeColor: #fc9803;
-    --mainThemeColorSecondary: #fc7703;
-  }
-  
-
+  --mainThemeColor: #fc9803;
+  --mainThemeColorSecondary: #fc7703;
+}
 .toolbar {
-background-color: var(--mainThemeColor);
-height: 4.375rem;
-justify-content: space-between;
-
+  background-color: var(--mainThemeColor);
+  height: 4.375rem;
+  justify-content: space-between;
 }
-
-
-.navbarTab {
-  transition: opacity 0.2s ease-in-out;
+.navbar-menu {
+  display: flex;
+  align-items: center;
 }
-
-.navbarTab:hover {
-  opacity: 0.4;
+.drawer-list-row {
+  color: white;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
 }
-
-
-.navbarMenu {
-    display: flex;
-    align-items: center;
-  }
-  
-.drawerListRow {
-    color: white;
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-  }
-  
-.drawerListRowName {
-    opacity: 1;
-    font-size: 0.9rem;
-    color: white;
-  }
-  
-.drawerButton { 
-    padding: 0;
-    background: transparent;
-    border: none;
-    cursor: pointer;
+.drawer-list-row-name {
+  opacity: 1;
+  font-size: 0.9rem;
+  color: white;
 }
-
-.drawerLink {
+.drawer-button {
+  padding: 0;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+}
+.drawer-link {
   color: white;
   opacity: 1;
   transition: opacity 0.2s ease-in-out;
   text-decoration: none;
 }
-
-.drawerLink:hover {
+.drawer-link:hover {
   opacity: 0.4;
 }

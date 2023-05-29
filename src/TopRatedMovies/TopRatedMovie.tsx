@@ -5,7 +5,7 @@ import TopRatedMovieDetails from './TopRatedMovieDetails'
 
 const TopRatedMovie = ({ movie, rankPosition }: TopRatedMovieProps) => {
     return (
-        <Box className="topRatedMovie">
+        <Box className="top-rated-movie">
             <TopRatedMovieRank rankPosition={rankPosition} />
             <TopRatedMovieHeadings movie={movie} />
             <TopRatedMovieImage
@@ -20,7 +20,9 @@ const TopRatedMovie = ({ movie, rankPosition }: TopRatedMovieProps) => {
 export default TopRatedMovie
 
 const TopRatedMovieRank = ({ rankPosition }: TopRatedMovieRankProps) => {
-    return <Box className="topRatedMovieRankPosition">{rankPosition + 1}</Box>
+    return (
+        <Box className="top-rated-movie-rank-position">{rankPosition + 1}</Box>
+    )
 }
 
 const TopRatedMovieImage = ({
@@ -30,7 +32,7 @@ const TopRatedMovieImage = ({
     return (
         <img
             alt={`${title}`}
-            className="topRatedMovie__img--hover"
+            className="top-rated-movie__img--hover"
             src={`https://image.tmdb.org/t/p/w780/${backdrop_path}`}
         />
     )

@@ -3,7 +3,7 @@ import useGetProperImageSize from '../Hooks/useGetProperImageSize'
 
 const MovieCarouselImage = ({ movie }: MovieCarouselImageProps) => {
     const imagePath = useGetProperImageSize(movie.backdrop_path)
-    return <img className="carouselImage" alt={movie.title} src={imagePath} />
+    return <img className="carousel-image" alt={movie.title} src={imagePath} />
 }
 
 export default MovieCarouselImage

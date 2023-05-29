@@ -14,7 +14,7 @@ const SearchedMovies = ({ searchedMovies }: SearchedMoviesProps) => {
     }
     const isAnyMovieSearched = searchedMovies.length > 0
     return isAnyMovieSearched ? (
-        <Box className="searchedMovies">
+        <Box className="searched-movies">
             {searchedMovies.map((movie) => (
                 <>
                     {!isLoaded && <SearchedMovieSkeleton />}

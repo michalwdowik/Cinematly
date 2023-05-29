@@ -5,7 +5,7 @@ import SearchedMovies from './SearchedMovies'
 import SearchMovieInput from './SearchMovieInput'
 import { ThemeContext } from '../Contexts/ThemeContext'
 import useFetchMovies from '../Hooks/useFetchMovies'
-import '../Styles/searchedMovies.css'
+import '../Styles/searched-movies.css'
 
 const SearchMoviesPanel = ({ closeModal, showModal }: SearchProps) => {
     const { backgroundColor } = useContext(ThemeContext)
@@ -33,7 +33,7 @@ const SearchMoviesPanel = ({ closeModal, showModal }: SearchProps) => {
         >
             <Fade in={showModal}>
                 <div>
-                    <Box className="searchMovies" bgcolor={backgroundColor}>
+                    <Box className="search-movies" bgcolor={backgroundColor}>
                         <SearchMovieInput
                             searchQuery={searchQuery}
                             handleSearchChange={handleSearchChange}
