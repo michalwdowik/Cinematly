@@ -72,6 +72,6 @@ Contributions are welcome! If you would like to contribute to the project, pleas
 Please ensure that your code adheres to the project's coding standards, and that any new features or changes are thoroughly tested.
 License
 
-The ToDoApp is open source software licensed under the MIT license.
+Cinematly is open source software licensed under the MIT license.
 
 
