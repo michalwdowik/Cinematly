@@ -26,7 +26,7 @@ const TrendingMovie = ({
     return (
         <>
             <li onClick={openModal} className="zoom-on-hover card">
-                <div className="card-content-container">
+                <Box className="card-content-container">
                     <motion.div
                         className="card-content"
                         layoutId={`card-container-${id}`}
@@ -43,7 +43,7 @@ const TrendingMovie = ({
                             />
                         </LazyLoadComponent>
                     </motion.div>
-                </div>
+                </Box>
             </li>
             {showModal && (
                 <Portal id="trendingMovie">

@@ -4,13 +4,12 @@ import React, { ReactNode, createContext, useMemo, useState } from 'react'
 export const ThemeContext = createContext<ThemeContextProps>({
     isDarkTheme: false,
     toggleDarkTheme: () => {},
-    backgroundColor: 'black',
-    textColor: 'white',
+    backgroundColor: '',
+    textColor: '',
 })
 
 const ThemeProvider = ({ children }: ThemeProviderProps) => {
     const [isDarkTheme, setIsDarkTheme] = useState(false)
-
     const toggleDarkTheme = () => {
         setIsDarkTheme(!isDarkTheme)
     }

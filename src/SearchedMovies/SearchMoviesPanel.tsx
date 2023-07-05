@@ -32,15 +32,13 @@ const SearchMoviesPanel = ({ closeModal, showModal }: SearchProps) => {
             }}
         >
             <Fade in={showModal}>
-                <div>
-                    <Box className="search-movies" bgcolor={backgroundColor}>
-                        <SearchMovieInput
-                            searchQuery={searchQuery}
-                            handleSearchChange={handleSearchChange}
-                        />
-                        <SearchedMovies searchedMovies={searchedMovies} />
-                    </Box>
-                </div>
+                <Box className="search-movies" bgcolor={backgroundColor}>
+                    <SearchMovieInput
+                        searchQuery={searchQuery}
+                        handleSearchChange={handleSearchChange}
+                    />
+                    <SearchedMovies searchedMovies={searchedMovies} />
+                </Box>
             </Fade>
         </Modal>
     )
