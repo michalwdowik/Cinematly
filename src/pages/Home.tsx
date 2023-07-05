@@ -1,5 +1,6 @@
 import { ParallaxProvider } from 'react-scroll-parallax'
 import { lazy, Suspense } from 'react'
+import { Box } from '@mui/material'
 import MemoizedQuote from '../Components/Quote'
 import Headline from '../Components/Headline'
 import { MovieCarouselSkeleton } from '../Carousel/MoviesCarousel'
@@ -16,7 +17,7 @@ const LazyActorsInfiniteSlider = lazy(
 const Home = () => {
     return (
         <ParallaxProvider>
-            <div className="home-page">
+            <Box className="home-page">
                 <Suspense fallback={<MovieCarouselSkeleton />}>
                     <LazyMoviesCarousel />
                 </Suspense>
@@ -39,7 +40,7 @@ const Home = () => {
                     <LazyActorsInfiniteSlider />
                 </Suspense>
                 <MemoizedQuote />
-            </div>
+            </Box>
         </ParallaxProvider>
     )
 }

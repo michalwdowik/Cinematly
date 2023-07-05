@@ -1,7 +1,6 @@
 import { Carousel } from 'react-responsive-carousel'
 import 'react-responsive-carousel/lib/styles/carousel.min.css'
 import useScreenType from 'react-screentype-hook'
-import { v4 as uuid } from 'uuid'
 import { LazyLoadComponent } from 'react-lazy-load-image-component'
 import { memo } from 'react'
 import { Skeleton } from '@mui/material'
@@ -37,7 +36,7 @@ export default MemoizedMoviesCarousel
 
 const MovieCarousel = ({ movie }: MovieCarouselProps) => {
     return (
-        <div key={uuid()}>
+        <div key={movie.id}>
             <MovieCarouselImage movie={movie} />
             <MovieCarouselDetails movie={movie} />
         </div>

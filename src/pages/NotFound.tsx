@@ -37,7 +37,7 @@ const NotFoundMessage = () => {
 
     return (
         <LazyLoadComponent placeholder={<NotFoundMessageSkeleton />}>
-            <div className="not-found-container">
+            <Box className="not-found-container">
                 <Box component="span" className="not-found-message-heading">
                     Page Not Found
                 </Box>
@@ -47,7 +47,7 @@ const NotFoundMessage = () => {
                 <Link to="/" style={{ color: mainThemeColor }}>
                     Go to Homepage
                 </Link>
-            </div>
+            </Box>
         </LazyLoadComponent>
     )
 }

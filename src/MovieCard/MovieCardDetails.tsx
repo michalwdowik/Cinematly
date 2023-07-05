@@ -8,7 +8,7 @@ import shortenOverview from '../Helpers/cutText'
 const MovieCardDetails = ({ movie }: MovieProps) => {
     return (
         <motion.div className="movie-card-details" animate>
-            <div className="movie-card-details">
+            <Box className="movie-card-details">
                 <AddToWatchlistButton absolute movie={movie} />
                 <MovieCardTitle
                     title={movie.title}
@@ -21,7 +21,7 @@ const MovieCardDetails = ({ movie }: MovieProps) => {
                     originLanguage={movie.original_language}
                 />
                 <MovieCardOverview overview={movie.overview} />
-            </div>
+            </Box>
         </motion.div>
     )
 }
