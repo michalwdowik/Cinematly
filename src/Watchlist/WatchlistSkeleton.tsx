@@ -1,4 +1,4 @@
-import { Skeleton } from '@mui/material'
+import { Box, Skeleton } from '@mui/material'
 
 /* ----------------------- SKELETON ----------------------- */
 export const WatchlistMovieDetailsSkeleton = () => {
@@ -13,11 +13,11 @@ export const WatchlistMovieDetailsSkeleton = () => {
 
 export const WatchlistMovieOverviewSkeleton = () => {
     return (
-        <div className="watchlist-movie-overview">
+        <Box className="watchlist-movie-overview">
             <Skeleton variant="text" sx={{ fontSize: '0.5rem' }} width={240} />
             <Skeleton variant="text" sx={{ fontSize: '0.5rem' }} width={180} />
             <Skeleton variant="text" sx={{ fontSize: '0.5rem' }} width={100} />
-        </div>
+        </Box>
     )
 }
 

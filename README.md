@@ -4,7 +4,9 @@
 Cinematly is a web application that serves as a movie database. User interface is built using React and Material-UI, providing a visually appealing and responsive design. The application's navigation is powered by React Router. Cinematly utilizes Cypress for end-to-end testing. Overall, Cinematly aims to be a go-to platform for movie enthusiasts, offering a comprehensive movie database, watchlist functionality, and a user-friendly interface.
 
 ## 📸 Screenshots
-
+<p align="center">
+<img src="https://github.com/michalwdowik/ToDoApp/assets/57302276/f22c3477-a000-47fd-a891-b3b1bb652f71" width="45%"></img> <img src="https://github.com/michalwdowik/ToDoApp/assets/57302276/7078e81d-2d3b-4753-a6af-162f7021f2bb" width="45%"></img> <img src="https://github.com/michalwdowik/ToDoApp/assets/57302276/f188a867-768f-47af-9670-44c868de10eb" width="45%"></img> <img src="https://github.com/michalwdowik/ToDoApp/assets/57302276/3c9baa66-0569-43a2-9a1f-a4350b1cf968" width="45%"></img> <img src="https://github.com/michalwdowik/ToDoApp/assets/57302276/e05d9230-df8c-48b1-9d2b-3f9fdc0f08a4" width="45%"></img> <img src="https://github.com/michalwdowik/ToDoApp/assets/57302276/c5fd3d09-7dff-4850-a6fa-2e3eb0141650" width="45%"></img> 
+</p>
 
 ## 🚀 Live Demo
 [Cinematly - Vercel Demo](https://cinematly.vercel.app/)
