@@ -1,8 +1,7 @@
 import { Movie } from '../MovieCard/types'
-import useGetProperImageSize from '../Hooks/useGetProperImageSize'
 
 const MovieCarouselImage = ({ movie }: MovieCarouselImageProps) => {
-    const imagePath = useGetProperImageSize(movie.backdrop_path)
+    const imagePath = `https://image.tmdb.org/t/p/w1280/${movie.backdrop_path}`
     return <img className="carousel-image" alt={movie.title} src={imagePath} />
 }
 
